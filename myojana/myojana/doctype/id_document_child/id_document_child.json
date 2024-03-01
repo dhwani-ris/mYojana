@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-10 12:09:28.184410",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "which_of_the_following_id_documents_do_you_have",
+  "enter_id_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "which_of_the_following_id_documents_do_you_have",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Which of the following ID documents do you have?",
+   "options": "ID Document",
+   "reqd": 1
+  },
+  {
+   "fieldname": "enter_id_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Enter ID number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-11-14 17:24:06.420754",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "ID Document Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,138 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:phone_no",
+ "creation": "2023-11-14 20:45:34.258356",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_head_of_family",
+  "name_of_parents",
+  "phone_no",
+  "state",
+  "single_window",
+  "help_desk"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_head_of_family",
+   "fieldtype": "Link",
+   "label": "Name of Head of Family",
+   "options": "Beneficiary Profiling",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "name_of_head_of_family.contact_number",
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Phone no",
+   "read_only": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "name_of_head_of_family.name_of_the_beneficiary",
+   "fieldname": "name_of_parents",
+   "fieldtype": "Data",
+   "label": "Name of Parents",
+   "read_only": 1
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State"
+  },
+  {
+   "fieldname": "single_window",
+   "fieldtype": "Link",
+   "label": "Single Window",
+   "options": "Single Window"
+  },
+  {
+   "fieldname": "help_desk",
+   "fieldtype": "Link",
+   "label": "Help desk",
+   "options": "Help Desk"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-03 16:26:19.246390",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Primary Member",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSC Member",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Help-desk member",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "MIS executive",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_of_parents"
+}

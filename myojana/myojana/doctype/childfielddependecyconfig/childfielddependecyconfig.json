@@ -1,0 +1,36 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-28 16:48:34.799566",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "field",
+  "depends_on_field"
+ ],
+ "fields": [
+  {
+   "fieldname": "field",
+   "fieldtype": "Select",
+   "label": "Field"
+  },
+  {
+   "fieldname": "depends_on_field",
+   "fieldtype": "Select",
+   "label": "Depends on field"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-01-28 16:56:05.023257",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "ChildFieldDependecyConfig",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

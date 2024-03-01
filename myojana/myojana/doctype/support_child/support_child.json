@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-16 08:55:03.804037",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "support_type",
+  "specific_support_type",
+  "reason_of_application",
+  "mode_of_application",
+  "application_submitted",
+  "date_of_application",
+  "application_number",
+  "amount_paid",
+  "paid_by",
+  "status",
+  "date_of_completion",
+  "date_of_rejection",
+  "reason_of_rejection",
+  "completion_certificate",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "support_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Support category",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "specific_support_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Support name",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Current status",
+   "options": "\nOpen\nClosed\nUnder process\nCompleted\nRejected",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks",
+   "set_only_once": 1
+  },
+  {
+   "default": " ",
+   "fieldname": "reason_of_rejection",
+   "fieldtype": "Data",
+   "label": "Reason of rejection",
+   "mandatory_depends_on": "eval:doc.status ==\"Rejected\"",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_completion",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of completion",
+   "mandatory_depends_on": "eval:(doc.application_submitted ==\"Completed\" || doc.status ==\"Completed\")",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "completion_certificate",
+   "fieldtype": "Attach",
+   "label": "Completion certificate",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_rejection",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of rejection",
+   "mandatory_depends_on": "eval:doc.status ==\"Rejected\"",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": " ",
+   "fieldname": "reason_of_application",
+   "fieldtype": "Data",
+   "label": "Reason of application",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "mode_of_application",
+   "fieldtype": "Select",
+   "label": "Mode of application",
+   "options": "\nOnline\nOffline",
+   "set_only_once": 1
+  },
+  {
+   "default": "No",
+   "fieldname": "application_submitted",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Application submitted",
+   "options": "\nNo\nYes\nCompleted",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_application",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of application",
+   "mandatory_depends_on": "eval:(doc.application_submitted ==\"Yes\" || doc.application_submitted ==\"Completed\")",
+   "read_only": 1
+  },
+  {
+   "fieldname": "application_number",
+   "fieldtype": "Data",
+   "label": "Application number",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Data",
+   "label": "Amount paid",
+   "non_negative": 1,
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Select",
+   "label": "Paid by",
+   "options": "\nSelf\nCSC",
+   "read_only": 1,
+   "set_only_once": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-12-25 18:22:01.584531",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Support Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

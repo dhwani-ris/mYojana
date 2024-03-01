@@ -1,0 +1,204 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"QQhj-PNDuW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geo Master</b></span>\",\"col\":12}},{\"id\":\"FMmf5hKd3u\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State\",\"col\":3}},{\"id\":\"i7zHIMK4zU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":3}},{\"id\":\"SHvbdVwbQV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block\",\"col\":3}},{\"id\":\"RZLdOnV413\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Village\",\"col\":3}},{\"id\":\"aXg7o9TIDl\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"gBmArJ1mPy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ID Document\",\"col\":3}},{\"id\":\"v1tOX1yqVD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Social Vulnerable Category\",\"col\":3}},{\"id\":\"hspVBls5tq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupation\",\"col\":3}},{\"id\":\"8MORhBjWKo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational Category\",\"col\":3}},{\"id\":\"Xi0liL29xs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Marital Status\",\"col\":3}},{\"id\":\"gWJMXyXHt8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education\",\"col\":3}},{\"id\":\"YwH0Y-ayyH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion\",\"col\":3}},{\"id\":\"OddPJNClJR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Caste Category\",\"col\":3}},{\"id\":\"4hoE3iTiNK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone Category\",\"col\":3}},{\"id\":\"rqxoVlbWAJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme\",\"col\":3}},{\"id\":\"KKrsocXTDL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Source Of Information\",\"col\":3}},{\"id\":\"bXgivlK3Ml\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House Types\",\"col\":3}},{\"id\":\"MzYnr2eNA9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Camp\",\"col\":3}},{\"id\":\"T5xidhYxSa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Single Window\",\"col\":3}},{\"id\":\"F0aY-_io9l\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Help Desk\",\"col\":3}},{\"id\":\"VukgEKiFOc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Name Of The Department\",\"col\":3}},{\"id\":\"0fZm41pfuY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Proof of disability\",\"col\":3}}]",
+ "creation": "2023-09-23 15:47:37.607170",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "duplicate",
+ "idx": 1,
+ "is_hidden": 0,
+ "label": "App Master",
+ "links": [],
+ "modified": "2024-02-02 10:42:39.598807",
+ "modified_by": "Administrator",
+ "module": "Master",
+ "name": "App Master",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Administrator"
+  },
+  {
+   "role": "Admin"
+  }
+ ],
+ "sequence_id": 3.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Camp",
+   "link_to": "Camp",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Proof of disability",
+   "link_to": "Proof of Disability",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Name Of The Department",
+   "link_to": "Name of the Department",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Occupational Category",
+   "link_to": "Occupational Category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Help Desk",
+   "link_to": "Help Desk",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "House Types",
+   "link_to": "House Types",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "ID Document",
+   "link_to": "ID Document",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "District",
+   "link_to": "District",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "State",
+   "link_to": "State",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Block",
+   "link_to": "Block",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Social Vulnerable Category",
+   "link_to": "Social vulnerable category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Village",
+   "link_to": "Village",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Occupation",
+   "link_to": "Occupation",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Marital Status",
+   "link_to": "Marital status",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Education",
+   "link_to": "Education",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Religion",
+   "link_to": "Religion",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Caste Category",
+   "link_to": "Caste category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Milestone Category",
+   "link_to": "Milestone category",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Scheme",
+   "link_to": "Scheme",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Single Window",
+   "link_to": "Single Window",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Source Of Information",
+   "link_to": "Source Of Information",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "App Master"
+}

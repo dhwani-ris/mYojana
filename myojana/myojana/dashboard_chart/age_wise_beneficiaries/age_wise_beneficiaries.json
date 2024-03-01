@@ -1,0 +1,32 @@
+{
+ "chart_name": "Age-wise beneficiaries",
+ "chart_type": "Report",
+ "creation": "2024-01-16 10:07:52.530787",
+ "custom_options": "{\"x_field\": \"Age_Category\", \"chart_type\": \"Bar\", \"y_axis_fields\": [{\"idx\": 1, \"__islocal\": true, \"name\": \"row 1\", \"y_field\": \"Number_of_People\"}], \"y_fields\": [\"Number_of_People\"], \"colors\": [null]}",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2024-02-15 17:14:52.708319",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Age-wise beneficiaries",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Age-wise beneficiaries",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "Age_Category",
+ "y_axis": [
+  {
+   "y_field": "Number_of_beneficiaries"
+  }
+ ]
+}

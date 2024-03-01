@@ -1,0 +1,86 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Other",
+  "modified": "2023-11-04 10:55:23.044787",
+  "name": "Other"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "IIT/Technical",
+  "modified": "2023-11-04 10:55:39.270739",
+  "name": "IIT/Technical"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Post Graduate",
+  "modified": "2023-11-04 10:55:51.301757",
+  "name": "Post Graduate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Graduate",
+  "modified": "2023-11-04 10:56:01.256545",
+  "name": "Graduate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Under Graduate",
+  "modified": "2023-11-04 10:56:11.364120",
+  "name": "Under Graduate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Diploma",
+  "modified": "2023-11-04 10:56:19.709337",
+  "name": "Diploma"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Higher Secondary (11-12)",
+  "modified": "2023-11-04 10:56:27.172950",
+  "name": "Higher Secondary (11-12)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Secondary (5-10)",
+  "modified": "2023-11-04 10:56:36.666213",
+  "name": "Secondary (5-10)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Pre Primary Primary (1-4)",
+  "modified": "2023-11-04 10:56:44.866540",
+  "name": "Pre Primary Primary (1-4)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Literate",
+  "modified": "2023-11-04 10:56:52.865353",
+  "name": "Literate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Illiterate",
+  "modified": "2023-11-04 10:57:00.252999",
+  "name": "Illiterate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
+  "education": "Child",
+  "modified": "2023-11-04 10:57:36.956865",
+  "name": "Child"
+ }
+]

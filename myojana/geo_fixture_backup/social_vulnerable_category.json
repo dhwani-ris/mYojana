@@ -1,0 +1,23 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Social vulnerable category",
+  "modified": "2023-11-04 11:07:48.297562",
+  "name": "Sex workers",
+  "social_vulnerable_category": "Sex workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Social vulnerable category",
+  "modified": "2023-11-04 11:08:10.299804",
+  "name": "TB patients",
+  "social_vulnerable_category": "TB patients"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Social vulnerable category",
+  "modified": "2023-11-04 11:08:17.360255",
+  "name": "HIV/AIDS patients",
+  "social_vulnerable_category": "HIV/AIDS patients"
+ }
+]

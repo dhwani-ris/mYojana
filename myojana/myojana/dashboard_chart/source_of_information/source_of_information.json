@@ -1,0 +1,32 @@
+{
+ "chart_name": "Source of information",
+ "chart_type": "Report",
+ "creation": "2024-02-09 14:26:40.002055",
+ "custom_options": "{\"x_field\": \"source_of_information\", \"chart_type\": \"Percentage\", \"y_axis_fields\": [{\"idx\": 1, \"__islocal\": true, \"name\": \"row 1\", \"y_field\": \"count\"}], \"y_fields\": [\"count\"], \"colors\": [null]}",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 1,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2024-02-09 17:11:18.160340",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Source of information",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Source of information",
+ "roles": [],
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "source_of_information",
+ "y_axis": [
+  {
+   "y_field": "count"
+  }
+ ]
+}

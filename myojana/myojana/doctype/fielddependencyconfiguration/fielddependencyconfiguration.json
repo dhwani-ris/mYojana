@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:sipms_doctype",
+ "creation": "2024-01-28 16:46:32.422844",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sipms_doctype",
+  "mapping"
+ ],
+ "fields": [
+  {
+   "fieldname": "sipms_doctype",
+   "fieldtype": "Link",
+   "label": "DocType",
+   "link_filters": "[[{\"fieldname\":\"\",\"field_option\":\"DocType\"},\"module\",\"=\",\"SIPMS\"]]",
+   "options": "DocType",
+   "unique": 1
+  },
+  {
+   "fieldname": "mapping",
+   "fieldtype": "Table",
+   "label": "Mapping",
+   "options": "ChildFieldDependecyConfig"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-28 16:57:09.067277",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "FieldDependencyConfiguration",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

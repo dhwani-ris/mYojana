@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-11-15 10:34:56.434890",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rule_field",
+  "type",
+  "operator",
+  "data",
+  "date",
+  "select",
+  "value",
+  "code",
+  "group"
+ ],
+ "fields": [
+  {
+   "fieldname": "operator",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Operator",
+   "options": "\n=\n!=\n>\n<\n>=\n<=\nIN\nNOT IN",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Code",
+   "read_only": 1,
+   "width": "20"
+  },
+  {
+   "fieldname": "rule_field",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Field",
+   "reqd": 1
+  },
+  {
+   "default": " ",
+   "fieldname": "type",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "is_virtual": 1,
+   "label": "Type"
+  },
+  {
+   "depends_on": "eval:doc.type==\"Date\"",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "mandatory_depends_on": "eval:doc.type==\"Date\""
+  },
+  {
+   "depends_on": "eval:doc.type==\"Link\" || doc.type==\"Select\"",
+   "fieldname": "select",
+   "fieldtype": "Select",
+   "label": "Select",
+   "mandatory_depends_on": "eval:doc.type==\"Link\" || doc.type==\"Select\""
+  },
+  {
+   "depends_on": "eval:(doc.type==\"Int\" || doc.type==\"Currency\")",
+   "fieldname": "value",
+   "fieldtype": "Int",
+   "label": "Value",
+   "mandatory_depends_on": "eval:(doc.type==\"Int\" || doc.type==\"Currency\")",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "group",
+   "fieldtype": "Data",
+   "label": "Group"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-05 00:35:47.668867",
+ "modified_by": "Administrator",
+ "module": "Rule Engine",
+ "name": "Rule Engine Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,128 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Passport",
+  "modified": "2023-11-10 12:04:17.413205",
+  "name": "Passport"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Post office passbook",
+  "modified": "2023-11-10 12:04:35.409608",
+  "name": "Post office passbook"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Death certificate of head of family",
+  "modified": "2023-11-10 12:04:49.149070",
+  "name": "Death certificate of head of family"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Driving licence",
+  "modified": "2023-11-10 12:04:57.862556",
+  "name": "Driving licence"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Gas bill",
+  "modified": "2023-11-10 12:05:06.243634",
+  "name": "Gas bill"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Electricity bill",
+  "modified": "2023-11-10 12:05:15.312754",
+  "name": "Electricity bill"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Bank passbook",
+  "modified": "2023-11-10 12:05:29.639391",
+  "name": "Bank passbook"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Caste certificate",
+  "modified": "2023-11-10 12:05:38.073419",
+  "name": "Caste certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Mother's death certificate",
+  "modified": "2023-11-10 12:05:46.134149",
+  "name": "Mother's death certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Wife's death certificate",
+  "modified": "2023-11-10 12:06:06.185417",
+  "name": "Wife's death certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Husband's death certificate",
+  "modified": "2023-11-10 12:06:22.448522",
+  "name": "Husband's death certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Income certificate",
+  "modified": "2023-11-10 12:06:35.434425",
+  "name": "Income certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Voter ID card",
+  "modified": "2023-11-10 12:07:30.691230",
+  "name": "Voter ID card"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Ration card",
+  "modified": "2023-11-10 12:07:39.185846",
+  "name": "Ration card"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "PAN card",
+  "modified": "2023-11-10 12:07:58.248941",
+  "name": "PAN card"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Aadhar card",
+  "modified": "2023-11-10 12:08:06.817274",
+  "name": "Aadhar card"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Father's death certificate",
+  "modified": "2023-11-10 12:05:54.902947",
+  "name": "Father's death certificate"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "ID Document",
+  "document": "Birth certificate",
+  "modified": "2023-11-10 12:06:45.909516",
+  "name": "Birth certificate"
+ }
+]

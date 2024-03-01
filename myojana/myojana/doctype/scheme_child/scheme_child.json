@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-16 08:55:03.804037",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_the_scheme",
+  "scheme",
+  "milestone",
+  "milestone_category",
+  "application_submitted",
+  "date_of_application",
+  "status",
+  "reason_of_application",
+  "mode_of_application",
+  "name_of_the_department",
+  "application_number",
+  "amount_paid",
+  "paid_by",
+  "date_of_completion",
+  "date_of_rejection",
+  "reason_of_rejection",
+  "completion_certificate",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fetch_from": "name_of_the_scheme.milestone",
+   "fieldname": "milestone_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Milestone category",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "name_of_the_scheme",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Name of the scheme",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": " ",
+   "depends_on": "eval:doc.application_submitted != 'No'",
+   "fieldname": "reason_of_application",
+   "fieldtype": "Data",
+   "label": "Reason of application",
+   "read_only_depends_on": "eval:doc.reason_of_application",
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "name_of_the_scheme.mode_of_application",
+   "fieldname": "mode_of_application",
+   "fieldtype": "Select",
+   "label": "Mode of application",
+   "mandatory_depends_on": "eval:!(doc.application_submitted == \"No\" || doc.application_submitted == \"Previously availed\")",
+   "options": "\nOnline\nOffline",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "application_submitted",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Application submitted",
+   "options": "\nNo\nYes\nCompleted\nPreviously availed",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "name_of_the_scheme.name_of_department",
+   "fieldname": "name_of_the_department",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of the department",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_application",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of application",
+   "read_only": 1
+  },
+  {
+   "fieldname": "application_number",
+   "fieldtype": "Data",
+   "label": "Application number",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "amount_paid",
+   "fieldtype": "Data",
+   "label": "Amount paid",
+   "non_negative": 1,
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Select",
+   "label": "Paid by",
+   "options": "\nSelf\nCSC",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Current status",
+   "options": "\nOpen\nClosed\nUnder process\nCompleted\nRejected\nAvailed",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_completion",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of completion",
+   "mandatory_depends_on": "eval:(doc.application_submitted ==\"Completed\" || doc.status ==\"Completed\")",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "date_of_rejection",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of rejection",
+   "mandatory_depends_on": "eval:doc.status ==\"Rejected\"",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "default": " ",
+   "fieldname": "reason_of_rejection",
+   "fieldtype": "Data",
+   "label": "Reason of rejection",
+   "mandatory_depends_on": "eval:doc.status ==\"Rejected\"",
+   "read_only": 1,
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval:doc.status == \"Completed\"",
+   "fieldname": "completion_certificate",
+   "fieldtype": "Attach",
+   "label": "Completion certificate"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "scheme",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Scheme",
+   "options": "Scheme"
+  },
+  {
+   "fieldname": "milestone",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Milestone category",
+   "options": "Milestone category"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-22 12:25:26.966155",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Scheme Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

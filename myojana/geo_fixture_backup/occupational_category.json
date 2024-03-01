@@ -1,0 +1,114 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.043845",
+  "name": "Rag Picker",
+  "occupational_category": "Rag Picker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.062419",
+  "name": "Government Job",
+  "occupational_category": "Government Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.072469",
+  "name": "Domestic Worker",
+  "occupational_category": "Domestic Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.080599",
+  "name": "Street Vendor",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.089823",
+  "name": "Private Job",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.097347",
+  "name": "Health/ Front Line Worker",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.111029",
+  "name": "Construction Workers",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.120071",
+  "name": "Own Work",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.128748",
+  "name": "School Drop Out Children",
+  "occupational_category": "School Drop Out Children"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.139169",
+  "name": "Unorganised Worker",
+  "occupational_category": "Unorganised Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.148132",
+  "name": "Student (5-18 Year)",
+  "occupational_category": "Student (5-18 Year)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.158317",
+  "name": "Homemaker",
+  "occupational_category": "Homemaker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.167943",
+  "name": "Daily Wage Workers",
+  "occupational_category": "Daily Wage Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.177729",
+  "name": "College Student",
+  "occupational_category": "College Student"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.186907",
+  "name": "Unemployed",
+  "occupational_category": "Unemployed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2023-12-26 21:06:01.196995",
+  "name": "Sanitation Worker",
+  "occupational_category": "Sanitation Worker"
+ }
+]

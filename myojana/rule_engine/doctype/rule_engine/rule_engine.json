@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:Rule-{#####}",
+ "creation": "2023-11-15 10:24:54.420985",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_rules",
+  "field_table",
+  "condition"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_rules",
+   "fieldtype": "Data",
+   "label": "Name of Rules"
+  },
+  {
+   "fieldname": "field_table",
+   "fieldtype": "Table",
+   "options": "Rule Engine Child"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Condition",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-12-26 19:35:21.714404",
+ "modified_by": "Administrator",
+ "module": "Rule Engine",
+ "name": "Rule Engine",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,22 @@
+{
+ "creation": "2024-01-04 10:08:13.683054",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "label": "Sum of total ascertaining demands",
+ "modified": "2024-01-04 10:26:43.037781",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Sum of Total_ascertaining_demands",
+ "owner": "Administrator",
+ "report_field": "status",
+ "report_function": "Sum",
+ "report_name": "Total ascertaining demands",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

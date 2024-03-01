@@ -1,0 +1,266 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2024-01-16 09:48:16.662296",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_the_beneficiary",
+  "gender",
+  "completed_age",
+  "contact_number",
+  "caste_category",
+  "education",
+  "current_occupation",
+  "occupational_category",
+  "marital_status",
+  "spouses_name",
+  "single_window",
+  "help_desk",
+  "beneficiary",
+  "column_break_woch",
+  "fathers_name",
+  "mothers_name",
+  "source_of_information",
+  "name_of_the_camp",
+  "state_of_origin",
+  "current_house_type",
+  "address",
+  "how_long_have_you_been_living_in_delhi",
+  "name_of_scheme",
+  "remarks",
+  "add_to_beneficary",
+  "views_beneficary"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_the_beneficiary",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Name of the beneficiary"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nTransgender\nOthers"
+  },
+  {
+   "fieldname": "completed_age",
+   "fieldtype": "Int",
+   "label": "Completed age"
+  },
+  {
+   "default": "+91-",
+   "fieldname": "contact_number",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contact number"
+  },
+  {
+   "fieldname": "caste_category",
+   "fieldtype": "Select",
+   "label": "Caste category",
+   "options": "\nGeneral\nEWS\nOBC\nSC\nST\nDidn't know\nRefused to share"
+  },
+  {
+   "fieldname": "column_break_woch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Select",
+   "label": "Education",
+   "options": "\nChild\nIlliterate\nLiterate\nKindergarten\nPrimary (1-5)\nLower secondary (6-8)\nSecondary (9-10)\nHigher secondary (11-12)\nDiploma\nITI/Technical\nUnder graduate\nGraduate\nPost graduate"
+  },
+  {
+   "fieldname": "current_occupation",
+   "fieldtype": "Link",
+   "label": "Current occupation",
+   "link_filters": "[[{\"fieldname\":\"current_occupation\",\"field_option\":\"Occupation\"},\"occupation\",\"!=\",\"Others\"]]",
+   "options": "Occupation"
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Select",
+   "label": "Marital status",
+   "options": "\nChild\nSingle (unmarried)\nMarried\nDivorced\nWidow\nSeparated\nAbandoned"
+  },
+  {
+   "depends_on": "eval:doc.marital_status ==\"Married\"",
+   "fieldname": "spouses_name",
+   "fieldtype": "Data",
+   "label": "Spouse's name",
+   "mandatory_depends_on": "eval:doc.marital_status ==\"Married\""
+  },
+  {
+   "fieldname": "fathers_name",
+   "fieldtype": "Data",
+   "label": "Father's name"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "label": "Mother's name"
+  },
+  {
+   "fieldname": "source_of_information",
+   "fieldtype": "Select",
+   "label": "Source of information",
+   "options": "\nCommunity meeting\nCamp"
+  },
+  {
+   "depends_on": "eval:doc.source_of_information ==\"Camp\"",
+   "fieldname": "name_of_the_camp",
+   "fieldtype": "Link",
+   "label": "Name of the camp",
+   "link_filters": "[[{\"fieldname\":\"name_of_the_camp\",\"field_option\":\"Camp\"},\"name_of_the_camp\",\"!=\",\"Others\"]]",
+   "mandatory_depends_on": "eval:doc.source_of_information ==\"Camp\"",
+   "options": "Camp"
+  },
+  {
+   "fieldname": "current_house_type",
+   "fieldtype": "Select",
+   "label": "Current house type",
+   "link_filters": "[[{\"fieldname\":\"current_house_type\",\"field_option\":\"House Types\"},\"house_type_name\",\"!=\",\"Others\"]]"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "state_of_origin",
+   "fieldtype": "Link",
+   "label": "State of origin",
+   "options": "State"
+  },
+  {
+   "fieldname": "how_long_have_you_been_living_in_delhi",
+   "fieldtype": "Data",
+   "label": "How long have you been living in Delhi?"
+  },
+  {
+   "fieldname": "name_of_scheme",
+   "fieldtype": "Link",
+   "label": "Name of scheme",
+   "options": "Scheme"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "depends_on": "eval:(!doc.beneficiary)",
+   "fieldname": "add_to_beneficary",
+   "fieldtype": "Button",
+   "label": "Add to Beneficary"
+  },
+  {
+   "fieldname": "beneficiary",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Beneficiary",
+   "options": "Beneficiary Profiling"
+  },
+  {
+   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
+   "fieldname": "single_window",
+   "fieldtype": "Link",
+   "label": "Single-window",
+   "mandatory_depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
+   "options": "Single Window"
+  },
+  {
+   "depends_on": "eval:(doc.beneficiary)",
+   "fieldname": "views_beneficary",
+   "fieldtype": "Button",
+   "label": "Views Beneficary"
+  },
+  {
+   "fieldname": "help_desk",
+   "fieldtype": "Link",
+   "label": "Name of Help-desk",
+   "options": "Help Desk"
+  },
+  {
+   "fetch_from": "current_occupation.occupational_category",
+   "fieldname": "occupational_category",
+   "fieldtype": "Autocomplete",
+   "hidden": 1,
+   "label": "Occupational category"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-18 13:02:48.782880",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Community meeting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Help-desk member",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSC Member",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "MIS executive",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

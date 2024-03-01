@@ -1,0 +1,38 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-02-09 12:10:49.943738",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-02-09 12:11:20.949777",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Source of information",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Source Of Information",
+ "report_name": "Source of information",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "MIS executive"
+  },
+  {
+   "role": "CSC Member"
+  },
+  {
+   "role": "Help-desk member"
+  }
+ ]
+}

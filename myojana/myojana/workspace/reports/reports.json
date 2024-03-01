@@ -1,0 +1,114 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"57OiTjigcG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"M7NDzjasg-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State of origin\",\"col\":7}},{\"id\":\"blDeDcTYVu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Place of origin\",\"col\":7}},{\"id\":\"eCkvl_KIaB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education composition\",\"col\":7}},{\"id\":\"VQsrdIAOBU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Age-wise beneficiaries\",\"col\":7}},{\"id\":\"l1aIVwbTUx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion-wise beneficiaries\",\"col\":7}},{\"id\":\"1nhjHlMAvt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational category-wise beneficiaries\",\"col\":7}},{\"id\":\"ZULovgUpIG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House type-wise beneficiaries\",\"col\":7}},{\"id\":\"KCHBDcCYT3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone-wise demands\",\"col\":7}},{\"id\":\"lyjUvA3a5Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State-wise demands\",\"col\":7}},{\"id\":\"YRUKFNIyyI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District-wise demands\",\"col\":7}},{\"id\":\"vmBDpMorDx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Help-desk wise demands\",\"col\":7}},{\"id\":\"SKfg2rMNrG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Single-window wise demands\",\"col\":7}}]",
+ "creation": "2023-12-21 19:09:40.349725",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "table",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Reports",
+ "links": [],
+ "modified": "2024-02-02 10:42:39.761525",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Reports",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 6.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Age-wise beneficiaries",
+   "link_to": "Age-wise beneficiaries",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Religion-wise beneficiaries",
+   "link_to": "Religion-wise beneficiaries",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Single-window wise demands",
+   "link_to": "Single-window wise demands",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Occupational category-wise beneficiaries",
+   "link_to": "Occupational category-wise beneficiaries",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "House type-wise beneficiaries",
+   "link_to": "House type-wise beneficiaries",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "State-wise demands",
+   "link_to": "State-wise demands",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "District-wise demands",
+   "link_to": "District-wise demands",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Milestone-wise demands",
+   "link_to": "Milestone-wise demands",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Help-desk wise demands",
+   "link_to": "Help-desk wise demands",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "State of origin",
+   "link_to": "State of origin",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Education composition",
+   "link_to": "Education composition",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Place of origin",
+   "link_to": "Place of origin",
+   "type": "Report"
+  }
+ ],
+ "title": "Reports"
+}

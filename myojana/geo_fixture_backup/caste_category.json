@@ -1,0 +1,44 @@
+[
+ {
+  "caste_category": "General",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:46:12.655990",
+  "name": "General"
+ },
+ {
+  "caste_category": "OBC",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:46:26.629170",
+  "name": "OBC"
+ },
+ {
+  "caste_category": "ST",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:46:31.883312",
+  "name": "ST"
+ },
+ {
+  "caste_category": "SC",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:46:47.717757",
+  "name": "SC"
+ },
+ {
+  "caste_category": "Refused to share",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:46:56.205657",
+  "name": "Refused to share"
+ },
+ {
+  "caste_category": "Didn't know",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2023-11-04 10:47:04.521473",
+  "name": "Didn't know"
+ }
+]

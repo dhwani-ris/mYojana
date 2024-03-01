@@ -1,0 +1,39 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-12-21 18:29:14.713208",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 12,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2024-01-05 11:37:13.392211",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Gender composition",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Beneficiary Profiling",
+ "report_name": "Gender composition",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "CSC Member"
+  },
+  {
+   "role": "Help-desk member"
+  },
+  {
+   "role": "MIS executive"
+  }
+ ]
+}

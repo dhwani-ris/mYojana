@@ -1,0 +1,93 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-09-20 14:50:18.550359",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_the_scheme",
+  "follow_up_date",
+  "follow_up_with",
+  "follow_up_mode",
+  "follow",
+  "follow_up_status",
+  "remarks",
+  "parent_ref"
+ ],
+ "fields": [
+  {
+   "fieldname": "follow_up_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Follow-up status",
+   "options": "\nInterested\nNot interested\nDocument submitted\nNot reachable\nUnder process\nAdditional info required\nCompleted\nRejected",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Follow-up date",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "follow_up_with",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Follow-up with",
+   "options": "\nBeneficiary\nGovernment department\nGovernment website\nOthers",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "parent_ref",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Ref(System Use Only)"
+  },
+  {
+   "fieldname": "name_of_the_scheme",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Name of the scheme",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "follow",
+   "fieldtype": "Select",
+   "label": "Follow-up by",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval:doc.follow_up_with != \"Government website\"",
+   "fieldname": "follow_up_mode",
+   "fieldtype": "Select",
+   "label": "Follow up mode",
+   "mandatory_depends_on": "eval:doc.follow_up_with != \"Government website\"",
+   "options": "\nPhone call\nHome visit\nCentre visit\nIn-person visit",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remark"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-02-12 10:11:23.141860",
+ "modified_by": "Administrator",
+ "module": "SIPMS",
+ "name": "Follow Up Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
