@@ -7,7 +7,7 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
-    "Custom HTML Block"
+    "Custom HTML Block",
     # "Caste category",
     # "Religion",
     # "Education",
@@ -17,7 +17,7 @@ fixtures = [
     # "ID Document",
     # "Occupation",
     # "Occupational Category",
-    # "Role Profile",
+    "Role Profile",
     # "Source Of Information",
     # "House Types",
     # "Gender",
