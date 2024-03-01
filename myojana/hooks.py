@@ -104,7 +104,7 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
 # ------------
 
 # before_install = "myojana.install.before_install"
-# after_install = "myojana.install.after_install"
+after_install = "myojana.install.after_install.update_myojana_logo"
 
 # Uninstallation
 # ------------
