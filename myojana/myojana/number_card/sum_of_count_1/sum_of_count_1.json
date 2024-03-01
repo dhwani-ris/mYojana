@@ -10,7 +10,7 @@
  "label": "Total sanctioned demands",
  "modified": "2024-01-04 10:29:37.166036",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "Sum of Count-1",
  "owner": "Administrator",
  "report_field": "count",

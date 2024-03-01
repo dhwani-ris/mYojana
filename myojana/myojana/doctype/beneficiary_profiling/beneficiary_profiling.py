@@ -3,8 +3,8 @@
 
 import frappe
 from frappe.model.document import Document
-from sipms.services.family import family
-from sipms.utils.login_user_details import LoginUser
+from myojana.services.family import family
+from myojana.utils.login_user_details import LoginUser
 from datetime import datetime, timedelta
 
 class BeneficiaryProfiling(Document):

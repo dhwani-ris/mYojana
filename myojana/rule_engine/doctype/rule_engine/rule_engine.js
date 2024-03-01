@@ -37,7 +37,7 @@ function generateQueryString(rows, expression) {
 var field_list = []
 function get_field_list(frm) {
     frappe.call({
-        method: "sipms.rule_engine.apis.get_meta_api.get_field_lists",
+        method: "myojana.rule_engine.apis.get_meta_api.get_field_lists",
         args: {
             doctype_name: "Beneficiary Profiling",
             field_types: Object.keys(field_types)

@@ -7,21 +7,22 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
-    "Caste category",
-    "Religion",
-    "Education",
-    "Marital status",
-    "Social vulnerable category",
-    "PWD master",
-    "ID Document",
-    "Occupation",
-    "Occupational Category",
-    "Role Profile",
-    "Source Of Information",
+    "Custom HTML Block"
+    # "Caste category",
+    # "Religion",
+    # "Education",
+    # "Marital status",
+    # "Social vulnerable category",
+    # "PWD master",
+    # "ID Document",
+    # "Occupation",
+    # "Occupational Category",
+    # "Role Profile",
+    # "Source Of Information",
     # "House Types",
-    "Gender",
-    "Role",
-    "Name of the Department"
+    # "Gender",
+    # "Role",
+    # "Name of the Department"
 ]
 # Includes in <head>
 # ------------------
@@ -37,15 +38,15 @@ permission_query_conditions = {
 }
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/sipms/css/sipms.css"
+# app_include_css = "/assets/myojana/css/myojana.css"
 app_include_js = "/assets/myojana/js/main.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/sipms/css/sipms.css"
-# web_include_js = "/assets/sipms/js/sipms.js"
+# web_include_css = "/assets/myojana/css/myojana.css"
+# web_include_js = "/assets/myojana/js/myojana.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "sipms/public/scss/website"
+# website_theme_scss = "myojana/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -71,7 +72,7 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "sipms/public/images/mYojana.png"
+# app_include_icons = "myojana/public/images/mYojana.png"
 
 # Home Pages
 # ----------
@@ -95,43 +96,43 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
 
 # add methods and filters to jinja environment
 # jinja = {
-#	"methods": "sipms.utils.jinja_methods",
-#	"filters": "sipms.utils.jinja_filters"
+#	"methods": "myojana.utils.jinja_methods",
+#	"filters": "myojana.utils.jinja_filters"
 # }
 
 # Installation
 # ------------
 
-# before_install = "sipms.install.before_install"
-# after_install = "sipms.install.after_install"
+# before_install = "myojana.install.before_install"
+# after_install = "myojana.install.after_install"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "sipms.uninstall.before_uninstall"
-# after_uninstall = "sipms.uninstall.after_uninstall"
+# before_uninstall = "myojana.uninstall.before_uninstall"
+# after_uninstall = "myojana.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "sipms.utils.before_app_install"
-# after_app_install = "sipms.utils.after_app_install"
+# before_app_install = "myojana.utils.before_app_install"
+# after_app_install = "myojana.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "sipms.utils.before_app_uninstall"
-# after_app_uninstall = "sipms.utils.after_app_uninstall"
+# before_app_uninstall = "myojana.utils.before_app_uninstall"
+# after_app_uninstall = "myojana.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "sipms.notifications.get_notification_config"
+# notification_config = "myojana.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -159,9 +160,9 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
 
 doc_events = {
 	"*": {
-		# "on_update": "sipms.scheduler_events.ben_dob_update.update_dob_of_ben",
-		# "on_cancel": "sipms.scheduler_events.ben_dob_update.update_dob_of_ben",
-		# "on_trash": "sipms.scheduler_events.ben_dob_update.update_dob_of_ben"
+		# "on_update": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
+		# "on_cancel": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
+		# "on_trash": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben"
 	}
 }
 
@@ -170,41 +171,41 @@ doc_events = {
 
 scheduler_events = {
 #	"all": [
-#		"sipms.tasks.all"
+#		"myojana.tasks.all"
 #	],
 	"daily": [
         "myojana.scheduler_events.ben_dob_update.update_age",
-        # "sipms.scheduler_events.ben_dob_update.update_dob_of_ben",
-        # "sipms.scheduler_events.ben_dob_update.update_dob_months"
+        # "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
+        # "myojana.scheduler_events.ben_dob_update.update_dob_months"
 	],
 #	"hourly": [
-#		"sipms.tasks.hourly"
+#		"myojana.tasks.hourly"
 #	],
 #	"weekly": [
-#		"sipms.tasks.weekly"
+#		"myojana.tasks.weekly"
 #	],
 #	"monthly": [
-#		"sipms.tasks.monthly"
+#		"myojana.tasks.monthly"
 #	],
 }
 
 # Testing
 # -------
 
-# before_tests = "sipms.install.before_tests"
+# before_tests = "myojana.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "sipms.event.get_events"
+#	"frappe.desk.doctype.event.event.get_events": "myojana.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-#	"Task": "sipms.task.get_dashboard_data"
+#	"Task": "myojana.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -218,13 +219,13 @@ ignore_links_on_delete = ["Beneficiary Profiling", "Family" , "Route History"]
 
 # Request Events
 # ----------------
-# before_request = ["sipms.utils.before_request"]
-# after_request = ["sipms.utils.after_request"]
+# before_request = ["myojana.utils.before_request"]
+# after_request = ["myojana.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["sipms.utils.before_job"]
-# after_job = ["sipms.utils.after_job"]
+# before_job = ["myojana.utils.before_job"]
+# after_job = ["myojana.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -254,5 +255,5 @@ ignore_links_on_delete = ["Beneficiary Profiling", "Family" , "Route History"]
 # --------------------------------
 
 # auth_hooks = [
-#	"sipms.auth.validate"
+#	"myojana.auth.validate"
 # ]

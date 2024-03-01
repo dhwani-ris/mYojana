@@ -1,5 +1,5 @@
 import frappe
-from sipms.utils.misc import Misc
+from myojana.utils.misc import Misc
 class BeneficaryScheme:
     def run(beneficiary=None):
         schemes = frappe.get_list('Scheme', fields=['name', 'name_of_department', 'milestone'])

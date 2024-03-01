@@ -10,7 +10,7 @@
  "label": "Sum of total ascertaining demands",
  "modified": "2024-01-04 10:26:43.037781",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "Sum of Total_ascertaining_demands",
  "owner": "Administrator",
  "report_field": "status",

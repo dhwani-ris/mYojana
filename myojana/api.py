@@ -1,7 +1,7 @@
 import frappe
-from sipms.services.beneficiary_scheme import BeneficaryScheme
-from sipms.utils.misc import Misc
-from sipms.utils.filter import Filter
+from myojana.services.beneficiary_scheme import BeneficaryScheme
+from myojana.utils.misc import Misc
+from myojana.utils.filter import Filter
 import json
 
 def create_condition(scheme, _tbl_pre=""):

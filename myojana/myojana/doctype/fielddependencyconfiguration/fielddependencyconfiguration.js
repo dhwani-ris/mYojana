@@ -4,7 +4,7 @@ var field_list = []
 function get_field_list(doctype) {
     return new Promise((resolve, reject) => {
         frappe.call({
-            method: "sipms.rule_engine.apis.get_meta_api.get_field_lists",
+            method: "myojana.rule_engine.apis.get_meta_api.get_field_lists",
             args: {
                 doctype_name: doctype,
                 field_types: ['Link']
@@ -18,10 +18,10 @@ function get_field_list(doctype) {
 }
 frappe.ui.form.on("FieldDependencyConfiguration", {
     async refresh(frm) {
-        frm.set_query('sipms_doctype', () => {
+        frm.set_query('myojana_doctype', () => {
             return {
                 filters: {
-                    module: 'SIPMS'
+                    module: 'myojana'
                 }
             };
         });

@@ -10,7 +10,7 @@
  "label": "Total Submitted Demands",
  "modified": "2024-01-04 10:21:01.766003",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "Sum of Count",
  "owner": "Administrator",
  "report_field": "count",

@@ -13,7 +13,7 @@
  "label": "NUMBER OF BENEFICIARIES",
  "modified": "2023-12-21 19:19:01.340661",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "NUMBER OF BENEFICIARIES",
  "owner": "Administrator",
  "parent_document_type": "",

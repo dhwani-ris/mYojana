@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
-from sipms.utils.report_filter import ReportFilter
+from myojana.utils.report_filter import ReportFilter
 
 def execute(filters=None):
 	# frappe.errprint(filters)

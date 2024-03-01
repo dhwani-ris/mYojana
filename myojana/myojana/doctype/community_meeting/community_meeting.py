@@ -3,7 +3,7 @@
 
 import frappe
 from frappe.model.document import Document
-from sipms.utils.login_user_details import LoginUser
+from myojana.utils.login_user_details import LoginUser
 
 class Communitymeeting(Document):
 	def after_insert(self):

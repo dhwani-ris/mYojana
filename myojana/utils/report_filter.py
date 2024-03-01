@@ -1,5 +1,5 @@
 import frappe
-from sipms.utils.filter import Filter
+from myojana.utils.filter import Filter
 
 class ReportFilter:
     def set_report_filters(filters=None, date_column='creation', str=False, table_name='', csc_filter=True):

@@ -29,7 +29,7 @@
  "links": [],
  "modified": "2024-01-28 16:57:09.067277",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "FieldDependencyConfiguration",
  "naming_rule": "By fieldname",
  "owner": "Administrator",

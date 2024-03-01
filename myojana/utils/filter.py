@@ -1,5 +1,5 @@
 import frappe
-from sipms.utils.cache import Cache
+from myojana.utils.cache import Cache
 
 
 class Filter:

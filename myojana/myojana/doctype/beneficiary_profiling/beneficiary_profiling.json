@@ -560,7 +560,7 @@
  "links": [],
  "modified": "2024-03-01 08:18:24.648655",
  "modified_by": "Administrator",
- "module": "SIPMS",
+ "module": "myojana",
  "name": "Beneficiary Profiling",
  "naming_rule": "Expression",
  "owner": "Administrator",
