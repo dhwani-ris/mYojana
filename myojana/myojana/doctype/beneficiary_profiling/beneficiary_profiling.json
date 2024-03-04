@@ -551,14 +551,13 @@
    "fieldname": "social_vulnerable_category",
    "fieldtype": "Link",
    "label": "Social vulnerable category",
-   "mandatory_depends_on": "eval:(!frappe.user_roles.includes(\"Help-desk member\") || frappe.user_roles.includes(\"Administrator\"))",
    "options": "Social vulnerable category"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-01 08:18:24.648655",
+ "modified": "2024-03-04 16:41:44.645419",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
