@@ -1,0 +1,45 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"ievpsV1pjg\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Users</span>\",\"col\":12}},{\"id\":\"g7INhD7epV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Myojana User\",\"col\":3}}]",
+ "creation": "2023-12-22 20:32:03.764532",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "share-people",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Myojana Users",
+ "links": [],
+ "modified": "2024-03-04 11:44:14.240731",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Myojana Users",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Admin"
+  }
+ ],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Myojana User",
+   "link_to": "Myojana User",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Myojana Users"
+}

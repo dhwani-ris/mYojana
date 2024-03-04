@@ -1,18 +1,5 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
-
-// const get_helpdesk= async(){
-//   let list = await callAPI({
-//     method: 'frappe.desk.search.search_link',
-//     freeze: true,
-//     args: {
-//       doctype: doctype,
-//       page_length: 1000,
-//       txt: ''
-//     },
-//     freeze_message: __("Getting list ..."),
-//   })
-// }
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
@@ -337,17 +324,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
     }
   },
-  // validate(frm) {
-  //   for (row of frm.doc.scheme_table) {
-  //     if (row.application_submitted == "Yes" || row.application_submitted == "Completed") {
-  //       if (!row.date_of_application) {
-  //         frappe.throw(`Mandatory fields required in table Scheme Table, Row ${row.idx} 
-  //         </br> </br> <ul><li>Date of application</li></ul>`)
-  //       }
-  //     }
-
-  //   }
-  // },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
   date_of_visit: function (frm) {
     if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
@@ -525,8 +501,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
     if (frm.doc.has_anyone_from_your_family_visisted_before == "Yes") {
       frm.set_value('select_primary_member', '')
     } else {
-      await truncate_multiple_fields_value(frm, ['current_house_type', 'state', 'district', 'ward',
-        'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
+      // await truncate_multiple_fields_value(frm, ['current_house_type', 'state', 'district', 'ward',
+      //   'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
     }
   },
   select_primary_member: async function (frm) {
@@ -549,11 +525,11 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frm.refresh_fields(['current_house_type', 'state', 'district', 'ward',
         'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
     } else {
-      if(frm.is_new()){
-        await truncate_multiple_fields_value(frm, ['current_house_type', 'state', 'district', 'ward',
-        'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
+      // if(frm.is_new()){
+      //   await truncate_multiple_fields_value(frm, ['current_house_type', 'state', 'district', 'ward',
+      //   'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
 
-      }
+      // }
        }
   },
   current_house_type: function (frm) {

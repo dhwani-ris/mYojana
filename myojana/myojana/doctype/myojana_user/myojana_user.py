@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 
-class SipmsUser(Document):
+class MyojanaUser(Document):
 	def validate(self):
 		if(self.password != self.confirm_password):
 			frappe.throw("Password and Confirm password not matched")

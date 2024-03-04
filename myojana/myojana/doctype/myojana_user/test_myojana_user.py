@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestSipmsUser(FrappeTestCase):
+class TestMyojanaUser(FrappeTestCase):
 	pass

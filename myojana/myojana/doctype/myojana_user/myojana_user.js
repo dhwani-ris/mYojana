@@ -31,7 +31,7 @@ function hide_advance_search(frm, list) {
       frm.set_df_property(item, 'only_select', true);
     }
   };
-frappe.ui.form.on("Sipms User", {
+frappe.ui.form.on("Myojana User", {
     refresh(frm) {
         frm.doc.password = frm.doc.confirm_password
         frm.doc.state ? apply_filter("single_window", "state", frm, frm.doc.state) : defult_filter('single_window', "state", frm);

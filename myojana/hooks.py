@@ -30,7 +30,7 @@ permission_query_conditions = {
     "Beneficiary Profiling": "myojana.middlewares.beneficiary.list_query",
     "Primary Member": "myojana.middlewares.family.list_query",
     "Help Desk":"myojana.middlewares.helpdesk.list_query",
-    "Sipms User":"myojana.middlewares.sipms_user.list_query",
+    "Myojana User":"myojana.middlewares.sipms_user.list_query",
     "Role Profile":"myojana.middlewares.role_profile.list_query",
     "User":"myojana.middlewares.user.list_query",
     "Single Window":"myojana.middlewares.single_windows.list_query",
