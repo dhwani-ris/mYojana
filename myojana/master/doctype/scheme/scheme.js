@@ -45,7 +45,7 @@ function generateQueryString(rows) {
 var field_list = []
 function get_field_list(child_table_field, frm) {
     frappe.call({
-        method: "sipms.rule_engine.apis.get_meta_api.get_field_lists",
+        method: "myojana.rule_engine.apis.get_meta_api.get_field_lists",
         args: {
             doctype_name: "Beneficiary Profiling",
             field_types: Object.keys(field_types)
@@ -123,7 +123,7 @@ const addTableFilter = (datatable, elements = [], rows = []) => {
 const get_ben_list = async (frm, columns, filters = []) => {
     console.log("filters", filters,)
     let list = await callAPI({
-        method: 'sipms.api.eligible_beneficiaries',
+        method: 'myojana.api.eligible_beneficiaries',
         freeze: true,
         args: {
             "scheme": frm.doc.name_of_the_scheme,

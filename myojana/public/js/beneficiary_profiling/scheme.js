@@ -15,7 +15,7 @@ const showRules = (row) => {
 // get scheme lists
 const get_scheme_list = async (frm) => {
   let list = await callAPI({
-    method: 'sipms.api.execute',
+    method: 'myojana.api.execute',
     freeze: true,
     args: {
       name: frm.doc.name
