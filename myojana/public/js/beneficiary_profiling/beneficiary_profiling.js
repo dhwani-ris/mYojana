@@ -80,3 +80,15 @@ function generateDOBFromAge(ageInYears = 0, ageInMonths = 0) {
   let generatedDOB = new Date(birthYear, birthMonth, startOfMonth.getDate());
   return generatedDOB;
 }
+
+const validate_date_of_application = async (frm) => {
+  for (row of frm.doc.scheme_table) {
+    if (row.application_submitted == "Yes" || row.application_submitted == "Completed") {
+      if (!row.date_of_application) {
+        frappe.throw(`Mandatory fields required in table Scheme Table, Row ${row.idx} 
+        </br> </br> <ul><li>Date of application</li></ul>`)
+      }
+    }
+
+  }
+}

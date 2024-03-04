@@ -145,7 +145,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.doc.overall_status = 'Partially completed'
       }
     }
-
+        // validation of date of application
+        await validate_date_of_application(frm);
   },
   async refresh(frm) {
     _frm = frm
@@ -336,17 +337,17 @@ frappe.ui.form.on("Beneficiary Profiling", {
       apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
     }
   },
-  validate(frm) {
-    for (row of frm.doc.scheme_table) {
-      if (row.application_submitted == "Yes" || row.application_submitted == "Completed") {
-        if (!row.date_of_application) {
-          frappe.throw(`Mandatory fields required in table Scheme Table, Row ${row.idx} 
-          </br> </br> <ul><li>Date of application</li></ul>`)
-        }
-      }
+  // validate(frm) {
+  //   for (row of frm.doc.scheme_table) {
+  //     if (row.application_submitted == "Yes" || row.application_submitted == "Completed") {
+  //       if (!row.date_of_application) {
+  //         frappe.throw(`Mandatory fields required in table Scheme Table, Row ${row.idx} 
+  //         </br> </br> <ul><li>Date of application</li></ul>`)
+  //       }
+  //     }
 
-    }
-  },
+  //   }
+  // },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
   date_of_visit: function (frm) {
     if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
