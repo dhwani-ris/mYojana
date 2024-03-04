@@ -1,5 +1,5 @@
 import frappe
-from sipms.utils.login_user_details import LoginUser
+from myojana.utils.login_user_details import LoginUser
 def list_query(user):
     if not user:
         user = frappe.session.user

@@ -1,5 +1,4 @@
 import frappe
-# from epms.utils.cache import Cache
 def list_query(user):
     if not user:
         user = frappe.session.user
