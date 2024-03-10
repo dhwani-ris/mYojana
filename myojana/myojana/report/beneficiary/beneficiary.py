@@ -41,7 +41,7 @@ def get_fields(doc_type,fields,parent_field="", degree=1,link_table=None, child_
 
 
 def execute(filters=None):
-    doc_name = 'Beneficiary Profiling'
+    doc_name = 'Beneficiary'
     report_doc = frappe.get_doc('Report', doc_name)
     fields = get_fields(report_doc.ref_doctype,[], parent_field="")
     base_tbl = f"`tab{doc_name}`"
