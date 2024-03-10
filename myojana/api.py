@@ -3,6 +3,11 @@ from myojana.services.beneficiary_scheme import BeneficaryScheme
 from myojana.utils.misc import Misc
 from myojana.utils.filter import Filter
 import json
+import csv
+import io
+
+
+
 
 def create_condition(scheme, _tbl_pre=""):
     if isinstance(scheme, str):
@@ -16,7 +21,65 @@ def create_condition(scheme, _tbl_pre=""):
         filters.append(user_role_filter)
     return " WHERE  1=1 "+ (f"AND {' AND '.join(filters)}" if len(filters) else "")
 
-def get_beneficiary_scheme_query(scheme_doc):
+def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
+    availed_sql = f""
+    if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
+        availed_sql = f"""
+            AND name not in (
+                select
+                    distinct parent
+                from
+                    `tabScheme Child`
+                where
+                    parenttype='Beneficiary Profiling'
+                    and
+                    name_of_the_scheme = '{scheme_doc.name}'
+                    and
+                    status IN ('Completed','Availed')
+            )
+        """
+    condition = create_condition(scheme_doc)
+    filter_condition = ""
+    ward_filter = ""
+    primary_member_filter= ""
+    pm_join_type  = "LEFT JOIN"
+    ward_join_type  = "LEFT JOIN"
+    if len(filters):
+        for filter_item in json.loads(filters):  # Convert filters from string to list
+            filter_key = list(filter_item.keys())[0]
+            filter_value = list(filter_item.values())[0]
+            if filter_key == 'name_of_the_beneficiary':
+                filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
+            elif filter_key == 'contact_number':
+                filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
+            elif filter_key == 'block_name':
+                ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                ward_join_type = "INNER JOIN"
+            elif filter_key == 'name_of_parents':
+                primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                pm_join_type = "INNER JOIN"
+            else:
+                pm_join_type = "LEFT JOIN"
+                ward_join_type = "LEFT JOIN"
+                
+            
+    sql = f"""
+            SELECT
+                _ben.*,
+                _pm.name_of_parents AS name_of_parents,
+                _bl.block_name AS block_name,
+                _vl.village_name AS village_name
+            FROM
+                (SELECT * FROM `tabBeneficiary Profiling` {condition} {availed_sql} {filter_condition if filter_condition else ''}) AS _ben
+            {pm_join_type} `tabPrimary Member` _pm ON _pm.name = _ben.select_primary_member {primary_member_filter}
+            {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
+            LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
+            ORDER BY select_primary_member DESC
+            LIMIT {page_limit} OFFSET {start}
+    """
+    return sql
+
+def get_total_beneficiary_count_query(scheme_doc):
     availed_sql = f""
     if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
         availed_sql = f"""
@@ -35,27 +98,24 @@ def get_beneficiary_scheme_query(scheme_doc):
         """
     condition = create_condition(scheme_doc)
     sql = f"""
-        select
-            _ben.*,
-            _pm.name_of_parents as name_of_parents,
-            _bl.block_name as block_name,
-            _vl.village_name as village_name
-        from
-        (select * from `tabBeneficiary Profiling` {condition} {availed_sql}) as _ben
-        LEFT JOIN `tabPrimary Member` _pm ON _pm.name = _ben.select_primary_member
-        LEFT JOIN `tabBlock` _bl ON _bl.name = _ben.ward
-        LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
-        ORDER BY select_primary_member DESC
+            SELECT
+                _ben.*,
+                _ben.select_primary_member AS name_of_parents,
+                _ben.ward AS block_name,
+                _ben.name_of_the_settlement AS village_name
+            FROM
+                (SELECT * FROM `tabBeneficiary Profiling` {condition} {availed_sql}) AS _ben
+            ORDER BY select_primary_member DESC
     """
     return sql
-
 @frappe.whitelist(allow_guest=True)
 def execute(name=None):
     return BeneficaryScheme.get_schemes(name)
 
 @frappe.whitelist(allow_guest=True)
-def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_length=1000):
+def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=1000):
     # filter value is getting hear
+    # print("filter", filters)
     columns = json.loads(columns)
     if scheme is None:
         return frappe.throw('Scheme not found.')
@@ -72,8 +132,9 @@ def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_le
     if not scheme_doc:
         return res
 
-    ben_sql = get_beneficiary_scheme_query(scheme_doc)
+    ben_sql = get_beneficiary_scheme_query(scheme_doc,start,page_imit,filters)
     # print(ben_sql)
+    total_count_sql = get_total_beneficiary_count_query(scheme_doc)
     res['data'] = frappe.db.sql(ben_sql, as_dict=True)
     count_sql = f"""
         select
@@ -82,7 +143,7 @@ def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_le
             count(distinct _tbl.ward) as block_count,
             count(distinct _tbl.name_of_the_settlement) as settlement_count
         from
-            ({ben_sql}) _tbl
+            ({total_count_sql}) _tbl
     """
     count_data = frappe.db.sql(count_sql, as_dict=True)
     if len(count_data):
@@ -151,3 +212,4 @@ def top_schemes():
 #Code is not reflecting
 
 
+# @frappe.whitelist()
