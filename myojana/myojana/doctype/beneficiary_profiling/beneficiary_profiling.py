@@ -69,7 +69,7 @@ class BeneficiaryProfiling(Document):
 			occupation.save()
 
 	def validate(self):
-		if(self.contact_number == self.alternate_contact_number):
+		if(self.contact_number == self.alternate_contact_number and self.contact_number is not None):
 			return frappe.throw("Alternate contact number cannot be the same as mobile number")
 		if(self.do_you_have_any_id_documents != "Yes"):
 			self.id_table_list = []
