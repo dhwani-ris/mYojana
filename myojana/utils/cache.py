@@ -9,7 +9,7 @@ class  Cache:
         value = frappe.cache().get_value("filter-"+user)
         if value is None:
             if(("Administrator" not in frappe.get_roles(user))):
-                usr = frappe.get_doc("Sipms User", user)
+                usr = frappe.get_doc("Myojana User", user)
             if "Admin" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
                 frappe.cache().set_value('filter-'+user, usr.state)
             elif "CSC Member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
