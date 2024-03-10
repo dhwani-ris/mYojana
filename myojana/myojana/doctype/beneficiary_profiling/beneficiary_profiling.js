@@ -1,10 +1,11 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
-frappe.ui.form.on("Beneficiary Profiling", {
+frappe.ui.form.on("Beneficiary Profiling",{
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
-    if (frm.doc.completed_age || frm.doc.completed_age_month) {
-      await frm.set_value("date_of_birth", generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month))
+    console.log("before save")
+    if ((frm.doc.completed_age || frm.doc.completed_age_month) && !frm.doc?.date_of_birth) {
+      await frm.set_value("date_of_birth", generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth))
     }
     // fill into hidden fields
     if (frm.doc?.scheme_table && frm.doc?.scheme_table?.length) {
@@ -14,8 +15,21 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // check alternate mobile number digits
-    if (frm.doc.alternate_contact_number == "+91-") {
-      frm.set_value("alternate_contact_number", '')
+    if (frm.doc.alternate_contact_number || frm.doc.contact_number) {
+      const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
+      if (indianPhoneNumberRegex.test(frm.doc.alternate_contact_number)) {
+        console.log("Valid Indian phone number");
+      }else{
+        frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
+        console.log("Invalid Indian phone number");
+      }
+      if (indianPhoneNumberRegex.test(frm.doc.contact_number)) {
+        console.log("Valid Indian phone number");
+      }else{
+        frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
+        console.log("Invalid Indian phone number");
+      }
+      // frm.set_value("alternate_contact_number", '')
     }
     if (frm.doc.do_you_have_id_document == "Yes" && frm.doc.id_section?.length == '0') {
       if (!(frm.doc.id_section[0] && frm.doc?.id_section[0]?.select_id != "undefined")) {
@@ -43,6 +57,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
     // follow up status manage
     if (frm.selected_doc.follow_up_table) {
+      console.log("frm.selected_doc.follow_up_table", frm.selected_doc.follow_up_table)
       for (support_item of frm.selected_doc.scheme_table) {
         if (!['Completed', 'Previously availed'].includes(support_item.status)) {
           let followups = frm.selected_doc.follow_up_table.filter(f => f.parent_ref == support_item?.name)
@@ -132,8 +147,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.doc.overall_status = 'Partially completed'
       }
     }
-        // validation of date of application
-        await validate_date_of_application(frm);
+    // validation of date of application
+    await validate_date_of_application(frm);
   },
   async refresh(frm) {
     _frm = frm
@@ -149,10 +164,10 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // phoneno defult +91-
-    if (frm.doc?.alternate_contact_number?.length < 10) {
-      frm.doc.alternate_contact_number = '+91-'
-      frm.refresh_fields("alternate_contact_number")
-    }
+    // if (frm.doc?.alternate_contact_number?.length < 10) {
+    //   frm.doc.alternate_contact_number = '+91-'
+    //   frm.refresh_fields("alternate_contact_number")
+    // }
     // add family member button 
     if (!frm.is_new()) {
       frm.add_custom_button(__('Add family members'), function () {
@@ -324,6 +339,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
       apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
     }
   },
+  // validate(frm) {
+
+  // },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
   date_of_visit: function (frm) {
     if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
@@ -444,7 +462,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frappe.throw(__("Completed age in month should be less than or equal to 11"))
     }
     if (frm.doc.date_of_birth !== frappe.datetime.get_today()) {
-      let dob = generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month)
+      let dob = generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth)
       console.log("generatedDOB", dob, frm.doc?.completed_age, frm.doc?.completed_age_month);
 
       frm.set_value("date_of_birth", dob)

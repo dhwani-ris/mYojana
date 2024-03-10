@@ -26,7 +26,6 @@
  ],
  "fields": [
   {
-   "fetch_from": "name_of_the_scheme.milestone",
    "fieldname": "milestone_category",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -36,7 +35,7 @@
   },
   {
    "fieldname": "name_of_the_scheme",
-   "fieldtype": "Select",
+   "fieldtype": "Autocomplete",
    "in_list_view": 1,
    "label": "Name of the scheme",
    "reqd": 1,
@@ -52,7 +51,6 @@
    "set_only_once": 1
   },
   {
-   "fetch_from": "name_of_the_scheme.mode_of_application",
    "fieldname": "mode_of_application",
    "fieldtype": "Select",
    "label": "Mode of application",
@@ -71,7 +69,6 @@
    "set_only_once": 1
   },
   {
-   "fetch_from": "name_of_the_scheme.name_of_department",
    "fieldname": "name_of_the_department",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -175,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-02-22 12:25:26.966155",
+ "modified": "2024-03-10 17:41:40.133165",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme Child",

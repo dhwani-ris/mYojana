@@ -66,10 +66,16 @@ const get_ordered_list = async (doctype, optionsToSort) => {
   }
 
 // generate date of birth
-function generateDOBFromAge(ageInYears = 0, ageInMonths = 0) {
+function generateDOBFromAge(ageInYears = 0, ageInMonths = 0 , date_of_birth) {
+  console.log("date_of_birth", date_of_birth)
+  if(date_of_birth){
+    split_value = date_of_birth.split('-')
+    var date = split_value[2]
+  }
+  console.log("dov in fun", date)
   // date of birth of tommorow is not selected in calander
   let currentDate = new Date();
-  let startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+  let startOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), date ? date:1);
   let birthYear = startOfMonth.getFullYear() - ageInYears;
   let birthMonth = startOfMonth.getMonth() - ageInMonths;
   if (birthMonth < 0) {
