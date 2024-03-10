@@ -41,7 +41,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-13 11:12:00.528969",
+ "modified": "2024-03-10 21:55:44.981539",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Single Window",
@@ -71,6 +71,33 @@
    "role": "Admin",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "MIS executive",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSC Member",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Help-desk member",
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,
