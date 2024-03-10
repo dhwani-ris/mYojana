@@ -1,4 +1,3 @@
-import frappe
 from myojana.utils.after_install import AfterInstall
 
 def update_myojana_settings():
