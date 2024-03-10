@@ -106,8 +106,7 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth",
-   "mandatory_depends_on": "eval:(!frappe.user_roles.includes(\"Help-desk member\") || frappe.user_roles.includes(\"Administrator\"))"
+   "label": "Date of birth"
   },
   {
    "fieldname": "completed_age",
@@ -207,8 +206,7 @@
    "fieldname": "has_anyone_from_your_family_visisted_before",
    "fieldtype": "Select",
    "label": "Has anyone from your family visited before?",
-   "options": "Yes\nNo",
-   "reqd": 1
+   "options": "Yes\nNo"
   },
   {
    "fieldname": "tab_2_tab",
@@ -403,7 +401,6 @@
    "fieldname": "help_desk",
    "fieldtype": "Link",
    "label": "Name of Help-desk",
-   "mandatory_depends_on": "eval:(!frappe.user_roles.includes(\"Help-desk member\") || frappe.user_roles.includes(\"Administrator\"))",
    "options": "Help Desk"
   },
   {
@@ -532,7 +529,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-10 21:56:57.187015",
+ "modified": "2024-03-10 22:00:23.877296",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
