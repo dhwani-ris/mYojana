@@ -397,7 +397,6 @@
    "fieldname": "single_window",
    "fieldtype": "Link",
    "label": "Single Window",
-   "mandatory_depends_on": "eval:(!frappe.user_roles.includes(\"Help-desk member\") || frappe.user_roles.includes(\"Administrator\"))",
    "options": "Single Window"
   },
   {
@@ -533,7 +532,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-10 21:15:28.296980",
+ "modified": "2024-03-10 21:56:57.187015",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

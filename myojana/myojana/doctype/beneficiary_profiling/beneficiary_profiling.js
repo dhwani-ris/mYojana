@@ -17,7 +17,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
     // check alternate mobile number digits
     if (frm.doc.alternate_contact_number || frm.doc.contact_number) {
       const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
-      if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number != '') {
+      if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
         frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
       }
       if (!indianPhoneNumberRegex.test(frm.doc.contact_number)) {
