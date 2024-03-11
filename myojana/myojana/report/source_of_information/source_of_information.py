@@ -25,16 +25,16 @@ def execute(filters=None):
         condition_str = f"{condition_str}"
     else:
         condition_str = "1=1"
-    print("condition_str", condition_str)
+    # print("condition_str", condition_str)
     sql_query = f"""
     SELECT
-        source_of_information,
+        COALESCE(NULLIF(source_of_information, ''), 'Unknown') as source_of_information,
         COUNT(name) AS count
     FROM
         `tabBeneficiary Profiling`
     WHERE {condition_str}
     GROUP BY
-        source_of_information
+        COALESCE(NULLIF(source_of_information, ''), 'Unknown');
 """
     
     data = frappe.db.sql(sql_query, as_dict=True)
