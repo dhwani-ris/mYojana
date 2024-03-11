@@ -1,7 +1,7 @@
 let response;
 var common_operators = ["=", "!="]
 let columns;
-let current_page;
+let current_page = 1;
 var field_types = {
     "Date": [...common_operators, ">", "<", ">=", "<="],
     "Int": [...common_operators, ">", "<", ">=", "<="],
@@ -237,7 +237,7 @@ const render_table = async (frm) => {
         total_page = Math.ceil((response?.count.total/100));
     }
     page_list = `<li class="page-item">
-    <a class="page-link" href="#">
+    <a class="page-link" id="previous-page">
         <span>&laquo;</span>
         <span class="sr-only">Previous</span>
     </a>
@@ -248,7 +248,7 @@ const render_table = async (frm) => {
     }
     page_list = page_list +`
     <li class="page-item">
-    <a class="page-link" href="#">
+    <a class="page-link" id="next-page"">
         <span>&raquo;</span>
         <span class="sr-only">Next</span>
     </a>
@@ -262,10 +262,20 @@ const render_table = async (frm) => {
         columns: tableConf.columns,
         serialNoColumn: false
     });
+    // next page on pagination
+    document.getElementById('next-page').onclick =()=>{
+        current_page +=1
+        console.log(current_page)
+    }
+    // previous page of pagination
+    document.getElementById("previous-page").onclick =()=>{
+        current_page -=1
+        console.log(current_page)
+    }
     const elements = document.querySelectorAll('.page-value');
     elements.forEach(element => {
     element.addEventListener('click',async function(event) {
-        current_page = event.target.innerText;
+        current_page = Number(event.target.innerText);
         let active_page = Number(event.target.innerText)
         const start = (active_page > 1 ? ((active_page *(100)) - 100) : 0)
         response = await get_ben_list(frm, ['name', ...columns],[],start,100)
