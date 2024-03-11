@@ -28,14 +28,14 @@ def execute(filters=None):
 	
 	sql_query = f"""
 		SELECT
-			gender as gender,
-			COUNT(gender) as count
+			COALESCE(NULLIF(gender, ''), 'Unknown') as gender,
+			COUNT(*) as count
 		FROM
 			`tabBeneficiary Profiling`
 		WHERE
-		1=1 {condition_str}
+			1=1 {condition_str}
 		GROUP BY
-		gender;
+			COALESCE(NULLIF(gender, ''), 'Unknown');
 	"""
 	data = frappe.db.sql(sql_query, as_dict=True)
 	return columns, data

@@ -10,7 +10,7 @@
  "is_standard": "Yes",
  "json": "{}",
  "letterhead": null,
- "modified": "2024-01-05 11:37:13.392211",
+ "modified": "2024-03-11 20:16:17.783565",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Gender composition",
@@ -34,6 +34,9 @@
   },
   {
    "role": "MIS executive"
+  },
+  {
+   "role": "All"
   }
  ]
 }
