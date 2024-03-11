@@ -102,7 +102,7 @@ class BeneficiaryProfiling(Document):
 			# 		return
 	def after_insert(self):
 		print("Ben[after_insert]")
-		if not self.single_window:
+		if not self.single_window and "Administrator" not in frappe.get_roles(frappe.session.user):
 			single_window = LoginUser.get_single_windows()
 			self.single_window = single_window
 			frappe.db.set_value('Beneficiary Profiling', self.name, 'single_window', single_window, update_modified=False)
