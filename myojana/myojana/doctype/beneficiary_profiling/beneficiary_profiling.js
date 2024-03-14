@@ -156,12 +156,6 @@ frappe.ui.form.on("Beneficiary Profiling",{
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
-    // phoneno defult +91-
-    // if (frm.doc?.alternate_contact_number?.length < 10) {
-    //   frm.doc.alternate_contact_number = '+91-'
-    //   frm.refresh_fields("alternate_contact_number")
-    // }
-    // add family member button 
     if (!frm.is_new()) {
       frm.add_custom_button(__('Add family members'), function () {
         frappe.route_options = {
@@ -173,7 +167,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       }, __());
     }
     // set dropdown value by ordering
-    frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
+    // frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
 
     // hide delete options for helpdesk and csc member
     apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
@@ -189,7 +183,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       }
     }
 
-    extend_options_length(frm, ["single_window", "help_desk",
+    extend_options_length(frm, ["single_window", "help_desk","religion", "caste_category","marital_status", "current_house_type",
       "source_of_information", "current_house_type", "state", "district", "occupational_category",
       "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"])
     frm.set_query('religion', () => {
@@ -306,7 +300,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       frm.set_value('date_of_visit', frappe.datetime.get_today());
     }
     // Hide Advance search options
-    hide_advance_search(frm, ["state", "district", "ward", "state_of_origin",
+    hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status",
       "district_of_origin", "block", "gender", "current_occupation",
       , "social_vulnerable_category", "pwd_category", "family",
       "help_desk", "single_window", "source_of_information", "occupational_category",

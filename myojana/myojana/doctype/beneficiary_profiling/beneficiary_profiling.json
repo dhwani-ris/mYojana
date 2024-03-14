@@ -135,15 +135,15 @@
   },
   {
    "fieldname": "caste_category",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Caste category",
-   "options": "\nGeneral\nEWS\nOBC\nSC\nST\nDidn't know\nRefused to share"
+   "options": "Caste category"
   },
   {
    "fieldname": "religion",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Religion",
-   "options": "\nHindu\nMuslim\nSikh\nChristian\nBuddhist\nJain"
+   "options": "Religion"
   },
   {
    "fieldname": "education",
@@ -159,9 +159,9 @@
   },
   {
    "fieldname": "marital_status",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Marital status",
-   "options": "\nChild\nSingle (unmarried)\nMarried\nDivorced\nWidow\nSeparated\nAbandoned"
+   "options": "Marital status"
   },
   {
    "depends_on": "eval:doc.marital_status ==\"Married\"",
@@ -226,8 +226,9 @@
   },
   {
    "fieldname": "current_house_type",
-   "fieldtype": "Select",
-   "label": "Current house type"
+   "fieldtype": "Link",
+   "label": "Current house type",
+   "options": "House Types"
   },
   {
    "fieldname": "state",
@@ -531,7 +532,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-11 20:08:22.764716",
+ "modified": "2024-03-14 11:38:02.269592",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
