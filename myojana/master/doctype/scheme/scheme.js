@@ -313,11 +313,6 @@ frappe.ui.form.on("Scheme", {
     async onload(frm){
     },
     before_save: async function (frm) {
-        if (frm.doc.rules.length > 0) {
-            frm.set_value('rules_status', 'Rules')
-        } else {
-            frm.set_value('rules_status', 'No rules')
-        }
     },
     type_of_the_scheme: function (frm) {
         if (frm.doc.type_of_the_scheme != "State") {

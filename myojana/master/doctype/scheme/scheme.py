@@ -8,7 +8,11 @@ from frappe import _
 import frappe
 class Scheme(Document):
 	def validate(self):
-		pass
+		# validation for rules is set or not
+		if len(self.rules):
+			self.rules_status = "Rules"
+		else:
+			self.rules_status = "No rules"
 
 	def evaluate_expression(input_dict, expression):
 		if not re.match(r"^[a-zA-Z0-9\s()+\-/*%&|=!<>]*$", expression):
