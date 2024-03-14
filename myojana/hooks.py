@@ -22,7 +22,15 @@ fixtures = [
     "House Types",
     "Gender",
     "Role",
-    "Name of the Department"
+    "Name of the Department",
+    "State",
+    "District",
+    "Block",
+    "Village",
+    "Scheme",
+    "Camp",
+    "Proof of Disability",
+    "Milestone category"
 ]
 # Includes in <head>
 # ------------------
