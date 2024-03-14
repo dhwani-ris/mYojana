@@ -8,21 +8,21 @@ app_license = "mit"
 
 fixtures = [
     "Custom HTML Block",
-    # "Caste category",
-    # "Religion",
-    # "Education",
-    # "Marital status",
-    # "Social vulnerable category",
-    # "PWD master",
-    # "ID Document",
-    # "Occupation",
-    # "Occupational Category",
+    "Caste category",
+    "Religion",
+    "Education",
+    "Marital status",
+    "Social vulnerable category",
+    "PWD master",
+    "ID Document",
+    "Occupation",
+    "Occupational Category",
     "Role Profile",
-    # "Source Of Information",
-    # "House Types",
-    # "Gender",
-    # "Role",
-    # "Name of the Department"
+    "Source Of Information",
+    "House Types",
+    "Gender",
+    "Role",
+    "Name of the Department"
 ]
 # Includes in <head>
 # ------------------

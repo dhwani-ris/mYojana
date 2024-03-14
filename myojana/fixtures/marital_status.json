@@ -1,0 +1,51 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Abandoned",
+  "modified": "2024-03-14 11:31:47.130781",
+  "name": "Abandoned"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Child",
+  "modified": "2024-03-14 11:31:47.150679",
+  "name": "Child"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Divorced",
+  "modified": "2024-03-14 11:31:47.161831",
+  "name": "Divorced"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Married",
+  "modified": "2024-03-14 11:31:47.169990",
+  "name": "Married"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Separated",
+  "modified": "2024-03-14 11:31:47.182099",
+  "name": "Separated"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Single (unmarried)",
+  "modified": "2024-03-14 11:31:47.192718",
+  "name": "Single (unmarried)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Marital status",
+  "marital_status": "Widow",
+  "modified": "2024-03-14 11:31:47.200665",
+  "name": "Widow"
+ }
+]
