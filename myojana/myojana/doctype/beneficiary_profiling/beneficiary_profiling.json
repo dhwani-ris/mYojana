@@ -147,9 +147,9 @@
   },
   {
    "fieldname": "education",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Education",
-   "options": "\nChild\nIlliterate\nLiterate\nKindergarten\nPrimary (1-5)\nLower secondary (6-8)\nSecondary (9-10)\nHigher secondary (11-12)\nDiploma\nITI/Technical\nUnder graduate\nGraduate\nPost graduate"
+   "options": "Education"
   },
   {
    "fieldname": "current_occupation",
@@ -532,7 +532,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-14 11:38:02.269592",
+ "modified": "2024-03-14 13:35:12.906025",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
