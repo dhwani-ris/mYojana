@@ -13,18 +13,20 @@
   {
    "fieldname": "field",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Field"
   },
   {
    "fieldname": "depends_on_field",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Depends on field"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-01-28 16:56:05.023257",
+ "modified": "2024-03-15 12:11:54.625401",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "ChildFieldDependecyConfig",
