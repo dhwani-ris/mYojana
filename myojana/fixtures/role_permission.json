@@ -1,0 +1,34 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Role Permission",
+  "filter_key": "state",
+  "modified": "2024-03-18 18:09:08.255737",
+  "name": "Admin",
+  "role": "Admin"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Permission",
+  "filter_key": "single_window",
+  "modified": "2024-03-18 16:45:13.153731",
+  "name": "CSC Member",
+  "role": "CSC Member"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Permission",
+  "filter_key": "single_window",
+  "modified": "2024-03-18 16:45:23.679205",
+  "name": "Help-desk member",
+  "role": "Help-desk member"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Permission",
+  "filter_key": "single_window",
+  "modified": "2024-03-18 21:16:22.845425",
+  "name": "MIS executive",
+  "role": "MIS executive"
+ }
+]
