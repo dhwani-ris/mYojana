@@ -1,11 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:role",
  "creation": "2024-03-18 12:37:23.257676",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "role"
+  "role",
+  "filter_key"
  ],
  "fields": [
   {
@@ -15,16 +17,25 @@
    "label": "Role",
    "link_filters": "[[{\"fieldname\":\"role\",\"field_option\":\"Role\"},\"is_custom\",\"=\",1]]",
    "options": "Role",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Filter key must be available in the 'Myojana User' doctype",
+   "fieldname": "filter_key",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Filter key",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
- "issingle": 1,
  "links": [],
- "modified": "2024-03-18 13:17:12.902550",
+ "modified": "2024-03-18 16:42:43.929165",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Role Permission",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
