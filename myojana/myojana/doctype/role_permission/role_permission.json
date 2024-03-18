@@ -13,6 +13,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Role",
+   "link_filters": "[[{\"fieldname\":\"role\",\"field_option\":\"Role\"},\"is_custom\",\"=\",1]]",
    "options": "Role",
    "reqd": 1
   }
@@ -20,7 +21,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-03-18 12:38:12.697170",
+ "modified": "2024-03-18 13:17:12.902550",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Role Permission",
