@@ -8,13 +8,13 @@ from myojana.utils.login_user_details import LoginUser
 from datetime import datetime, timedelta
 
 class BeneficiaryProfiling(Document):
-	def printKeys(obj, f=False):
-		if f and obj.get('_doc_before_save', None):
-			for key in obj.get('_doc_before_save').__dict__.keys():
-				print(key,obj.get(key, None))
-		else:
-			for key in obj.__dict__.keys():
-				print(key,obj.get(key, None))
+	# def printKeys(obj, f=False):
+	# 	if f and obj.get('_doc_before_save', None):
+	# 		for key in obj.get('_doc_before_save').__dict__.keys():
+	# 			print(key,obj.get(key, None))
+	# 	else:
+	# 		for key in obj.__dict__.keys():
+	# 			print(key,obj.get(key, None))
 # find family and get family function
 	def get_family(contact_number):
 		docs = frappe.db.get_list(doctype='Primary Member', filters={'name':contact_number}, fields=["name", "name_of_head_of_family",'name_of_head_of_family.name_of_the_beneficiary as name_of_the_beneficiary'])
