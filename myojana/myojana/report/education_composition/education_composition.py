@@ -28,8 +28,11 @@ def execute(filters=None):
 		
 	sql_query = f"""
 		SELECT
-			COALESCE(t2.education, 'Unknown') AS education,
-			COUNT(t1.education) AS count
+    CASE
+        WHEN COALESCE(t1.education, '') = '' THEN 'Unknown'
+        ELSE COALESCE(t2.education, 'Unknown')
+		END AS education,
+		COUNT(*) AS count
 		FROM
 			`tabBeneficiary Profiling` AS t1
 		LEFT JOIN
