@@ -9,7 +9,7 @@
  "idx": 10,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-13 11:16:03.264505",
+ "modified": "2024-03-19 08:29:34.234906",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "State of origin",
@@ -20,19 +20,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "System Manager"
-  },
-  {
-   "role": "Admin"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
+   "role": "All"
   }
  ]
 }

@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-06 17:50:46.848886",
+ "modified": "2024-03-19 08:01:11.308362",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiaries with Bank Account",
@@ -33,6 +33,9 @@
   },
   {
    "role": "MIS executive"
+  },
+  {
+   "role": "All"
   }
  ]
 }

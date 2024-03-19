@@ -9,7 +9,7 @@
  "idx": 2,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-04 20:59:09.441962",
+ "modified": "2024-03-19 08:00:23.749177",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Total sanctioned demands",
@@ -33,6 +33,9 @@
   },
   {
    "role": "MIS executive"
+  },
+  {
+   "role": "All"
   }
  ]
 }

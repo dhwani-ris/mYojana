@@ -9,7 +9,7 @@
  "idx": 6,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-04 20:38:10.054445",
+ "modified": "2024-03-19 07:46:54.375668",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Total ascertaining demands",
@@ -33,6 +33,9 @@
   },
   {
    "role": "MIS executive"
+  },
+  {
+   "role": "All"
   }
  ]
 }

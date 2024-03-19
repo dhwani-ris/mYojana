@@ -51,7 +51,7 @@
  "is_hidden": 0,
  "label": "Beneficiaries",
  "links": [],
- "modified": "2024-02-15 17:21:40.138732",
+ "modified": "2024-03-19 07:21:02.264518",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiaries",
@@ -83,19 +83,10 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
    "role": "System Manager"
+  },
+  {
+   "role": "All"
   }
  ],
  "sequence_id": 1.0,

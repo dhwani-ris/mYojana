@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-16 10:35:56.495565",
+ "modified": "2024-03-19 08:34:01.325997",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "District-wise demands",
@@ -20,19 +20,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "System Manager"
+   "role": "All"
   }
  ]
 }

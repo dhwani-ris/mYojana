@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-02-09 14:33:10.148888",
+ "modified": "2024-03-19 08:23:01.122244",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Camps-wise beneficiaries",
@@ -33,6 +33,9 @@
   },
   {
    "role": "Help-desk member"
+  },
+  {
+   "role": "All"
   }
  ]
 }

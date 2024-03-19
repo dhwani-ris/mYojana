@@ -9,7 +9,7 @@
  "idx": 34,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-13 11:16:34.667190",
+ "modified": "2024-03-19 08:30:44.302249",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Education composition",
@@ -20,19 +20,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "System Manager"
-  },
-  {
-   "role": "Admin"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
+   "role": "All"
   }
  ]
 }

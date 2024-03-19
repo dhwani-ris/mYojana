@@ -10,7 +10,7 @@
  "is_standard": "Yes",
  "json": "{}",
  "letterhead": null,
- "modified": "2024-01-16 10:31:09.622544",
+ "modified": "2024-03-19 08:33:38.375467",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "State-wise demands",
@@ -21,19 +21,7 @@
  "report_type": "Script Report",
  "roles": [
   {
-   "role": "Admin"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "System Manager"
+   "role": "All"
   }
  ]
 }
