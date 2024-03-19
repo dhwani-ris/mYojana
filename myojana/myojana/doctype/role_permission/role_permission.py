@@ -8,8 +8,7 @@ from frappe.model.document import Document
 
 class RolePermission(Document):
 
-	def after_insert(self):
-		# pass
-		frappe.cache().flush()
-		# return frappe.throw("hello ss")
+    def after_insert(self):
+        if hasattr(frappe.cache(), "flush"):
+            frappe.cache().flush()
 		
