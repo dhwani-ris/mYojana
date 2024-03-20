@@ -32,21 +32,6 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-03-20 16:28:19.933531",
-  "name": "Help-desk member",
-  "role_profile": "Sub-Centre",
-  "roles": [
-   {
-    "parent": "Help-desk member",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
-    "role": "Sub-Centre"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
   "modified": "2023-10-16 10:42:49.385656",
   "name": "Admin",
   "role_profile": "Admin",
@@ -56,6 +41,21 @@
     "parentfield": "roles",
     "parenttype": "Role Profile",
     "role": "Admin"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-03-20 16:38:14.015008",
+  "name": "Sub-Centre",
+  "role_profile": "Sub-Centre",
+  "roles": [
+   {
+    "parent": "Sub-Centre",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Sub-Centre"
    }
   ]
  }
