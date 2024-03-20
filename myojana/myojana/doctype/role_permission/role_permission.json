@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "role",
-  "filter_key"
+  "select_filter_key_from_beneficary",
+  "select_filter_key_from_user_tables"
  ],
  "fields": [
   {
@@ -21,17 +22,19 @@
    "unique": 1
   },
   {
-   "description": "Filter key must be available in the 'Myojana User' doctype",
-   "fieldname": "filter_key",
+   "fieldname": "select_filter_key_from_beneficary",
    "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Filter key",
-   "reqd": 1
+   "label": "Select filter key from Beneficary"
+  },
+  {
+   "fieldname": "select_filter_key_from_user_tables",
+   "fieldtype": "Select",
+   "label": "Select filter key from User Tables"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-18 17:32:18.079466",
+ "modified": "2024-03-20 10:26:14.510702",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Role Permission",

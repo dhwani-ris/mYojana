@@ -3,32 +3,45 @@
   "docstatus": 0,
   "doctype": "Role Permission",
   "filter_key": "state",
-  "modified": "2024-03-18 18:09:08.255737",
+  "modified": "2024-03-20 07:00:02.412539",
+  "name": "test role",
+  "role": "test role",
+  "select_myojana_user_fields": "state"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Permission",
+  "filter_key": "state",
+  "modified": "2024-03-20 07:27:43.215610",
   "name": "Admin",
-  "role": "Admin"
+  "role": "Admin",
+  "select_myojana_user_fields": "state"
  },
  {
   "docstatus": 0,
   "doctype": "Role Permission",
   "filter_key": "single_window",
-  "modified": "2024-03-18 16:45:13.153731",
+  "modified": "2024-03-20 07:27:30.347452",
   "name": "CSC Member",
-  "role": "CSC Member"
+  "role": "CSC Member",
+  "select_myojana_user_fields": "single_window"
  },
  {
   "docstatus": 0,
   "doctype": "Role Permission",
   "filter_key": "single_window",
-  "modified": "2024-03-18 16:45:23.679205",
+  "modified": "2024-03-20 07:27:36.800308",
   "name": "Help-desk member",
-  "role": "Help-desk member"
+  "role": "Help-desk member",
+  "select_myojana_user_fields": "single_window"
  },
  {
   "docstatus": 0,
   "doctype": "Role Permission",
   "filter_key": "single_window",
-  "modified": "2024-03-18 21:16:22.845425",
+  "modified": "2024-03-20 07:27:49.095296",
   "name": "MIS executive",
-  "role": "MIS executive"
+  "role": "MIS executive",
+  "select_myojana_user_fields": "single_window"
  }
 ]

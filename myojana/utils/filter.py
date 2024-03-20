@@ -9,7 +9,7 @@ class Filter:
             role_list = frappe.db.get_list('Role Permission')
             for permission in role_list:
                 if permission.name in frappe.get_roles(frappe.session.user):
-                    cond_str = frappe.db.get_value('Role Permission', permission.name, 'filter_key')
+                    cond_str = frappe.db.get_value('Role Permission', permission.name, 'select_filter_key_from_beneficary')
             value = Cache.get_csc()
             if list is False:
                 return f"{cond_str} = '{value}'"

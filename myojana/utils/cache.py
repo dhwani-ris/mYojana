@@ -12,7 +12,7 @@ class  Cache:
                     usr = frappe.get_doc("Myojana User", user)
                     for permission in role_list:
                         if permission.name in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-                            filter_key = frappe.db.get_value('Role Permission', permission.name, 'filter_key')
+                            filter_key = frappe.db.get_value('Role Permission', permission.name, 'select_filter_key_from_user_tables')
                             filter_value = getattr(usr, filter_key)
                             frappe.cache().set_value('filter-'+user, filter_value)
                         else:

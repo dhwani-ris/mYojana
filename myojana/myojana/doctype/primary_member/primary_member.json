@@ -12,6 +12,8 @@
   "name_of_parents",
   "phone_no",
   "state",
+  "district",
+  "ward",
   "single_window",
   "help_desk"
  ],
@@ -56,11 +58,25 @@
    "fieldtype": "Link",
    "label": "Help desk",
    "options": "Help Desk"
+  },
+  {
+   "fetch_from": "name_of_head_of_family.district",
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fetch_from": "name_of_head_of_family.ward",
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "label": "Ward",
+   "options": "Block"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-19 07:44:10.421694",
+ "modified": "2024-03-20 10:39:38.972977",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",
