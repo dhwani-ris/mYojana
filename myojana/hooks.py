@@ -30,7 +30,9 @@ fixtures = [
     "Scheme",
     "Camp",
     "Proof of Disability",
-    "Milestone category"
+    "Milestone category",
+    "Centre",
+    "Sub Centre"
 ]
 # Includes in <head>
 # ------------------

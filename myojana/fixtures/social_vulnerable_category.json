@@ -17,8 +17,8 @@
   "docstatus": 0,
   "doctype": "Social vulnerable category",
   "modified": "2024-03-14 11:58:51.908651",
-  "name": "Co-morbid सह  रुग्न",
-  "social_vulnerable_category": "Co-morbid सह  रुग्न"
+  "name": "Co-morbid",
+  "social_vulnerable_category": "Co-morbid"
  },
  {
   "docstatus": 0,
@@ -40,13 +40,6 @@
   "modified": "2024-03-14 11:58:51.934200",
   "name": "Homeless",
   "social_vulnerable_category": "Homeless"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.940932",
-  "name": "Homeless person",
-  "social_vulnerable_category": "Homeless person"
  },
  {
   "docstatus": 0,

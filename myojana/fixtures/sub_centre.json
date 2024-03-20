@@ -1,0 +1,35 @@
+[
+ {
+  "address": null,
+  "centre": "S07-Centre 1",
+  "date_of_formation": "2024-03-20",
+  "docstatus": 0,
+  "doctype": "Sub Centre",
+  "modified": "2024-03-20 14:11:19.180138",
+  "name": "S07-S07-Centre 1-Sub centre 1",
+  "state": "S07",
+  "sub_centre_name": "Sub centre 1"
+ },
+ {
+  "address": null,
+  "centre": "S07-Centre 1",
+  "date_of_formation": "2024-03-20",
+  "docstatus": 0,
+  "doctype": "Sub Centre",
+  "modified": "2024-03-20 14:11:24.839126",
+  "name": "S07-S07-Centre 1-Sub centre 2",
+  "state": "S07",
+  "sub_centre_name": "Sub centre 2"
+ },
+ {
+  "address": null,
+  "centre": "S07-Centre 2",
+  "date_of_formation": "2024-03-20",
+  "docstatus": 0,
+  "doctype": "Sub Centre",
+  "modified": "2024-03-20 14:13:22.985175",
+  "name": "S07-S07-Centre 2-Sub centre 3",
+  "state": "S07",
+  "sub_centre_name": "Sub centre 3"
+ }
+]
