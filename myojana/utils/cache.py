@@ -14,7 +14,7 @@ class  Cache:
                 frappe.cache().set_value('filter-'+user, usr.state)
             elif "CSC Member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
                 frappe.cache().set_value('filter-'+user, usr.centre)
-            elif "Help-desk member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
+            elif "Sub-Centre" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
                 frappe.cache().set_value('filter-'+user, usr.centre)
             elif "MIS executive" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
                 frappe.cache().set_value('filter-'+user, usr.centre)

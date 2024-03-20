@@ -1,38 +1,38 @@
 {
- "add_total_row": 0,
- "columns": [],
- "creation": "2024-02-09 14:32:34.432688",
- "disabled": 0,
- "docstatus": 0,
- "doctype": "Report",
- "filters": [],
- "idx": 0,
- "is_standard": "Yes",
- "letterhead": null,
- "modified": "2024-02-09 14:33:10.148888",
- "modified_by": "Administrator",
- "module": "myojana",
- "name": "Camps-wise beneficiaries",
- "owner": "Administrator",
- "prepared_report": 0,
- "ref_doctype": "Camp",
- "report_name": "Camps-wise beneficiaries",
- "report_type": "Script Report",
- "roles": [
-  {
-   "role": "System Manager"
-  },
-  {
-   "role": "Admin"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  }
- ]
+    "add_total_row": 0,
+    "columns": [],
+    "creation": "2024-02-09 14:32:34.432688",
+    "disabled": 0,
+    "docstatus": 0,
+    "doctype": "Report",
+    "filters": [],
+    "idx": 0,
+    "is_standard": "Yes",
+    "letterhead": null,
+    "modified": "2024-02-09 14:33:10.148888",
+    "modified_by": "Administrator",
+    "module": "myojana",
+    "name": "Camps-wise beneficiaries",
+    "owner": "Administrator",
+    "prepared_report": 0,
+    "ref_doctype": "Camp",
+    "report_name": "Camps-wise beneficiaries",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Admin"
+        },
+        {
+            "role": "MIS executive"
+        },
+        {
+            "role": "CSC Member"
+        },
+        {
+            "role": "Sub-Centre"
+        }
+    ]
 }

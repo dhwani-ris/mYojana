@@ -9,171 +9,171 @@
     "editable_grid": 1,
     "engine": "InnoDB",
     "field_order": [
-     "basic_details_tab",
-     "type_of_the_scheme",
-     "state",
-     "name_of_the_scheme",
-     "milestone",
-     "how_many_times_can_this_scheme_be_availed",
-     "column_break_pwlq",
-     "name_of_department",
-     "department_urlwebsite",
-     "information_materials",
-     "scheme_objectives_and_documents_tab",
-     "objective_of_the_scheme",
-     "docs_required_to_apply",
-     "comments_remarks",
-     "rules_tab",
-     "rules",
-     "note",
-     "rules_status",
-     "beneficiaries_tab",
-     "section_break_torq",
-     "table",
-     "pagination",
-     "summary"
+        "basic_details_tab",
+        "type_of_the_scheme",
+        "state",
+        "name_of_the_scheme",
+        "milestone",
+        "how_many_times_can_this_scheme_be_availed",
+        "column_break_pwlq",
+        "name_of_department",
+        "department_urlwebsite",
+        "information_materials",
+        "scheme_objectives_and_documents_tab",
+        "objective_of_the_scheme",
+        "docs_required_to_apply",
+        "comments_remarks",
+        "rules_tab",
+        "rules",
+        "note",
+        "rules_status",
+        "beneficiaries_tab",
+        "section_break_torq",
+        "table",
+        "pagination",
+        "summary"
     ],
     "fields": [
-     {
-      "fieldname": "name_of_department",
-      "fieldtype": "Link",
-      "label": "Name of department",
-      "options": "Name of the Department"
-     },
-     {
-      "fieldname": "basic_details_tab",
-      "fieldtype": "Tab Break",
-      "label": "Basic Details"
-     },
-     {
-      "fieldname": "type_of_the_scheme",
-      "fieldtype": "Select",
-      "label": "Type of the scheme",
-      "options": "\nCentral\nState",
-      "reqd": 1
-     },
-     {
-      "depends_on": "eval:doc.type_of_the_scheme==\"State\"",
-      "fieldname": "state",
-      "fieldtype": "Link",
-      "label": "State",
-      "mandatory_depends_on": "eval:doc.type_of_the_scheme==\"State\"",
-      "options": "State"
-     },
-     {
-      "fieldname": "name_of_the_scheme",
-      "fieldtype": "Data",
-      "in_global_search": 1,
-      "in_list_view": 1,
-      "in_standard_filter": 1,
-      "label": "Name of the scheme",
-      "reqd": 1,
-      "unique": 1
-     },
-     {
-      "fieldname": "objective_of_the_scheme",
-      "fieldtype": "Long Text",
-      "label": "Objectives and details of the scheme",
-      "options": "Milestone category"
-     },
-     {
-      "fieldname": "milestone",
-      "fieldtype": "Link",
-      "label": "Milestone category",
-      "options": "Milestone category",
-      "reqd": 1
-     },
-     {
-      "fieldname": "department_urlwebsite",
-      "fieldtype": "Data",
-      "label": "Department URL/Website"
-     },
-     {
-      "fieldname": "information_materials",
-      "fieldtype": "Attach",
-      "label": "Information materials"
-     },
-     {
-      "fieldname": "rules_tab",
-      "fieldtype": "Tab Break",
-      "label": "Rules"
-     },
-     {
-      "fieldname": "rules",
-      "fieldtype": "Table",
-      "options": "Rule Engine Child"
-     },
-     {
-      "fieldname": "column_break_pwlq",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "scheme_objectives_and_documents_tab",
-      "fieldtype": "Tab Break",
-      "label": "Scheme objectives and documents"
-     },
-     {
-      "fieldname": "docs_required_to_apply",
-      "fieldtype": "Long Text",
-      "label": "Documents required to apply",
-      "options": "Milestone category"
-     },
-     {
-      "fieldname": "comments_remarks",
-      "fieldtype": "Long Text",
-      "label": "Comments/remarks",
-      "options": "Milestone category"
-     },
-     {
-      "fieldname": "beneficiaries_tab",
-      "fieldtype": "Tab Break",
-      "label": "Eligible beneficiaries"
-     },
-     {
-      "fieldname": "table",
-      "fieldtype": "HTML",
-      "label": "Table",
-      "options": "<div class=\"row\">\n<div class=\"col-md-2\">\n <label for=\"name_of_the_beneficiary\">Name of beneficiary</label>\n<input type=\"text\" id=\"name_of_the_beneficiary\" class=\"form-control\"></div>\n<div class=\"col-md-2\">\n <label for=\"name_of_parents\">Primary member</label>\n            <input type=\"text\" id=\"name_of_parents\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"contact_number\">Phone number</label>\n            <input type=\"text\" id=\"contact_number\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"block_name\">Block</label>\n            <input type=\"text\" id=\"block_name\" class=\"form-control\">\n\t\t\t\n        </div>\n        <div class=\"col-md-2\">\n        <br>\n        <button class=\"btn btn-primary btn-sm primary-action t-4\" id=\"export-exel\"><span>E<span class=\"alt-underline\">x</span>port</span></button>\n        </div>\n    </div>\n<br>\n<div class=\"row\" id=\"eligible_beneficiaries\"></div>"
-     },
-     {
-      "fieldname": "note",
-      "fieldtype": "HTML",
-      "label": "Note",
-      "options": "<h6 style=\"\">Rules:</h6><div id=\"query\" style=\"background-color: #f7f7f7; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px; white-space: pre-wrap; font-family: Courier New, Courier, monospace;\"></div><div style=\"\"><div style=\"\"><div id=\"note\" style=\"\">Please note that if you leave a group empty,\nit will be treated as a single group. </div></div></div>"
-     },
-     {
-      "fieldname": "how_many_times_can_this_scheme_be_availed",
-      "fieldtype": "Select",
-      "label": "How many times can this scheme be availed?",
-      "options": "\nOnce\nInfinite times",
-      "reqd": 1
-     },
-     {
-      "fieldname": "summary",
-      "fieldtype": "HTML",
-      "label": "Summary",
-      "options": "<div id=\"parent\">\n<div id=\"total\"></div>\n<div id=\"total_family\"></div>\n<div id=\"block_count\"></div>\n<div id=\"settlement_count\"></div></div>"
-     },
-     {
-      "fieldname": "section_break_torq",
-      "fieldtype": "Section Break"
-     },
-     {
-      "default": "No rules",
-      "fieldname": "rules_status",
-      "fieldtype": "Select",
-      "hidden": 1,
-      "in_list_view": 1,
-      "in_standard_filter": 1,
-      "label": "Rules status",
-      "options": "\nRules\nNo rules"
-     },
-     {
-      "fieldname": "pagination",
-      "fieldtype": "HTML",
-      "label": "Pagination",
-      "options": "<div id=\"pagination\" class=\"mt-1\">\n        <nav>\n            <ul class=\"pagination\" id=\"page_list\">\n\n            </ul>\n        </nav>\n</div>\n"
-     }
+        {
+            "fieldname": "name_of_department",
+            "fieldtype": "Link",
+            "label": "Name of department",
+            "options": "Name of the Department"
+        },
+        {
+            "fieldname": "basic_details_tab",
+            "fieldtype": "Tab Break",
+            "label": "Basic Details"
+        },
+        {
+            "fieldname": "type_of_the_scheme",
+            "fieldtype": "Select",
+            "label": "Type of the scheme",
+            "options": "\nCentral\nState",
+            "reqd": 1
+        },
+        {
+            "depends_on": "eval:doc.type_of_the_scheme==\"State\"",
+            "fieldname": "state",
+            "fieldtype": "Link",
+            "label": "State",
+            "mandatory_depends_on": "eval:doc.type_of_the_scheme==\"State\"",
+            "options": "State"
+        },
+        {
+            "fieldname": "name_of_the_scheme",
+            "fieldtype": "Data",
+            "in_global_search": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Name of the scheme",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "objective_of_the_scheme",
+            "fieldtype": "Long Text",
+            "label": "Objectives and details of the scheme",
+            "options": "Milestone category"
+        },
+        {
+            "fieldname": "milestone",
+            "fieldtype": "Link",
+            "label": "Milestone category",
+            "options": "Milestone category",
+            "reqd": 1
+        },
+        {
+            "fieldname": "department_urlwebsite",
+            "fieldtype": "Data",
+            "label": "Department URL/Website"
+        },
+        {
+            "fieldname": "information_materials",
+            "fieldtype": "Attach",
+            "label": "Information materials"
+        },
+        {
+            "fieldname": "rules_tab",
+            "fieldtype": "Tab Break",
+            "label": "Rules"
+        },
+        {
+            "fieldname": "rules",
+            "fieldtype": "Table",
+            "options": "Rule Engine Child"
+        },
+        {
+            "fieldname": "column_break_pwlq",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "scheme_objectives_and_documents_tab",
+            "fieldtype": "Tab Break",
+            "label": "Scheme objectives and documents"
+        },
+        {
+            "fieldname": "docs_required_to_apply",
+            "fieldtype": "Long Text",
+            "label": "Documents required to apply",
+            "options": "Milestone category"
+        },
+        {
+            "fieldname": "comments_remarks",
+            "fieldtype": "Long Text",
+            "label": "Comments/remarks",
+            "options": "Milestone category"
+        },
+        {
+            "fieldname": "beneficiaries_tab",
+            "fieldtype": "Tab Break",
+            "label": "Eligible beneficiaries"
+        },
+        {
+            "fieldname": "table",
+            "fieldtype": "HTML",
+            "label": "Table",
+            "options": "<div class=\"row\">\n<div class=\"col-md-2\">\n <label for=\"name_of_the_beneficiary\">Name of beneficiary</label>\n<input type=\"text\" id=\"name_of_the_beneficiary\" class=\"form-control\"></div>\n<div class=\"col-md-2\">\n <label for=\"name_of_parents\">Primary member</label>\n            <input type=\"text\" id=\"name_of_parents\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"contact_number\">Phone number</label>\n            <input type=\"text\" id=\"contact_number\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"block_name\">Block</label>\n            <input type=\"text\" id=\"block_name\" class=\"form-control\">\n\t\t\t\n        </div>\n        <div class=\"col-md-2\">\n        <br>\n        <button class=\"btn btn-primary btn-sm primary-action t-4\" id=\"export-exel\"><span>E<span class=\"alt-underline\">x</span>port</span></button>\n        </div>\n    </div>\n<br>\n<div class=\"row\" id=\"eligible_beneficiaries\"></div>"
+        },
+        {
+            "fieldname": "note",
+            "fieldtype": "HTML",
+            "label": "Note",
+            "options": "<h6 style=\"\">Rules:</h6><div id=\"query\" style=\"background-color: #f7f7f7; padding: 10px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px; white-space: pre-wrap; font-family: Courier New, Courier, monospace;\"></div><div style=\"\"><div style=\"\"><div id=\"note\" style=\"\">Please note that if you leave a group empty,\nit will be treated as a single group. </div></div></div>"
+        },
+        {
+            "fieldname": "how_many_times_can_this_scheme_be_availed",
+            "fieldtype": "Select",
+            "label": "How many times can this scheme be availed?",
+            "options": "\nOnce\nInfinite times",
+            "reqd": 1
+        },
+        {
+            "fieldname": "summary",
+            "fieldtype": "HTML",
+            "label": "Summary",
+            "options": "<div id=\"parent\">\n<div id=\"total\"></div>\n<div id=\"total_family\"></div>\n<div id=\"block_count\"></div>\n<div id=\"settlement_count\"></div></div>"
+        },
+        {
+            "fieldname": "section_break_torq",
+            "fieldtype": "Section Break"
+        },
+        {
+            "default": "No rules",
+            "fieldname": "rules_status",
+            "fieldtype": "Select",
+            "hidden": 1,
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Rules status",
+            "options": "\nRules\nNo rules"
+        },
+        {
+            "fieldname": "pagination",
+            "fieldtype": "HTML",
+            "label": "Pagination",
+            "options": "<div id=\"pagination\" class=\"mt-1\">\n        <nav>\n            <ul class=\"pagination\" id=\"page_list\">\n\n            </ul>\n        </nav>\n</div>\n"
+        }
     ],
     "index_web_pages_for_search": 1,
     "links": [],
@@ -184,59 +184,59 @@
     "naming_rule": "By fieldname",
     "owner": "Administrator",
     "permissions": [
-     {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "System Manager",
-      "share": 1,
-      "write": 1
-     },
-     {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Admin",
-      "share": 1,
-      "write": 1
-     },
-     {
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "MIS executive",
-      "share": 1
-     },
-     {
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "CSC Member",
-      "share": 1
-     },
-     {
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Help-desk member",
-      "share": 1
-     }
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Admin",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "MIS executive",
+            "share": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "CSC Member",
+            "share": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Sub-Centre",
+            "share": 1
+        }
     ],
     "sort_field": "modified",
     "sort_order": "DESC",
     "states": []
-   }
+}

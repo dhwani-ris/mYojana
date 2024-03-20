@@ -15,7 +15,7 @@ frappe.ui.form.on('Follow Up Child', {
   },
   async follow_up_table_add(frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
-    if (frappe.user_roles.includes("Help-desk member")) {
+    if (frappe.user_roles.includes("Sub-Centre")) {
       let sub_centre = await get_ordered_list("Sub Centre", false)
       // console.log("sub_centre", sub_centre)
       frm.fields_dict.follow_up_table.grid.update_docfield_property("follow", "options", sub_centre);
