@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{state}-{single_window}-{help_desk_name}",
+ "autoname": "format:{state}-{centre}-{help_desk_name}",
  "creation": "2023-12-24 10:10:53.422531",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,7 +10,7 @@
   "help_desk_name",
   "date_of_formation",
   "state",
-  "single_window",
+  "centre",
   "address"
  ],
  "fields": [
@@ -19,14 +19,6 @@
    "fieldtype": "Link",
    "label": "State",
    "options": "State",
-   "reqd": 1
-  },
-  {
-   "fieldname": "single_window",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Single Window",
-   "options": "Single Window",
    "reqd": 1
   },
   {
@@ -45,11 +37,19 @@
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
+  },
+  {
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Centre",
+   "options": "Centre",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-02-07 18:03:30.393596",
+ "modified": "2024-03-20 13:08:34.514004",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Help Desk",

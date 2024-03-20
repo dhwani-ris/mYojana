@@ -2,12 +2,12 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{state}-{single_window_name}",
+ "autoname": "format:{state}-{centre_name}",
  "creation": "2023-12-23 12:15:19.306238",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "single_window_name",
+  "centre_name",
   "date_of_formation",
   "state",
   "address"
@@ -22,12 +22,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "single_window_name",
-   "fieldtype": "Data",
-   "label": "Name of the single window",
-   "reqd": 1
-  },
-  {
    "fieldname": "date_of_formation",
    "fieldtype": "Date",
    "label": "Date of formation",
@@ -37,14 +31,20 @@
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
+  },
+  {
+   "fieldname": "centre_name",
+   "fieldtype": "Data",
+   "label": "Name of the centre",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-10 21:55:44.981539",
+ "modified": "2024-03-20 13:05:59.578861",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Single Window",
+ "name": "Centre",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -104,5 +104,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "single_window_name"
+ "title_field": "centre_name"
 }

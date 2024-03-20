@@ -1,10 +1,10 @@
 import frappe
 
 class  LoginUser:
-    def get_single_windows():
+    def get_centres():
         usr = frappe.get_doc("Myojana User", frappe.session.user)
-        single_window = usr.single_window
-        return single_window
+        centre = usr.centre
+        return centre
 
     # def get_helpdesk():
     #     usr = frappe.get_doc("Myojana User", frappe.session.user)

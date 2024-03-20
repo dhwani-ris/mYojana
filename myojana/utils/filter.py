@@ -10,11 +10,11 @@ class Filter:
             if "Admin" in roles:
                 cond_str = "state"
             elif "MIS executive" in roles:
-                cond_str = "single_window"
+                cond_str = "centre"
             elif "CSC Member" in roles:
-                cond_str = "single_window"
+                cond_str = "centre"
             elif "Help-desk member" in roles:
-                cond_str = "single_window"
+                cond_str = "centre"
             value = Cache.get_csc()
             if list:
                 return [cond_str , value]

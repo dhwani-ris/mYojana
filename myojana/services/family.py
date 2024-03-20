@@ -9,7 +9,7 @@ class family:
         family_doc.name_of_parents = beneficiary.name_of_the_beneficiary
         family_doc.phone_no = beneficiary.contact_number
         family_doc.state = beneficiary.state
-        family_doc.single_window = beneficiary.single_window
+        family_doc.centre = beneficiary.centre
         family_doc.help_desk = beneficiary.help_desk
         family_doc.save()
         return family_doc
@@ -23,7 +23,7 @@ class family:
             family_doc.name_of_parents = beneficiary.name
             family_doc.phone_no = beneficiary.contact_number
             family_doc.state = beneficiary.state
-            family_doc.single_window = beneficiary.single_window
+            family_doc.centre = beneficiary.centre
             family_doc.help_desk = beneficiary.help_desk
             family_doc.save()
         else:
@@ -31,7 +31,7 @@ class family:
             family_doc.name_of_head_of_family = beneficiary.name
             family_doc.name_of_parents = beneficiary.name_of_the_beneficiary
             family_doc.phone_no = beneficiary.contact_number
-            family_doc.single_window = beneficiary.single_window
+            family_doc.centre = beneficiary.centre
             family_doc.help_desk = beneficiary.help_desk
             family_doc.state = beneficiary.state
             family_doc.insert()

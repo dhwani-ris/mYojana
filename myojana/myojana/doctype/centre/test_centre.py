@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestSingleWindow(FrappeTestCase):
+class TestCentre(FrappeTestCase):
 	pass

@@ -8,8 +8,8 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "single_window_name",
-            "label": " Single Window Name ",
+            "fieldname": "centre_name",
+            "label": " Centre Name ",
             "fieldtype": "Data",
             "width": 200,
 
@@ -57,7 +57,7 @@ def execute(filters=None):
 
     sql_query = f"""
 SELECT
-    tw.single_window_name,
+    tw.centre_name,
     SUM(CASE WHEN (sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
     SUM(CASE WHEN (sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
     SUM(CASE WHEN (sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
@@ -69,10 +69,10 @@ FROM
 LEFT JOIN
     `tabScheme Child` sc ON bp.name = sc.parent
 LEFT JOIN
-    `tabSingle Window` tw ON bp.single_window = tw.name
+    `tabCentre` tw ON bp.centre = tw.name
 {condition_str}
 GROUP BY
-   tw.single_window_name;
+   tw.centre_name;
 """
 
 
