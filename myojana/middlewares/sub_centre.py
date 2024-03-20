@@ -5,9 +5,9 @@ def list_query(user):
         user = frappe.session.user
         
     if "Admin" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-        # return """(`tabHelp Desk`.single_window != '{0}')""".format('Admin')
+        # return """(`tabSub Centre`.centre != '{0}')""".format('Admin')
         return None
     elif("Administrator" not in frappe.get_roles(user)):
-        single_windows = LoginUser.get_single_windows()
-        return "(`tabHelp Desk`.single_window = '{0}')".format(single_windows)
+        centres = LoginUser.get_centres()
+        return "(`tabSub Centre`.centre = '{0}')".format(centres)
     return None

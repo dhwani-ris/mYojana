@@ -12,14 +12,14 @@ var filters = [
 		"fieldtype": "Date",
 		"label": "To Date"
 	}
-	
+
 ];
 if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 	filters.push({
-		"fieldname": "single_window",
+		"fieldname": "centre",
 		"fieldtype": "Link",
-		"label": "Single Window",
-		"options": "Single Window"
+		"label": "Centre",
+		"options": "Centre"
 	})
 }
 frappe.query_reports["State of origin"] = {

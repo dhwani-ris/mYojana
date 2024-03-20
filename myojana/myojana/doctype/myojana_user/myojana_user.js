@@ -28,32 +28,32 @@ function extend_options_length(frm, fields) {
 };
 function hide_advance_search(frm, list) {
     for (item of list) {
-      frm.set_df_property(item, 'only_select', true);
+        frm.set_df_property(item, 'only_select', true);
     }
-  };
+};
 frappe.ui.form.on("Myojana User", {
     refresh(frm) {
         frm.doc.password = frm.doc.confirm_password
-        frm.doc.state ? apply_filter("single_window", "state", frm, frm.doc.state) : defult_filter('single_window', "state", frm);
-        // frm.doc.single_window ? apply_filter("help_desk", "single_window", frm, frm.doc.single_window) : defult_filter('help_desk', "single_window", frm);
+        frm.doc.state ? apply_filter("centre", "state", frm, frm.doc.state) : defult_filter('centre', "state", frm);
+        // frm.doc.centre ? apply_filter("sub_centre", "centre", frm, frm.doc.centre) : defult_filter('sub_centre', "centre", frm);
         extend_options_length(frm, ["state"])
-        hide_advance_search(frm , ["role_profile", "state" , "single_window"])
+        hide_advance_search(frm, ["role_profile", "state", "centre"])
     },
     role_profile: function (frm) {
 
     },
     state: function (frm) {
         if (frm.doc.state) {
-            apply_filter("single_window", "state", frm, frm.doc.state)
+            apply_filter("centre", "state", frm, frm.doc.state)
         } else {
-            defult_filter('single_window', "state", frm)
+            defult_filter('centre', "state", frm)
         }
     },
-    // single_window: function (frm) {
-    //     if (frm.doc.single_window) {
-    //         apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
+    // centre: function (frm) {
+    //     if (frm.doc.centre) {
+    //         apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     //     } else {
-    //         defult_filter('help_desk', "single_window", frm);
+    //         defult_filter('sub_centre', "centre", frm);
     //     }
     // }
 });

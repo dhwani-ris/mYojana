@@ -1,6 +1,6 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
-frappe.ui.form.on("Beneficiary Profiling",{
+frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
     console.log("before save")
@@ -152,7 +152,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
     // read only fields
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
-        frm.set_df_property('help_desk', 'read_only', 1);
+        frm.set_df_property('sub_centre', 'read_only', 1);
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
@@ -169,7 +169,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
     // set dropdown value by ordering
     // frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
 
-    // hide delete options for helpdesk and csc member
+    // hide delete options for subcentre and csc member
     apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
 
     if (frappe.user_roles.includes("Help-desk member") || frappe.user_roles.includes("CSC Member") || frappe.user_roles.includes("MIS executive")) {
@@ -183,7 +183,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       }
     }
 
-    extend_options_length(frm, ["single_window", "help_desk","religion", "caste_category","marital_status", "current_house_type",
+    extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type",
       "source_of_information", "current_house_type", "state", "district", "occupational_category", "education",
       "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"])
     frm.set_query('religion', () => {
@@ -303,8 +303,8 @@ frappe.ui.form.on("Beneficiary Profiling",{
     hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status",
       "district_of_origin", "block", "gender", "current_occupation",
       , "social_vulnerable_category", "pwd_category", "family",
-      "help_desk", "single_window", "source_of_information", "occupational_category",
-      "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability" ,"education"
+      "sub_centre", "centre", "source_of_information", "occupational_category",
+      "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"
     ])
 
     apply_filter("district", "State", frm, frm.doc.state)
@@ -323,7 +323,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       }
     }
     if (frappe.user_roles.includes("Admin")) {
-      apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
+      apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     }
   },
   // validate(frm) {
@@ -368,8 +368,8 @@ frappe.ui.form.on("Beneficiary Profiling",{
     apply_filter("block", "District", frm, frm.doc.district_of_origin)
     frm.set_value("block", '')
   },
-  single_window: function (frm) {
-    apply_filter("help_desk", "single_window", frm, frm.doc.single_window)
+  centre: function (frm) {
+    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
   },
   current_occupation: async function (frm) {
     if (!frm.doc.current_occupation) return;
@@ -471,8 +471,8 @@ frappe.ui.form.on("Beneficiary Profiling",{
       frm.refresh_fields('proof_of_disability')
     }
   },
-  single_window: function (frm) {
-    frm.set_value('help_desk', '')
+  centre: function (frm) {
+    frm.set_value('sub_centre', '')
   },
   marital_status: function (frm) {
     if (frm.doc.marital_status != "Married") {
@@ -512,7 +512,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
   },
   select_primary_member: async function (frm) {
     const pm = frm.doc.select_primary_member;
-    if (pm && !frm.doc.current_house_type  && !frm.doc.state && !frm.doc.district && !frm.doc.ward) {
+    if (pm && !frm.doc.current_house_type && !frm.doc.state && !frm.doc.district && !frm.doc.ward) {
       let response = await get_document({ "contact_number": pm },
         ['name', "name_of_the_beneficiary", 'current_house_type', 'state', 'district', 'ward',
           'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block']);
@@ -535,7 +535,7 @@ frappe.ui.form.on("Beneficiary Profiling",{
       //   'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
 
       // }
-       }
+    }
   },
   current_house_type: function (frm) {
     if (frm.doc.current_house_type != "Others") {

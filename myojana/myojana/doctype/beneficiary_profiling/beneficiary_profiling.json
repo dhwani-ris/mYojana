@@ -17,12 +17,11 @@
   "date_of_birth",
   "completed_age",
   "completed_age_month",
-  "lead",
   "column_break_qbcl",
   "contact_number",
   "alternate_contact_number",
-  "single_window",
-  "help_desk",
+  "centre",
+  "sub_centre",
   "source_of_information",
   "name_of_the_camp",
   "new_camp",
@@ -394,19 +393,6 @@
    "mandatory_depends_on": "eval:doc.current_house_type ==\"Others\""
   },
   {
-   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
-   "fieldname": "single_window",
-   "fieldtype": "Link",
-   "label": "Single Window",
-   "options": "Single Window"
-  },
-  {
-   "fieldname": "help_desk",
-   "fieldtype": "Link",
-   "label": "Name of Help-desk",
-   "options": "Help Desk"
-  },
-  {
    "depends_on": "eval:!doc.__islocal",
    "fieldname": "all_schemes",
    "fieldtype": "HTML",
@@ -458,13 +444,6 @@
    "fieldtype": "Data",
    "label": "New camp",
    "mandatory_depends_on": "eval:doc.name_of_the_camp ==\"Others\""
-  },
-  {
-   "fieldname": "lead",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Lead",
-   "options": "Community meeting"
   },
   {
    "fieldname": "completed_age_month",
@@ -527,12 +506,25 @@
    "fieldtype": "Link",
    "label": "Social vulnerable category",
    "options": "Social vulnerable category"
+  },
+  {
+   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "label": "Centre",
+   "options": "Centre"
+  },
+  {
+   "fieldname": "sub_centre",
+   "fieldtype": "Link",
+   "label": "Name of sub centre",
+   "options": "Sub Centre"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-14 13:35:12.906025",
+ "modified": "2024-03-20 13:45:52.513437",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

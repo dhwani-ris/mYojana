@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class SingleWindow(Document):
+class Centre(Document):
 	pass

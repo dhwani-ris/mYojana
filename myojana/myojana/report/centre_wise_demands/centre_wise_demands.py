@@ -8,8 +8,8 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "help_desk_name",
-            "label": " Help Desk Name",
+            "fieldname": "centre_name",
+            "label": " Centre Name ",
             "fieldtype": "Data",
             "width": 200,
 
@@ -50,32 +50,30 @@ def execute(filters=None):
             "fieldtype": "Data",
             "width": 130,
         }
-    ]             
-    
+    ]
 
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'bp')
     condition_str = f"WHERE {condition_str}" if condition_str else ""
 
     sql_query = f"""
-    SELECT
-        COALESCE(hd.help_desk_name, 'Unknown') AS help_desk_name,
-        SUM(CASE WHEN (sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
-        SUM(CASE WHEN (sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
-        SUM(CASE WHEN (sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
-        SUM(CASE WHEN (sc.status = 'Under process') THEN 1 ELSE 0 END) as submitted_demands,
-        SUM(CASE WHEN (sc.status = 'Rejected') THEN 1 ELSE 0 END) as rejected_demands,
-        COUNT(sc.status) as total_demands
-    FROM
-        `tabBeneficiary Profiling` bp
-    LEFT JOIN
-        `tabScheme Child` sc ON bp.name = sc.parent
-    LEFT JOIN
-        `tabHelp Desk` hd ON bp.help_desk = hd.name 
-    {condition_str}
-    GROUP BY
-        COALESCE(hd.help_desk_name, 'Unknown');
-    """
-
+SELECT
+    tw.centre_name,
+    SUM(CASE WHEN (sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
+    SUM(CASE WHEN (sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
+    SUM(CASE WHEN (sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
+    SUM(CASE WHEN (sc.status = 'Under process') THEN 1 ELSE 0 END) as submitted_demands,
+    SUM(CASE WHEN (sc.status = 'Rejected') THEN 1 ELSE 0 END) as rejected_demands,
+    COUNT(sc.status) as total_demands
+FROM
+    `tabBeneficiary Profiling` bp
+LEFT JOIN
+    `tabScheme Child` sc ON bp.name = sc.parent
+LEFT JOIN
+    `tabCentre` tw ON bp.centre = tw.name
+{condition_str}
+GROUP BY
+   tw.centre_name;
+"""
 
 
     data = frappe.db.sql(sql_query, as_dict=True)

@@ -2,37 +2,23 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{state}-{single_window}-{help_desk_name}",
- "creation": "2023-12-24 10:10:53.422531",
+ "autoname": "format:{state}-{centre_name}",
+ "creation": "2023-12-23 12:15:19.306238",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "help_desk_name",
+  "centre_name",
   "date_of_formation",
   "state",
-  "single_window",
   "address"
  ],
  "fields": [
   {
    "fieldname": "state",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "State",
    "options": "State",
-   "reqd": 1
-  },
-  {
-   "fieldname": "single_window",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Single Window",
-   "options": "Single Window",
-   "reqd": 1
-  },
-  {
-   "fieldname": "help_desk_name",
-   "fieldtype": "Data",
-   "label": "Name of Help-desk ",
    "reqd": 1
   },
   {
@@ -45,14 +31,20 @@
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
+  },
+  {
+   "fieldname": "centre_name",
+   "fieldtype": "Data",
+   "label": "Name of the centre",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-02-07 18:03:30.393596",
+ "modified": "2024-03-20 13:05:59.578861",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Help Desk",
+ "name": "Centre",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -87,16 +79,6 @@
    "read": 1,
    "report": 1,
    "role": "MIS executive",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Help-desk member",
    "share": 1
   },
   {
@@ -107,11 +89,20 @@
    "report": 1,
    "role": "CSC Member",
    "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Help-desk member",
+   "share": 1
   }
  ],
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "help_desk_name"
+ "title_field": "centre_name"
 }

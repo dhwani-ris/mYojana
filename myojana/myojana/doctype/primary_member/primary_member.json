@@ -12,8 +12,8 @@
   "name_of_parents",
   "phone_no",
   "state",
-  "single_window",
-  "help_desk"
+  "centre",
+  "sub_centre"
  ],
  "fields": [
   {
@@ -46,21 +46,22 @@
    "options": "State"
   },
   {
-   "fieldname": "single_window",
+   "fetch_from": "name_of_head_of_family.centre",
+   "fieldname": "centre",
    "fieldtype": "Link",
-   "label": "Single Window",
-   "options": "Single Window"
+   "label": "Centre",
+   "options": "Centre"
   },
   {
-   "fieldname": "help_desk",
+   "fieldname": "sub_centre",
    "fieldtype": "Link",
-   "label": "Help desk",
-   "options": "Help Desk"
+   "label": "Sub centre",
+   "options": "Sub Centre"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-03 16:26:19.246390",
+ "modified": "2024-03-20 13:49:49.972262",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",

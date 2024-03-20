@@ -2,29 +2,23 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{state}-{single_window_name}",
- "creation": "2023-12-23 12:15:19.306238",
+ "autoname": "format:{state}-{centre}-{sub_centre_name}",
+ "creation": "2023-12-24 10:10:53.422531",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "single_window_name",
+  "sub_centre_name",
   "date_of_formation",
   "state",
+  "centre",
   "address"
  ],
  "fields": [
   {
    "fieldname": "state",
    "fieldtype": "Link",
-   "in_list_view": 1,
    "label": "State",
    "options": "State",
-   "reqd": 1
-  },
-  {
-   "fieldname": "single_window_name",
-   "fieldtype": "Data",
-   "label": "Name of the single window",
    "reqd": 1
   },
   {
@@ -37,14 +31,28 @@
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
+  },
+  {
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Centre",
+   "options": "Centre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_centre_name",
+   "fieldtype": "Data",
+   "label": "Name of sub centre ",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-10 21:55:44.981539",
+ "modified": "2024-03-20 13:43:05.192469",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Single Window",
+ "name": "Sub Centre",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -79,6 +87,16 @@
    "read": 1,
    "report": 1,
    "role": "MIS executive",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Help-desk member",
    "share": 1
   },
   {
@@ -89,20 +107,11 @@
    "report": 1,
    "role": "CSC Member",
    "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Help-desk member",
-   "share": 1
   }
  ],
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "single_window_name"
+ "title_field": "sub_centre_name"
 }
