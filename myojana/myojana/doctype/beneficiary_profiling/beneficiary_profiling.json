@@ -21,7 +21,7 @@
   "contact_number",
   "alternate_contact_number",
   "centre",
-  "help_desk",
+  "sub_centre",
   "source_of_information",
   "name_of_the_camp",
   "new_camp",
@@ -393,12 +393,6 @@
    "mandatory_depends_on": "eval:doc.current_house_type ==\"Others\""
   },
   {
-   "fieldname": "help_desk",
-   "fieldtype": "Link",
-   "label": "Name of Help-desk",
-   "options": "Help Desk"
-  },
-  {
    "depends_on": "eval:!doc.__islocal",
    "fieldname": "all_schemes",
    "fieldtype": "HTML",
@@ -519,12 +513,18 @@
    "fieldtype": "Link",
    "label": "Centre",
    "options": "Centre"
+  },
+  {
+   "fieldname": "sub_centre",
+   "fieldtype": "Link",
+   "label": "Name of sub centre",
+   "options": "Sub Centre"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-20 13:19:12.199211",
+ "modified": "2024-03-20 13:45:52.513437",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

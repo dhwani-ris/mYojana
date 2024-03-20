@@ -106,10 +106,10 @@ class BeneficiaryProfiling(Document):
 			centre = LoginUser.get_centres()
 			self.centre = centre
 			frappe.db.set_value('Beneficiary Profiling', self.name, 'centre', centre, update_modified=False)
-		# if not self.help_desk:
-		# 	help_desk = LoginUser.get_helpdesk()
-		# 	self.help_desk = help_desk
-		# 	frappe.db.set_value('Beneficiary Profiling', self.name, 'help_desk', help_desk, update_modified=False)
+		# if not self.sub_centre:
+			# sub_centre = LoginUser.get_sub_centre()
+		# 	self.sub_centre = sub_centre
+		# 	frappe.db.set_value('Beneficiary Profiling', self.name, 'sub_centre', sub_centre, update_modified=False)
 		if(self.new_source_of_information):
 			BeneficiaryProfiling.create_source_of_information(self.new_source_of_information)
 		if(self.add_house_type):

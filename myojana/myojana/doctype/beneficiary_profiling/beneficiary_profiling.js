@@ -152,7 +152,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     // read only fields
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
-        frm.set_df_property('help_desk', 'read_only', 1);
+        frm.set_df_property('sub_centre', 'read_only', 1);
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
@@ -169,7 +169,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     // set dropdown value by ordering
     // frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
 
-    // hide delete options for helpdesk and csc member
+    // hide delete options for subcentre and csc member
     apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
 
     if (frappe.user_roles.includes("Help-desk member") || frappe.user_roles.includes("CSC Member") || frappe.user_roles.includes("MIS executive")) {
@@ -183,7 +183,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
 
-    extend_options_length(frm, ["centre", "help_desk", "religion", "caste_category", "marital_status", "current_house_type",
+    extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type",
       "source_of_information", "current_house_type", "state", "district", "occupational_category", "education",
       "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"])
     frm.set_query('religion', () => {
@@ -303,7 +303,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status",
       "district_of_origin", "block", "gender", "current_occupation",
       , "social_vulnerable_category", "pwd_category", "family",
-      "help_desk", "centre", "source_of_information", "occupational_category",
+      "sub_centre", "centre", "source_of_information", "occupational_category",
       "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"
     ])
 
@@ -323,7 +323,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     if (frappe.user_roles.includes("Admin")) {
-      apply_filter("help_desk", "centre", frm, frm.doc.centre)
+      apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     }
   },
   // validate(frm) {
@@ -369,7 +369,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     frm.set_value("block", '')
   },
   centre: function (frm) {
-    apply_filter("help_desk", "centre", frm, frm.doc.centre)
+    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
   },
   current_occupation: async function (frm) {
     if (!frm.doc.current_occupation) return;
@@ -472,7 +472,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   centre: function (frm) {
-    frm.set_value('help_desk', '')
+    frm.set_value('sub_centre', '')
   },
   marital_status: function (frm) {
     if (frm.doc.marital_status != "Married") {

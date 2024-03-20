@@ -10,7 +10,7 @@ class family:
         family_doc.phone_no = beneficiary.contact_number
         family_doc.state = beneficiary.state
         family_doc.centre = beneficiary.centre
-        family_doc.help_desk = beneficiary.help_desk
+        family_doc.sub_centre = beneficiary.sub_centre
         family_doc.save()
         return family_doc
 
@@ -24,7 +24,7 @@ class family:
             family_doc.phone_no = beneficiary.contact_number
             family_doc.state = beneficiary.state
             family_doc.centre = beneficiary.centre
-            family_doc.help_desk = beneficiary.help_desk
+            family_doc.sub_centre = beneficiary.sub_centre
             family_doc.save()
         else:
             family_doc = frappe.new_doc("Primary Member")
@@ -32,7 +32,7 @@ class family:
             family_doc.name_of_parents = beneficiary.name_of_the_beneficiary
             family_doc.phone_no = beneficiary.contact_number
             family_doc.centre = beneficiary.centre
-            family_doc.help_desk = beneficiary.help_desk
+            family_doc.sub_centre = beneficiary.sub_centre
             family_doc.state = beneficiary.state
             family_doc.insert()
             family.handle_contactnumber_change(beneficiary,family_doc)

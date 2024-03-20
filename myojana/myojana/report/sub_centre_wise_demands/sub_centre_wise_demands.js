@@ -24,6 +24,6 @@ if (frappe.user_roles.includes("Administrator")) {
 
 	)
 }
-frappe.query_reports["Help-desk wise demands"] = {
+frappe.query_reports["Sub centre wise demands"] = {
 	filters: filters,
 };

@@ -35,7 +35,7 @@ frappe.ui.form.on("Myojana User", {
     refresh(frm) {
         frm.doc.password = frm.doc.confirm_password
         frm.doc.state ? apply_filter("centre", "state", frm, frm.doc.state) : defult_filter('centre', "state", frm);
-        // frm.doc.centre ? apply_filter("help_desk", "centre", frm, frm.doc.centre) : defult_filter('help_desk', "centre", frm);
+        // frm.doc.centre ? apply_filter("sub_centre", "centre", frm, frm.doc.centre) : defult_filter('sub_centre', "centre", frm);
         extend_options_length(frm, ["state"])
         hide_advance_search(frm, ["role_profile", "state", "centre"])
     },
@@ -51,9 +51,9 @@ frappe.ui.form.on("Myojana User", {
     },
     // centre: function (frm) {
     //     if (frm.doc.centre) {
-    //         apply_filter("help_desk", "centre", frm, frm.doc.centre)
+    //         apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     //     } else {
-    //         defult_filter('help_desk', "centre", frm);
+    //         defult_filter('sub_centre', "centre", frm);
     //     }
     // }
 });

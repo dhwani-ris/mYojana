@@ -2,12 +2,12 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{state}-{centre}-{help_desk_name}",
+ "autoname": "format:{state}-{centre}-{sub_centre_name}",
  "creation": "2023-12-24 10:10:53.422531",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "help_desk_name",
+  "sub_centre_name",
   "date_of_formation",
   "state",
   "centre",
@@ -19,12 +19,6 @@
    "fieldtype": "Link",
    "label": "State",
    "options": "State",
-   "reqd": 1
-  },
-  {
-   "fieldname": "help_desk_name",
-   "fieldtype": "Data",
-   "label": "Name of Help-desk ",
    "reqd": 1
   },
   {
@@ -45,14 +39,20 @@
    "label": "Centre",
    "options": "Centre",
    "reqd": 1
+  },
+  {
+   "fieldname": "sub_centre_name",
+   "fieldtype": "Data",
+   "label": "Name of sub centre ",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-20 13:08:34.514004",
+ "modified": "2024-03-20 13:43:05.192469",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Help Desk",
+ "name": "Sub Centre",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
@@ -113,5 +113,5 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "help_desk_name"
+ "title_field": "sub_centre_name"
 }
