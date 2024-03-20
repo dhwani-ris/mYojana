@@ -115,8 +115,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.920236",
-  "name": "Begging",
-  "occupation": "Begging",
+  "name": "Beggar",
+  "occupation": "Beggar",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -290,14 +290,6 @@
  {
   "docstatus": 0,
   "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.130331",
-  "name": "Delhi Jal Board",
-  "occupation": "Delhi Jal Board",
-  "occupational_category": "Government Job"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.139500",
   "name": "Delivery Bakery",
   "occupation": "Delivery Bakery",
@@ -310,14 +302,6 @@
   "name": "Dentist",
   "occupation": "Dentist",
   "occupational_category": "Health/ Front Line Worker"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.161387",
-  "name": "Dhol Baja",
-  "occupation": "Dhol Baja",
-  "occupational_category": "Unorganized worker"
  },
  {
   "docstatus": 0,
@@ -490,14 +474,6 @@
  {
   "docstatus": 0,
   "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.370454",
-  "name": "Iron",
-  "occupation": "Iron",
-  "occupational_category": "Own Work"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.377729",
   "name": "Labour",
   "occupation": "Labour",
@@ -554,14 +530,6 @@
  {
   "docstatus": 0,
   "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.455289",
-  "name": "No Study",
-  "occupation": "No Study",
-  "occupational_category": "School Drop Out Children"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.464411",
   "name": "Not Working",
   "occupation": "Not Working",
@@ -581,14 +549,6 @@
   "modified": "2024-03-14 12:00:45.482776",
   "name": "Office Assistant",
   "occupation": "Office Assistant",
-  "occupational_category": "Private Job"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.493139",
-  "name": "Office Assitant",
-  "occupation": "Office Assitant",
   "occupational_category": "Private Job"
  },
  {
@@ -686,14 +646,6 @@
   "name": "Property Dealer",
   "occupation": "Property Dealer",
   "occupational_category": "Own Work"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.617087",
-  "name": "Rag picker",
-  "occupation": "Rag picker",
-  "occupational_category": "Rag Picker"
  },
  {
   "docstatus": 0,
