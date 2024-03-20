@@ -11,7 +11,7 @@ def list_query(user):
         return """(`tabBeneficiary Profiling`.state = '{0}')""".format(value)
     elif "CSC Member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
         return """(`tabBeneficiary Profiling`.centre = '{0}')""".format(value)
-    elif "Help-desk member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
+    elif "Sub-Centre" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
         return """(`tabBeneficiary Profiling`.centre = '{0}')""".format(value)
     elif "MIS executive" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
         return """(`tabBeneficiary Profiling`.centre = '{0}')""".format(value)

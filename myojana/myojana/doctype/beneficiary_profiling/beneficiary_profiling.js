@@ -172,7 +172,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     // hide delete options for subcentre and csc member
     apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
 
-    if (frappe.user_roles.includes("Help-desk member") || frappe.user_roles.includes("CSC Member") || frappe.user_roles.includes("MIS executive")) {
+    if (frappe.user_roles.includes("Sub-Centre") || frappe.user_roles.includes("CSC Member") || frappe.user_roles.includes("MIS executive")) {
       if (!frappe.user_roles.includes("Administrator")) {
         frm.set_df_property('scheme_table', 'cannot_delete_rows', true); // Hide delete button
         frm.set_df_property('scheme_table', 'cannot_delete_all_rows', true);

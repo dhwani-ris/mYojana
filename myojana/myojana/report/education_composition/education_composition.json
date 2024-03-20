@@ -1,38 +1,38 @@
 {
- "add_total_row": 0,
- "columns": [],
- "creation": "2023-12-21 19:15:28.297877",
- "disabled": 0,
- "docstatus": 0,
- "doctype": "Report",
- "filters": [],
- "idx": 34,
- "is_standard": "Yes",
- "letterhead": null,
- "modified": "2024-01-13 11:16:34.667190",
- "modified_by": "Administrator",
- "module": "myojana",
- "name": "Education composition",
- "owner": "Administrator",
- "prepared_report": 0,
- "ref_doctype": "Beneficiary Profiling",
- "report_name": "Education composition",
- "report_type": "Script Report",
- "roles": [
-  {
-   "role": "System Manager"
-  },
-  {
-   "role": "Admin"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  }
- ]
+    "add_total_row": 0,
+    "columns": [],
+    "creation": "2023-12-21 19:15:28.297877",
+    "disabled": 0,
+    "docstatus": 0,
+    "doctype": "Report",
+    "filters": [],
+    "idx": 34,
+    "is_standard": "Yes",
+    "letterhead": null,
+    "modified": "2024-01-13 11:16:34.667190",
+    "modified_by": "Administrator",
+    "module": "myojana",
+    "name": "Education composition",
+    "owner": "Administrator",
+    "prepared_report": 0,
+    "ref_doctype": "Beneficiary Profiling",
+    "report_name": "Education composition",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "System Manager"
+        },
+        {
+            "role": "Admin"
+        },
+        {
+            "role": "MIS executive"
+        },
+        {
+            "role": "CSC Member"
+        },
+        {
+            "role": "Sub-Centre"
+        }
+    ]
 }

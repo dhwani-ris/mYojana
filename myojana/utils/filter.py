@@ -13,7 +13,7 @@ class Filter:
                 cond_str = "centre"
             elif "CSC Member" in roles:
                 cond_str = "centre"
-            elif "Help-desk member" in roles:
+            elif "Sub-Centre" in roles:
                 cond_str = "centre"
             value = Cache.get_csc()
             if list:

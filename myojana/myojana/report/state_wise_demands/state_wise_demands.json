@@ -1,39 +1,39 @@
 {
- "add_total_row": 0,
- "columns": [],
- "creation": "2024-01-16 10:31:02.572079",
- "disabled": 0,
- "docstatus": 0,
- "doctype": "Report",
- "filters": [],
- "idx": 0,
- "is_standard": "Yes",
- "json": "{}",
- "letterhead": null,
- "modified": "2024-01-16 10:31:09.622544",
- "modified_by": "Administrator",
- "module": "myojana",
- "name": "State-wise demands",
- "owner": "Administrator",
- "prepared_report": 0,
- "ref_doctype": "Beneficiary Profiling",
- "report_name": "State-wise demands",
- "report_type": "Script Report",
- "roles": [
-  {
-   "role": "Admin"
-  },
-  {
-   "role": "CSC Member"
-  },
-  {
-   "role": "Help-desk member"
-  },
-  {
-   "role": "MIS executive"
-  },
-  {
-   "role": "System Manager"
-  }
- ]
+    "add_total_row": 0,
+    "columns": [],
+    "creation": "2024-01-16 10:31:02.572079",
+    "disabled": 0,
+    "docstatus": 0,
+    "doctype": "Report",
+    "filters": [],
+    "idx": 0,
+    "is_standard": "Yes",
+    "json": "{}",
+    "letterhead": null,
+    "modified": "2024-01-16 10:31:09.622544",
+    "modified_by": "Administrator",
+    "module": "myojana",
+    "name": "State-wise demands",
+    "owner": "Administrator",
+    "prepared_report": 0,
+    "ref_doctype": "Beneficiary Profiling",
+    "report_name": "State-wise demands",
+    "report_type": "Script Report",
+    "roles": [
+        {
+            "role": "Admin"
+        },
+        {
+            "role": "CSC Member"
+        },
+        {
+            "role": "Sub-Centre"
+        },
+        {
+            "role": "MIS executive"
+        },
+        {
+            "role": "System Manager"
+        }
+    ]
 }

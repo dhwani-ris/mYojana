@@ -1,134 +1,134 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "field:email",
- "creation": "2023-12-22 20:37:04.508516",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "email",
-  "first_name",
-  "last_name",
-  "role_profile",
-  "user_image",
-  "column_break_itbc",
-  "state",
-  "centre",
-  "password",
-  "confirm_password"
- ],
- "fields": [
-  {
-   "fieldname": "first_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "First name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "last_name",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Last name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "role_profile",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Role Profile",
-   "options": "Role Profile",
-   "reqd": 1
-  },
-  {
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email",
-   "reqd": 1,
-   "unique": 1
-  },
-  {
-   "fieldname": "password",
-   "fieldtype": "Password",
-   "label": "Password",
-   "reqd": 1
-  },
-  {
-   "fieldname": "confirm_password",
-   "fieldtype": "Data",
-   "label": "Confirm Password",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_itbc",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "state",
-   "fieldtype": "Link",
-   "label": "State",
-   "options": "State",
-   "reqd": 1
-  },
-  {
-   "fieldname": "user_image",
-   "fieldtype": "Attach Image",
-   "hidden": 1,
-   "label": "User Image",
-   "print_hide": 1
-  },
-  {
-   "depends_on": "eval:(doc.role_profile == \"CSC Member\" || doc.role_profile == \"MIS executive\" || doc.role_profile ==\"Help-desk member\")",
-   "fieldname": "centre",
-   "fieldtype": "Link",
-   "label": "Centre",
-   "mandatory_depends_on": "eval:(doc.role_profile == \"CSC Member\" || doc.role_profile == \"MIS executive\" || doc.role_profile ==\"Help-desk member\")",
-   "options": "Centre"
-  }
- ],
- "image_field": "user_image",
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-03-20 12:56:10.516686",
- "modified_by": "Administrator",
- "module": "myojana",
- "name": "Myojana User",
- "naming_rule": "By fieldname",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Admin",
-   "share": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "MIS executive",
-   "share": 1
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+    "actions": [],
+    "allow_rename": 1,
+    "autoname": "field:email",
+    "creation": "2023-12-22 20:37:04.508516",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "email",
+        "first_name",
+        "last_name",
+        "role_profile",
+        "user_image",
+        "column_break_itbc",
+        "state",
+        "centre",
+        "password",
+        "confirm_password"
+    ],
+    "fields": [
+        {
+            "fieldname": "first_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "First name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "last_name",
+            "fieldtype": "Data",
+            "in_list_view": 1,
+            "label": "Last name",
+            "reqd": 1
+        },
+        {
+            "fieldname": "role_profile",
+            "fieldtype": "Link",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "Role Profile",
+            "options": "Role Profile",
+            "reqd": 1
+        },
+        {
+            "fieldname": "email",
+            "fieldtype": "Data",
+            "label": "Email",
+            "reqd": 1,
+            "unique": 1
+        },
+        {
+            "fieldname": "password",
+            "fieldtype": "Password",
+            "label": "Password",
+            "reqd": 1
+        },
+        {
+            "fieldname": "confirm_password",
+            "fieldtype": "Data",
+            "label": "Confirm Password",
+            "reqd": 1
+        },
+        {
+            "fieldname": "column_break_itbc",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "state",
+            "fieldtype": "Link",
+            "label": "State",
+            "options": "State",
+            "reqd": 1
+        },
+        {
+            "fieldname": "user_image",
+            "fieldtype": "Attach Image",
+            "hidden": 1,
+            "label": "User Image",
+            "print_hide": 1
+        },
+        {
+            "depends_on": "eval:(doc.role_profile == \"CSC Member\" || doc.role_profile == \"MIS executive\" || doc.role_profile ==\"Sub-Centre\")",
+            "fieldname": "centre",
+            "fieldtype": "Link",
+            "label": "Centre",
+            "mandatory_depends_on": "eval:(doc.role_profile == \"CSC Member\" || doc.role_profile == \"MIS executive\" || doc.role_profile ==\"Sub-Centre\")",
+            "options": "Centre"
+        }
+    ],
+    "image_field": "user_image",
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-03-20 12:56:10.516686",
+    "modified_by": "Administrator",
+    "module": "myojana",
+    "name": "Myojana User",
+    "naming_rule": "By fieldname",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "Admin",
+            "share": 1
+        },
+        {
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "MIS executive",
+            "share": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
 }
