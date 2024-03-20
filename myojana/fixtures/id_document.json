@@ -100,13 +100,6 @@
  {
   "docstatus": 0,
   "doctype": "ID Document",
-  "document": "PAN",
-  "modified": "2024-03-14 11:58:16.552519",
-  "name": "PAN"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
   "document": "PAN card",
   "modified": "2024-03-14 11:58:16.559635",
   "name": "PAN card"
@@ -131,41 +124,6 @@
   "document": "Ration card",
   "modified": "2024-03-14 11:58:16.583815",
   "name": "Ration card"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
-  "document": "test",
-  "modified": "2024-03-14 11:58:16.593669",
-  "name": "test"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
-  "document": "test1",
-  "modified": "2024-03-14 11:58:16.601286",
-  "name": "test1"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
-  "document": "test2",
-  "modified": "2024-03-14 11:58:16.608709",
-  "name": "test2"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
-  "document": "test4",
-  "modified": "2024-03-14 11:58:16.616803",
-  "name": "test4"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
-  "document": "test5",
-  "modified": "2024-03-14 11:58:16.624919",
-  "name": "test5"
  },
  {
   "docstatus": 0,

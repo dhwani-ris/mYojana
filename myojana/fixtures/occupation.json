@@ -43,8 +43,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.837958",
-  "name": "Artisan कारीगर",
-  "occupation": "Artisan कारीगर",
+  "name": "Artisan",
+  "occupation": "Artisan",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -99,8 +99,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.903807",
-  "name": "Beautician सौंदर्यीकरता",
-  "occupation": "Beautician सौंदर्यीकरता",
+  "name": "Beautician",
+  "occupation": "Beautician",
   "occupational_category": "Private Job"
  },
  {
@@ -123,24 +123,24 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.927655",
-  "name": "Bindi/bead makers बिंदी/मोती बनाने वाले",
-  "occupation": "Bindi/bead makers बिंदी/मोती बनाने वाले",
+  "name": "Bindi/bead makers",
+  "occupation": "Bindi/bead makers",
   "occupational_category": "Unorganized worker"
  },
  {
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.936878",
-  "name": "Blacksmith लोहार",
-  "occupation": "Blacksmith लोहार",
+  "name": "Blacksmith",
+  "occupation": "Blacksmith",
   "occupational_category": "Unorganized worker"
  },
  {
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.949517",
-  "name": "Brick workers ईंट मजदूर",
-  "occupation": "Brick workers ईंट मजदूर",
+  "name": "Brick workers",
+  "occupation": "Brick workers",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -163,16 +163,16 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.975743",
-  "name": "Butcher  कसाई",
-  "occupation": "Butcher  कसाई",
+  "name": "Butcher",
+  "occupation": "Butcher",
   "occupational_category": "Unorganized worker"
  },
  {
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:44.984232",
-  "name": "Cable Networker केबल नेटवर्कर",
-  "occupation": "Cable Networker केबल नेटवर्कर",
+  "name": "Cable Networker",
+  "occupation": "Cable Networker",
   "occupational_category": "Private Job"
  },
  {
@@ -235,8 +235,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.064818",
-  "name": "Cobbler मोची",
-  "occupation": "Cobbler मोची",
+  "name": "Cobbler",
+  "occupation": "Cobbler",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -251,8 +251,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.082498",
-  "name": "Confectioner हलवाई",
-  "occupation": "Confectioner हलवाई",
+  "name": "Confectioner",
+  "occupation": "Confectioner",
   "occupational_category": "Private Job"
  },
  {
@@ -275,16 +275,16 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.111299",
-  "name": "Courier Service कूरियर सेवा",
-  "occupation": "Courier Service कूरियर सेवा",
+  "name": "Courier Service",
+  "occupation": "Courier Service",
   "occupational_category": "Private Job"
  },
  {
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.122331",
-  "name": "Dairy Shop डेयरी दुकान",
-  "occupation": "Dairy Shop डेयरी दुकान",
+  "name": "Dairy Shop",
+  "occupation": "Dairy Shop",
   "occupational_category": "Self-employed"
  },
  {
@@ -355,16 +355,16 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.213107",
-  "name": "DTP –Data work डीटीपी-डेटा कार्य",
-  "occupation": "DTP –Data work डीटीपी-डेटा कार्य",
+  "name": "DTP –Data work",
+  "occupation": "DTP –Data work",
   "occupational_category": "Private Job"
  },
  {
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.222290",
-  "name": "Dyers-printing रंगरेज-मुद्रण",
-  "occupation": "Dyers-printing रंगरेज-मुद्रण",
+  "name": "Dyers-printing",
+  "occupation": "Dyers-printing",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -403,8 +403,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.271875",
-  "name": "Folk artist  लोक कलाकार",
-  "occupation": "Folk artist  लोक कलाकार",
+  "name": "Folk artist",
+  "occupation": "Folk artist",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -459,8 +459,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.337452",
-  "name": "Head loader  हेड लोडर",
-  "occupation": "Head loader  हेड लोडर",
+  "name": "Head loader",
+  "occupation": "Head loader",
   "occupational_category": "Daily Wage Workers"
  },
  {
@@ -507,8 +507,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.386283",
-  "name": "Locksmith मरम्मत करनेवाला",
-  "occupation": "Locksmith मरम्मत करनेवाला",
+  "name": "Locksmith",
+  "occupation": "Locksmith",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -538,17 +538,9 @@
  {
   "docstatus": 0,
   "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.423907",
-  "name": "Mechanic2",
-  "occupation": "Mechanic2",
-  "occupational_category": "Construction Workers"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.435727",
-  "name": "News Agent समाचार एजेंट",
-  "occupation": "News Agent समाचार एजेंट",
+  "name": "News Agent",
+  "occupation": "News Agent",
   "occupational_category": "Private Job"
  },
  {
@@ -635,8 +627,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.542099",
-  "name": "Petty shopkeeper छोटा दुकानदार",
-  "occupation": "Petty shopkeeper छोटा दुकानदार",
+  "name": "Petty shopkeeper",
+  "occupation": "Petty shopkeeper",
   "occupational_category": "Self-employed"
  },
  {
@@ -651,8 +643,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.562378",
-  "name": "Piece-rate worker  पीस रेट कार्यकर्ता",
-  "occupation": "Piece-rate worker  पीस रेट कार्यकर्ता",
+  "name": "Piece-rate worker",
+  "occupation": "Piece-rate worker",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -675,8 +667,8 @@
   "docstatus": 0,
   "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.590614",
-  "name": "Potter कुम्हार",
-  "occupation": "Potter कुम्हार",
+  "name": "Potter",
+  "occupation": "Potter",
   "occupational_category": "Unorganized worker"
  },
  {
@@ -917,14 +909,6 @@
   "modified": "2024-03-14 12:00:45.871315",
   "name": "Water Supplier",
   "occupation": "Water Supplier",
-  "occupational_category": "Own Work"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.880727",
-  "name": "Water Supplyer",
-  "occupation": "Water Supplyer",
   "occupational_category": "Own Work"
  },
  {
