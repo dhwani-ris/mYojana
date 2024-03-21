@@ -108,7 +108,8 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth"
+   "label": "Date of birth",
+   "reqd": 1
   },
   {
    "fieldname": "completed_age",
@@ -471,7 +472,6 @@
    "fieldname": "proof_of_disability",
    "fieldtype": "Table MultiSelect",
    "label": "Proof of disability",
-   "mandatory_depends_on": "eval:doc.what_is_the_extent_of_your_disability == \"Above 40%\"",
    "options": "Proof of Disability Child"
   },
   {
@@ -479,6 +479,7 @@
    "fieldname": "new_occupation",
    "fieldtype": "Data",
    "label": "New occupation",
+   "mandatory_depends_on": "eval:doc.current_occupation == 'Others'",
    "options": "Occupation"
   },
   {
@@ -519,6 +520,7 @@
    "fieldname": "social_vulnerable_category",
    "fieldtype": "Link",
    "label": "Social vulnerable category",
+   "mandatory_depends_on": "eval:doc.social_vulnerable=='Yes'",
    "options": "Social vulnerable category"
   },
   {
@@ -540,7 +542,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-21 10:01:02.737631",
+ "modified": "2024-03-21 12:50:10.733750",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
