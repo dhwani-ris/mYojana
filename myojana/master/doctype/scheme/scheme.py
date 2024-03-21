@@ -14,21 +14,22 @@ class Scheme(Document):
 		else:
 			self.rules_status = "No rules"
 
-	def evaluate_expression(input_dict, expression):
-		if not re.match(r"^[a-zA-Z0-9\s()+\-/*%&|=!<>]*$", expression):
-			return 'Invalid expression'
+	# def evaluate_expression(input_dict, expression):
+	# 	if not re.match(r"^[a-zA-Z0-9\s()+\-/*%&|=!<>]*$", expression):
+	# 		return 'Invalid expression'
 
-		# expression = expression.lower()
-		expression = expression.replace('and', 'and').replace('or', 'or')
-		expression = expression.replace('AND', 'and').replace('OR', 'or')
+	# 	# expression = expression.lower()
+	# 	expression = expression.replace('and', 'and').replace('or', 'or')
+	# 	expression = expression.replace('AND', 'and').replace('OR', 'or')
 
-		for key, value in input_dict.items():
-			expression = expression.replace(key, str(value))
+	# 	for key, value in input_dict.items():
+	# 		expression = expression.replace(key, str(value))
 
-		try:
-			return eval(expression)
-		except Exception as err:
-			return str(err)
+	# 	try:
+	# 		# return eval(expression)
+	# 		return expression
+	# 	except Exception as err:
+	# 		return str(err)
 
 	def generate_query_string(rows, __expression):
 		expression = __expression.replace('and', '#').replace('or', '%')
