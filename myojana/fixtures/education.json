@@ -2,6 +2,13 @@
  {
   "docstatus": 0,
   "doctype": "Education",
+  "education": "Secondary(6-10)",
+  "modified": "2024-03-20 18:03:22.416348",
+  "name": "Secondary(6-10)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Education",
   "education": "Child",
   "modified": "2024-03-14 12:01:38.577894",
   "name": "Child"
@@ -65,13 +72,6 @@
  {
   "docstatus": 0,
   "doctype": "Education",
-  "education": "Lower secondary (6-8)",
-  "modified": "2024-03-14 12:01:38.659459",
-  "name": "Lower secondary (6-8)"
- },
- {
-  "docstatus": 0,
-  "doctype": "Education",
   "education": "Other",
   "modified": "2024-03-14 12:01:38.666274",
   "name": "Other"
@@ -96,20 +96,6 @@
   "education": "Primary (1-5)",
   "modified": "2024-03-14 12:01:38.690344",
   "name": "Primary (1-5)"
- },
- {
-  "docstatus": 0,
-  "doctype": "Education",
-  "education": "Secondary (5-10)",
-  "modified": "2024-03-14 12:01:38.697908",
-  "name": "Secondary (5-10)"
- },
- {
-  "docstatus": 0,
-  "doctype": "Education",
-  "education": "Secondary (9-10)",
-  "modified": "2024-03-14 12:01:38.705597",
-  "name": "Secondary (9-10)"
  },
  {
   "docstatus": 0,
