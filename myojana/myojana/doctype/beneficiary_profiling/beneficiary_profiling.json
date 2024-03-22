@@ -1,594 +1,612 @@
 {
-    "actions": [],
-    "allow_import": 1,
-    "allow_rename": 1,
-    "autoname": "format:{name_of_the_settlement}-{####}",
-    "creation": "2023-11-04 10:29:07.053188",
-    "default_view": "List",
-    "doctype": "DocType",
-    "editable_grid": 1,
-    "engine": "InnoDB",
-    "field_order": [
-        "basic_details_tab",
-        "column_break_xbco",
-        "date_of_visit",
-        "name_of_the_beneficiary",
-        "gender",
-        "date_of_birth",
-        "completed_age",
-        "completed_age_month",
-        "column_break_qbcl",
-        "contact_number",
-        "alternate_contact_number",
-        "centre",
-        "sub_centre",
-        "source_of_information",
-        "name_of_the_camp",
-        "new_camp",
-        "new_source_of_information",
-        "has_anyone_from_your_family_visisted_before",
-        "select_primary_member",
-        "demographic_profile_tab",
-        "column_break_ewit",
-        "caste_category",
-        "religion",
-        "education",
-        "current_occupation",
-        "new_occupation",
-        "occupational_category",
-        "new_occupation_category",
-        "marital_status",
-        "spouses_name",
-        "social_vulnerable",
-        "social_vulnerable_category",
-        "other_social_vulnerable_category",
-        "column_break_tgpw",
-        "are_you_a_person_with_disability_pwd",
-        "type_of_disability",
-        "what_is_the_extent_of_your_disability",
-        "proof_of_disability",
-        "annual_income",
-        "do_you_have_any_bank_account",
-        "fathers_name",
-        "mothers_name",
-        "added_by",
-        "tab_2_tab",
-        "current_address_section",
-        "current_address_column",
-        "current_house_type",
-        "add_house_type",
-        "state",
-        "district",
-        "column_break_hspz",
-        "ward",
-        "name_of_the_settlement",
-        "address_with_landmark",
-        "section_break_gxqe",
-        "same_as_above",
-        "origin_details_section",
-        "state_of_origin",
-        "column_break_igyv",
-        "district_of_origin",
-        "column_break_htmx",
-        "block",
-        "id_documents_tab",
-        "do_you_have_any_id_documents",
-        "id_table_list",
-        "scheme_tab",
-        "scheme_table",
-        "overall_status",
-        "numeric_overall_status",
-        "all_schemes",
-        "follow_up_tab",
-        "follow_up_table"
-    ],
-    "fields": [
-        {
-            "fieldname": "date_of_visit",
-            "fieldtype": "Date",
-            "in_list_view": 1,
-            "label": "Date of visit"
-        },
-        {
-            "fieldname": "name_of_the_beneficiary",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "label": "Name of the beneficiary",
-            "reqd": 1
-        },
-        {
-            "fieldname": "gender",
-            "fieldtype": "Select",
-            "in_list_view": 1,
-            "label": "Gender",
-            "options": "\nMale\nFemale\nTransgender\nOthers"
-        },
-        {
-            "fieldname": "date_of_birth",
-            "fieldtype": "Date",
-            "label": "Date of birth"
-        },
-        {
-            "fieldname": "completed_age",
-            "fieldtype": "Int",
-            "label": "Completed age (Year)",
-            "non_negative": 1,
-            "read_only_depends_on": "eval:doc.date_of_birth"
-        },
-        {
-            "fieldname": "contact_number",
-            "fieldtype": "Data",
-            "in_list_view": 1,
-            "in_standard_filter": 1,
-            "label": "Contact number",
-            "reqd": 1
-        },
-        {
-            "fieldname": "alternate_contact_number",
-            "fieldtype": "Data",
-            "label": "Alternate contact number"
-        },
-        {
-            "fieldname": "column_break_ewit",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "caste_category",
-            "fieldtype": "Link",
-            "label": "Caste category",
-            "options": "Caste category"
-        },
-        {
-            "fieldname": "religion",
-            "fieldtype": "Link",
-            "label": "Religion",
-            "options": "Religion"
-        },
-        {
-            "fieldname": "education",
-            "fieldtype": "Link",
-            "label": "Education",
-            "options": "Education"
-        },
-        {
-            "fieldname": "current_occupation",
-            "fieldtype": "Link",
-            "label": "Current occupation",
-            "options": "Occupation"
-        },
-        {
-            "fieldname": "marital_status",
-            "fieldtype": "Link",
-            "label": "Marital status",
-            "options": "Marital status"
-        },
-        {
-            "depends_on": "eval:doc.marital_status ==\"Married\"",
-            "fieldname": "spouses_name",
-            "fieldtype": "Data",
-            "label": "Spouse's name",
-            "mandatory_depends_on": "eval:doc.marital_status  == \"Married\""
-        },
-        {
-            "fieldname": "social_vulnerable",
-            "fieldtype": "Select",
-            "label": "Are you a part any social vulnerable category?",
-            "options": "\nNo\nYes"
-        },
-        {
-            "fieldname": "column_break_tgpw",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "are_you_a_person_with_disability_pwd",
-            "fieldtype": "Select",
-            "label": "Are you a person with disability (PWD)?",
-            "options": "\nNo\nYes"
-        },
-        {
-            "fieldname": "annual_income",
-            "fieldtype": "Currency",
-            "label": "Annual income",
-            "non_negative": 1,
-            "options": "INR"
-        },
-        {
-            "fieldname": "fathers_name",
-            "fieldtype": "Data",
-            "label": "Father's name"
-        },
-        {
-            "fieldname": "mothers_name",
-            "fieldtype": "Data",
-            "label": "Mother's name"
-        },
-        {
-            "default": "No",
-            "fieldname": "has_anyone_from_your_family_visisted_before",
-            "fieldtype": "Select",
-            "label": "Has anyone from your family visited before?",
-            "options": "Yes\nNo"
-        },
-        {
-            "fieldname": "tab_2_tab",
-            "fieldtype": "Tab Break",
-            "label": "Residence details"
-        },
-        {
-            "fieldname": "id_documents_tab",
-            "fieldtype": "Tab Break",
-            "label": "ID documents"
-        },
-        {
-            "fieldname": "current_address_column",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "current_house_type",
-            "fieldtype": "Link",
-            "label": "Current house type",
-            "options": "House Types"
-        },
-        {
-            "fieldname": "state",
-            "fieldtype": "Link",
-            "label": "State",
-            "options": "State"
-        },
-        {
-            "fieldname": "district",
-            "fieldtype": "Link",
-            "label": "District",
-            "options": "District"
-        },
-        {
-            "fieldname": "column_break_hspz",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "ward",
-            "fieldtype": "Link",
-            "label": "Ward/Tehsil/Block",
-            "options": "Block"
-        },
-        {
-            "fieldname": "name_of_the_settlement",
-            "fieldtype": "Link",
-            "label": "Name of the settlement",
-            "options": "Village"
-        },
-        {
-            "fieldname": "address_with_landmark",
-            "fieldtype": "Data",
-            "label": "Address (with landmark)"
-        },
-        {
-            "fieldname": "origin_details_section",
-            "fieldtype": "Section Break",
-            "label": "Origin details"
-        },
-        {
-            "fieldname": "state_of_origin",
-            "fieldtype": "Link",
-            "label": "State of origin",
-            "options": "State",
-            "read_only_depends_on": "eval:doc.same_as_above == 1"
-        },
-        {
-            "fieldname": "district_of_origin",
-            "fieldtype": "Link",
-            "label": "District of origin",
-            "options": "District",
-            "read_only_depends_on": "eval:doc.same_as_above == 1"
-        },
-        {
-            "fieldname": "block",
-            "fieldtype": "Link",
-            "label": "Ward/Tehsil/Block",
-            "options": "Block",
-            "read_only_depends_on": "eval:doc.same_as_above == 1"
-        },
-        {
-            "default": "No",
-            "fieldname": "do_you_have_any_id_documents",
-            "fieldtype": "Select",
-            "label": "Do you have any ID documents?",
-            "options": "\nYes\nNo"
-        },
-        {
-            "depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
-            "fieldname": "id_table_list",
-            "fieldtype": "Table",
-            "options": "ID Document Child"
-        },
-        {
-            "fieldname": "current_address_section",
-            "fieldtype": "Section Break",
-            "label": "Current address"
-        },
-        {
-            "fieldname": "follow_up_tab",
-            "fieldtype": "Tab Break",
-            "label": "Follow-up"
-        },
-        {
-            "fieldname": "follow_up_table",
-            "fieldtype": "Table",
-            "options": "Follow Up Child"
-        },
-        {
-            "depends_on": "eval:doc.are_you_a_person_with_disability_pwd=='Yes'",
-            "fieldname": "what_is_the_extent_of_your_disability",
-            "fieldtype": "Select",
-            "label": "What is the extent of your disability? (%)",
-            "mandatory_depends_on": "eval:doc.are_you_a_person_with_disability_pwd == \"Yes\"",
-            "options": "\nBelow 40%\nAbove 40%\nDo not know"
-        },
-        {
-            "fieldname": "source_of_information",
-            "fieldtype": "Link",
-            "label": "Source of information",
-            "options": "Source Of Information"
-        },
-        {
-            "depends_on": "eval:doc.has_anyone_from_your_family_visisted_before == \"Yes\"",
-            "fieldname": "select_primary_member",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Select primary member",
-            "mandatory_depends_on": "eval:doc.has_anyone_from_your_family_visisted_before == \"Yes\"",
-            "options": "Primary Member"
-        },
-        {
-            "fieldname": "scheme_tab",
-            "fieldtype": "Tab Break",
-            "label": "Scheme"
-        },
-        {
-            "fieldname": "scheme_table",
-            "fieldtype": "Table",
-            "options": "Scheme Child"
-        },
-        {
-            "fieldname": "overall_status",
-            "fieldtype": "Select",
-            "in_list_view": 1,
-            "in_standard_filter": 1,
-            "label": "Overall status",
-            "options": "\nOpen\nPartially completed\nCompleted",
-            "read_only": 1
-        },
-        {
-            "fieldname": "numeric_overall_status",
-            "fieldtype": "Data",
-            "label": "Numeric overall status",
-            "read_only": 1
-        },
-        {
-            "depends_on": "eval:doc.source_of_information == \"Others\"",
-            "fieldname": "new_source_of_information",
-            "fieldtype": "Data",
-            "label": "New Source of information",
-            "mandatory_depends_on": "eval:doc.source_of_information == \"Others\""
-        },
-        {
-            "fieldname": "section_break_gxqe",
-            "fieldtype": "Section Break"
-        },
-        {
-            "default": "0",
-            "fieldname": "same_as_above",
-            "fieldtype": "Check",
-            "label": "Same as Above"
-        },
-        {
-            "fieldname": "column_break_htmx",
-            "fieldtype": "Column Break"
-        },
-        {
-            "depends_on": "eval:doc.current_house_type ==\"Others\"",
-            "fieldname": "add_house_type",
-            "fieldtype": "Data",
-            "label": "Add house type",
-            "mandatory_depends_on": "eval:doc.current_house_type ==\"Others\""
-        },
-        {
-            "depends_on": "eval:!doc.__islocal",
-            "fieldname": "all_schemes",
-            "fieldtype": "HTML",
-            "label": "Schemes",
-            "options": "<h4>Schemes</h4>\n<div class=\"row\">\n    <div class=\"col-md-2\">\n        <label for=\"scheme_name\">Name</label>\n        <input type=\"text\" id=\"scheme_name\" class=\"form-control\">\n    </div>\n    <div class=\"col-md-2\">\n        <label for=\"milestone\">Milestone</label>\n        <input type=\"text\" id=\"milestone\" class=\"form-control\">\n    </div>\n    <div class=\"col-md-8\">\n        <p style=\"text-align:right; margin-top:26px;\">\n            Schemes with 0/0 matches mean that no rules (eligibility conditions) have been set for the schemes.\n        </p>\n    </div>\n</div>\n<div style=\"margin-top: 5px;\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div id=\"all_schemes\"></div>\n        </div>\n    </div>\n</div>\n"
-        },
-        {
-            "fieldname": "occupational_category",
-            "fieldtype": "Link",
-            "label": "Occupational category",
-            "options": "Occupational Category",
-            "read_only_depends_on": "eval:doc.occupational_category"
-        },
-        {
-            "fieldname": "do_you_have_any_bank_account",
-            "fieldtype": "Select",
-            "label": "Do you have any bank account?",
-            "options": "\nYes\nNo"
-        },
-        {
-            "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
-            "fieldname": "added_by",
-            "fieldtype": "Data",
-            "label": "Added by",
-            "read_only": 1
-        },
-        {
-            "depends_on": "eval:doc.social_vulnerable_category ==\"Others\"",
-            "fieldname": "other_social_vulnerable_category",
-            "fieldtype": "Data",
-            "label": "Other social vulnerable category",
-            "mandatory_depends_on": "eval:doc.social_vulnerable_category ==\"Others\""
-        },
-        {
-            "fieldname": "column_break_igyv",
-            "fieldtype": "Column Break"
-        },
-        {
-            "depends_on": "eval:doc.source_of_information ==\"Camp\"",
-            "fieldname": "name_of_the_camp",
-            "fieldtype": "Link",
-            "label": "Name of the camp",
-            "mandatory_depends_on": "eval:doc.source_of_information ==\"Camp\"",
-            "options": "Camp"
-        },
-        {
-            "depends_on": "eval:doc.name_of_the_camp ==\"Others\"",
-            "fieldname": "new_camp",
-            "fieldtype": "Data",
-            "label": "New camp",
-            "mandatory_depends_on": "eval:doc.name_of_the_camp ==\"Others\""
-        },
-        {
-            "fieldname": "completed_age_month",
-            "fieldtype": "Int",
-            "label": "Completed age (Month)",
-            "non_negative": 1,
-            "read_only_depends_on": "eval:doc.date_of_birth"
-        },
-        {
-            "depends_on": "eval:doc.what_is_the_extent_of_your_disability == \"Above 40%\"",
-            "fieldname": "proof_of_disability",
-            "fieldtype": "Table MultiSelect",
-            "label": "Proof of disability",
-            "mandatory_depends_on": "eval:doc.what_is_the_extent_of_your_disability == \"Above 40%\"",
-            "options": "Proof of Disability Child"
-        },
-        {
-            "depends_on": "eval:doc.current_occupation == 'Others'",
-            "fieldname": "new_occupation",
-            "fieldtype": "Data",
-            "label": "New occupation",
-            "options": "Occupation"
-        },
-        {
-            "depends_on": "eval:doc.occupational_category == 'Others'",
-            "fieldname": "new_occupation_category",
-            "fieldtype": "Data",
-            "label": "New occupation category",
-            "mandatory_depends_on": "eval:doc.occupational_category == \"Others\""
-        },
-        {
-            "depends_on": "eval:doc.are_you_a_person_with_disability_pwd ==\"Yes\"",
-            "fieldname": "type_of_disability",
-            "fieldtype": "Select",
-            "label": "Type of disability",
-            "mandatory_depends_on": "eval:doc.are_you_a_person_with_disability_pwd == \"Yes\"",
-            "options": "\nBlindness\nLow vision\nLeprosy cured persons\nLocomotor disability\nDwarfism\nIntellectual disability\nMental illness\nCerebral Palsy\nSpecific learning disability\nSpeech and Language disability\nHearing impairment\nMuscular dystrophy\nAcid attack victim\nParkinson's disease\nMultiple Sclerosis\nThalassemia\nHemophilia\nSickle cell disease\nAutism spectrum disorder\nChronic neurological conditions\nMultiple disabilities including deaf and blindness."
-        },
-        {
-            "fieldname": "basic_details_tab",
-            "fieldtype": "Tab Break",
-            "label": "Basic details"
-        },
-        {
-            "fieldname": "demographic_profile_tab",
-            "fieldtype": "Tab Break",
-            "label": "Demographic profile"
-        },
-        {
-            "fieldname": "column_break_xbco",
-            "fieldtype": "Column Break"
-        },
-        {
-            "fieldname": "column_break_qbcl",
-            "fieldtype": "Column Break"
-        },
-        {
-            "depends_on": "eval:doc.social_vulnerable=='Yes'",
-            "fieldname": "social_vulnerable_category",
-            "fieldtype": "Link",
-            "label": "Social vulnerable category",
-            "options": "Social vulnerable category"
-        },
-        {
-            "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
-            "fieldname": "centre",
-            "fieldtype": "Link",
-            "label": "Centre",
-            "options": "Centre"
-        },
-        {
-            "fieldname": "sub_centre",
-            "fieldtype": "Link",
-            "label": "Name of sub centre",
-            "options": "Sub Centre"
-        }
-    ],
-    "hide_toolbar": 1,
-    "index_web_pages_for_search": 1,
-    "links": [],
-    "modified": "2024-03-20 13:45:52.513437",
-    "modified_by": "Administrator",
-    "module": "myojana",
-    "name": "Beneficiary Profiling",
-    "naming_rule": "Expression",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "Admin",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "create": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "CSC Member",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "create": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "Sub-Centre",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "create": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "MIS executive",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1
-        }
-    ],
-    "show_title_field_in_link": 1,
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "states": [],
-    "title_field": "name_of_the_beneficiary"
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{name_of_the_settlement}-{####}",
+ "creation": "2023-11-04 10:29:07.053188",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_details_tab",
+  "column_break_xbco",
+  "date_of_visit",
+  "name_of_the_beneficiary",
+  "gender",
+  "date_of_birth",
+  "completed_age",
+  "completed_age_month",
+  "column_break_qbcl",
+  "contact_number",
+  "alternate_contact_number",
+  "centre",
+  "sub_centre",
+  "source_of_information",
+  "name_of_the_camp",
+  "new_camp",
+  "new_source_of_information",
+  "has_anyone_from_your_family_visisted_before",
+  "select_primary_member",
+  "demographic_profile_tab",
+  "column_break_ewit",
+  "caste_category",
+  "religion",
+  "education",
+  "current_occupation",
+  "new_occupation",
+  "occupational_category",
+  "new_occupation_category",
+  "marital_status",
+  "spouses_name",
+  "social_vulnerable",
+  "social_vulnerable_category",
+  "other_social_vulnerable_category",
+  "column_break_tgpw",
+  "are_you_a_person_with_disability_pwd",
+  "type_of_disability",
+  "what_is_the_extent_of_your_disability",
+  "proof_of_disability",
+  "annual_income",
+  "do_you_have_any_bank_account",
+  "fathers_name",
+  "mothers_name",
+  "added_by",
+  "tab_2_tab",
+  "current_address_section",
+  "current_address_column",
+  "current_house_type",
+  "add_house_type",
+  "state",
+  "district",
+  "column_break_hspz",
+  "ward",
+  "name_of_the_settlement",
+  "address_with_landmark",
+  "section_break_gxqe",
+  "same_as_above",
+  "origin_details_section",
+  "state_of_origin",
+  "column_break_igyv",
+  "district_of_origin",
+  "column_break_htmx",
+  "block",
+  "id_documents_tab",
+  "do_you_have_any_id_documents",
+  "id_table_list",
+  "scheme_tab",
+  "scheme_table",
+  "overall_status",
+  "numeric_overall_status",
+  "all_schemes",
+  "follow_up_tab",
+  "follow_up_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "date_of_visit",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of visit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "name_of_the_beneficiary",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of the beneficiary",
+   "reqd": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale\nTransgender\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "completed_age",
+   "fieldtype": "Int",
+   "label": "Completed age (Year)",
+   "non_negative": 1,
+   "read_only_depends_on": "eval:doc.date_of_birth"
+  },
+  {
+   "fieldname": "contact_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Contact number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "alternate_contact_number",
+   "fieldtype": "Data",
+   "label": "Alternate contact number"
+  },
+  {
+   "fieldname": "column_break_ewit",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "caste_category",
+   "fieldtype": "Link",
+   "label": "Caste category",
+   "options": "Caste category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "religion",
+   "fieldtype": "Link",
+   "label": "Religion",
+   "options": "Religion"
+  },
+  {
+   "fieldname": "education",
+   "fieldtype": "Link",
+   "label": "Education",
+   "options": "Education"
+  },
+  {
+   "fieldname": "current_occupation",
+   "fieldtype": "Link",
+   "label": "Current occupation",
+   "options": "Occupation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "marital_status",
+   "fieldtype": "Link",
+   "label": "Marital status",
+   "options": "Marital status",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.marital_status ==\"Married\"",
+   "fieldname": "spouses_name",
+   "fieldtype": "Data",
+   "label": "Spouse's name",
+   "mandatory_depends_on": "eval:doc.marital_status  == \"Married\""
+  },
+  {
+   "fieldname": "social_vulnerable",
+   "fieldtype": "Select",
+   "label": "Are you a part any social vulnerable category?",
+   "options": "\nNo\nYes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tgpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "are_you_a_person_with_disability_pwd",
+   "fieldtype": "Select",
+   "label": "Are you a person with disability (PWD)?",
+   "options": "\nNo\nYes",
+   "reqd": 1
+  },
+  {
+   "fieldname": "annual_income",
+   "fieldtype": "Currency",
+   "label": "Annual income",
+   "non_negative": 1,
+   "options": "INR",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fathers_name",
+   "fieldtype": "Data",
+   "label": "Father's name"
+  },
+  {
+   "fieldname": "mothers_name",
+   "fieldtype": "Data",
+   "label": "Mother's name"
+  },
+  {
+   "default": "No",
+   "fieldname": "has_anyone_from_your_family_visisted_before",
+   "fieldtype": "Select",
+   "label": "Has anyone from your family visited before?",
+   "options": "Yes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Residence details"
+  },
+  {
+   "fieldname": "id_documents_tab",
+   "fieldtype": "Tab Break",
+   "label": "ID documents"
+  },
+  {
+   "fieldname": "current_address_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_house_type",
+   "fieldtype": "Link",
+   "label": "Current house type",
+   "options": "House Types"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District"
+  },
+  {
+   "fieldname": "column_break_hspz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "label": "Ward/Tehsil/Block",
+   "options": "Block"
+  },
+  {
+   "fieldname": "name_of_the_settlement",
+   "fieldtype": "Link",
+   "label": "Name of the settlement",
+   "options": "Village"
+  },
+  {
+   "fieldname": "address_with_landmark",
+   "fieldtype": "Data",
+   "label": "Address (with landmark)"
+  },
+  {
+   "fieldname": "origin_details_section",
+   "fieldtype": "Section Break",
+   "label": "Origin details"
+  },
+  {
+   "fieldname": "state_of_origin",
+   "fieldtype": "Link",
+   "label": "State of origin",
+   "options": "State",
+   "read_only_depends_on": "eval:doc.same_as_above == 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "district_of_origin",
+   "fieldtype": "Link",
+   "label": "District of origin",
+   "options": "District",
+   "read_only_depends_on": "eval:doc.same_as_above == 1"
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Ward/Tehsil/Block",
+   "options": "Block",
+   "read_only_depends_on": "eval:doc.same_as_above == 1"
+  },
+  {
+   "default": "No",
+   "fieldname": "do_you_have_any_id_documents",
+   "fieldtype": "Select",
+   "label": "Do you have any ID documents?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
+   "fieldname": "id_table_list",
+   "fieldtype": "Table",
+   "options": "ID Document Child"
+  },
+  {
+   "fieldname": "current_address_section",
+   "fieldtype": "Section Break",
+   "label": "Current address"
+  },
+  {
+   "fieldname": "follow_up_tab",
+   "fieldtype": "Tab Break",
+   "label": "Follow-up"
+  },
+  {
+   "fieldname": "follow_up_table",
+   "fieldtype": "Table",
+   "options": "Follow Up Child"
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_person_with_disability_pwd=='Yes'",
+   "fieldname": "what_is_the_extent_of_your_disability",
+   "fieldtype": "Select",
+   "label": "What is the extent of your disability? (%)",
+   "mandatory_depends_on": "eval:doc.are_you_a_person_with_disability_pwd == \"Yes\"",
+   "options": "\nBelow 40%\nAbove 40%\nDo not know"
+  },
+  {
+   "fieldname": "source_of_information",
+   "fieldtype": "Link",
+   "label": "Source of information",
+   "options": "Source Of Information",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.has_anyone_from_your_family_visisted_before == \"Yes\"",
+   "fieldname": "select_primary_member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Select primary member",
+   "mandatory_depends_on": "eval:doc.has_anyone_from_your_family_visisted_before == \"Yes\"",
+   "options": "Primary Member"
+  },
+  {
+   "fieldname": "scheme_tab",
+   "fieldtype": "Tab Break",
+   "label": "Scheme"
+  },
+  {
+   "fieldname": "scheme_table",
+   "fieldtype": "Table",
+   "options": "Scheme Child"
+  },
+  {
+   "fieldname": "overall_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Overall status",
+   "options": "\nOpen\nPartially completed\nCompleted",
+   "read_only": 1
+  },
+  {
+   "fieldname": "numeric_overall_status",
+   "fieldtype": "Data",
+   "label": "Numeric overall status",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.source_of_information == \"Others\"",
+   "fieldname": "new_source_of_information",
+   "fieldtype": "Data",
+   "label": "New Source of information",
+   "mandatory_depends_on": "eval:doc.source_of_information == \"Others\""
+  },
+  {
+   "fieldname": "section_break_gxqe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "same_as_above",
+   "fieldtype": "Check",
+   "label": "Same as Above"
+  },
+  {
+   "fieldname": "column_break_htmx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.current_house_type ==\"Others\"",
+   "fieldname": "add_house_type",
+   "fieldtype": "Data",
+   "label": "Add house type",
+   "mandatory_depends_on": "eval:doc.current_house_type ==\"Others\""
+  },
+  {
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "all_schemes",
+   "fieldtype": "HTML",
+   "label": "Schemes",
+   "options": "<h4>Schemes</h4>\n<div class=\"row\">\n    <div class=\"col-md-2\">\n        <label for=\"scheme_name\">Name</label>\n        <input type=\"text\" id=\"scheme_name\" class=\"form-control\">\n    </div>\n    <div class=\"col-md-2\">\n        <label for=\"milestone\">Milestone</label>\n        <input type=\"text\" id=\"milestone\" class=\"form-control\">\n    </div>\n    <div class=\"col-md-8\">\n        <p style=\"text-align:right; margin-top:26px;\">\n            Schemes with 0/0 matches mean that no rules (eligibility conditions) have been set for the schemes.\n        </p>\n    </div>\n</div>\n<div style=\"margin-top: 5px;\">\n    <div class=\"row\">\n        <div class=\"col-md-12\">\n            <div id=\"all_schemes\"></div>\n        </div>\n    </div>\n</div>\n"
+  },
+  {
+   "fieldname": "occupational_category",
+   "fieldtype": "Link",
+   "label": "Occupational category",
+   "options": "Occupational Category",
+   "read_only_depends_on": "eval:doc.occupational_category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "do_you_have_any_bank_account",
+   "fieldtype": "Select",
+   "label": "Do you have any bank account?",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
+   "fieldname": "added_by",
+   "fieldtype": "Data",
+   "label": "Added by",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.social_vulnerable_category ==\"Others\"",
+   "fieldname": "other_social_vulnerable_category",
+   "fieldtype": "Data",
+   "label": "Other social vulnerable category",
+   "mandatory_depends_on": "eval:doc.social_vulnerable_category ==\"Others\""
+  },
+  {
+   "fieldname": "column_break_igyv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.source_of_information ==\"Camp\"",
+   "fieldname": "name_of_the_camp",
+   "fieldtype": "Link",
+   "label": "Name of the camp",
+   "mandatory_depends_on": "eval:doc.source_of_information ==\"Camp\"",
+   "options": "Camp"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_camp ==\"Others\"",
+   "fieldname": "new_camp",
+   "fieldtype": "Data",
+   "label": "New camp",
+   "mandatory_depends_on": "eval:doc.name_of_the_camp ==\"Others\""
+  },
+  {
+   "fieldname": "completed_age_month",
+   "fieldtype": "Int",
+   "label": "Completed age (Month)",
+   "non_negative": 1,
+   "read_only_depends_on": "eval:doc.date_of_birth"
+  },
+  {
+   "depends_on": "eval:doc.what_is_the_extent_of_your_disability == \"Above 40%\"",
+   "fieldname": "proof_of_disability",
+   "fieldtype": "Table MultiSelect",
+   "label": "Proof of disability",
+   "options": "Proof of Disability Child"
+  },
+  {
+   "depends_on": "eval:doc.current_occupation == 'Others'",
+   "fieldname": "new_occupation",
+   "fieldtype": "Data",
+   "label": "New occupation",
+   "mandatory_depends_on": "eval:doc.current_occupation == 'Others'",
+   "options": "Occupation"
+  },
+  {
+   "depends_on": "eval:doc.occupational_category == 'Others'",
+   "fieldname": "new_occupation_category",
+   "fieldtype": "Data",
+   "label": "New occupation category",
+   "mandatory_depends_on": "eval:doc.occupational_category == \"Others\""
+  },
+  {
+   "depends_on": "eval:doc.are_you_a_person_with_disability_pwd ==\"Yes\"",
+   "fieldname": "type_of_disability",
+   "fieldtype": "Select",
+   "label": "Type of disability",
+   "mandatory_depends_on": "eval:doc.are_you_a_person_with_disability_pwd == \"Yes\"",
+   "options": "\nBlindness\nLow vision\nLeprosy cured persons\nLocomotor disability\nDwarfism\nIntellectual disability\nMental illness\nCerebral Palsy\nSpecific learning disability\nSpeech and Language disability\nHearing impairment\nMuscular dystrophy\nAcid attack victim\nParkinson's disease\nMultiple Sclerosis\nThalassemia\nHemophilia\nSickle cell disease\nAutism spectrum disorder\nChronic neurological conditions\nMultiple disabilities including deaf and blindness."
+  },
+  {
+   "fieldname": "basic_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Basic details"
+  },
+  {
+   "fieldname": "demographic_profile_tab",
+   "fieldtype": "Tab Break",
+   "label": "Demographic profile"
+  },
+  {
+   "fieldname": "column_break_xbco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qbcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.social_vulnerable=='Yes'",
+   "fieldname": "social_vulnerable_category",
+   "fieldtype": "Link",
+   "label": "Social vulnerable category",
+   "mandatory_depends_on": "eval:doc.social_vulnerable=='Yes'",
+   "options": "Social vulnerable category"
+  },
+  {
+   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "label": "Centre",
+   "options": "Centre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_centre",
+   "fieldtype": "Link",
+   "label": "Name of sub centre",
+   "options": "Sub Centre",
+   "reqd": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-21 12:50:10.733750",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Beneficiary Profiling",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSC Member",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sub-Centre",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "MIS executive",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name_of_the_beneficiary"
 }
