@@ -330,14 +330,6 @@
  {
   "docstatus": 0,
   "doctype": "Occupation",
-  "modified": "2024-03-14 12:00:45.203134",
-  "name": "dsvd",
-  "occupation": "dsvd",
-  "occupational_category": "Unorganized worker"
- },
- {
-  "docstatus": 0,
-  "doctype": "Occupation",
   "modified": "2024-03-14 12:00:45.213107",
   "name": "DTP –Data work",
   "occupation": "DTP –Data work",
