@@ -29,6 +29,42 @@ function evaluateExpression(input, expression) {
         return err.message;
     }
 }
+function convertJSONToCSV(jsonData, fileName) {
+    // Convert JSON to CSV format
+    const csvContent = [];
+    const keys = Object.keys(jsonData[0]);
+    csvContent.push(keys.join(','));
+
+    jsonData.forEach(entry => {
+        const values = keys.map(key => {
+            let value = entry[key];
+            if (typeof value === 'string') {
+                value = `"${value}"`; // Enclose in double quotes to handle commas within strings
+            }
+            return value;
+        });
+        csvContent.push(values.join(','));
+    });
+
+    // Create CSV file
+    const csvString = csvContent.join('\n');
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+    if (navigator.msSaveBlob) { // IE 10+
+        navigator.msSaveBlob(blob, fileName);
+    } else {
+        const link = document.createElement('a');
+        if (link.download !== undefined) {
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', fileName);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            alert('Your browser does not support downloading files. Please try a different browser.');
+        }
+    }
+}
 function generateQueryString(rows) {
     // console.log("generateQueryString[called]", rows);
     let obj = {};
@@ -94,11 +130,11 @@ function callAPI(options) {
         });
     })
 }
-const generate_filters = async (frm,datatable,filter_val) => {
+const generate_filters = async (frm, datatable, filter_val) => {
     response = await get_ben_list(frm, ['name', ...columns], filter_val)
     datatable.refresh(response.data)
     // console.log("filter values", filter_val)
-    
+
 }
 const addTableFilter = (datatable, elements = [], rows = []) => {
     document.addEventListener('keyup', function (event) {
@@ -107,12 +143,12 @@ const addTableFilter = (datatable, elements = [], rows = []) => {
             for (el of elements) {
                 let val = document.getElementById(el)?.value;
                 if (val) {
-                    filters.push({[el]: val})
+                    filters.push({ [el]: val })
                 }
             }
             // generate_filters(frm,datatable,filters)
             if (filters.length) {
-                generate_filters(cur_frm,datatable,filters)
+                generate_filters(cur_frm, datatable, filters)
                 // datatable.refresh(rows.filter(row => !filters.map(e => (row[e[0]]?.toString()?.toLowerCase()?.indexOf(e[1]?.toLowerCase()) > -1)).includes(false)))
             } else {
                 datatable.refresh(rows)
@@ -137,20 +173,6 @@ const get_ben_list = async (frm, columns, filters = [], start = 0, page_imit = 1
     // scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
     return list
 }
-const get_ben_csv = async (frm, columns, filters = []) => {
-    let list = await callAPI({
-        method: 'myojana.api.eligible_beneficiaries',
-        freeze: true,
-        args: {
-            "scheme": frm.doc.name_of_the_scheme,
-            columns: columns,
-            filters: filters
-        },
-        freeze_message: __("Getting beneficiaries..."),
-    })
-    // scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
-    return list
-}
 let tableConf = {
     columns: [
         {
@@ -163,7 +185,7 @@ let tableConf = {
             dropdown: true,
             width: 100,
             format: (value, columns, ops, row) => {
-                console.log(current_page)
+                // console.log(current_page)
                 return (columns?.[0]?.rowIndex + 1)
             }
         },
@@ -236,7 +258,7 @@ const render_table = async (frm) => {
     if (!frm?.doc?.__islocal) {
         columns = tableConf.columns.map(e => (e.field ? e.field : e.id))
         response = await get_ben_list(frm, ['name', ...columns])
-        total_page = Math.ceil((response?.count.total/100));
+        total_page = Math.ceil((response?.count.total / 100));
     }
     page_list = `<li class="page-item">
     <a class="page-link" id="previous-page">
@@ -244,11 +266,11 @@ const render_table = async (frm) => {
         <span class="sr-only">Previous</span>
     </a>
     </li>`
-    for(let i=1; i <= total_page; i++){
+    for (let i = 1; i <= total_page; i++) {
         page_list = page_list + `<li class="page-item"><a class="page-link page-value">${i}</a></li>`
         // console.log("loop page", i)
     }
-    page_list = page_list +`
+    page_list = page_list + `
     <li class="page-item">
     <a class="page-link" id="next-page"">
         <span>&raquo;</span>
@@ -257,7 +279,7 @@ const render_table = async (frm) => {
     </li>`
     let pagination_page = document.getElementById('page_list')
     pagination_page.innerHTML = page_list
-   
+
     const container = document.getElementById('eligible_beneficiaries');
     const datatable = new DataTable(container, {
         layout: 'fluid',
@@ -265,24 +287,24 @@ const render_table = async (frm) => {
         serialNoColumn: false
     });
     // next page on pagination
-    document.getElementById('next-page').onclick =()=>{
-        current_page +=1
-        console.log(current_page)
+    document.getElementById('next-page').onclick = () => {
+        current_page += 1
+        // console.log(current_page)
     }
     // previous page of pagination
-    document.getElementById("previous-page").onclick =()=>{
-        current_page -=1
-        console.log(current_page)
+    document.getElementById("previous-page").onclick = () => {
+        current_page -= 1
+        // console.log(current_page)
     }
     const elements = document.querySelectorAll('.page-value');
     elements.forEach(element => {
-    element.addEventListener('click',async function(event) {
-        current_page = Number(event.target.innerText);
-        let active_page = Number(event.target.innerText)
-        const start = (active_page > 1 ? ((active_page *(100)) - 100) : 0)
-        response = await get_ben_list(frm, ['name', ...columns],[],start,100)
-        datatable.refresh(response.data)
-    });
+        element.addEventListener('click', async function (event) {
+            current_page = Number(event.target.innerText);
+            let active_page = Number(event.target.innerText)
+            const start = (active_page > 1 ? ((active_page * (100)) - 100) : 0)
+            response = await get_ben_list(frm, ['name', ...columns], [], start, 100)
+            datatable.refresh(response.data)
+        });
     });
     datatable.style.setStyle(`.dt-scrollable`, { height: '400px!important', overflow: 'scroll!important' });
     datatable.style.setStyle(`.dt-instance-1 .dt-cell__content--col-0`, { width: '660px' });
@@ -306,11 +328,10 @@ frappe.ui.form.on("Scheme", {
     async refresh(frm) {
         render_table(frm)
         document.getElementById('export-exel').onclick = function () {
-            console.log("hello world")
-            get_ben_csv(frm, ["name", 'state.state_name'])
+            convertJSONToCSV(response.data, "eligible_ben")
         }
     },
-    async onload(frm){
+    async onload(frm) {
     },
     before_save: async function (frm) {
     },
