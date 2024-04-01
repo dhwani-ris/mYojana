@@ -190,7 +190,7 @@ def top_schemes():
     scheme_with_rules = frappe.db.sql(scheme_with_rule_sql, as_dict=True)
     scheme_list = [sc.get('parent') for sc in scheme_with_rules]
     for milestone in milestones:
-        schemes = frappe.get_list("Scheme", filters={'milestone':milestone.name, 'name':["IN",scheme_list]}, fields=['name'])
+        schemes = frappe.get_list("Scheme", filters={'milestone':milestone.name, 'name':["IN",scheme_list], 'enabled': '1'}, fields=['name'])
         for scheme in schemes:
             scheme['ben_count'] = 0
             scheme_doc = frappe.get_doc('Scheme',scheme.name)
