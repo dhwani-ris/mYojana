@@ -1,0 +1,31 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-01 18:08:43.255240",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "centre"
+ ],
+ "fields": [
+  {
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "label": "Centre",
+   "options": "Centre"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-01 18:09:20.105544",
+ "modified_by": "Administrator",
+ "module": "Master",
+ "name": "Centre Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

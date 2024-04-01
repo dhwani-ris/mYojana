@@ -1,5 +1,58 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // For license information, please see license.txt
+let d = new frappe.ui.Dialog({
+    title: 'Add User Permission',
+    fields: [
+        {
+            "fieldname": "select_doctype",
+            "fieldtype": "Autocomplete",
+            "label": "Select Doctype",
+            "options": "State\nDistrict\nBlock\nCentre\nSub Centre"
+        },
+        {
+            "depends_on": "eval:doc.select_doctype==\"State\"",
+            "fieldname": "select_states",
+            "fieldtype": "Table MultiSelect",
+            "label": "Select States",
+            "options": "State Child"
+        },
+        {
+            "depends_on": "eval:doc.select_doctype==\"District\"",
+            "fieldname": "select_districts",
+            "fieldtype": "Table MultiSelect",
+            "label": "Select Districts",
+            "options": "District Child"
+        },
+        {
+            "depends_on": "eval:doc.select_doctype==\"Block\"",
+            "fieldname": "select_blocks",
+            "fieldtype": "Table MultiSelect",
+            "label": "Select Blocks",
+            "options": "Block Child"
+        },
+        {
+            "depends_on": "eval:doc.select_doctype==\"Centre\"",
+            "fieldname": "select_centres",
+            "fieldtype": "Table MultiSelect",
+            "label": "Select Centres",
+            "options": "Centre Child"
+        },
+        {
+            "depends_on": "eval:doc.select_doctype==\"Sub Centre\"",
+            "fieldname": "select_sub_centres",
+            "fieldtype": "Table MultiSelect",
+            "label": "Select Sub Centres",
+            "options": "Sub Centre Child"
+        }
+    ],
+    primary_action_label: 'Submit',
+    primary_action(values) {
+        // Log the selected values
+        console.log(values);
+        // Hide the dialog
+        d.hide();
+    }
+});
 function defult_filter(field_name, filter_on, frm) {
     frm.fields_dict[field_name].get_query = function (doc) {
         return {
@@ -49,6 +102,9 @@ frappe.ui.form.on("Myojana User", {
             defult_filter('centre', "state", frm)
         }
     },
+    add_permission: function(frm){
+        d.show();
+    }
     // centre: function (frm) {
     //     if (frm.doc.centre) {
     //         apply_filter("sub_centre", "centre", frm, frm.doc.centre)
