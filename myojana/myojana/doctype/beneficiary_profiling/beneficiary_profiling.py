@@ -123,19 +123,19 @@ class BeneficiaryProfiling(Document):
 			frappe.db.set_value('Beneficiary Profiling', self.name, 'select_primary_member', family_doc.name, update_modified=False)
 
 	def on_update(self):
+		if(self.new_source_of_information):
+			BeneficiaryProfiling.create_source_of_information(self.new_source_of_information)
+		if(self.add_house_type):
+			BeneficiaryProfiling.create_house_type(self.add_house_type)
+		if(self.new_camp):
+			BeneficiaryProfiling.create_new_camp(self.new_camp)
+		if(self.other_social_vulnerable_category):
+			BeneficiaryProfiling.new_social_vulnerable_category(self.other_social_vulnerable_category)
+		if(self.new_occupation and self.occupational_category or self.new_occupation_category):
+			BeneficiaryProfiling.other_new_occupation(self.new_occupation , self.occupational_category , self.new_occupation_category)
 		if self.get('localname'):
 			return
 		else:
-			if(self.new_source_of_information):
-				BeneficiaryProfiling.create_source_of_information(self.new_source_of_information)
-			if(self.add_house_type):
-				BeneficiaryProfiling.create_house_type(self.add_house_type)
-			if(self.new_camp):
-				BeneficiaryProfiling.create_new_camp(self.new_camp)
-			if(self.other_social_vulnerable_category):
-				BeneficiaryProfiling.new_social_vulnerable_category(self.other_social_vulnerable_category)
-			if(self.new_occupation and self.occupational_category or self.new_occupation_category):
-				BeneficiaryProfiling.other_new_occupation(self.new_occupation , self.occupational_category , self.new_occupation_category)
 			if(self.has_anyone_from_your_family_visisted_before == "No"):
 				if self.get('_doc_before_save', None):
 					_doc_before_save = self.get('_doc_before_save')
