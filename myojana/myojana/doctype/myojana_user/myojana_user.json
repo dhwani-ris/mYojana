@@ -106,7 +106,7 @@
   {
    "fieldname": "html_ojrc",
    "fieldtype": "HTML",
-   "options": "<div>Permission </div>\n<div id=\"datatable\"></div>"
+   "options": "<div id=\"datatable\"></div>"
   },
   {
    "fieldname": "select_states",
@@ -158,7 +158,7 @@
  "image_field": "user_image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-02 09:24:20.174739",
+ "modified": "2024-04-02 16:47:20.335795",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Myojana User",

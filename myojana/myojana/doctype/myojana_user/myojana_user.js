@@ -46,7 +46,7 @@ let d = new frappe.ui.Dialog({
         }
     ],
     primary_action_label: 'Submit',
-    primary_action(values) {
+    async primary_action(values) {
         // Log the selected values
         console.log(values);
         let doctype = values.select_doctype;
@@ -55,48 +55,73 @@ let d = new frappe.ui.Dialog({
             case "State":
                 selected_keys= values.select_states;
                 console.log(selected_keys)
-                loop_values(selected_keys , doctype , cur_frm, 'state')
+                await loop_values(selected_keys , doctype , cur_frm, 'state')
                 break;
             case "District":
                 selected_keys= values.select_districts;
                 console.log(selected_keys)
-                loop_values(selected_keys , doctype , cur_frm, 'district')
+                await loop_values(selected_keys , doctype , cur_frm, 'district')
                 break;
             case "Block":
                 selected_keys= values.select_blocks;
                 console.log(selected_keys)
-                loop_values(selected_keys , doctype , cur_frm, 'block')
+                await loop_values(selected_keys , doctype , cur_frm, 'block')
                 break;
             case "Centre":
                 selected_keys= values.select_centres;
                 console.log(selected_keys)
-                loop_values(selected_keys , doctype , cur_frm, 'centre')
+                await loop_values(selected_keys , doctype , cur_frm, 'centre')
                 break;
             case "Sub Centre":
                 selected_keys= values.select_sub_centres;
                 console.log(selected_keys)
-                loop_values(selected_keys , doctype , cur_frm, 'sub_centre')
+                await loop_values(selected_keys , doctype , cur_frm, 'sub_centre')
                 break
             default:
                 break;
         }
-        
-        // Hide the dialog
+        console.log("cur_frm", cur_frm)
+        render_tables(cur_frm)
         d.hide();
     }
 });
-//  datatables
-let element = document.querySelector('#datatable');
+
+const delete_button = async(frm)=>{
+    document.querySelectorAll(".delete-button").forEach(element => {
+        element.onclick = async(e) => {
+            frappe.confirm('Are you sure you want to delete this permission?',
+                async() => {
+                    let list = await callAPI({
+                        method: 'frappe.desk.reportview.delete_items',
+                        freeze: true,
+                        args: {
+                            items: [e.target.id],
+                            doctype:"User Permission",
+                        },
+                        
+                        freeze_message: __("Deleting Data ..."),
+                      })
+                      await render_tables(frm)
+                },
+                ()=>{
+                    return
+                }
+            )
+        };
+    });
+    
+}
+
 const render_tables = async(frm)=>{
     let list = await get_permission(frm.doc.name)
     console.log(list)
     let tables = `<table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Sr.No</th>
         <th scope="col">Doctype</th>
-        <th scope="col">Values</th>
-        <th scope="col">Values</th>
+        <th scope="col">Value</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -104,22 +129,27 @@ const render_tables = async(frm)=>{
     for(let i = 0; i < list?.length; i++){
         tables = tables + `
         <tr>
-        <th scope="row">${i+1}</th>
-        <td>${list?.[i].allow}</td>
-        <td>${list?.[i].name_value}</td>
-        <td class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>  <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/></svg></td>
-      </tr>
-        `
+            <th scope="row">${i+1}</th>
+            <td>${list?.[i].allow}</td>
+            <td>${list?.[i].name_value}</td>
+            <td class="text-danger"><i class="fa fa-trash-o delete-button" id="${list[i].name}" style="font-size:25px;"></i></td>
+        </tr>
+            `
     }
     tables = tables + `</tbody>
-    </table>`
-    document.getElementById('datatable').innerHTML = tables
+    </table>`;
+    if(list?.length){
+        document.getElementById('datatable').innerHTML = tables
+    }else{
+        document.getElementById('datatable').innerHTML = ''
+    }
+    delete_button(frm)
 }
 
-const loop_values =(selected_keys, doctype, frm ,key)=>{
+const loop_values =async(selected_keys, doctype, frm ,key)=>{
     for(let i = 0; i < selected_keys.length; i++){
         console.log(doctype, selected_keys[i][key])
-        set_permission(doctype, selected_keys[i][key] , frm)
+        await set_permission(doctype, selected_keys[i][key] , frm)
     }
 }
 
