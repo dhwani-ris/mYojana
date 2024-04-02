@@ -11,7 +11,7 @@ let d = new frappe.ui.Dialog({
         },
         {
             "depends_on": "eval:doc.select_doctype==\"State\"",
-            "fieldname": "select_states",
+            "fieldname": "select_districts",
             "fieldtype": "Table MultiSelect",
             "label": "Select States",
             "options": "State Child"
@@ -49,10 +49,109 @@ let d = new frappe.ui.Dialog({
     primary_action(values) {
         // Log the selected values
         console.log(values);
+        let doctype = values.select_doctype;
+        let selected_keys;
+        if(values.select_doctype =="State"){
+            selected_keys= values.select_states;
+            console.log(selected_keys)
+            loop_values(selected_keys , doctype)
+        }
+        
         // Hide the dialog
         d.hide();
     }
 });
+//  datatables
+let element = document.querySelector('#datatable');
+const render_tables = async(frm)=>{
+    let list = await get_permission({'user':frm.doc.name})
+    console.log(list)
+    let tables = `<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Doctype</th>
+        <th scope="col">Values</th>
+      </tr>
+    </thead>
+    <tbody>
+    `
+    for(let i = 0; i < list?.values.length; i++){
+        tables = tables + `
+        <tr>
+        <th scope="row">${i+1}</th>
+        <td>${list?.values[i][i]}</td>
+        <td>${list?.values[i][i +1]}</td>
+      </tr>
+        `
+    }
+    tables = tables + `</tbody>
+    </table>`
+    document.getElementById('datatable').innerHTML = tables
+}
+
+const loop_values =(selected_keys, doctype)=>{
+    for(let i = 0; i < selected_keys.length; i++){
+        key= doctype.toLowerCase()
+        console.log(doctype, selected_keys[i].state)
+        set_permission(doctype, selected_keys[i].state)
+    }
+}
+
+// Calling APIs Common function
+function callAPI(options) {
+    return new Promise((resolve, reject) => {
+      frappe.call({
+        ...options,
+        callback: async function (response) {
+          resolve(response?.message || response?.value)
+        }
+      });
+    })
+  }
+// get scheme lists
+const set_permission = async (doctype , values) => {
+    let list = await callAPI({
+      method: 'frappe.desk.form.save.savedocs',
+      freeze: true,
+      args: {
+        doc:{
+            "docstatus":0,
+            "doctype":"User Permission",
+            // "__islocal":1,"__unsaved":1,
+            "owner": frappe.session.user,
+            "is_default":0,
+            "apply_to_all_doctypes":1,
+            "hide_descendants":0,
+            "user":frappe.session.user,
+            "allow":doctype,
+            "for_value":values
+        },
+        action:"Save",
+      },
+      
+      freeze_message: __("Saving Data"),
+    })
+    return list
+  }
+//   get permissions
+const get_permission = async (filter={}) => {
+    let list = await callAPI({
+      method: 'frappe.desk.reportview.get',
+      freeze: true,
+      args: {
+        doctype:"User Permission",
+        fields:["allow", "for_value",],
+        filters: filter,
+        view:"List",
+        order_by: "",
+        group_by:'',
+      },
+      
+      freeze_message: __("Getting Permissions"),
+    })
+    return list
+  }
 function defult_filter(field_name, filter_on, frm) {
     frm.fields_dict[field_name].get_query = function (doc) {
         return {
@@ -91,6 +190,10 @@ frappe.ui.form.on("Myojana User", {
         // frm.doc.centre ? apply_filter("sub_centre", "centre", frm, frm.doc.centre) : defult_filter('sub_centre', "centre", frm);
         extend_options_length(frm, ["state"])
         hide_advance_search(frm, ["role_profile", "state", "centre"])
+
+        
+        render_tables(frm)
+
     },
     role_profile: function (frm) {
 
