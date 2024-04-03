@@ -29,7 +29,7 @@ bench --site $YOUR_SITE_NAME install-app myojana
 
 Our solution, the Social Protection Management System (SPMS), is designed to empower Non-Governmental Organizations (NGOs) to efficiently manage entitlements for beneficiaries. It would help NGOs maximize their outreach and support to beneficiaries by simplifying the process of providing rightful entitlement documents and schemes.
 
-## Myojana Main Screens
+## mYojana Main Screens
 
 ![mYojana](https://github.com/dhwani-ris/mYojana/assets/128586957/fa12e187-481a-4cb9-bfbc-ddc08b84fc9b)
 
