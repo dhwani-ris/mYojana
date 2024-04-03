@@ -72,9 +72,9 @@
  {
   "docstatus": 0,
   "doctype": "Education",
-  "education": "Other",
+  "education": "Others",
   "modified": "2024-03-14 12:01:38.666274",
-  "name": "Other"
+  "name": "Others"
  },
  {
   "docstatus": 0,
@@ -82,13 +82,6 @@
   "education": "Post Graduate",
   "modified": "2024-03-14 12:01:38.675695",
   "name": "Post Graduate"
- },
- {
-  "docstatus": 0,
-  "doctype": "Education",
-  "education": "Pre Primary Primary (1-4)",
-  "modified": "2024-03-14 12:01:38.682630",
-  "name": "Pre Primary Primary (1-4)"
  },
  {
   "docstatus": 0,
