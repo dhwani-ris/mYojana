@@ -132,7 +132,7 @@ const render_tables = async(frm)=>{
             <th scope="row">${i+1}</th>
             <td>${list?.[i].allow}</td>
             <td>${list?.[i].name_value}</td>
-            <td class="text-danger"><i class="fa fa-trash-o delete-button" id="${list[i].name}" style="font-size:25px;"></i></td>
+            <td class="text-danger"><a><i class="fa fa-trash-o delete-button" id="${list[i].name}" style="font-size:25px;"></i><a/></td>
         </tr>
             `
     }
