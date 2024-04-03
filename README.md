@@ -46,6 +46,3 @@ Our solution, the Social Protection Management System (SPMS), is designed to emp
 - **Predictive System:** Integration of rule engine to aid scheme provision for beneficiaries.
 - **Unique Customization:** Enjoy flexibility with features like lead generation, grievance redressal, and much more!
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
