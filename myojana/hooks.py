@@ -72,7 +72,9 @@ doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
                                          "public/js/beneficiary_profiling/id_document.js",
                                          "public/js/beneficiary_profiling/dialogs.js"
                                          ],
-              "Sub Centre":["public/js/utils/utils.js"]}
+              "Sub Centre":["public/js/utils/utils.js"],
+              "mYojana Settings":["public/js/utils/utils.js"],
+              }
 # doctype_js = {"Beneficiary Profiling" : }     
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
