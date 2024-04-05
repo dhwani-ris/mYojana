@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class RolePermission(Document):
+class DistrictChild(Document):
 	pass

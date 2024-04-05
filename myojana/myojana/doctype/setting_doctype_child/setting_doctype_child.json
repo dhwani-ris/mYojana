@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-04 11:52:58.419617",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "doctypes",
+  "field_name"
+ ],
+ "fields": [
+  {
+   "fieldname": "doctypes",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Doctype",
+   "link_filters": "[]",
+   "reqd": 1
+  },
+  {
+   "fieldname": "field_name",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Field name",
+   "options": "hhh",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-04-04 16:33:34.421009",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Setting Doctype Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

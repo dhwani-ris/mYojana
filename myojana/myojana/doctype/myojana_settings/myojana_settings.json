@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-04-04 11:29:27.101681",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "user_permission_settings_tab",
+  "doctype_which_is_shown_in_user_permission",
+  "select_doctypes",
+  "tab_2_tab",
+  "tt"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_doctypes",
+   "fieldtype": "Table",
+   "label": "Select Doctypes",
+   "options": "Setting Doctype Child"
+  },
+  {
+   "description": "Please Enter DocType name \",\" Seperated",
+   "fieldname": "doctype_which_is_shown_in_user_permission",
+   "fieldtype": "Small Text",
+   "label": "DocType which is shown in User permission"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "System Setting"
+  },
+  {
+   "fieldname": "user_permission_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "User Permission Settings"
+  },
+  {
+   "fieldname": "tt",
+   "fieldtype": "Attach",
+   "label": "testing"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-04-04 16:53:16.713193",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "mYojana Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

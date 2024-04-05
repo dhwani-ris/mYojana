@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestRolePermission(FrappeTestCase):
+class TestmYojanaSettings(FrappeTestCase):
 	pass
