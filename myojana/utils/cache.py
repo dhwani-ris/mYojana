@@ -48,9 +48,10 @@ class  Cache:
         print("chas////////////////////////////",usr, output)
         # maping of table keys and values from user permissions 
         for i,a in enumerate(myojana_setting_child):
-            print("aaaaaaaaaaaa",i , a)
+            print("aaaaaaaaaaaa",i , a[0])
             for b in output:
             # if(a):
-                print("bbbbbbbbbbb",b)
+                print("bbbbbbbbbbb",b[a[0]])
+                return
             
         # if()
