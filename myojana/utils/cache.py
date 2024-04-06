@@ -1,4 +1,5 @@
 import frappe
+import ast
 
 class  Cache:
 
@@ -21,9 +22,14 @@ class  Cache:
             else:
                 return None
         return frappe.cache().get_value("filter-"+user)
-    
+
     def get_user_permission():
         usr = frappe.session.user
+        myojana_setting_child = frappe.db.sql("""
+                SELECT
+                    doctypes , field_name
+                FROM `tabSetting Doctype Child`
+            """,as_dict=0)
         list = frappe.db.get_list('User Permission',
             filters={
                 'user': usr
@@ -32,12 +38,19 @@ class  Cache:
             as_list=True,
         )
         grouped_data = {}
-        for key, value in list:
-            if key in grouped_data:
-                grouped_data[key].append(value)
+        for allow, for_value in list:
+            if allow in grouped_data:
+                grouped_data[allow].append(for_value)
             else:
-                grouped_data[key] = [value]
-        # data = frappe.db.get_list('User Permission', pluck='for_value')
-            #  select * from ben where state in ("", "")
-
-        print("chas////////////////////////////",usr, grouped_data)
+                grouped_data[allow] = [for_value]
+        output = [{key:  ast.literal_eval('(' + ','.join([f"'{v}'" for v in value]) + ')')} for key, value in grouped_data.items()]
+        print("///////////////////////////child", myojana_setting_child)
+        print("chas////////////////////////////",usr, output)
+        # maping of table keys and values from user permissions 
+        for i,a in enumerate(myojana_setting_child):
+            print("aaaaaaaaaaaa",i , a)
+            for b in output:
+            # if(a):
+                print("bbbbbbbbbbb",b)
+            
+        # if()
