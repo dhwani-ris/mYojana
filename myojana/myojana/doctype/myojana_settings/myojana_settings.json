@@ -43,7 +43,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-04 16:53:16.713193",
+ "modified": "2024-04-06 11:43:52.683351",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",
@@ -58,6 +58,13 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "All",
+   "share": 1
   }
  ],
  "sort_field": "modified",
