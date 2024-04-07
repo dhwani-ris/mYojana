@@ -1,8 +1,10 @@
 import frappe
 from myojana.utils.filter import Filter
+from myojana.utils.cache import Cache
 
 class ReportFilter:
     def set_report_filters(filters=None, date_column='creation', str=False, table_name='', csc_filter=True):
+        cond_str = Cache.get_user_permission(True)
         new_filters = {}
         str_list = []
         if table_name:
@@ -38,7 +40,7 @@ class ReportFilter:
             query_filter = Filter.set_query_filters(True)
             csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
-                str_list.append(f"{csc_key} = '{query_filter[1]}'")
+                str_list.append(cond_str)
             else:
                 new_filters[csc_key] = f"'{query_filter[1]}'"
         if str:
