@@ -57,7 +57,6 @@ class  Cache:
                         cond_str += f"{a[1]} IN {b[a[0]]}"
                     else:
                         print(f"Key '{a[0]}' not found in dictionary.")
-            print("cond_str ?????????", cond_str)
             return cond_str            
         else:
             return per_obj
