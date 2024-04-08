@@ -38,7 +38,7 @@ class ReportFilter:
 
         if role_per_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
             test_str = Cache.get_user_permission(False)
-            print("////////////////////////abcd", test_str)
+            print("////////////////////////abcd", cond_str)
         #     # query_filter = Filter.set_query_filters(True)
         #     csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
