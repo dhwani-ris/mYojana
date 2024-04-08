@@ -1,5 +1,5 @@
 import frappe
-from myojana.utils.filter import Filter
+# from myojana.utils.filter import Filter
 from myojana.utils.cache import Cache
 
 class ReportFilter:
@@ -37,12 +37,13 @@ class ReportFilter:
                     new_filters[filter_key] = filters[filter_key]
 
         if csc_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
-            query_filter = Filter.set_query_filters(True)
-            csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
+        #     # query_filter = Filter.set_query_filters(True)
+        #     csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
                 str_list.append(cond_str)
             else:
-                new_filters[csc_key] = f"'{query_filter[1]}'"
+                ""
+                # new_filters[csc_key] = f"'{query_filter[1]}'"
         if str:
             return ' AND '.join(str_list)
         else:
