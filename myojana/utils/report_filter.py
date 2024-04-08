@@ -3,7 +3,7 @@ import frappe
 from myojana.utils.cache import Cache
 
 class ReportFilter:
-    def set_report_filters(filters=None, date_column='creation', str=False, table_name='', csc_filter=True):
+    def set_report_filters(filters=None, date_column='creation', str=False, table_name='', role_per_filter=True):
         cond_str = Cache.get_user_permission(True)
         new_filters = {}
         str_list = []
@@ -36,7 +36,9 @@ class ReportFilter:
                 else:
                     new_filters[filter_key] = filters[filter_key]
 
-        if csc_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
+        if role_per_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
+            test_str = Cache.get_user_permission(False)
+            print("////////////////////////abcd", test_str)
         #     # query_filter = Filter.set_query_filters(True)
         #     csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
