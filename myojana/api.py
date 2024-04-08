@@ -1,10 +1,10 @@
 import frappe
 from myojana.services.beneficiary_scheme import BeneficaryScheme
 from myojana.utils.misc import Misc
-from myojana.utils.filter import Filter
+# from myojana.utils.filter import Filter
+from myojana.utils.report_filter import ReportFilter
+
 import json
-import csv
-import io
 
 
 
@@ -12,7 +12,7 @@ import io
 def create_condition(scheme, _tbl_pre=""):
     if isinstance(scheme, str):
         raise "No rules"
-    user_role_filter = Filter.set_query_filters()
+    user_role_filter = ReportFilter.set_report_filters()
     cond_str = Misc.create_condition(scheme.rules)
     filters = []
     if cond_str:
@@ -179,7 +179,7 @@ def most_eligible_ben():
 @frappe.whitelist(allow_guest=True)
 def top_schemes():
     milestones = frappe.get_list("Milestone category", fields=['name'])
-    user_role_filter = Filter.set_query_filters()
+    # user_role_filter = Filter.set_query_filters()
     # user_grole_filter will apply on condtional string
     scheme_with_rule_sql = f"""
         select
@@ -214,15 +214,6 @@ def top_schemes():
 
 @frappe.whitelist()
 def get_user_permission(user, join_con=[]):
-    # join_conditions = []
-    # if state:
-    #     join_conditions.append(f"JOIN `tabState` st ON st.name = up.state AND st.name = '{state}'")
-
-    # if district:
-    #     join_conditions.append(f"JOIN `tabDistrict` dt ON dt.name = up.district AND dt.name = '{district}'")
-
-    # if block:
-    #     join_c
    sql_query = f"""
         SELECT 
             CASE 
