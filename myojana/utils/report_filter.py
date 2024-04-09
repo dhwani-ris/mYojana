@@ -37,12 +37,13 @@ class ReportFilter:
                     new_filters[filter_key] = filters[filter_key]
 
         if role_per_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
-            test_str = Cache.get_user_permission(False)
-            print("////////////////////////abcd", cond_str)
+            per_obj = Cache.get_user_permission(False)
+            print("////////////////////////abcd", per_obj)
         #     # query_filter = Filter.set_query_filters(True)
         #     csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
                 str_list.append(cond_str)
+                print("//////////////////////", cond_str)
             else:
                 ""
                 # new_filters[csc_key] = f"'{query_filter[1]}'"

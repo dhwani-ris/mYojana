@@ -14,7 +14,7 @@
    "fieldname": "sipms_doctype",
    "fieldtype": "Link",
    "label": "DocType",
-   "link_filters": "[[{\"fieldname\":\"\",\"field_option\":\"DocType\"},\"module\",\"=\",\"SIPMS\"]]",
+   "link_filters": "[[{\"fieldname\":\"sipms_doctype\",\"field_option\":\"DocType\"},\"module\",\"in\",[\"myojana\",\"master\"]]]",
    "options": "DocType",
    "unique": 1
   },
@@ -27,7 +27,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-28 16:57:09.067277",
+ "modified": "2024-04-09 11:58:46.360619",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "FieldDependencyConfiguration",
