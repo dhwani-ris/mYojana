@@ -1,0 +1,40 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "mYojana Settings",
+  "doctype_which_is_shown_in_user_permission": "State,District,  Block,",
+  "modified": "2024-04-09 13:37:06.404085",
+  "name": "mYojana Settings",
+  "select_doctypes": [
+   {
+    "doctypes": "State",
+    "field_name": "state",
+    "parent": "mYojana Settings",
+    "parentfield": "select_doctypes",
+    "parenttype": "mYojana Settings"
+   },
+   {
+    "doctypes": "District",
+    "field_name": "district",
+    "parent": "mYojana Settings",
+    "parentfield": "select_doctypes",
+    "parenttype": "mYojana Settings"
+   },
+   {
+    "doctypes": "Centre",
+    "field_name": "centre",
+    "parent": "mYojana Settings",
+    "parentfield": "select_doctypes",
+    "parenttype": "mYojana Settings"
+   },
+   {
+    "doctypes": "Sub Centre",
+    "field_name": "sub_centre",
+    "parent": "mYojana Settings",
+    "parentfield": "select_doctypes",
+    "parenttype": "mYojana Settings"
+   }
+  ],
+  "tt": null
+ }
+]

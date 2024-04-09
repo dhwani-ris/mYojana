@@ -8,6 +8,7 @@ def list_query(user):
         # return """(`tabSub Centre`.centre != '{0}')""".format('Admin')
         return None
     elif("Administrator" not in frappe.get_roles(user)):
-        centres = LoginUser.get_centres()
-        return "(`tabSub Centre`.centre = '{0}')".format(centres)
+        pass
+        # centres = LoginUser.get_centres()
+        # return "(`tabSub Centre`.centre = '{0}')".format(centres)
     return None
