@@ -239,19 +239,37 @@ function hide_advance_search(frm, list) {
 };
 frappe.ui.form.on("Myojana User", {
     refresh(frm) {
+        if(frm.is_new()){
+            frm.set_df_property('add_permission', 'hidden', true);
+        }
         frm.doc.password = frm.doc.confirm_password
         frm.doc.state ? apply_filter("centre", "state", frm, frm.doc.state) : defult_filter('centre', "state", frm);
         // frm.doc.centre ? apply_filter("sub_centre", "centre", frm, frm.doc.centre) : defult_filter('sub_centre', "centre", frm);
         extend_options_length(frm, ["state"])
         hide_advance_search(frm, ["role_profile", "state", "centre"])
 
+        
         render_tables(frm)
 
     },
     role_profile: function (frm) {
 
     },
+    state: function (frm) {
+        if (frm.doc.state) {
+            apply_filter("centre", "state", frm, frm.doc.state)
+        } else {
+            defult_filter('centre', "state", frm)
+        }
+    },
     add_permission: function(frm){
         d.show();
     }
+    // centre: function (frm) {
+    //     if (frm.doc.centre) {
+    //         apply_filter("sub_centre", "centre", frm, frm.doc.centre)
+    //     } else {
+    //         defult_filter('sub_centre', "centre", frm);
+    //     }
+    // }
 });
