@@ -2,7 +2,7 @@ import frappe
 import ast
 
 class  Cache:
-    def get_user_permission(cond_str=True):
+    def get_user_permission(cond_str=True,table=None):
         usr = frappe.session.user
         # getting myojan setting and mapping of state and district
         myojana_setting_child = frappe.db.sql("""
@@ -31,9 +31,14 @@ class  Cache:
             for i, a in enumerate(myojana_setting_child):
                 for b in per_obj:
                     if a[0] in b:
-                        if cond_str:  # Add 'AND' if cond_str is not empty
-                            cond_str += " OR "
-                        cond_str += f"{a[1]} IN {b[a[0]]}"
+                        if table:
+                            if cond_str:  # Add 'AND' if cond_str is not empty
+                                cond_str += " OR "
+                            cond_str += f"{table}.{a[1]} IN {b[a[0]]}"
+                        else:
+                            if cond_str:  # Add 'AND' if cond_str is not empty
+                                cond_str += " OR "
+                            cond_str += f"{a[1]} IN {b[a[0]]}"
                     else:
                         print(f"Key '{a[0]}' not found in dictionary.")
             return cond_str            

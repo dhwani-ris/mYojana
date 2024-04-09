@@ -3,8 +3,8 @@ import frappe
 from myojana.utils.cache import Cache
 
 class ReportFilter:
-    def set_report_filters(filters=None, date_column='creation', str=False, table_name='', role_per_filter=True):
-        cond_str = Cache.get_user_permission(True)
+    def set_report_filters(filters=None, date_column='creation', str=False, table_name=None, role_per_filter=True):
+        cond_str = Cache.get_user_permission(True,table_name)
         new_filters = {}
         str_list = []
         if table_name:
@@ -32,18 +32,19 @@ class ReportFilter:
         for filter_key in filters:
             if filter_key not in ['from_date', 'to_date']:
                 if str:
-                    str_list.append(f"({filter_key}='{filters[filter_key]}')")
+                    if table_name:
+                        str_list.append(f"({table_name}.{filter_key}='{filters[filter_key]}')")
+                    else:
+                        str_list.append(f"({filter_key}='{filters[filter_key]}')")
                 else:
                     new_filters[filter_key] = filters[filter_key]
 
         if role_per_filter and ("Administrator" not in frappe.get_roles(frappe.session.user)):
             per_obj = Cache.get_user_permission(False)
-            print("////////////////////////abcd", per_obj)
         #     # query_filter = Filter.set_query_filters(True)
-        #     csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
+            # csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
             if str:
                 str_list.append(cond_str)
-                print("//////////////////////", cond_str)
             else:
                 ""
                 # new_filters[csc_key] = f"'{query_filter[1]}'"
