@@ -2,27 +2,6 @@ import frappe
 import ast
 
 class  Cache:
-
-    def get_csc(user = None):
-        print("calling cache fun", Cache.get_user_permission())
-        if not user:
-            user = frappe.session.user
-        value = frappe.cache().get_value("filter-"+user)
-        if value is None:
-            if(("Administrator" not in frappe.get_roles(user))):
-                usr = frappe.get_doc("Myojana User", user)
-            if "Admin" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-                frappe.cache().set_value('filter-'+user, usr.state)
-            elif "CSC Member" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-                frappe.cache().set_value('filter-'+user, usr.centre)
-            elif "Sub-Centre" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-                frappe.cache().set_value('filter-'+user, usr.centre)
-            elif "MIS executive" in frappe.get_roles(user) and ("Administrator" not in frappe.get_roles(user)):
-                frappe.cache().set_value('filter-'+user, usr.centre)
-            else:
-                return None
-        return frappe.cache().get_value("filter-"+user)
-
     def get_user_permission(cond_str=True):
         usr = frappe.session.user
         # getting myojan setting and mapping of state and district
