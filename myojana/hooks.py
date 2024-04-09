@@ -7,6 +7,7 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
+    "mYojana Settings"
     "Custom HTML Block",
     "Caste category",
     "Religion",
