@@ -38,13 +38,11 @@ fixtures = [
 # Includes in <head>
 # ------------------
 permission_query_conditions = {
-    # "Beneficiary Profiling": "myojana.middlewares.beneficiary.list_query",
-    # "Primary Member": "myojana.middlewares.family.list_query",
-    "Sub Centre":"myojana.middlewares.sub_centre.list_query",
+    # "Sub Centre":"myojana.middlewares.sub_centre.list_query",
     "Myojana User":"myojana.middlewares.myojana_users.list_query",
     "Role Profile":"myojana.middlewares.role_profile.list_query",
     "User":"myojana.middlewares.user.list_query",
-    "Centre":"myojana.middlewares.centre.list_query",
+    # "Centre":"myojana.middlewares.centre.list_query",
 }
 
 # include js, css files in header of desk.html
