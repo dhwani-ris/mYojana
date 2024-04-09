@@ -238,7 +238,8 @@ function hide_advance_search(frm, list) {
     }
 };
 frappe.ui.form.on("Myojana User", {
-    refresh(frm) {
+   async refresh(frm) {
+       await render_tables(frm)
         if(frm.is_new()){
             frm.set_df_property('add_permission', 'hidden', true);
         }
@@ -249,7 +250,6 @@ frappe.ui.form.on("Myojana User", {
         hide_advance_search(frm, ["role_profile", "state", "centre"])
 
         
-        render_tables(frm)
 
     },
     role_profile: function (frm) {
