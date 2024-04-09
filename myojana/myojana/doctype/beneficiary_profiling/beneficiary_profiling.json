@@ -281,6 +281,7 @@
   {
    "fieldname": "state_of_origin",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "State of origin",
    "options": "State",
    "read_only_depends_on": "eval:doc.same_as_above == 1",
@@ -524,7 +525,6 @@
    "options": "Social vulnerable category"
   },
   {
-   "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
    "fieldname": "centre",
    "fieldtype": "Link",
    "label": "Centre",
@@ -542,7 +542,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-21 12:50:10.733750",
+ "modified": "2024-04-09 16:04:54.279299",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
