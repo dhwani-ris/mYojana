@@ -48,7 +48,7 @@ def execute(filters=None):
             COALESCE(NULLIF(b.state_of_origin, ''), 'Unknown'), COALESCE(NULLIF(b.district_of_origin, ''), 'Unknown');
     """
 
-
+    print("////////////////////", sql_query)
     
     data = frappe.db.sql(sql_query, as_dict=True)
     return columns, data

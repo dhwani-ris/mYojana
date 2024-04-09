@@ -1,5 +1,4 @@
 from myojana.utils.after_install import AfterInstall
-from myojana.utils.generate_master_data import Gen_Master_Data
 
 state_json = [
  {
@@ -48,7 +47,3 @@ def update_myojana_settings():
     AfterInstall.set_splash_image()
     AfterInstall.set_website_logo()
 
-
-def gen_master_data(state="State",state_json=state_json):
-    Gen_Master_Data.create_data(state,state_json)
-    # print("////////////////////////////////////////////////", "After")
