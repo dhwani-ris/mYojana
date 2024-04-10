@@ -34,11 +34,17 @@ class  Cache:
                         if table:
                             if cond_str:  # Add 'AND' if cond_str is not empty
                                 cond_str += " OR "
-                            cond_str += f"{table}.{a[1]} IN {b[a[0]]}"
+                            if(type(b[a[0]]) is 'tuple'):
+                                cond_str += f"{table}.{a[1]} IN {b[a[0]]}"
+                            else:
+                                cond_str += f"{table}.{a[1]} = '{b[a[0]]}'"
                         else:
                             if cond_str:  # Add 'AND' if cond_str is not empty
                                 cond_str += " OR "
-                            cond_str += f"{a[1]} IN {b[a[0]]}"
+                            if(type(b[a[0]]) is  'tuple'):
+                                cond_str += f"{a[1]} IN {b[a[0]]}"
+                            else:
+                                cond_str += f"{a[1]} = '{b[a[0]]}'"
                     else:
                         print(f"Key '{a[0]}' not found in dictionary.")
             return cond_str            
