@@ -1,11 +1,9 @@
 import frappe
-from myojana.utils.login_user_details import LoginUser
 def list_query(user):
     if not user:
         user = frappe.session.user
     
-    if"Administrator" not in frappe.get_roles(user):
-        state = LoginUser.get_state()
+    # if"Administrator" not in frappe.get_roles(user):
 
         
     if"Administrator" in frappe.get_roles(user):

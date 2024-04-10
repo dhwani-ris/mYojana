@@ -1,5 +1,4 @@
 import frappe
-from myojana.utils.login_user_details import LoginUser
 
 class family:
     def create(beneficiary):

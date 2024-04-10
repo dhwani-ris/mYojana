@@ -1,5 +1,4 @@
 import frappe
-from myojana.utils.login_user_details import LoginUser
 def list_query(user):
     if not user:
         user = frappe.session.user
@@ -9,6 +8,5 @@ def list_query(user):
         return None
     elif("Administrator" not in frappe.get_roles(user)):
         pass
-        # centres = LoginUser.get_centres()
         # return "(`tabSub Centre`.centre = '{0}')".format(centres)
     return None
