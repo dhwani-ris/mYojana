@@ -179,7 +179,7 @@
    "fieldname": "social_vulnerable",
    "fieldtype": "Select",
    "label": "Are you a part any social vulnerable category?",
-   "options": "\nNo\nYes",
+   "options": "\nYes\nNo",
    "reqd": 1
   },
   {
@@ -540,7 +540,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-10 11:33:54.170385",
+ "modified": "2024-04-10 17:13:12.757218",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
