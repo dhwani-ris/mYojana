@@ -4,7 +4,6 @@
 import frappe
 from frappe.model.document import Document
 from myojana.services.family import family
-from myojana.utils.login_user_details import LoginUser
 from datetime import datetime, timedelta
 
 class BeneficiaryProfiling(Document):
@@ -102,12 +101,9 @@ class BeneficiaryProfiling(Document):
 			# 		return
 	def after_insert(self):
 		print("Ben[after_insert]")
-		if not self.centre and "Administrator" not in frappe.get_roles(frappe.session.user):
-			centre = LoginUser.get_centres()
-			self.centre = centre
-			frappe.db.set_value('Beneficiary Profiling', self.name, 'centre', centre, update_modified=False)
+		# if not self.centre and "Administrator" not in frappe.get_roles(frappe.session.user):
+			# frappe.db.set_value('Beneficiary Profiling', self.name, update_modified=False)
 		# if not self.sub_centre:
-			# sub_centre = LoginUser.get_sub_centre()
 		# 	self.sub_centre = sub_centre
 		# 	frappe.db.set_value('Beneficiary Profiling', self.name, 'sub_centre', sub_centre, update_modified=False)
 		if(self.new_source_of_information):

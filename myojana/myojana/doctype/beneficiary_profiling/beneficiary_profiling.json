@@ -528,21 +528,19 @@
    "fieldname": "centre",
    "fieldtype": "Link",
    "label": "Centre",
-   "options": "Centre",
-   "reqd": 1
+   "options": "Centre"
   },
   {
    "fieldname": "sub_centre",
    "fieldtype": "Link",
    "label": "Name of sub centre",
-   "options": "Sub Centre",
-   "reqd": 1
+   "options": "Sub Centre"
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-09 16:04:54.279299",
+ "modified": "2024-04-10 11:33:54.170385",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
