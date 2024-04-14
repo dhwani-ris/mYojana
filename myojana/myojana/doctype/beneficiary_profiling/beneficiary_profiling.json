@@ -290,6 +290,7 @@
   {
    "fieldname": "district_of_origin",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "District of origin",
    "options": "District",
    "read_only_depends_on": "eval:doc.same_as_above == 1"
@@ -297,6 +298,7 @@
   {
    "fieldname": "block",
    "fieldtype": "Link",
+   "ignore_user_permissions": 1,
    "label": "Ward/Tehsil/Block",
    "options": "Block",
    "read_only_depends_on": "eval:doc.same_as_above == 1"
@@ -540,7 +542,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-10 17:13:12.757218",
+ "modified": "2024-04-14 20:12:49.835375",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
