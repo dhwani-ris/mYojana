@@ -20,7 +20,6 @@ def execute(filters=None):
 			"width":200
 		}
 	]
-
 	condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 't1')
 	if condition_str:
 		condition_str = f"AND {condition_str}"
@@ -40,7 +39,7 @@ def execute(filters=None):
 		GROUP BY
 			COALESCE(t2.state_name, 'Unknown');
 	"""
-	print("////////////////////////", sql_query)
+	# print("////////////////////////", sql_query)
 
 	data = frappe.db.sql(sql_query, as_dict=True)
 

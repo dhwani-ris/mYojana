@@ -15,6 +15,6 @@ class mYojanaSettings(Document):
 					frappe.throw(
 					msg='This Enter Doctype does not exist',
 					title=doc +" Doctype doesn't exist")
-			print("/////////////////////////////////", doc)
+			# print("/////////////////////////////////", doc)
 		return
 		pass

@@ -48,6 +48,6 @@ def execute(filters=None):
     # GROUP BY
     #     `tabScheme Child`.status;
     # """
-    print("sql_query",sql_query)
+    # print("sql_query",sql_query)
     data = frappe.db.sql(sql_query, as_dict=True)
     return columns, data
