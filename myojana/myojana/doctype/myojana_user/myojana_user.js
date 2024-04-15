@@ -243,6 +243,8 @@ frappe.ui.form.on("Myojana User", {
        
         if(frm.is_new()){
             frm.set_df_property('add_permission', 'hidden', true);
+        }else{
+            frm.set_df_property('add_permission', 'hidden', false);
         }
         frm.doc.password = frm.doc.confirm_password
         frm.doc.state ? apply_filter("centre", "state", frm, frm.doc.state) : defult_filter('centre', "state", frm);
