@@ -2,7 +2,7 @@ import frappe
 import ast
 
 class  Cache:
-    def dict_to_sql_where_clause(conditions, op="AND"):
+    def dict_to_sql_where_clause(conditions, tables = None, op="AND"):
         """
         Convert a dictionary to an SQL WHERE clause with OR conditions.
 
@@ -19,7 +19,10 @@ class  Cache:
             else:
                 # Create an IN condition for multiple values
                 val = [f"'{value}'" for value in values]
-                in_clause = f"{key} IN ({', '.join(val)})"
+                if(tables):
+                    in_clause = f"{tables+'.'+key} IN ({', '.join(val)})"
+                else:
+                    in_clause = f"{key} IN ({', '.join(val)})"
                 where_clauses.append(in_clause)
 
         # Combine all conditions with OR
@@ -57,7 +60,7 @@ class  Cache:
                     conditions[mapperObj[doc.allow]] = [f"{doc.for_value}"]
         new_conditions = {}
         if cond_str:
-            new_conditions = Cache.dict_to_sql_where_clause(conditions)
+            new_conditions = Cache.dict_to_sql_where_clause(conditions, table)
         else:
             for field_name in conditions:
                 new_conditions[field_name] = ["IN",conditions[field_name]]
