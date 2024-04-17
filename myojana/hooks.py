@@ -33,7 +33,8 @@ fixtures = [
     "Proof of Disability",
     "Milestone category",
     "Centre",
-    "Sub Centre"
+    "Sub Centre",
+    "Property Setter"
 ]
 # Includes in <head>
 # ------------------

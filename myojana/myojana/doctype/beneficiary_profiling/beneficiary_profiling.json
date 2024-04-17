@@ -102,14 +102,12 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nTransgender\nOthers",
-   "reqd": 1
+   "options": "\nMale\nFemale\nTransgender\nOthers"
   },
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth",
-   "reqd": 1
+   "label": "Date of birth"
   },
   {
    "fieldname": "completed_age",
@@ -139,8 +137,7 @@
    "fieldname": "caste_category",
    "fieldtype": "Link",
    "label": "Caste category",
-   "options": "Caste category",
-   "reqd": 1
+   "options": "Caste category"
   },
   {
    "fieldname": "religion",
@@ -158,15 +155,13 @@
    "fieldname": "current_occupation",
    "fieldtype": "Link",
    "label": "Current occupation",
-   "options": "Occupation",
-   "reqd": 1
+   "options": "Occupation"
   },
   {
    "fieldname": "marital_status",
    "fieldtype": "Link",
    "label": "Marital status",
-   "options": "Marital status",
-   "reqd": 1
+   "options": "Marital status"
   },
   {
    "depends_on": "eval:doc.marital_status ==\"Married\"",
@@ -179,8 +174,7 @@
    "fieldname": "social_vulnerable",
    "fieldtype": "Select",
    "label": "Are you a part any social vulnerable category?",
-   "options": "\nYes\nNo",
-   "reqd": 1
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "column_break_tgpw",
@@ -190,16 +184,14 @@
    "fieldname": "are_you_a_person_with_disability_pwd",
    "fieldtype": "Select",
    "label": "Are you a person with disability (PWD)?",
-   "options": "\nNo\nYes",
-   "reqd": 1
+   "options": "\nNo\nYes"
   },
   {
    "fieldname": "annual_income",
    "fieldtype": "Currency",
    "label": "Annual income",
    "non_negative": 1,
-   "options": "INR",
-   "reqd": 1
+   "options": "INR"
   },
   {
    "fieldname": "fathers_name",
@@ -343,8 +335,7 @@
    "fieldname": "source_of_information",
    "fieldtype": "Link",
    "label": "Source of information",
-   "options": "Source Of Information",
-   "reqd": 1
+   "options": "Source Of Information"
   },
   {
    "depends_on": "eval:doc.has_anyone_from_your_family_visisted_before == \"Yes\"",
@@ -420,15 +411,13 @@
    "fieldtype": "Link",
    "label": "Occupational category",
    "options": "Occupational Category",
-   "read_only_depends_on": "eval:doc.occupational_category",
-   "reqd": 1
+   "read_only_depends_on": "eval:doc.occupational_category"
   },
   {
    "fieldname": "do_you_have_any_bank_account",
    "fieldtype": "Select",
    "label": "Do you have any bank account?",
-   "options": "\nYes\nNo",
-   "reqd": 1
+   "options": "\nYes\nNo"
   },
   {
    "depends_on": "eval:(frappe.user_roles.includes(\"Admin\"))",
@@ -542,7 +531,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-14 20:12:49.835375",
+ "modified": "2024-04-17 13:00:09.734593",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
