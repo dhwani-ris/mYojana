@@ -2,7 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
-from myojana.utils.filter import Filter
+# from myojana.utils.filter import Filter
 
 allowed_types = ['Data', 'Int', 'Select', 'Check']
 child_types = ['Table', 'Table MultiSelect']
