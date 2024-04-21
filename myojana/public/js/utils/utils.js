@@ -16,7 +16,9 @@ const extend_options_length=(frm, fields) => {
 
 // COMMON FUNCTON FOR FILTER OF LINK FIELD
 // this function apply filter
+console.log("Utils");
 function apply_filter(field_name, filter_on, frm, filter_value, withoutFilter = false) {
+  console.log("Apply",field_name);
   frm.fields_dict[field_name].get_query = () => {
     if (withoutFilter) {
       return {
