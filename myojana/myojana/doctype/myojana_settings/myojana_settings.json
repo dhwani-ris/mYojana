@@ -8,6 +8,7 @@
   "user_permission_settings_tab",
   "doctype_which_is_shown_in_user_permission",
   "select_doctypes",
+  "role_doctype_mapping",
   "tab_2_tab",
   "tt"
  ],
@@ -39,12 +40,18 @@
    "fieldname": "tt",
    "fieldtype": "Attach",
    "label": "testing"
+  },
+  {
+   "fieldname": "role_doctype_mapping",
+   "fieldtype": "Table",
+   "label": "Role DocType Mapping",
+   "options": "mYojanaRoleProfileDocTypeMapping"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-04-07 07:49:14.157701",
+ "modified": "2024-04-20 16:42:42.196961",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

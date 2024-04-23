@@ -6,8 +6,9 @@ from myojana.utils.report_filter import ReportFilter
 
 import json
 
-
-
+@frappe.whitelist(allow_guest=True)
+def get_mYojana_settings():
+    return frappe.get_doc('mYojana Settings')
 
 def create_condition(scheme, _tbl_pre=""):
     if isinstance(scheme, str):
@@ -61,8 +62,8 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             else:
                 pm_join_type = "LEFT JOIN"
                 ward_join_type = "LEFT JOIN"
-                
-            
+
+
     sql = f"""
             SELECT
                 _ben.*,
@@ -215,17 +216,17 @@ def top_schemes():
 @frappe.whitelist()
 def get_user_permission(user, join_con=[]):
    sql_query = f"""
-        SELECT 
-            CASE 
-                WHEN UP.allow = 'State' THEN TS.state_name 
-                WHEN UP.allow = 'District' THEN TD.district_name 
-                WHEN UP.allow = 'Block' THEN TB.block_name 
-                WHEN UP.allow = 'Centre' THEN TC.centre_name 
+        SELECT
+            CASE
+                WHEN UP.allow = 'State' THEN TS.state_name
+                WHEN UP.allow = 'District' THEN TD.district_name
+                WHEN UP.allow = 'Block' THEN TB.block_name
+                WHEN UP.allow = 'Centre' THEN TC.centre_name
                 WHEN UP.allow = 'Sub Centre' THEN TCS.sub_centre_name
             END AS name_value,
-            UP.for_value, 
+            UP.for_value,
             UP.name,
-            UP.allow, 
+            UP.allow,
             UP.user
         FROM `tabUser Permission` AS UP
         LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND UP.allow = 'state'

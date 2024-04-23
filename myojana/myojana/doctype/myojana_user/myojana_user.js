@@ -1,90 +1,98 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // For license information, please see license.txt
-let d = new frappe.ui.Dialog({
-    title: 'Add User Permission',
-    fields: [
-        {
-            "fieldname": "select_doctype",
-            "fieldtype": "Autocomplete",
-            "label": "Select Doctype",
-            "options": "State\nDistrict\nBlock\nCentre\nSub Centre"
-        },
-        {
-            "depends_on": "eval:doc.select_doctype==\"State\"",
-            "fieldname": "select_states",
-            "fieldtype": "Table MultiSelect",
-            "label": "Select States",
-            "options": "State Child"
-        },
-        {
-            "depends_on": "eval:doc.select_doctype==\"District\"",
-            "fieldname": "select_districts",
-            "fieldtype": "Table MultiSelect",
-            "label": "Select Districts",
-            "options": "District Child"
-        },
-        {
-            "depends_on": "eval:doc.select_doctype==\"Block\"",
-            "fieldname": "select_blocks",
-            "fieldtype": "Table MultiSelect",
-            "label": "Select Blocks",
-            "options": "Block Child"
-        },
-        {
-            "depends_on": "eval:doc.select_doctype==\"Centre\"",
-            "fieldname": "select_centres",
-            "fieldtype": "Table MultiSelect",
-            "label": "Select Centres",
-            "options": "Centre Child"
-        },
-        {
-            "depends_on": "eval:doc.select_doctype==\"Sub Centre\"",
-            "fieldname": "select_sub_centres",
-            "fieldtype": "Table MultiSelect",
-            "label": "Select Sub Centres",
-            "options": "Sub Centre Child"
-        }
-    ],
-    primary_action_label: 'Submit',
-    async primary_action(values) {
-        // Log the selected values
-        console.log(values);
-        let doctype = values.select_doctype;
-        let selected_keys;
-        switch (doctype) {
-            case "State":
-                selected_keys= values.select_states;
-                console.log(selected_keys)
-                await loop_values(selected_keys , doctype , cur_frm, 'state')
-                break;
-            case "District":
-                selected_keys= values.select_districts;
-                console.log(selected_keys)
-                await loop_values(selected_keys , doctype , cur_frm, 'district')
-                break;
-            case "Block":
-                selected_keys= values.select_blocks;
-                console.log(selected_keys)
-                await loop_values(selected_keys , doctype , cur_frm, 'block')
-                break;
-            case "Centre":
-                selected_keys= values.select_centres;
-                console.log(selected_keys)
-                await loop_values(selected_keys , doctype , cur_frm, 'centre')
-                break;
-            case "Sub Centre":
-                selected_keys= values.select_sub_centres;
-                console.log(selected_keys)
-                await loop_values(selected_keys , doctype , cur_frm, 'sub_centre')
-                break
-            default:
-                break;
-        }
-        console.log("cur_frm", cur_frm)
-        render_tables(cur_frm)
-        d.hide();
+var settings = {}
+const openDialog = (_cb, role_profile)=>{
+    var doctypes = settings?.role_doctype_mapping?.find(f=>f.role_profile == role_profile)?.doctyperef;
+    if(!doctypes){
+        doctypes = settings?.doctype_which_is_shown_in_user_permission?.split(",").map(e=> e.trim()).filter(f=>f).join("\n");
     }
-});
+    return new frappe.ui.Dialog({
+        title:"Add User Permission",
+        fields:[
+            {
+                "fieldname": "select_doctype",
+                "fieldtype": "Autocomplete",
+                "label": "Select Doctype",
+                "options": doctypes,
+                "default":doctypes.split("\n")?.[0]
+            },
+            {
+                "depends_on": "eval:doc.select_doctype==\"State\"",
+                "fieldname": "select_states",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select States",
+                "options": "State Child"
+            },
+            {
+                "depends_on": "eval:doc.select_doctype==\"District\"",
+                "fieldname": "select_districts",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select Districts",
+                "options": "District Child"
+            },
+            {
+                "depends_on": "eval:doc.select_doctype==\"Block\"",
+                "fieldname": "select_blocks",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select Blocks",
+                "options": "Block Child"
+            },
+            {
+                "depends_on": "eval:doc.select_doctype==\"Centre\"",
+                "fieldname": "select_centres",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select Centres",
+                "options": "Centre Child"
+            },
+            {
+                "depends_on": "eval:doc.select_doctype==\"Sub Centre\"",
+                "fieldname": "select_sub_centres",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select Sub Centres",
+                "options": "Sub Centre Child"
+            }
+        ],
+        primary_action_label: 'Submit',
+        async primary_action(values) {
+            // Log the selected values
+            console.log(values);
+            let doctype = values.select_doctype;
+            let selected_keys;
+            switch (doctype) {
+                case "State":
+                    selected_keys= values.select_states;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys , doctype , cur_frm, 'state')
+                    break;
+                case "District":
+                    selected_keys= values.select_districts;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys , doctype , cur_frm, 'district')
+                    break;
+                case "Block":
+                    selected_keys= values.select_blocks;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys , doctype , cur_frm, 'block')
+                    break;
+                case "Centre":
+                    selected_keys= values.select_centres;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys , doctype , cur_frm, 'centre')
+                    break;
+                case "Sub Centre":
+                    selected_keys= values.select_sub_centres;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys , doctype , cur_frm, 'sub_centre')
+                    break
+                default:
+                    break;
+            }
+            console.log("cur_frm", cur_frm)
+            _cb(cur_frm)
+            this.hide();
+        }
+    })
+}
 
 const delete_button = async(frm)=>{
     document.querySelectorAll(".delete-button").forEach(element => {
@@ -98,7 +106,7 @@ const delete_button = async(frm)=>{
                             items: [e.target.id],
                             doctype:"User Permission",
                         },
-                        
+
                         freeze_message: __("Deleting Data ..."),
                       })
                       await render_tables(frm)
@@ -109,7 +117,7 @@ const delete_button = async(frm)=>{
             )
         };
     });
-    
+
 }
 
 const render_tables = async(frm)=>{
@@ -184,7 +192,6 @@ const set_permission = async (doctype , values, frm) => {
         },
         action:"Save",
       },
-      
       freeze_message: __("Saving Data"),
     })
     return list
@@ -201,7 +208,7 @@ const get_permission = async (user) => {
         order_by: "",
         group_by:'',
       },
-      
+
       freeze_message: __("Getting Permissions"),
     })
     return list
@@ -240,7 +247,7 @@ function hide_advance_search(frm, list) {
 frappe.ui.form.on("Myojana User", {
    async refresh(frm) {
        await render_tables(frm);
-       
+
         if(frm.is_new()){
             frm.set_df_property('add_permission', 'hidden', true);
         }else{
@@ -252,7 +259,7 @@ frappe.ui.form.on("Myojana User", {
         extend_options_length(frm, ["state"])
         hide_advance_search(frm, ["role_profile", "state", "centre"])
 
-        
+
 
     },
     role_profile: function (frm) {
@@ -265,8 +272,19 @@ frappe.ui.form.on("Myojana User", {
             defult_filter('centre', "state", frm)
         }
     },
-    add_permission: function(frm){
-        d.show();
+    add_permission: async function(frm){
+        if(!Object.keys(settings).length){
+            settings = await callAPI({
+                method: 'myojana.api.get_mYojana_settings',
+                freeze: true,
+                freeze_message: __("Getting Permissions"),
+            })
+        }
+        console.log("frm.role_profile",frm.doc.role_profile)
+        openDialog((_frm)=>{
+            render_tables(_frm)
+        }, frm.doc.role_profile).show()
+        // d.show();
     }
     // centre: function (frm) {
     //     if (frm.doc.centre) {

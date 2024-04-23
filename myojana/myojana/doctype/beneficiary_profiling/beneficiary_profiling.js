@@ -312,6 +312,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward)
     apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin)
     apply_filter("block", "District", frm, frm.doc.district_of_origin)
+    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     // defult filter on current occupations
     if (frm.doc?.current_occupation) {
       if (frm.doc.current_occupation == 'Others') {
@@ -369,6 +370,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
     frm.set_value("block", '')
   },
   centre: function (frm) {
+    console.log("Hello")
+    frm.set_value('sub_centre', '')
     apply_filter("sub_centre", "centre", frm, frm.doc.centre)
   },
   current_occupation: async function (frm) {
@@ -470,9 +473,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frm.doc.proof_of_disability = [];
       frm.refresh_fields('proof_of_disability')
     }
-  },
-  centre: function (frm) {
-    frm.set_value('sub_centre', '')
   },
   marital_status: function (frm) {
     if (frm.doc.marital_status != "Married") {
