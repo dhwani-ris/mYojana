@@ -1,5 +1,45 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
+// Calling APIs Common function
+function callAPI(options) {
+    return new Promise((resolve, reject) => {
+      frappe.call({
+        ...options,
+        callback: async function (response) {
+          resolve(response?.message || response?.value)
+        }
+      });
+    })
+}
+async function autoSetOption(frm) {
+  let centres = await callAPI({
+      method: 'frappe.desk.search.search_link',
+      freeze: true,
+      args: {
+        txt:'',
+        doctype:"Centre",
+        reference_doctype: "Beneficiary Profiling"
+      },
+      freeze_message: __("Getting Centres"),
+    })
+    if(centres?.length){
+      frm.set_value("centre",centres[0].value)
+      let sub_centres = await callAPI({
+        method: 'frappe.desk.search.search_link',
+        freeze: true,
+        args: {
+          txt:'',
+          doctype:"Sub Centre",
+          reference_doctype: "Beneficiary Profiling",
+          filters: {"centre":centres[0].value}
+        },
+        freeze_message: __("Getting Sub Centres"),
+      })
+      if(sub_centres?.length){
+        frm.set_value("sub_centre",sub_centres[0].value)
+      }
+    }
+}
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
@@ -145,6 +185,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
   },
   async refresh(frm) {
     _frm = frm
+    if(frm.is_new()){
+      await autoSetOption(frm);
+    }
     if (frm.doc.lead && frm.doc.__islocal) {
       get_lead_date(frm.doc.lead, frm)
     }
@@ -152,6 +195,14 @@ frappe.ui.form.on("Beneficiary Profiling", {
     // read only fields
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
+        // if(frm.doc.centre){
+        //   frm.set_df_property('centre', 'read_only', 1);
+        //   // apply_filter("sub_centre", "centre", frm, frm.doc.centre)
+        // }
+        // if(frm.doc.sub_centre){
+        //   frm.set_df_property('sub_centre', 'read_only', 1);
+        // }
+        frm.set_df_property('centre', 'read_only', 1);
         frm.set_df_property('sub_centre', 'read_only', 1);
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
