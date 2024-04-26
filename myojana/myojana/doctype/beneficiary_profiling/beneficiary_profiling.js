@@ -22,23 +22,23 @@ async function autoSetOption(frm) {
       },
       freeze_message: __("Getting Centres"),
     })
-    if(centres?.length){
-      frm.set_value("centre",centres[0].value)
-      let sub_centres = await callAPI({
-        method: 'frappe.desk.search.search_link',
-        freeze: true,
-        args: {
-          txt:'',
-          doctype:"Sub Centre",
-          reference_doctype: "Beneficiary Profiling",
-          filters: {"centre":centres[0].value}
-        },
-        freeze_message: __("Getting Sub Centres"),
-      })
-      if(sub_centres?.length){
-        frm.set_value("sub_centre",sub_centres[0].value)
-      }
-    }
+    // if(centres?.length){
+    //   frm.set_value("centre",centres[0].value)
+    //   let sub_centres = await callAPI({
+    //     method: 'frappe.desk.search.search_link',
+    //     freeze: true,
+    //     args: {
+    //       txt:'',
+    //       doctype:"Sub Centre",
+    //       reference_doctype: "Beneficiary Profiling",
+    //       filters: {"centre":centres[0].value}
+    //     },
+    //     freeze_message: __("Getting Sub Centres"),
+    //   })
+    //   if(sub_centres?.length){
+    //     frm.set_value("sub_centre",sub_centres[0].value)
+    //   }
+    // }
 }
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
