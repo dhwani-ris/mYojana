@@ -10,6 +10,11 @@ import json
 def get_mYojana_settings():
     return frappe.get_doc('mYojana Settings')
 
+@frappe.whitelist(allow_guest=True)
+def get_installed_apps():
+    installed_apps = frappe.get_installed_apps()
+    return installed_apps
+
 def create_condition(scheme, _tbl_pre=""):
     if isinstance(scheme, str):
         raise "No rules"
