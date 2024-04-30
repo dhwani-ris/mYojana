@@ -2,10 +2,15 @@
 // For license information, please see license.txt
 var settings = {}
 const openDialog = (_cb, role_profile) => {
-    var doctypes = settings?.role_doctype_mapping?.find(f => f.role_profile == role_profile)?.doctyperef;
+    var doctypes = settings?.role_doctype_mapping?.filter((e) => e.doctyperef && e.role_profile ==role_profile);
+    const doctypes_arr = settings?.role_doctype_mapping
+    ?.filter(e => e.doctyperef && e.role_profile === role_profile)
+    .map(e => e.doctyperef) || [];
+        // new_doctypes = doctypes.filter((e) => e.doctyperef && e.role_profile ==role_profile);
     if (!doctypes) {
         doctypes = settings?.doctype_which_is_shown_in_user_permission?.split(",").map(e => e.trim()).filter(f => f).join("\n");
-    }
+    }   
+    console.log("doctypes print", doctypes, doctypes_arr)
     return new frappe.ui.Dialog({
         title: "Add User Permission",
         fields: [
@@ -13,8 +18,8 @@ const openDialog = (_cb, role_profile) => {
                 "fieldname": "select_doctype",
                 "fieldtype": "Autocomplete",
                 "label": "Select Doctype",
-                "options": doctypes,
-                "default": doctypes.split("\n")?.[0]
+                "options": doctypes_arr,
+                // "default": doctypes.split("\n")
             },
             {
                 "depends_on": "eval:doc.select_doctype==\"State\"",
