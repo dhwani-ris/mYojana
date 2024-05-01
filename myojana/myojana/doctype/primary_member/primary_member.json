@@ -13,7 +13,6 @@
   "phone_no",
   "state",
   "district",
-  "block",
   "centre",
   "sub_centre"
  ],
@@ -65,18 +64,11 @@
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
-  },
-  {
-   "fetch_from": "name_of_head_of_family.ward",
-   "fieldname": "block",
-   "fieldtype": "Link",
-   "label": "Block",
-   "options": "District"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-29 12:32:41.458018",
+ "modified": "2024-05-01 11:31:17.818744",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",
