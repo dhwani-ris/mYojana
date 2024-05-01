@@ -87,7 +87,7 @@
    "fieldname": "date_of_visit",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date of visit",
+   "label": "Date of Registration",
    "reqd": 1
   },
   {
@@ -531,7 +531,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-17 13:00:09.734593",
+ "modified": "2024-05-01 10:46:30.443275",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
