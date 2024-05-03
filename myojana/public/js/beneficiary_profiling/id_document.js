@@ -23,7 +23,6 @@ frappe.ui.form.on('ID Document Child', {
   
     },
     id_table_list_add: async function (frm, cdt, cdn) {
-      console.log("hello everyone")
       apply_filter_on_id_document()
     }
   })
