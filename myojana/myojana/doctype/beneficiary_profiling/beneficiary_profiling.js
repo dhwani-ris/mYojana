@@ -1,6 +1,7 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
 // Calling APIs Common function
+const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
 function callAPI(options) {
     return new Promise((resolve, reject) => {
       frappe.call({
@@ -56,7 +57,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
     // check alternate mobile number digits
     if (frm.doc.alternate_contact_number || frm.doc.contact_number) {
-      const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
       if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
         frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
       }
@@ -395,6 +395,11 @@ frappe.ui.form.on("Beneficiary Profiling", {
         return frappe.throw("Date of Visit shall not be before the <strong>Date of Birth</strong>")
       }
     }
+  },
+  contact_number:function(frm){
+        if (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9) {
+          frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
+        }
   },
   state: function (frm) {
     apply_filter("district", "State", frm, frm.doc.state)
