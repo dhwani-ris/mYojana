@@ -8,6 +8,7 @@
  "field_order": [
   "ref_doctype",
   "filters",
+  "map_columns",
   "columns"
  ],
  "fields": [
@@ -31,13 +32,18 @@
    "fieldtype": "Table",
    "label": "Columns",
    "options": "Report Column"
+  },
+  {
+   "fieldname": "map_columns",
+   "fieldtype": "Button",
+   "label": "Map Columns"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-24 16:51:12.561832",
+ "modified": "2024-04-22 15:16:58.562674",
  "modified_by": "Administrator",
- "module": "myojana",
+ "module": "Report",
  "name": "SVA Report",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
