@@ -3,7 +3,8 @@
 
 import frappe
 # from sva_report.utils.filter import Filter
-from report.utils.doc_type_info import DocTypeInfo
+# from sva_report.utils.doc_type_info import DocTypeInfo
+from myojana.sva_report.controllers.doc_type_info import DocTypeInfo
 
 @frappe.whitelist()
 def execute(doc,filters=[],skip=0, limit=10,csv_export=0,debug=None):

@@ -54,7 +54,7 @@ frappe.ui.form.on("SVA Report", {
   map_columns: async (frm) => {
     if (!fields.length) {
       fields = await callAPI({
-        method: 'report.controllers.get_report_data.get_fields',
+        method: 'myojana.sva_report.controllers.get_report_data.get_fields',
         args: {
           doc: frm.doc.ref_doctype
         },
@@ -62,7 +62,7 @@ frappe.ui.form.on("SVA Report", {
       })
     }
     checked_data = await callAPI({
-      method: 'report.controllers.child_table_crud.get_all_child_doc',
+      method: 'myojana.sva_report.controllers.child_table_crud.get_all_child_doc',
       args: {
         doctype: "Report Column",
         parent: frm.doc.name,
@@ -88,7 +88,7 @@ frappe.ui.form.on("SVA Report", {
                   return indexA - indexB;
                 });
         await callAPI({
-          method: 'report.controllers.child_table_crud.delete_all_child_doc',
+          method: 'myojana.sva_report.controllers.child_table_crud.delete_all_child_doc',
           args: {
             doctype: "Report Column",
             parent: frm.doc.name,
@@ -100,7 +100,7 @@ frappe.ui.form.on("SVA Report", {
         if (checked_docs.length > 0) {
           await checked_docs?.forEach(async (doc,index) => {
             await callAPI({
-              method: 'report.controllers.child_table_crud.insert_child_doc',
+              method: 'myojana.sva_report.controllers.child_table_crud.insert_child_doc',
               args: {
                 doctype: "Report Column",
                 parent: frm.doc.name,
