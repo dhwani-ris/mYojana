@@ -3,43 +3,43 @@
 // Calling APIs Common function
 const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
 function callAPI(options) {
-    return new Promise((resolve, reject) => {
-      frappe.call({
-        ...options,
-        callback: async function (response) {
-          resolve(response?.message || response?.value)
-        }
-      });
-    })
+  return new Promise((resolve, reject) => {
+    frappe.call({
+      ...options,
+      callback: async function (response) {
+        resolve(response?.message || response?.value)
+      }
+    });
+  })
 }
 async function autoSetOption(frm) {
   let centres = await callAPI({
-      method: 'frappe.desk.search.search_link',
-      freeze: true,
-      args: {
-        txt:'',
-        doctype:"Centre",
-        reference_doctype: "Beneficiary Profiling"
-      },
-      freeze_message: __("Getting Centres"),
-    })
-    if(centres?.length){
-      frm.set_value("centre",centres[0].value)
-      // let sub_centres = await callAPI({
-      //   method: 'frappe.desk.search.search_link',
-      //   freeze: true,
-      //   args: {
-      //     txt:'',
-      //     doctype:"Sub Centre",
-      //     reference_doctype: "Beneficiary Profiling",
-      //     filters: {"centre":centres[0].value}
-      //   },
-      //   freeze_message: __("Getting Sub Centres"),
-      // })
-      // if(sub_centres?.length){
-      //   frm.set_value("sub_centre",sub_centres[0].value)
-      // }
-    }
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "Centre",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting Centres"),
+  })
+  if (centres?.length) {
+    frm.set_value("centre", centres[0].value)
+    // let sub_centres = await callAPI({
+    //   method: 'frappe.desk.search.search_link',
+    //   freeze: true,
+    //   args: {
+    //     txt:'',
+    //     doctype:"Sub Centre",
+    //     reference_doctype: "Beneficiary Profiling",
+    //     filters: {"centre":centres[0].value}
+    //   },
+    //   freeze_message: __("Getting Sub Centres"),
+    // })
+    // if(sub_centres?.length){
+    //   frm.set_value("sub_centre",sub_centres[0].value)
+    // }
+  }
 }
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
@@ -185,7 +185,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
   },
   async refresh(frm) {
     _frm = frm
-    if(frm.is_new()){
+    if (frm.is_new()) {
       await autoSetOption(frm);
     }
     if (frm.doc.lead && frm.doc.__islocal) {
@@ -396,10 +396,11 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
   },
-  contact_number:function(frm){
-        if (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9) {
-          frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
-        }
+  contact_number: function (frm) {
+    if (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9) {
+      console.log("frm.doc.contact_number.length", frm.doc.contact_number.length);
+      frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
+    }
   },
   state: function (frm) {
     apply_filter("district", "State", frm, frm.doc.state)
@@ -609,5 +610,5 @@ frappe.ui.form.on("Beneficiary Profiling", {
     refresh_field("state_of_origin")
     refresh_field("district_of_origin")
     refresh_field("block")
-  }
+  },
 });
