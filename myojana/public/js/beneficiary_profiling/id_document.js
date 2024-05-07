@@ -1,5 +1,5 @@
 const indianVoterIdRegex = /^[A-Z]{3}[0-9]{7}$/;
-const indianAadharRegex = /^\d{4}\s\d{4}\s\d{4}$/;
+const indianAadharRegex = /^\d{4}\d{4}\d{4}$/;
 
 
 const apply_filter_on_id_document = async () => {
@@ -32,11 +32,12 @@ frappe.ui.form.on('ID Document Child', {
   enter_id_number: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
     console.log("row.enter_id_number => ", row.which_of_the_following_id_documents_do_you_have);
-    console.log("row.enter_id_number => ", row.enter_id_number);
-    if (!indianVoterIdRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have == "Voter ID card" && row.enter_id_number.length > 9) {
+    console.log("row.enter_id_number => ", row.enter_id_number.length);
+    if (!indianVoterIdRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Voter ID card" && (row.enter_id_number.length < 11 || row.enter_id_number.length > 9)) {
       frappe.throw(`Voter ID Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
     }
-    if (!indianAadharRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have == "Aadhar card" && row.enter_id_number.length > 11) {
+    if (!indianAadharRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Aadhar card" && (row.enter_id_number.length < 12 || row.enter_id_number.length > 11)) {
+      console.log('length', row.enter_id_number.length);
       frappe.throw(`Phone Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
     }
   },
