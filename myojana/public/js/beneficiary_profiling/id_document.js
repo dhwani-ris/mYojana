@@ -38,7 +38,7 @@ frappe.ui.form.on('ID Document Child', {
     }
     if (!indianAadharRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Aadhar card" && (row.enter_id_number.length < 12 || row.enter_id_number.length > 11)) {
       console.log('length', row.enter_id_number.length);
-      frappe.throw(`Phone Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
+      frappe.throw(`Aadhar Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
     }
   },
 })
