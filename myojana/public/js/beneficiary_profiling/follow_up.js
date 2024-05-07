@@ -12,6 +12,11 @@ frappe.ui.form.on('Follow Up Child', {
         // createDialog(row, dialogsConfig.document_rejected, doc_rejected_validate).show();
       }
     }
+    if (frm.fields_dict.follow_up_table.grid && row.name_of_the_scheme) {
+      let _local_scheme_followups = frm.doc.follow_up_table.filter(f => f.__islocal).map(e => e.name_of_the_scheme)
+      let support_data = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed'].includes(f.status) && !_local_scheme_followups.includes(f.scheme)).map(m => m.name_of_the_scheme);
+      frm.fields_dict.follow_up_table.grid.update_docfield_property("name_of_the_scheme", "options", [...support_data, row.name_of_the_scheme]);
+    }
   },
   async follow_up_table_add(frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
