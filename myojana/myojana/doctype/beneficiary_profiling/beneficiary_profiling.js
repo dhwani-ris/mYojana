@@ -2,6 +2,8 @@
 // // For license information, please see license.txt
 // Calling APIs Common function
 const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
+let state_option = [];
+let districts_option = [];
 function callAPI(options) {
   return new Promise((resolve, reject) => {
     frappe.call({
@@ -23,22 +25,34 @@ async function autoSetOption(frm) {
     },
     freeze_message: __("Getting Centres"),
   })
-  if (centres?.length) {
+  state_option = await callAPI({
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "State",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting States"),
+  })
+  districts_option = await callAPI({
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "District",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting Districts"),
+  })
+  if (centres?.length === 1) {
     frm.set_value("centre", centres[0].value)
-    // let sub_centres = await callAPI({
-    //   method: 'frappe.desk.search.search_link',
-    //   freeze: true,
-    //   args: {
-    //     txt:'',
-    //     doctype:"Sub Centre",
-    //     reference_doctype: "Beneficiary Profiling",
-    //     filters: {"centre":centres[0].value}
-    //   },
-    //   freeze_message: __("Getting Sub Centres"),
-    // })
-    // if(sub_centres?.length){
-    //   frm.set_value("sub_centre",sub_centres[0].value)
-    // }
+  }
+  if (state_option?.length === 1) {
+    frm.set_value("state", state_option[0].value)
+  }
+  if (districts_option?.length === 1) {
+    frm.set_value("district", districts_option[0].value)
   }
 }
 frappe.ui.form.on("Beneficiary Profiling", {
@@ -404,7 +418,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
   },
   state: function (frm) {
     apply_filter("district", "State", frm, frm.doc.state)
-    frm.set_value("district", '')
+    if (districts_option && districts_option.length > 1) {
+      frm.set_value("district", '')
+    }
     frm.set_value("ward", '')
     frm.set_value("name_of_the_settlement", '')
   },
