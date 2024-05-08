@@ -34,7 +34,8 @@ fixtures = [
     "Milestone category",
     "Centre",
     "Sub Centre",
-    "Property Setter"
+    "Property Setter",
+    
 ]
 # Includes in <head>
 # ------------------
