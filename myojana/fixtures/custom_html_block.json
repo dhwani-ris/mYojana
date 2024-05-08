@@ -20,5 +20,16 @@
   "roles": [],
   "script": "",
   "style": ".print-btn{\n   background: #F3F3F3;\n    padding:4px 10px;\n    border:none;\n    font-size:13px;\n    float:right;\n}"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Custom HTML Block",
+  "html": "<p> Beneficiaries schemes details</p>\n\n<div id=\"table\"></div>",
+  "modified": "2024-05-07 16:54:22.740792",
+  "name": "Beneficiaries scheme",
+  "private": 0,
+  "roles": [],
+  "script": "\nfrappe.call({\n    method: \"myojana.sva_report.controllers.get_report_data.execute\",\n    args: { doc: \"Beneficiary Profiling\"},\n    callback: function(response) {\n        if (response.message) {\n            var data = response.message.data;\n            var columns = response.message.columns;\n\n            // Create table headers\n            var tableHeaders = columns.map(function(column) {\n                return `<th>${column.label}</th>`;\n            }).join('');\n\n            // Create table body\n            var tableRows = data.map(function(row) {\n                return \"<tr>\" + columns.map(function(column) {\n                    return \"<td>\" + row[column.fieldname] + \"</td>\";\n                }).join('') + \"</tr>\";\n            }).join('');\n\n            // Combine headers and rows to create the table\n            var table = `<table class=\"table\"><thead><tr>${tableHeaders}</tr></thead><tbody>${tableRows}</tbody></table>`;\n\n            // Append the generated table to the table element\n                root_element.getElementById('table').innerHTML = table;\n\n        } else {\n            console.error(\"No data returned from the API\");\n        }\n    }\n});\n\n",
+  "style": "#table {\n    width: 100%;\n    border-collapse: collapse;\n}\n\n#table th {\n    background-color: #f2f2f2;\n}\n"
  }
 ]
