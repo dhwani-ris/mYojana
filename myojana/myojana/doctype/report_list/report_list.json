@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:sva_report",
+ "creation": "2024-05-08 11:17:54.088399",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sva_report",
+  "html_phtb",
+  "buttion"
+ ],
+ "fields": [
+  {
+   "fieldname": "sva_report",
+   "fieldtype": "Link",
+   "label": "SVA Report",
+   "options": "SVA Report",
+   "unique": 1
+  },
+  {
+   "fieldname": "html_phtb",
+   "fieldtype": "HTML",
+   "label": "Html",
+   "options": "<div id=\"list\"></div>"
+  },
+  {
+   "fieldname": "buttion",
+   "fieldtype": "HTML",
+   "label": "Buttion",
+   "options": "<div id=\"button\"></div>"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-05-09 10:25:13.997692",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Report List",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
