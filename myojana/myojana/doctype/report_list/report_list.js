@@ -44,30 +44,6 @@ function renderDataTable(e) {
     datatable.refresh();
 }
 
-// function buttion(frm) {
-//     let buttonsHTML = `
-//     <button style="padding: 5px 20px; margin-top: 5px;" id="limit20">20</button>
-//     <button style="padding: 5px 20px; margin-top: 5px;" id="limit100">100</button>
-//     <button style="padding: 5px 20px; margin-top: 5px;" id="limit500">500</button>
-//     <button style="padding: 5px 20px; margin-top: 5px;" id="limit1000">1000</button>
-
-//     `;
-//     document.getElementById("button").innerHTML = buttonsHTML;
-//     document.getElementById("limit20").addEventListener("click", function () {
-//         fetchAndRenderData(frm, 20);
-//     });
-//     document.getElementById("limit100").addEventListener("click", function () {
-//         fetchAndRenderData(frm, 100);
-//     });
-//     document.getElementById("limit500").addEventListener("click", function () {
-//         fetchAndRenderData(frm, 500);
-//     });
-//     document.getElementById("limit1000").addEventListener("click", function () {
-//         fetchAndRenderData(frm, 1000);
-//     });
-// }
-
-
 function buttion(frm) {
     let buttonsHTML = `
     <button style="padding: 5px 20px; margin-top: 5px; border: none; background-color: rgb(249, 249, 248); border-width: 0.5px 0px 0.5px 0.5px; border-style: solid; border-color: rgb(236,236,237); border-radius: 5px 0 0 5px;" id="limit20">20</button>
