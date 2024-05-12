@@ -64,7 +64,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
     // fill into hidden fields
     if (frm.doc?.scheme_table && frm.doc?.scheme_table?.length) {
-      for (_doc of frm.doc.scheme_table) {
+      for (_doc of frm?.doc?.scheme_table) {
         _doc.scheme = _doc.name_of_the_scheme;
         _doc.milestone = _doc.milestone_category;
       }

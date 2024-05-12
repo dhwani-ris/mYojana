@@ -11,16 +11,10 @@ function callAPI(options) {
 
 frappe.listview_settings['Beneficiary Profiling'] = {
 	before_render: async function () {
-		let installed_apps = await callAPI({
-			method: 'myojana.api.get_installed_apps',
-			freeze: true,
-			freeze_message: __("Getting Apps"),
-		})
-		if (installed_apps && installed_apps.includes('sva_report')) {
 			cur_list?.page?.add_inner_button("Go to report", function () {
-				window.location.href = '/report'
+				window.location.href = 'report-list/Beneficiary%20Profiling'
 			})
-		}
+		
 	},
 	add_fields: [
 		'name_of_the_beneficiary', 'date_of_visit', 'contact_number',
