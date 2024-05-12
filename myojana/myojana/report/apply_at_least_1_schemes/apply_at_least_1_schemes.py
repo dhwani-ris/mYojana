@@ -9,13 +9,19 @@ def execute(filters=None):
 	columns = [
 		{
 		"fieldname":"name_of_the_scheme",
-		"label":"Bank account status of Beneficiaries",
+		"label":"Name of the scheme",
 		"fieldtype":"Data",
 		"width":300
 		},
 		{
-		"fieldname":"status",
-		"label":"Count",
+		"fieldname":"ben_count",
+		"label":"No. distinct member",
+		"fieldtype":"int",
+		"width":200
+		},
+		{
+		"fieldname":"family_count",
+		"label":"No. distinct family",
 		"fieldtype":"int",
 		"width":200
 		}
@@ -26,10 +32,19 @@ def execute(filters=None):
 	else:
 		condition_str = ""
 	
-	sql_query = f"""
-	SELECT
-		name_of_the_scheme , count(parent) as status  FROM `tabScheme Child` where status = "Completed"
+	sql_query = f"""SELECT
+    sc.name_of_the_scheme,
+    COUNT(DISTINCT sc.parent) as ben_count,
+	COUNT(DISTINCT bp.select_primary_member) as family_count
+	FROM 
+		`tabScheme Child` sc
+	INNER JOIN 
+		`tabBeneficiary Profiling` bp ON sc.parent = bp.name 
+	WHERE 
+		sc.status = 'Completed'
+	GROUP BY
+		sc.name_of_the_scheme
 	"""
-
+	print(sql_query)
 	data = frappe.db.sql(sql_query, as_dict=True)
 	return columns, data

@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"57OiTjigcG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"blDeDcTYVu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Place of origin\",\"col\":7}},{\"id\":\"M7NDzjasg-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State of origin\",\"col\":7}},{\"id\":\"eCkvl_KIaB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education composition\",\"col\":7}},{\"id\":\"VQsrdIAOBU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Age-wise beneficiaries\",\"col\":7}},{\"id\":\"l1aIVwbTUx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion-wise beneficiaries\",\"col\":7}},{\"id\":\"1nhjHlMAvt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational category-wise beneficiaries\",\"col\":7}},{\"id\":\"ZULovgUpIG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House type-wise beneficiaries\",\"col\":7}},{\"id\":\"KCHBDcCYT3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone-wise demands\",\"col\":7}},{\"id\":\"lyjUvA3a5Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State-wise demands\",\"col\":7}},{\"id\":\"YRUKFNIyyI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District-wise demands\",\"col\":7}},{\"id\":\"vmBDpMorDx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub centre wise demands\",\"col\":7}},{\"id\":\"SKfg2rMNrG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre wise demands\",\"col\":7}},{\"id\":\"cgF1LtaeND\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme-wise demands\",\"col\":7}}]",
+ "content": "[{\"id\":\"57OiTjigcG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"blDeDcTYVu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Place of origin\",\"col\":7}},{\"id\":\"M7NDzjasg-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State of origin\",\"col\":7}},{\"id\":\"eCkvl_KIaB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education composition\",\"col\":7}},{\"id\":\"VQsrdIAOBU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Age-wise beneficiaries\",\"col\":7}},{\"id\":\"l1aIVwbTUx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion-wise beneficiaries\",\"col\":7}},{\"id\":\"1nhjHlMAvt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational category-wise beneficiaries\",\"col\":7}},{\"id\":\"ZULovgUpIG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House type-wise beneficiaries\",\"col\":7}},{\"id\":\"KCHBDcCYT3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone-wise demands\",\"col\":7}},{\"id\":\"lyjUvA3a5Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State-wise demands\",\"col\":7}},{\"id\":\"YRUKFNIyyI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District-wise demands\",\"col\":7}},{\"id\":\"vmBDpMorDx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub centre wise demands\",\"col\":7}},{\"id\":\"SKfg2rMNrG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre wise demands\",\"col\":7}},{\"id\":\"cgF1LtaeND\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme-wise demands\",\"col\":7}},{\"id\":\"ZLwaZGUDO9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Apply For More Than 3 Schemes\",\"col\":7}},{\"id\":\"pwiTe424OE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Apply At Least 1 Schemes\",\"col\":7}}]",
  "creation": "2023-12-21 19:09:40.349725",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Reports",
  "links": [],
- "modified": "2024-05-07 16:55:56.715661",
+ "modified": "2024-05-12 07:18:41.484736",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Reports",
@@ -28,8 +28,22 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "Apply For More Than 3 Schemes",
+   "link_to": "Apply for more than 3 schemes",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Age-wise beneficiaries",
    "link_to": "Age-wise beneficiaries",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Apply At Least 1 Schemes",
+   "link_to": "Apply at least 1 schemes",
    "type": "Report"
   },
   {
