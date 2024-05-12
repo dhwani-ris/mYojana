@@ -63,7 +63,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       await frm.set_value("date_of_birth", generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth))
     }
     // fill into hidden fields
-    if (frm.doc?.scheme_table && frm.doc?.scheme_table?.length) {
+    if (frm?.doc?.scheme_table && frm.doc?.scheme_table?.length) {
       for (_doc of frm?.doc?.scheme_table) {
         _doc.scheme = _doc.name_of_the_scheme;
         _doc.milestone = _doc.milestone_category;
@@ -85,8 +85,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
       return
     }
     // support status manage
-    if (frm.selected_doc.scheme_table) {
-      for (support_items of frm.selected_doc.scheme_table) {
+    if (frm?.selected_doc?.scheme_table) {
+      for (support_items of frm?.selected_doc?.scheme_table) {
         if (support_items.application_submitted == "No") {
           if (support_items.status != 'Closed') {
             support_items.status = 'Open'
@@ -103,9 +103,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // follow up status manage
-    if (frm.selected_doc.follow_up_table) {
+    if (frm?.selected_doc?.follow_up_table) {
       console.log("frm.selected_doc.follow_up_table", frm.selected_doc.follow_up_table)
-      for (support_item of frm.selected_doc.scheme_table) {
+      for (support_item of frm.selected_doc?.scheme_table) {
         if (!['Completed', 'Previously availed'].includes(support_item.status)) {
           let followups = frm.selected_doc.follow_up_table.filter(f => f.parent_ref == support_item?.name)
           // debugger;
@@ -161,7 +161,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     open = under_process = form_submitted = rejected = completed = closed = 0;
     let total_no_of_support = 0
     if (frm.selected_doc.scheme_table) {
-      for (item of frm.selected_doc.scheme_table) {
+      for (item of frm.selected_doc?.scheme_table) {
         // global_data.push(item)
         ++total_no_of_support
         if (item.status === 'Open') {
