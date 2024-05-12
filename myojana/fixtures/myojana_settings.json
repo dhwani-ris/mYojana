@@ -3,8 +3,39 @@
   "docstatus": 0,
   "doctype": "mYojana Settings",
   "doctype_which_is_shown_in_user_permission": "State,District,  Block,",
-  "modified": "2024-04-09 13:37:06.404085",
+  "enable_track_changes": [],
+  "modified": "2024-05-12 07:14:14.202955",
   "name": "mYojana Settings",
+  "role_doctype_mapping": [
+   {
+    "doctyperef": "State",
+    "parent": "mYojana Settings",
+    "parentfield": "role_doctype_mapping",
+    "parenttype": "mYojana Settings",
+    "role_profile": "Admin"
+   },
+   {
+    "doctyperef": "Centre",
+    "parent": "mYojana Settings",
+    "parentfield": "role_doctype_mapping",
+    "parenttype": "mYojana Settings",
+    "role_profile": "CSC Member"
+   },
+   {
+    "doctyperef": "Centre",
+    "parent": "mYojana Settings",
+    "parentfield": "role_doctype_mapping",
+    "parenttype": "mYojana Settings",
+    "role_profile": "MIS executive"
+   },
+   {
+    "doctyperef": "Sub Centre",
+    "parent": "mYojana Settings",
+    "parentfield": "role_doctype_mapping",
+    "parenttype": "mYojana Settings",
+    "role_profile": "Sub-Centre"
+   }
+  ],
   "select_doctypes": [
    {
     "doctypes": "State",
@@ -34,7 +65,6 @@
     "parentfield": "select_doctypes",
     "parenttype": "mYojana Settings"
    }
-  ],
-  "tt": null
+  ]
  }
 ]
