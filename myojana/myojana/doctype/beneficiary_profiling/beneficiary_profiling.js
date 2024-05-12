@@ -195,7 +195,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // validation of date of application
-    frm?.doc?.scheme_table.length?await validate_date_of_application(frm):null;
+    await validate_date_of_application(frm);
   },
   async refresh(frm) {
     _frm = frm
