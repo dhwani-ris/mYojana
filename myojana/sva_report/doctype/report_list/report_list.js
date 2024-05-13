@@ -4,6 +4,9 @@ frappe.ui.form.on("Report List", {
             fetchAndRenderData(frm);
             DataExportButton(frm)
         }
+        frm.add_custom_button('Filter', () => {
+            console.log('Filter Toggle');
+        })
     },
 });
 
@@ -26,8 +29,7 @@ function fetchAndRenderData(frm, limit) {
 }
 
 function renderDataTable(e) {
-    console.log("ren ",e)
-    Total(e.total_records , e.data.length    )
+    Total(e.total_records, e.data.length)
     let columns = e.columns.map(function (coloum) {
         return `<th>${coloum.label}</th>`
     })
@@ -45,7 +47,7 @@ function renderDataTable(e) {
     });
     datatable.refresh();
 }
-function Total(total_count=0 , page_count=0) {
+function Total(total_count = 0, page_count = 0) {
     let buttonsHTML = `
     <div style="float:; display:block;">
     Result <span id="currentPage">${page_count}</span> out of <span id="totalPages">${total_count}</span>
