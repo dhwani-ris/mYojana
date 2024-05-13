@@ -2,7 +2,6 @@ frappe.ui.form.on("Report List", {
     refresh(frm) {
         if (!frm.is_new() == 1) {
             fetchAndRenderData(frm);
-            buttion(frm)
             DataExportButton(frm)
         }
     },
@@ -18,6 +17,7 @@ function fetchAndRenderData(frm, limit) {
         callback: function (response) {
             if (response.message) {
                 renderDataTable(response.message);
+                buttion(frm)
             } else {
                 console.error("Error fetching data from API.");
             }
