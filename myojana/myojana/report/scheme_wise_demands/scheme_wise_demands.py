@@ -8,6 +8,13 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
+            "fieldname": "milestone",
+            "label": "Milestone category",
+            "fieldtype": "Data",
+            "width": 150,
+
+        },
+        {
             "fieldname": "scheme",
             "label": "Scheme ",
             "fieldtype": "Data",
@@ -61,6 +68,7 @@ def execute(filters=None):
     sql_query = f"""
     SELECT
         scheme,
+        milestone,
         SUM(CASE WHEN (_sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
         SUM(CASE WHEN (_sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
         SUM(CASE WHEN (_sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
