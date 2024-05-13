@@ -8,18 +8,18 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
+            "fieldname": "milestone",
+            "label": "Milestone category",
+            "fieldtype": "Data",
+            "width": 150,
+
+        },
+        {
             "fieldname": "scheme",
             "label": "Scheme ",
             "fieldtype": "Data",
             "width": 200,
             
-        },
-        {
-            "fieldname": "milestone",
-            "label": "Milestone",
-            "fieldtype": "Data",
-            "width": 200,
-
         },
         {
             "fieldname": "total_demands",
