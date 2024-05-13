@@ -2,9 +2,9 @@ frappe.ui.form.on("Report List", {
     refresh(frm) {
         if (!frm.is_new() == 1) {
             fetchAndRenderData(frm);
+            buttion(frm)
+            DataExportButton(frm)
         }
-        buttion(frm)
-        DataExportButton(frm)
     },
 });
 
@@ -26,6 +26,8 @@ function fetchAndRenderData(frm, limit) {
 }
 
 function renderDataTable(e) {
+    console.log("ren ",e)
+    Total(e.total_records , e.data.length    )
     let columns = e.columns.map(function (coloum) {
         return `<th>${coloum.label}</th>`
     })
@@ -39,11 +41,26 @@ function renderDataTable(e) {
     let datatable = new frappe.DataTable("#list", {
         columns: columns,
         data: data,
-        width: '50%',
+        width: '80%',
     });
     datatable.refresh();
 }
+function Total(total_count=0 , page_count=0) {
+    let buttonsHTML = `
+    <div style="float:; display:block;">
+    Result <span id="currentPage">${page_count}</span> out of <span id="totalPages">${total_count}</span>
+</div>
+    `;
 
+    document.getElementById("total").innerHTML = buttonsHTML;
+    // function removeActiveClass() {
+    //     let buttons = document.querySelectorAll("#button button");
+    //     buttons.forEach(button => {
+    //         button.style.backgroundColor = '';
+    //         button.style.color = '';
+    //     });
+    // }
+}
 function buttion(frm) {
     let buttonsHTML = `
     <button style="padding: 5px 20px; margin-top: 5px; border: none; background-color: rgb(249, 249, 248); border-width: 0.5px 0px 0.5px 0.5px; border-style: solid; border-color: rgb(236,236,237); border-radius: 5px 0 0 5px;" id="limit20">20</button>
