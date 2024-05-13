@@ -15,6 +15,13 @@ def execute(filters=None):
             
         },
         {
+            "fieldname": "milestone",
+            "label": "Milestone",
+            "fieldtype": "Data",
+            "width": 200,
+
+        },
+        {
             "fieldname": "total_demands",
             "label": "Total Demands",
             "fieldtype": "Data",
@@ -61,6 +68,7 @@ def execute(filters=None):
     sql_query = f"""
     SELECT
         scheme,
+        milestone,
         SUM(CASE WHEN (_sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
         SUM(CASE WHEN (_sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
         SUM(CASE WHEN (_sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
