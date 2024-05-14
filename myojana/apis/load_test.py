@@ -10,6 +10,45 @@ def generate_random_indian_phone_number():
     phone_number = str(first_digit) + rest_digits
     return phone_number
 
+def generate_indian_name(gender):
+    male_names = ["Aarav", "Vikram", "Arjun", "Rahul", "Aryan", "Rohan", "Kabir", "Aditya", "Shivam", "Krishna",
+                  "Amit", "Ankit", "Ashish", "Alok", "Avinash", "Akshay", "Ayush", "Bhaskar", "Chandan", "Dheeraj",
+                  "Deepak", "Gaurav", "Ganesh", "Hitesh", "Harsh", "Himanshu", "Jatin", "Jagdish", "Karan", "Kunal",
+                  "Lalit", "Manish", "Mukesh", "Nitin", "Nikhil", "Pawan", "Prateek", "Rajesh", "Ravi", "Sachin",
+                  "Sanjay", "Saurabh", "Sumit", "Tarun", "Utkarsh", "Vivek", "Yogesh", "Abhinav", "Arun", "Avinash",
+                  "Alok", "Bhuvan", "Chirag", "Devendra", "Dinesh", "Dilip", "Girish", "Govind", "Hari", "Jagat",
+                  "Jitendra", "Kamal", "Kishan", "Laxman", "Mahesh", "Mohan", "Naveen", "Pankaj", "Pradeep", "Rajiv",
+                  "Rakesh", "Ramesh", "Sandeep", "Satish", "Shyam", "Sunil", "Surendra", "Vikas", "Vinod", "Yash"]
+    female_names = ["Aaradhya", "Isha", "Sakshi", "Priya", "Ananya", "Diya", "Kavya", "Trisha", "Mira", "Neha",
+                    "Anjali", "Bhavna", "Chitra", "Deepika", "Divya", "Ekta", "Jyoti", "Komal", "Pooja", "Rashmi",
+                    "Sunita", "Vandana", "Varsha", "Vidya", "Ambika", "Asha", "Aarti", "Anuradha", "Geeta", "Ganga",
+                    "Hema", "Indira", "Kiran", "Lakshmi", "Mamta", "Meena", "Neeta", "Poonam", "Radha", "Rani",
+                    "Renuka", "Rekha", "Seema", "Sharda", "Shanti", "Sita", "Sarita", "Sarla", "Savita", "Tanuja",
+                    "Uma", "Vijaya", "Veena", "Yamini", "Zara", "Aradhana", "Aparna", "Bhavani", "Chanchal", "Darshana",
+                    "Deepti", "Gauri", "Harsha", "Ila", "Jayanti", "Kamala", "Leela", "Madhuri", "Malini", "Nalini",
+                    "Padmini", "Rajani", "Shashi", "Sonal", "Suchitra", "Vidhi", "Yogita", "Jaya", "Meera", "Nisha"]
+    surnames = ["Patel", "Shah", "Desai", "Mehta", "Joshi", "Sharma", "Gupta", "Shah", "Singh", "Verma",
+                "Trivedi", "Pandey", "Yadav", "Patil", "Soni", "Mishra", "Das", "Kumar", "Chauhan", "Gandhi",
+                "Saxena", "Agarwal", "Choudhury", "Bose", "Banerjee", "Dutta", "Chatterjee", "Mukherjee", "Sen",
+                "Nair", "Menon", "Iyer", "Reddy", "Rao", "Rajan", "Naidu", "Kulkarni", "Gowda", "Shetty",
+                "Rajput", "Rawat", "Singh", "Chauhan", "Thakur", "Sinha", "Pathak", "Goswami", "Jha",
+                "Bhattacharya", "Dutta", "Mitra", "Ghosh", "Ray", "Roy", "Malhotra", "Acharya", "Shrestha",
+                "Rana", "Subedi", "Bhandari", "Shakya", "Gurung", "Tamang", "Thapa", "Bhattarai", "Lama",
+                "Dhakal", "Rai", "Adhikari", "Maharjan", "Koirala", "Poudel", "Basnet", "Pandit", "Sharma",
+                "Pokharel", "Magar", "Khanal", "Shahi", "Giri", "Dahal", "Khatri", "Panta", "Joshi",
+                "Shrestha", "Bista", "Pariyar", "Sherpa", "Neupane", "Bhatta", "Shah", "Thakali", "Panta"]
+
+    if gender == "Male":
+        return f"{random.choice(male_names)} {random.choice(surnames)}"
+    elif gender == "Female":
+        return f"{random.choice(female_names)} {random.choice(surnames)}"
+    elif gender == "Transgender":
+        return f"{random.choice(male_names)} {random.choice(surnames)}"
+    elif gender == "Others":
+        return f"{random.choice(male_names)} {random.choice(surnames)}"
+    else:
+        return "Invalid gender specified. Please choose from 'male', 'female', or 'others'."
+    
 def random_string(length):
     letters = string.ascii_lowercase
     return ''.join(random.choice(letters) for i in range(length))
@@ -92,10 +131,11 @@ def generate_random_bulk_data():
     Milestone_category = frappe.get_value('Scheme', scheme, 'milestone')
     name_of_department = frappe.get_value(
         'Scheme', scheme, 'name_of_department')
+    random_gender = random.choice(["Male", "Female", "Transgender", "Others"])
     data = {
         "date_of_visit": random_date(datetime.datetime(2020, 1, 1), datetime.datetime(2024, 1, 1)).strftime("%Y-%m-%d"),
-        "name_of_the_beneficiary": random_string(10),
-        "gender": random.choice(["Male", "Female", "Transgender", "Others"]),
+        "name_of_the_beneficiary": generate_indian_name(random_gender),
+        "gender": random_gender,
         "date_of_birth": date_of_birth,
         "completed_age": completed_age,
         "completed_age_month": completed_age_month,
@@ -119,8 +159,8 @@ def generate_random_bulk_data():
         **({"what_is_the_extent_of_your_disability": weyd} if pwd == 'Yes' else {}),
         "annual_income": random.randint(10000, 1000000),
         "do_you_have_any_bank_account": random.choice(["Yes", "No"]),
-        "fathers_name": random_string(10),
-        "mothers_name": random_string(10),
+        "fathers_name": generate_indian_name("Male"),
+        "mothers_name": generate_indian_name("Female"),
         "added_by": 'Administrator',
         "current_house_type": random.choice(House_Types),
         "state": 'S07',
@@ -128,7 +168,8 @@ def generate_random_bulk_data():
         "district": dis,
         "ward": wards,
         "name_of_the_settlement": vil,
-        "do_you_have_any_id_documents": any_doc
+        "do_you_have_any_id_documents": any_doc,
+        "overall_status":"Partially completed"
     }
     if any_doc == 'Yes':
         for i in range(3):
@@ -151,7 +192,8 @@ def generate_random_bulk_data():
             "name_of_the_scheme":  scheme,
             "paid_by": random.choice(["Self", "CSC"]),
             "reason_of_application": "any",
-            "remarks": "any"
+            "remarks": "any",
+            "status":"Under process" if application_submitted == "Yes" else "Completed"
         })
         data.setdefault("follow_up_table", []).append({
             "follow": random_sub_center,
