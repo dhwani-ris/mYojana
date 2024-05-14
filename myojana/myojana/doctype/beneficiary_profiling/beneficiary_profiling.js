@@ -1,6 +1,7 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
 // Calling APIs Common function
+var is_primary_member_link_through_phone_number;
 const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
 let state_option = [];
 let districts_option = [];
@@ -55,6 +56,17 @@ async function autoSetOption(frm) {
     frm.set_value("district", districts_option[0].value)
   }
 }
+async function get_myojana_setting() {
+  let get_myojana_setting = await callAPI({
+    method: 'myojana.apis.myojana_setting.get_myojana_setting',
+    freeze: true,
+    args: {
+      fields: ['is_primary_member_link_through_phone_number']
+    },
+    freeze_message: __("Getting Centres"),
+  })
+  return get_myojana_setting.is_primary_member_link_through_phone_number
+}
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
@@ -70,7 +82,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // check alternate mobile number digits
-    if (frm.doc.alternate_contact_number || frm.doc.contact_number) {
+    if ( is_primary_member_link_through_phone_number && (frm.doc.alternate_contact_number || frm.doc.contact_number)) {
       if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
         frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
       }
@@ -198,6 +210,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
     await validate_date_of_application(frm);
   },
   async refresh(frm) {
+    is_primary_member_link_through_phone_number = await get_myojana_setting()
+    console.log("is_primary_member_link_through_phone_number", is_primary_member_link_through_phone_number)
     _frm = frm
     if (frm.is_new()) {
       await autoSetOption(frm);
@@ -411,7 +425,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   contact_number: function (frm) {
-    if (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9) {
+    if (is_primary_member_link_through_phone_number && (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9)) {
       console.log("frm.doc.contact_number.length", frm.doc.contact_number.length);
       frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
     }
