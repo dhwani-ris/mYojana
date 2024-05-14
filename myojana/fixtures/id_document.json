@@ -16,13 +16,6 @@
  {
   "docstatus": 0,
   "doctype": "ID Document",
-  "document": "Adhar card",
-  "modified": "2024-03-14 11:58:16.462599",
-  "name": "Adhar card"
- },
- {
-  "docstatus": 0,
-  "doctype": "ID Document",
   "document": "Bank passbook",
   "modified": "2024-03-14 11:58:16.470496",
   "name": "Bank passbook"

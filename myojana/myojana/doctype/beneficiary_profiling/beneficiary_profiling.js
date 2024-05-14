@@ -1,5 +1,60 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // // For license information, please see license.txt
+// Calling APIs Common function
+const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
+let state_option = [];
+let districts_option = [];
+function callAPI(options) {
+  return new Promise((resolve, reject) => {
+    frappe.call({
+      ...options,
+      callback: async function (response) {
+        resolve(response?.message || response?.value)
+      }
+    });
+  })
+}
+async function autoSetOption(frm) {
+  let centres = await callAPI({
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "Centre",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting Centres"),
+  })
+  state_option = await callAPI({
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "State",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting States"),
+  })
+  districts_option = await callAPI({
+    method: 'frappe.desk.search.search_link',
+    freeze: true,
+    args: {
+      txt: '',
+      doctype: "District",
+      reference_doctype: "Beneficiary Profiling"
+    },
+    freeze_message: __("Getting Districts"),
+  })
+  if (centres?.length === 1) {
+    frm.set_value("centre", centres[0].value)
+  }
+  if (state_option?.length === 1) {
+    frm.set_value("state", state_option[0].value)
+  }
+  if (districts_option?.length === 1) {
+    frm.set_value("district", districts_option[0].value)
+  }
+}
 frappe.ui.form.on("Beneficiary Profiling", {
   /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
@@ -8,15 +63,14 @@ frappe.ui.form.on("Beneficiary Profiling", {
       await frm.set_value("date_of_birth", generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth))
     }
     // fill into hidden fields
-    if (frm.doc?.scheme_table && frm.doc?.scheme_table?.length) {
-      for (_doc of frm.doc.scheme_table) {
+    if (frm?.doc?.scheme_table && frm.doc?.scheme_table?.length) {
+      for (_doc of frm?.doc?.scheme_table) {
         _doc.scheme = _doc.name_of_the_scheme;
         _doc.milestone = _doc.milestone_category;
       }
     }
     // check alternate mobile number digits
     if (frm.doc.alternate_contact_number || frm.doc.contact_number) {
-      const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
       if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
         frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
       }
@@ -31,8 +85,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
       return
     }
     // support status manage
-    if (frm.selected_doc.scheme_table) {
-      for (support_items of frm.selected_doc.scheme_table) {
+    if (frm?.selected_doc?.scheme_table) {
+      for (support_items of frm?.selected_doc?.scheme_table) {
         if (support_items.application_submitted == "No") {
           if (support_items.status != 'Closed') {
             support_items.status = 'Open'
@@ -49,9 +103,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     // follow up status manage
-    if (frm.selected_doc.follow_up_table) {
+    if (frm?.selected_doc?.follow_up_table) {
       console.log("frm.selected_doc.follow_up_table", frm.selected_doc.follow_up_table)
-      for (support_item of frm.selected_doc.scheme_table) {
+      for (support_item of frm.selected_doc?.scheme_table) {
         if (!['Completed', 'Previously availed'].includes(support_item.status)) {
           let followups = frm.selected_doc.follow_up_table.filter(f => f.parent_ref == support_item?.name)
           // debugger;
@@ -107,7 +161,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     open = under_process = form_submitted = rejected = completed = closed = 0;
     let total_no_of_support = 0
     if (frm.selected_doc.scheme_table) {
-      for (item of frm.selected_doc.scheme_table) {
+      for (item of frm.selected_doc?.scheme_table) {
         // global_data.push(item)
         ++total_no_of_support
         if (item.status === 'Open') {
@@ -145,6 +199,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
   },
   async refresh(frm) {
     _frm = frm
+    if (frm.is_new()) {
+      await autoSetOption(frm);
+    }
     if (frm.doc.lead && frm.doc.__islocal) {
       get_lead_date(frm.doc.lead, frm)
     }
@@ -152,6 +209,14 @@ frappe.ui.form.on("Beneficiary Profiling", {
     // read only fields
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
+        // if(frm.doc.centre){
+        //   frm.set_df_property('centre', 'read_only', 1);
+        //   // apply_filter("sub_centre", "centre", frm, frm.doc.centre)
+        // }
+        // if(frm.doc.sub_centre){
+        //   frm.set_df_property('sub_centre', 'read_only', 1);
+        // }
+        frm.set_df_property('centre', 'read_only', 1);
         frm.set_df_property('sub_centre', 'read_only', 1);
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
@@ -312,6 +377,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward)
     apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin)
     apply_filter("block", "District", frm, frm.doc.district_of_origin)
+    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     // defult filter on current occupations
     if (frm.doc?.current_occupation) {
       if (frm.doc.current_occupation == 'Others') {
@@ -344,9 +410,17 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
   },
+  contact_number: function (frm) {
+    if (!indianPhoneNumberRegex.test(frm.doc.contact_number) && frm.doc.contact_number.length > 9) {
+      console.log("frm.doc.contact_number.length", frm.doc.contact_number.length);
+      frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
+    }
+  },
   state: function (frm) {
     apply_filter("district", "State", frm, frm.doc.state)
-    frm.set_value("district", '')
+    if (districts_option && districts_option.length > 1) {
+      frm.set_value("district", '')
+    }
     frm.set_value("ward", '')
     frm.set_value("name_of_the_settlement", '')
   },
@@ -369,6 +443,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
     frm.set_value("block", '')
   },
   centre: function (frm) {
+    console.log("Hello")
+    frm.set_value('sub_centre', '')
     apply_filter("sub_centre", "centre", frm, frm.doc.centre)
   },
   current_occupation: async function (frm) {
@@ -471,9 +547,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frm.refresh_fields('proof_of_disability')
     }
   },
-  centre: function (frm) {
-    frm.set_value('sub_centre', '')
-  },
   marital_status: function (frm) {
     if (frm.doc.marital_status != "Married") {
       frm.set_value('spouses_name', '')
@@ -553,5 +626,5 @@ frappe.ui.form.on("Beneficiary Profiling", {
     refresh_field("state_of_origin")
     refresh_field("district_of_origin")
     refresh_field("block")
-  }
+  },
 });

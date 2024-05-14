@@ -25,7 +25,7 @@ def execute(filters=None):
         condition_str = f"{condition_str}"
     else:
         condition_str = "1=1"
-    print("condition_str", condition_str)
+    # print("condition_str", condition_str)
     sql_query = f"""
     SELECT
         name_of_the_camp as camp,
@@ -36,6 +36,6 @@ def execute(filters=None):
     GROUP BY
         name_of_the_camp
 """
-    
+
     data = frappe.db.sql(sql_query, as_dict=True)
     return columns, data

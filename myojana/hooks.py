@@ -7,6 +7,7 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
+    # "mYojana Settings"
     "Custom HTML Block",
     "Caste category",
     "Religion",
@@ -32,18 +33,18 @@ fixtures = [
     "Proof of Disability",
     "Milestone category",
     "Centre",
-    "Sub Centre"
+    "Sub Centre",
+    "Property Setter",
+    
 ]
 # Includes in <head>
 # ------------------
 permission_query_conditions = {
-    "Beneficiary Profiling": "myojana.middlewares.beneficiary.list_query",
-    "Primary Member": "myojana.middlewares.family.list_query",
-    "Sub Centre":"myojana.middlewares.sub_centre.list_query",
-    "Myojana User":"myojana.middlewares.myojana_users.list_query",
+    # "Sub Centre":"myojana.middlewares.sub_centre.list_query",
+    # "Myojana User":"myojana.middlewares.myojana_users.list_query",
     "Role Profile":"myojana.middlewares.role_profile.list_query",
     "User":"myojana.middlewares.user.list_query",
-    "Centre":"myojana.middlewares.centre.list_query",
+    # "Centre":"myojana.middlewares.centre.list_query",
 }
 
 # include js, css files in header of desk.html
@@ -65,15 +66,23 @@ app_include_js = "/assets/myojana/js/main.js"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Beneficiary Profiling" : ["public/js/utils/utils.js" ,
-                                         "public/js/beneficiary_profiling/beneficiary_profiling.js",
-                                         "public/js/beneficiary_profiling/follow_up.js",
-                                         "public/js/beneficiary_profiling/scheme.js",
-                                         "public/js/beneficiary_profiling/id_document.js",
-                                         "public/js/beneficiary_profiling/dialogs.js"
-                                         ],
-              "Sub Centre":["public/js/utils/utils.js"]}
-# doctype_js = {"Beneficiary Profiling" : }     
+doctype_js = {
+    "Beneficiary Profiling" : [
+        "public/js/utils/utils.js" ,
+        "public/js/beneficiary_profiling/beneficiary_profiling.js",
+        "public/js/beneficiary_profiling/follow_up.js",
+        "public/js/beneficiary_profiling/scheme.js",
+        "public/js/beneficiary_profiling/id_document.js",
+        "public/js/beneficiary_profiling/dialogs.js"
+    ],
+    "Sub Centre":[
+        "public/js/utils/utils.js"
+    ],
+    "mYojana Settings":[
+        "public/js/utils/utils.js"
+    ],
+}
+# doctype_js = {"Beneficiary Profiling" : }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}

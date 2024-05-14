@@ -27,7 +27,7 @@
  "fields": [
   {
    "fieldname": "milestone_category",
-   "fieldtype": "Select",
+   "fieldtype": "Autocomplete",
    "in_list_view": 1,
    "label": "Milestone category",
    "reqd": 1,
@@ -172,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-10 17:41:40.133165",
+ "modified": "2024-05-12 16:55:31.139428",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme Child",

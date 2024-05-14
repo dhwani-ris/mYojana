@@ -31,7 +31,7 @@ def execute(filters=None):
         condition_str = f"{condition_str}"
     else:
         condition_str = "1=1"
-    print("condition_str", condition_str)
+    # print("condition_str", condition_str)
     sql_query = f"""
         SELECT
             COALESCE(NULLIF(s.state_name, ''), 'Unknown') AS state,
@@ -48,7 +48,5 @@ def execute(filters=None):
             COALESCE(NULLIF(b.state_of_origin, ''), 'Unknown'), COALESCE(NULLIF(b.district_of_origin, ''), 'Unknown');
     """
 
-
-    
     data = frappe.db.sql(sql_query, as_dict=True)
     return columns, data

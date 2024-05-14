@@ -1,18 +1,24 @@
 import frappe
 from myojana.services.beneficiary_scheme import BeneficaryScheme
 from myojana.utils.misc import Misc
-from myojana.utils.filter import Filter
+# from myojana.utils.filter import Filter
+from myojana.utils.report_filter import ReportFilter
+
 import json
-import csv
-import io
 
+@frappe.whitelist(allow_guest=True)
+def get_mYojana_settings():
+    return frappe.get_doc('mYojana Settings')
 
-
+@frappe.whitelist(allow_guest=True)
+def get_installed_apps():
+    installed_apps = frappe.get_installed_apps()
+    return installed_apps
 
 def create_condition(scheme, _tbl_pre=""):
     if isinstance(scheme, str):
         raise "No rules"
-    user_role_filter = Filter.set_query_filters()
+    user_role_filter = ReportFilter.set_report_filters()
     cond_str = Misc.create_condition(scheme.rules)
     filters = []
     if cond_str:
@@ -61,8 +67,8 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             else:
                 pm_join_type = "LEFT JOIN"
                 ward_join_type = "LEFT JOIN"
-                
-            
+
+
     sql = f"""
             SELECT
                 _ben.*,
@@ -179,7 +185,7 @@ def most_eligible_ben():
 @frappe.whitelist(allow_guest=True)
 def top_schemes():
     milestones = frappe.get_list("Milestone category", fields=['name'])
-    user_role_filter = Filter.set_query_filters()
+    # user_role_filter = Filter.set_query_filters()
     # user_grole_filter will apply on condtional string
     scheme_with_rule_sql = f"""
         select
@@ -212,4 +218,27 @@ def top_schemes():
 #Code is not reflecting
 
 
-# @frappe.whitelist()
+@frappe.whitelist()
+def get_user_permission(user, join_con=[]):
+   sql_query = f"""
+        SELECT
+            CASE
+                WHEN UP.allow = 'State' THEN TS.state_name
+                WHEN UP.allow = 'District' THEN TD.district_name
+                WHEN UP.allow = 'Block' THEN TB.block_name
+                WHEN UP.allow = 'Centre' THEN TC.centre_name
+                WHEN UP.allow = 'Sub Centre' THEN TCS.sub_centre_name
+            END AS name_value,
+            UP.for_value,
+            UP.name,
+            UP.allow,
+            UP.user
+        FROM `tabUser Permission` AS UP
+        LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND UP.allow = 'state'
+        LEFT JOIN `tabDistrict` AS TD ON UP.for_value = TD.name AND UP.allow = 'district'
+        LEFT JOIN `tabBlock` AS TB ON UP.for_value = TB.name AND UP.allow = 'block'
+        LEFT JOIN `tabCentre` AS TC ON UP.for_value = TC.name AND UP.allow = 'centre'
+        LEFT JOIN `tabSub Centre` AS TCS ON UP.for_value = TCS.name AND UP.allow = 'Sub Centre'
+        WHERE UP.user = '{user}'
+    """
+   return frappe.db.sql(sql_query, as_dict=True)
