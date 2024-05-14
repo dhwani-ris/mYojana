@@ -47,7 +47,8 @@ class  Cache:
             filters={
                 'user': usr
             },
-            fields=['allow', 'for_value']
+            fields=['allow', 'for_value'],
+            ignore_permissions=True
         )
         # print("permission_list",permission_list)
         conditions = {}
