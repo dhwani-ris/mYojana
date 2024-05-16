@@ -68,7 +68,6 @@ async function get_myojana_setting() {
   return get_myojana_setting.is_primary_member_link_through_phone_number
 }
 frappe.ui.form.on("Beneficiary Profiling", {
-  /////////////////  CALL ON SAVE OF DOC OR UPDATE OF DOC ////////////////////////////////
   before_save: async function (frm) {
     console.log("before save")
     if ((frm.doc.completed_age || frm.doc.completed_age_month) && !frm.doc?.date_of_birth) {
@@ -83,12 +82,12 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
     // check alternate mobile number digits
     if ( is_primary_member_link_through_phone_number && (frm.doc.alternate_contact_number || frm.doc.contact_number)) {
-      if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
-        frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
-      }
       if (!indianPhoneNumberRegex.test(frm.doc.contact_number)) {
         frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
       }
+    }
+    if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
+      frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
     }
     if (frm.doc.do_you_have_id_document == "Yes" && frm.doc.id_section?.length == '0') {
       if (!(frm.doc.id_section[0] && frm.doc?.id_section[0]?.select_id != "undefined")) {
