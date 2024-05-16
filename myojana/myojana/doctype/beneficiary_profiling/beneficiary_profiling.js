@@ -414,12 +414,12 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frm.doc.date_of_visit = ''
       frm.set_value("date_of_visit", '')
       refresh_field('date_of_visit')
-      frappe.throw(__("Date of visit can't be greater than today's date"))
+      frappe.throw(__("Date of registration can't be greater than today's date"))
     }
     if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
       if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
         frm.set_value('date_of_visit', '')
-        return frappe.throw("Date of Visit shall not be before the <strong>Date of Birth</strong>")
+        return frappe.throw("Date of registration shall not be before the <strong>Date of Birth</strong>")
       }
     }
   },
@@ -484,7 +484,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
         if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
           frm.set_value("date_of_birth", '')
-          return frappe.throw("Date of Visit shall not be before the <strong>Date of Birth</strong>")
+          return frappe.throw("Date of registration shall not be before the <strong>Date of Birth</strong>")
         }
       }
     }
