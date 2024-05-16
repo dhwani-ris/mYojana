@@ -59,18 +59,11 @@ function renderDataTable(e) {
 function Total(total_count = 0, page_count = 0) {
     let buttonsHTML = `
     <div style="float:; display:block;">
-    Result <span id="currentPage">${page_count}</span> out of <span id="totalPages">${total_count}</span>
+    Total esult <span id="currentPage"><span id="totalPages">${total_count}</span>
 </div>
     `;
 
-    document.getElementById("total").innerHTML = buttonsHTML;
-    // function removeActiveClass() {
-    //     let buttons = document.querySelectorAll("#button button");
-    //     buttons.forEach(button => {
-    //         button.style.backgroundColor = '';
-    //         button.style.color = '';
-    //     });
-    // }
+    // document.getElementById("total").innerHTML = buttonsHTML;
 }
 function buttion(frm) {
     let buttonsHTML = `
