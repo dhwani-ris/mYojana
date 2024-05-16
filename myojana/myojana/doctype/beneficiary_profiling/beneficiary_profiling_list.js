@@ -14,7 +14,18 @@ frappe.listview_settings['Beneficiary Profiling'] = {
 			cur_list?.page?.add_inner_button("Go to report", function () {
 				window.location.href = 'report-list/Beneficiary%20Profiling'
 			})
-		
+			cur_list?.page?.add_inner_button("WhatsApp", async ()=> {
+				let res = await callAPI({
+					 method: 'myojana.apis.whatsapp.send',
+					freeze: true,
+					args: {
+						fields: ['is_primary_member_link_through_phone_number']
+					},
+					freeze_message: __("Sending message..."),
+				})
+				console.log("Res", res);
+			})
+
 	},
 	add_fields: [
 		'name_of_the_beneficiary', 'date_of_visit', 'contact_number',
