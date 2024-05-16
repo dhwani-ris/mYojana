@@ -1,20 +1,25 @@
 // Copyright (c) 2023, suvaidyam and contributors
 // For license information, please see license.txt
 var settings = {}
-const openDialog = (_cb, role_profile)=>{
-    var doctypes = settings?.role_doctype_mapping?.find(f=>f.role_profile == role_profile)?.doctyperef;
-    if(!doctypes){
-        doctypes = settings?.doctype_which_is_shown_in_user_permission?.split(",").map(e=> e.trim()).filter(f=>f).join("\n");
-    }
+const openDialog = (_cb, role_profile) => {
+    var doctypes = settings?.role_doctype_mapping?.filter((e) => e.doctyperef && e.role_profile ==role_profile);
+    const doctypes_arr = settings?.role_doctype_mapping
+    ?.filter(e => e.doctyperef && e.role_profile === role_profile)
+    .map(e => e.doctyperef) || [];
+        // new_doctypes = doctypes.filter((e) => e.doctyperef && e.role_profile ==role_profile);
+    if (!doctypes) {
+        doctypes = settings?.doctype_which_is_shown_in_user_permission?.split(",").map(e => e.trim()).filter(f => f).join("\n");
+    }   
+    console.log("doctypes print", doctypes, doctypes_arr)
     return new frappe.ui.Dialog({
-        title:"Add User Permission",
-        fields:[
+        title: "Add User Permission",
+        fields: [
             {
                 "fieldname": "select_doctype",
                 "fieldtype": "Autocomplete",
                 "label": "Select Doctype",
-                "options": doctypes,
-                "default":doctypes.split("\n")?.[0]
+                "options": doctypes_arr,
+                // "default": doctypes.split("\n")
             },
             {
                 "depends_on": "eval:doc.select_doctype==\"State\"",
@@ -60,29 +65,29 @@ const openDialog = (_cb, role_profile)=>{
             let selected_keys;
             switch (doctype) {
                 case "State":
-                    selected_keys= values.select_states;
+                    selected_keys = values.select_states;
                     console.log(selected_keys)
-                    await loop_values(selected_keys , doctype , cur_frm, 'state')
+                    await loop_values(selected_keys, doctype, cur_frm, 'state')
                     break;
                 case "District":
-                    selected_keys= values.select_districts;
+                    selected_keys = values.select_districts;
                     console.log(selected_keys)
-                    await loop_values(selected_keys , doctype , cur_frm, 'district')
+                    await loop_values(selected_keys, doctype, cur_frm, 'district')
                     break;
                 case "Block":
-                    selected_keys= values.select_blocks;
+                    selected_keys = values.select_blocks;
                     console.log(selected_keys)
-                    await loop_values(selected_keys , doctype , cur_frm, 'block')
+                    await loop_values(selected_keys, doctype, cur_frm, 'block')
                     break;
                 case "Centre":
-                    selected_keys= values.select_centres;
+                    selected_keys = values.select_centres;
                     console.log(selected_keys)
-                    await loop_values(selected_keys , doctype , cur_frm, 'centre')
+                    await loop_values(selected_keys, doctype, cur_frm, 'centre')
                     break;
                 case "Sub Centre":
-                    selected_keys= values.select_sub_centres;
+                    selected_keys = values.select_sub_centres;
                     console.log(selected_keys)
-                    await loop_values(selected_keys , doctype , cur_frm, 'sub_centre')
+                    await loop_values(selected_keys, doctype, cur_frm, 'sub_centre')
                     break
                 default:
                     break;
@@ -94,24 +99,24 @@ const openDialog = (_cb, role_profile)=>{
     })
 }
 
-const delete_button = async(frm)=>{
+const delete_button = async (frm) => {
     document.querySelectorAll(".delete-button").forEach(element => {
-        element.onclick = async(e) => {
+        element.onclick = async (e) => {
             frappe.confirm('Are you sure you want to delete this permission?',
-                async() => {
+                async () => {
                     let list = await callAPI({
                         method: 'frappe.desk.reportview.delete_items',
                         freeze: true,
                         args: {
                             items: [e.target.id],
-                            doctype:"User Permission",
+                            doctype: "User Permission",
                         },
 
                         freeze_message: __("Deleting Data ..."),
-                      })
-                      await render_tables(frm)
+                    })
+                    await render_tables(frm)
                 },
-                ()=>{
+                () => {
                     return
                 }
             )
@@ -120,7 +125,7 @@ const delete_button = async(frm)=>{
 
 }
 
-const render_tables = async(frm)=>{
+const render_tables = async (frm) => {
     let list = await get_permission(frm.doc.name)
     console.log(list)
     let tables = `<table class="table">
@@ -134,10 +139,10 @@ const render_tables = async(frm)=>{
     </thead>
     <tbody>
     `
-    for(let i = 0; i < list?.length; i++){
+    for (let i = 0; i < list?.length; i++) {
         tables = tables + `
         <tr>
-            <th scope="row">${i+1}</th>
+            <th scope="row">${i + 1}</th>
             <td>${list?.[i].allow}</td>
             <td>${list?.[i].name_value}</td>
             <td class="text-danger"><a><i class="fa fa-trash-o delete-button" id="${list[i].name}" style="font-size:25px;"></i><a/></td>
@@ -146,73 +151,67 @@ const render_tables = async(frm)=>{
     }
     tables = tables + `</tbody>
     </table>`;
-    if(list?.length){
+    if (list?.length) {
         document.getElementById('datatable').innerHTML = tables
-    }else{
+    } else {
         document.getElementById('datatable').innerHTML = ''
     }
     delete_button(frm)
 }
 
-const loop_values =async(selected_keys, doctype, frm ,key)=>{
-    for(let i = 0; i < selected_keys.length; i++){
+const loop_values = async (selected_keys, doctype, frm, key) => {
+    for (let i = 0; i < selected_keys.length; i++) {
         console.log(doctype, selected_keys[i][key])
-        await set_permission(doctype, selected_keys[i][key] , frm)
+        await set_permission(doctype, selected_keys[i][key], frm)
     }
 }
 
 // Calling APIs Common function
 function callAPI(options) {
     return new Promise((resolve, reject) => {
-      frappe.call({
-        ...options,
-        callback: async function (response) {
-          resolve(response?.message || response?.value)
-        }
-      });
+        frappe.call({
+            ...options,
+            callback: async function (response) {
+                resolve(response?.message || response?.value)
+            }
+        });
     })
-  }
+}
 // get scheme lists
-const set_permission = async (doctype , values, frm) => {
+const set_permission = async (doctype, values, frm) => {
     let list = await callAPI({
-      method: 'frappe.desk.form.save.savedocs',
-      freeze: true,
-      args: {
-        doc:{
-            "docstatus":0,
-            "doctype":"User Permission",
-            // "__islocal":1,"__unsaved":1,
-            "owner": frappe.session.user,
-            "is_default":0,
-            "apply_to_all_doctypes":1,
-            "hide_descendants":0,
-            "user":frm.doc.name,
-            "allow":doctype,
-            "for_value":values
+        method: 'myojana.apis.user_permissions.create_user_permissions',
+        freeze: true,
+        args: {
+            doc: {
+                "doctype": "User Permission",
+                "user": frm.doc.name,
+                "allow": doctype,
+                "for_value": values
+            },
+            action: "Save",
         },
-        action:"Save",
-      },
-      freeze_message: __("Saving Data"),
+        freeze_message: __("Saving Data"),
     })
     return list
-  }
+}
 //   get permissions
 const get_permission = async (user) => {
     let list = await callAPI({
-      method: 'myojana.api.get_user_permission',
-      freeze: true,
-      args: {
-        doctype:"User Permission",
-        user: user,
-        view:"List",
-        order_by: "",
-        group_by:'',
-      },
+        method: 'myojana.api.get_user_permission',
+        freeze: true,
+        args: {
+            doctype: "User Permission",
+            user: user,
+            view: "List",
+            order_by: "",
+            group_by: '',
+        },
 
-      freeze_message: __("Getting Permissions"),
+        freeze_message: __("Getting Permissions"),
     })
     return list
-  }
+}
 function defult_filter(field_name, filter_on, frm) {
     frm.fields_dict[field_name].get_query = function (doc) {
         return {
@@ -245,25 +244,20 @@ function hide_advance_search(frm, list) {
     }
 };
 frappe.ui.form.on("Myojana User", {
-   async refresh(frm) {
-       await render_tables(frm);
-
-        if(frm.is_new()){
+    async refresh(frm) {
+        await render_tables(frm);
+        if (frm.is_new()) {
             frm.set_df_property('add_permission', 'hidden', true);
-        }else{
+        } else {
             frm.set_df_property('add_permission', 'hidden', false);
         }
-        frm.doc.password = frm.doc.confirm_password
+        frm.doc.password = frm.doc.only_selectconfirm_password
         frm.doc.state ? apply_filter("centre", "state", frm, frm.doc.state) : defult_filter('centre', "state", frm);
         // frm.doc.centre ? apply_filter("sub_centre", "centre", frm, frm.doc.centre) : defult_filter('sub_centre', "centre", frm);
         extend_options_length(frm, ["state"])
         hide_advance_search(frm, ["role_profile", "state", "centre"])
-
-
-
     },
     role_profile: function (frm) {
-
     },
     state: function (frm) {
         if (frm.doc.state) {
@@ -272,16 +266,16 @@ frappe.ui.form.on("Myojana User", {
             defult_filter('centre', "state", frm)
         }
     },
-    add_permission: async function(frm){
-        if(!Object.keys(settings).length){
+    add_permission: async function (frm) {
+        if (!Object.keys(settings).length) {
             settings = await callAPI({
                 method: 'myojana.api.get_mYojana_settings',
                 freeze: true,
                 freeze_message: __("Getting Permissions"),
             })
         }
-        console.log("frm.role_profile",frm.doc.role_profile)
-        openDialog((_frm)=>{
+        console.log("frm.role_profile", frm.doc.role_profile)
+        openDialog((_frm) => {
             render_tables(_frm)
         }, frm.doc.role_profile).show()
         // d.show();

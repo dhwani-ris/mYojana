@@ -1,19 +1,5 @@
 [
  {
-  "caste_category": "Do not know",
-  "docstatus": 0,
-  "doctype": "Caste category",
-  "modified": "2024-03-14 11:25:54.618764",
-  "name": "Do not know"
- },
- {
-  "caste_category": "EWS",
-  "docstatus": 0,
-  "doctype": "Caste category",
-  "modified": "2024-03-14 11:25:54.637520",
-  "name": "EWS"
- },
- {
   "caste_category": "General",
   "docstatus": 0,
   "doctype": "Caste category",
@@ -21,18 +7,11 @@
   "name": "General"
  },
  {
-  "caste_category": "OBC",
+  "caste_category": "Other Backward Caste/ Special Backward Caste (OBC/SBC)",
   "docstatus": 0,
   "doctype": "Caste category",
   "modified": "2024-03-14 11:25:54.654675",
-  "name": "OBC"
- },
- {
-  "caste_category": "Others",
-  "docstatus": 0,
-  "doctype": "Caste category",
-  "modified": "2024-03-14 11:25:54.665587",
-  "name": "Others"
+  "name": "Other Backward Caste/ Special Backward Caste (OBC/SBC)"
  },
  {
   "caste_category": "Refused to share",
@@ -42,17 +21,24 @@
   "name": "Refused to share"
  },
  {
-  "caste_category": "SC",
-  "docstatus": 0,
-  "doctype": "Caste category",
-  "modified": "2024-03-14 11:25:54.683355",
-  "name": "SC"
- },
- {
-  "caste_category": "ST",
+  "caste_category": "Scheduled Caste (SC)",
   "docstatus": 0,
   "doctype": "Caste category",
   "modified": "2024-03-14 11:25:54.691931",
-  "name": "ST"
+  "name": "Scheduled Caste (SC)"
+ },
+ {
+  "caste_category": "Scheduled Tribe (ST)",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2024-05-16 12:36:16.205630",
+  "name": "Scheduled Tribe (ST)"
+ },
+ {
+  "caste_category": "Did not know",
+  "docstatus": 0,
+  "doctype": "Caste category",
+  "modified": "2024-03-14 11:25:54.618764",
+  "name": "Did not know"
  }
 ]

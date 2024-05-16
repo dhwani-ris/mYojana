@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"QQhj-PNDuW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geo Master</b></span>\",\"col\":12}},{\"id\":\"FMmf5hKd3u\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State\",\"col\":3}},{\"id\":\"i7zHIMK4zU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":3}},{\"id\":\"SHvbdVwbQV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block\",\"col\":3}},{\"id\":\"RZLdOnV413\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Village\",\"col\":3}},{\"id\":\"aXg7o9TIDl\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"gBmArJ1mPy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ID Document\",\"col\":3}},{\"id\":\"v1tOX1yqVD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Social Vulnerable Category\",\"col\":3}},{\"id\":\"hspVBls5tq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupation\",\"col\":3}},{\"id\":\"8MORhBjWKo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational Category\",\"col\":3}},{\"id\":\"Xi0liL29xs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Marital Status\",\"col\":3}},{\"id\":\"gWJMXyXHt8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education\",\"col\":3}},{\"id\":\"YwH0Y-ayyH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion\",\"col\":3}},{\"id\":\"OddPJNClJR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Caste Category\",\"col\":3}},{\"id\":\"4hoE3iTiNK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone Category\",\"col\":3}},{\"id\":\"rqxoVlbWAJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme\",\"col\":3}},{\"id\":\"KKrsocXTDL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Source Of Information\",\"col\":3}},{\"id\":\"bXgivlK3Ml\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House Types\",\"col\":3}},{\"id\":\"MzYnr2eNA9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Camp\",\"col\":3}},{\"id\":\"T5xidhYxSa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre\",\"col\":3}},{\"id\":\"F0aY-_io9l\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub Centre\",\"col\":3}},{\"id\":\"VukgEKiFOc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Name Of The Department\",\"col\":3}},{\"id\":\"0fZm41pfuY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Proof of disability\",\"col\":3}}]",
+ "content": "[{\"id\":\"QQhj-PNDuW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Geo Master</b></span>\",\"col\":12}},{\"id\":\"FMmf5hKd3u\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State\",\"col\":3}},{\"id\":\"i7zHIMK4zU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":3}},{\"id\":\"SHvbdVwbQV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Block\",\"col\":3}},{\"id\":\"RZLdOnV413\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Village\",\"col\":3}},{\"id\":\"aXg7o9TIDl\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Master</b></span>\",\"col\":12}},{\"id\":\"gBmArJ1mPy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ID Document\",\"col\":3}},{\"id\":\"v1tOX1yqVD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Social Vulnerable Category\",\"col\":3}},{\"id\":\"hspVBls5tq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupation\",\"col\":3}},{\"id\":\"8MORhBjWKo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational Category\",\"col\":3}},{\"id\":\"Xi0liL29xs\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Marital Status\",\"col\":3}},{\"id\":\"gWJMXyXHt8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education\",\"col\":3}},{\"id\":\"YwH0Y-ayyH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion\",\"col\":3}},{\"id\":\"OddPJNClJR\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Caste Category\",\"col\":3}},{\"id\":\"4hoE3iTiNK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone Category\",\"col\":3}},{\"id\":\"rqxoVlbWAJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme\",\"col\":3}},{\"id\":\"KKrsocXTDL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Source Of Information\",\"col\":3}},{\"id\":\"bXgivlK3Ml\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House Types\",\"col\":3}},{\"id\":\"MzYnr2eNA9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Camp\",\"col\":3}},{\"id\":\"T5xidhYxSa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre\",\"col\":3}},{\"id\":\"F0aY-_io9l\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub Centre\",\"col\":3}},{\"id\":\"VukgEKiFOc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Name Of The Department\",\"col\":3}},{\"id\":\"0fZm41pfuY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Proof of disability\",\"col\":3}},{\"id\":\"ij0eSKtOuQ\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>Scheme and Follow up&nbsp;</b>\",\"col\":12}},{\"id\":\"bK39z1urx4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme Application Submitted\",\"col\":3}},{\"id\":\"QddLVG2K0s\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme Paid By\",\"col\":3}}]",
  "creation": "2023-09-23 15:47:37.607170",
  "custom_blocks": [],
  "docstatus": 0,
@@ -8,11 +8,11 @@
  "for_user": "",
  "hide_custom": 0,
  "icon": "duplicate",
- "idx": 1,
+ "idx": 3,
  "is_hidden": 0,
  "label": "App Master",
  "links": [],
- "modified": "2024-03-20 13:48:42.651293",
+ "modified": "2024-05-16 10:26:57.932309",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "App Master",
@@ -36,6 +36,22 @@
    "doc_view": "List",
    "label": "Camp",
    "link_to": "Camp",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Scheme Application Submitted",
+   "link_to": "scheme application submitted",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Scheme Paid By",
+   "link_to": "Scheme Paid by",
    "stats_filter": "[]",
    "type": "DocType"
   },

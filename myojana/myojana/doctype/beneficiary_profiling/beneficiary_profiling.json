@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{name_of_the_settlement}-{####}",
+ "autoname": "format:{state}-{####}",
  "creation": "2023-11-04 10:29:07.053188",
  "default_view": "List",
  "doctype": "DocType",
@@ -87,7 +87,7 @@
    "fieldname": "date_of_visit",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date of visit",
+   "label": "Date of registration",
    "reqd": 1
   },
   {
@@ -531,7 +531,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-17 13:00:09.734593",
+ "modified": "2024-05-16 11:24:55.680164",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

@@ -48,14 +48,23 @@ const addTableFilter = (datatable, elements = [], rows = []) => {
 frappe.ui.form.on('Scheme Child', {
   form_render: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
-    if (row.__islocal) {
-      if (row.application_submitted == 'Yes' && (!row.date_of_application || !row.mode_of_application)) {
-        row.status = ''
-        createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
-      } else if (row.application_submitted == 'Completed' && (!row.date_of_application || !row.mode_of_application)) {
-        createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
-      }
-    }
+    // if (row.__islocal) {
+    //   if (row.application_submitted == 'Yes' && (!row.date_of_application || !row.mode_of_application)) {
+    //     row.status = ''
+    //     createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
+    //   } else if (row.application_submitted == 'Completed' && (!row.date_of_application || !row.mode_of_application)) {
+    //     createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
+    //   }
+    // }
+    let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
+    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
+    let milestones = {};
+    let ops = fl_schemes_ops.map(e => {
+      milestones.hasOwnProperty(e.milestone) ? '' : milestones[e.milestone] = e.milestone
+      return { 'lable': e.name, "value": e.name }
+    })
+    frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.name_of_the_scheme._data = ops;
+    frm.fields_dict.scheme_t
   },
   scheme_table_add: async function (frm, cdt, cdn) {
     // get_milestone_category(frm)
@@ -67,7 +76,11 @@ frappe.ui.form.on('Scheme Child', {
       return { 'lable': e.name, "value": e.name }
     })
     frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.name_of_the_scheme._data = ops;
-    frm.fields_dict.scheme_table.grid.update_docfield_property("milestone_category", "options", [{ 'lable': "", "value": "" }, ...Object.keys(milestones).map(e => { return { 'lable': milestones[e], "value": milestones[e] } })]);
+    frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.milestone_category._data = Object.keys(milestones)
+    .map(e => ({ 'label': milestones[e], 'value': milestones[e] }))
+    .filter(item => item.value !== "");
+    
+    // frm.fields_dict.scheme_table.grid.update_docfield_property("milestone_category", "options", );
   },
   name_of_the_scheme: function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
