@@ -31,13 +31,14 @@ frappe.ui.form.on('ID Document Child', {
   },
   enter_id_number: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
-    console.log("row.enter_id_number => ", row.which_of_the_following_id_documents_do_you_have);
-    console.log("row.enter_id_number => ", row.enter_id_number.length);
     if (!indianVoterIdRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Voter ID card" && (row.enter_id_number.length < 11 || row.enter_id_number.length > 9)) {
+      row.enter_id_number = ''
+      frm.refresh_fields('enter_id_number')
       frappe.throw(`Voter ID Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
     }
     if (!indianAadharRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Aadhar card" && (row.enter_id_number.length < 12 || row.enter_id_number.length > 11)) {
-      console.log('length', row.enter_id_number.length);
+      row.enter_id_number = ''
+      frm.refresh_fields('enter_id_number')
       frappe.throw(`Aadhar Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
     }
   },
