@@ -102,8 +102,9 @@ const dialogsConfig = {
       {
         label: __('Paid by'),
         fieldname: 'paid_by',
-        fieldtype: 'Select',
-        options: [__("Self"), __("CSC")],
+        fieldtype: 'Link',
+        options: 'Scheme Paid by',
+        'only_select':true,
         _doc: true
       },
       {
