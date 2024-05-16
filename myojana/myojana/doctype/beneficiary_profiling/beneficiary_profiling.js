@@ -489,7 +489,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
         if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
           frm.set_value("date_of_birth", '')
-          return frappe.throw("Date of birth cannot be greater than the <strong> date of registration </strong>")
+          return frappe.throw("Date of birth cannot be greater than the date of registration")
         }
       }
     }
