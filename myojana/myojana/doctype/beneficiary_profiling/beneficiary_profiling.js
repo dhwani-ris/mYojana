@@ -243,6 +243,18 @@ frappe.ui.form.on("Beneficiary Profiling", {
         // Open a new form for the desired DocType
         frappe.new_doc('Beneficiary Profiling');
       }, __());
+      frm.add_custom_button(__('WhatsApp'),async function () {
+        let res = await callAPI({
+          method: 'myojana.apis.whatsapp.send',
+           freeze: true,
+           args: {
+             fields: ['is_primary_member_link_through_phone_number'],
+             phoneNo:frm.doc.contact_number,
+             name:"Abhishek"
+           },
+           freeze_message: __("Sending message..."),
+         })
+      }, __());
     }
     // set dropdown value by ordering
     // frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
