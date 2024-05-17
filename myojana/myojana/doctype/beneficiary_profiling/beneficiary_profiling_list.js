@@ -7,22 +7,38 @@ function callAPI(options) {
 			}
 		});
 	})
+} 
+const sendIdCard =  async(phoneNo="917091668703") =>{
+	let res = await callAPI({
+		method: 'myojana.apis.whatsapp.send',
+	   freeze: true,
+	   args: {
+		   fields: ['is_primary_member_link_through_phone_number'],
+		   phoneNo:phoneNo,
+		   name:"Abhishek"
+	   },
+	   freeze_message: __("Sending message..."),
+   })
 }
 
 frappe.listview_settings['Beneficiary Profiling'] = {
+	refresh: function (listview) {
+        // console.log(listview)
+        listview.page.add_actions_menu_item("WhatsApp", async function () {
+			for(ben of listview.data){
+				console.log("//////", ben)
+
+			}
+            // await update_enable_disable(listview, 1)
+        });
+
+    },
 	before_render: async function () {
-			cur_list?.page?.add_inner_button("Go to report", function () {
+			cur_list?.page?.add_inner_button("Beneficiary report", function () {
 				window.location.href = 'report-list/Beneficiary%20Profiling'
 			})
 			cur_list?.page?.add_inner_button("WhatsApp", async ()=> {
-				let res = await callAPI({
-					 method: 'myojana.apis.whatsapp.send',
-					freeze: true,
-					args: {
-						fields: ['is_primary_member_link_through_phone_number']
-					},
-					freeze_message: __("Sending message..."),
-				})
+				let res = await sendIdCard()
 				console.log("Res", res);
 			})
 
