@@ -243,18 +243,39 @@ frappe.ui.form.on("Beneficiary Profiling", {
         // Open a new form for the desired DocType
         frappe.new_doc('Beneficiary Profiling');
       }, __());
-      frm.add_custom_button(__('WhatsApp'),async function () {
-        let res = await callAPI({
-          method: 'myojana.apis.whatsapp.send',
-           freeze: true,
-           args: {
-             fields: ['is_primary_member_link_through_phone_number'],
-             phoneNo:frm.doc.contact_number,
-             name:"Abhishek"
-           },
-           freeze_message: __("Sending message..."),
-         })
+
+      let id_card_template = await frappe.db.get_single_value('mYojana Settings', 'id_card_template')
+      if(id_card_template){
+        frm.add_custom_button(__('WhatsApp'),async function () {
+          let print_template = await callAPI({
+            method: 'frappe.www.printview.get_html_and_style',
+            freeze: true,
+            args: {
+              doc:frm.doc,
+              print_format: id_card_template
+            },
+            freeze_message: __("getting template..."),
+          })
+          frappe.confirm(`<style>${print_template.style}</style>${print_template.html}`,
+          () => {
+              html2canvas(document.getElementById('id-card')).then(async (canvas) =>{
+                const dataURL = await canvas.toDataURL('image/png');
+                let res = await callAPI({
+                  method: 'myojana.apis.whatsapp.send',
+                  freeze: true,
+                  args: {
+                    phoneNo:frm.doc.contact_number,
+                    imgDataUrl:dataURL
+                  },
+                  freeze_message: __("Sending message..."),
+                })
+              });
+          }, () => {
+              // action to perform if No is selected
+          })
       }, __());
+      }
+
     }
     // set dropdown value by ordering
     // frm.set_df_property('current_house_type', 'options', await get_ordered_list("House Types", ["Own", "Rented", "Relative's home", "Government quarter", "Others"]));
@@ -505,7 +526,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
         }
       }
     }
-   
+
     if (dob) {
       let today = frappe.datetime.get_today();
       let birthDate = new Date(dob);
