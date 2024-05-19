@@ -1,0 +1,23 @@
+{
+ "creation": "2024-05-14 18:07:17.316582",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 1,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Beneficiaries who has received benefits of 3 or more schemes ",
+ "modified": "2024-05-18 17:58:15.653521",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Beneficiaries who has received benefits of 3 or more schemes",
+ "owner": "Administrator",
+ "report_field": "count",
+ "report_function": "Maximum",
+ "report_name": "Beneficiaries who has received benefits of 3 or more schemes",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

@@ -11,20 +11,14 @@ def execute(filters=None):
 	# frappe.errprint(filters)
 	columns = [
 		{
-		"fieldname":"name_of_the_beneficiary",
-		"label":"Name of the beneficiary",
-		"fieldtype":"Data",
-		"width":300
-		},
-		{
-		"fieldname":"ben_count",
-		"label":"No. distinct member",
+		"fieldname":"n",
+		"label":"No. of members",
 		"fieldtype":"int",
 		"width":200
 		},
 		{
-		"fieldname":"family_count",
-		"label":"No. distinct family",
+		"fieldname":"count",
+		"label":"No. distinct member",
 		"fieldtype":"int",
 		"width":200
 		}
@@ -35,19 +29,32 @@ def execute(filters=None):
 	else:
 		condition_str = ""
 	
-	sql_query = f"""SELECT
-		bp.name_of_the_beneficiary,
-		COUNT(DISTINCT sc.parent) AS ben_count,
-		COUNT(DISTINCT bp.select_primary_member) AS family_count
-	FROM 
-		`tabScheme Child` sc
-	INNER JOIN 
-		`tabBeneficiary Profiling` bp ON sc.parent = bp.name
-	GROUP BY
-		bp.name_of_the_beneficiary
-	HAVING
-		COUNT(sc.parent) >= 3
+	sql_query = f"""
+		SELECT
+		'Number of members' AS n,
+		COUNT(*) AS count
+	FROM
+		(SELECT
+			sc.parent,
+			COUNT(sc.parent) AS ben_count
+		FROM 
+			`tabScheme Child` sc
+		WHERE
+			sc.parent 
+		IN (
+			SELECT
+				name 
+			FROM 
+				`tabBeneficiary Profiling` 
+			WHERE 
+				1=1 {condition_str})
+		GROUP BY
+			sc.parent
+		) AS counts
+	WHERE
+		counts.ben_count >= 3;
 	"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)
+	print("///////", data)
 	return columns, data

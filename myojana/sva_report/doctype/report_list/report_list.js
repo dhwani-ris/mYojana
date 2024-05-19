@@ -1,21 +1,30 @@
 frappe.ui.form.on("Report List", {
     refresh(frm) {
         if (!frm.is_new() == 1) {
-            fetchAndRenderData(frm);
+            fetchAndRenderData(frm, {});
             DataExportButton(frm)
         }
         frm.add_custom_button('Filter', () => {
-            console.log('Filter Toggle');
+            frappe.prompt([
+                { 'fieldname': 'filter_1', 'fieldtype': 'Data', 'label': 'Filter 1' },
+                { 'fieldname': 'filter_2', 'fieldtype': 'Select', 'options': ['Option 1', 'Option 2'], 'label': 'Filter 2' }
+            ],
+                function (values) {
+                    var filter1 = values.filter_1;
+                    var filter2 = values.filter_2;
+                },
+                __('Apply'));
         })
-    },
+    }
 });
 
-function fetchAndRenderData(frm, limit) {
+function fetchAndRenderData(frm, limit, filters) {
     frappe.call({
         method: "myojana.sva_report.controllers.get_report_data.execute",
         args: {
             doc: frm.doc.name,
-            limit: limit
+            limit: limit,
+            filters: filters
         },
         callback: function (response) {
             if (response.message) {
@@ -50,18 +59,11 @@ function renderDataTable(e) {
 function Total(total_count = 0, page_count = 0) {
     let buttonsHTML = `
     <div style="float:; display:block;">
-    Result <span id="currentPage">${page_count}</span> out of <span id="totalPages">${total_count}</span>
+    Total esult <span id="currentPage"><span id="totalPages">${total_count}</span>
 </div>
     `;
 
-    document.getElementById("total").innerHTML = buttonsHTML;
-    // function removeActiveClass() {
-    //     let buttons = document.querySelectorAll("#button button");
-    //     buttons.forEach(button => {
-    //         button.style.backgroundColor = '';
-    //         button.style.color = '';
-    //     });
-    // }
+    // document.getElementById("total").innerHTML = buttonsHTML;
 }
 function buttion(frm) {
     let buttonsHTML = `

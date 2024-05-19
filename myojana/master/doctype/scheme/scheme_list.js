@@ -11,9 +11,9 @@ async function update_enable_disable(listview, value) {
     listview.clear_checked_items()
     listview.refresh()
     if (value === 1) {
-        frappe.msgprint(`<h4>${res.message} Schemes enabled successfully</h4>`)
+        frappe.msgprint(`<p>${res.message} Schemes enabled successfully</p>`)
     } else {
-        frappe.msgprint(`<h4>${res.message} Schemes disabled successfully</h4>`)
+        frappe.msgprint(`<p>${res.message} Schemes disabled successfully</p>`)
     }
 }
 const toggleEnableDisable = async (list, value) => {

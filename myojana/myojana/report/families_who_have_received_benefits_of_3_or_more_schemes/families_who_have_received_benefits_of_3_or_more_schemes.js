@@ -12,6 +12,6 @@ var filters = [
 		"label": "To Date"
 	},
 ];
-frappe.query_reports["Apply at least 1 schemes"] = {
+frappe.query_reports["Families who have received benefits of 3 or more schemes"] = {
 	filters: filters
 };
