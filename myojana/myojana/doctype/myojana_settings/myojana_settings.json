@@ -10,6 +10,7 @@
   "select_doctypes",
   "role_doctype_mapping",
   "tab_2_tab",
+  "is_primary_member_link_through_phone_number",
   "enable_track_changes"
  ],
  "fields": [
@@ -27,6 +28,7 @@
    "label": "DocType which is shown in User permission"
   },
   {
+   "default": "1",
    "fieldname": "tab_2_tab",
    "fieldtype": "Tab Break",
    "label": "System Setting"
@@ -47,12 +49,18 @@
    "fieldtype": "Table",
    "label": "Enable Track Changes",
    "options": "DocType Child"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_primary_member_link_through_phone_number",
+   "fieldtype": "Check",
+   "label": "Is Primary member Link Through Phone Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-05-08 18:02:44.086361",
+ "modified": "2024-05-14 14:26:12.208771",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

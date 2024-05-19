@@ -59,7 +59,6 @@
    "fieldname": "follow",
    "fieldtype": "Select",
    "label": "Follow-up by",
-   "reqd": 1,
    "set_only_once": 1
   },
   {
@@ -81,7 +80,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-02-12 10:11:23.141860",
+ "modified": "2024-05-14 13:21:23.886961",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Follow Up Child",

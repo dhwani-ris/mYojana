@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_copy": 1,
  "allow_rename": 1,
  "autoname": "field:sva_report",
  "creation": "2024-05-08 11:17:54.088399",
@@ -7,11 +8,13 @@
  "engine": "InnoDB",
  "field_order": [
   "sva_report",
+  "total",
   "html_phtb",
   "buttion"
  ],
  "fields": [
   {
+   "description": "Select Sva Report from Sva Report",
    "fieldname": "sva_report",
    "fieldtype": "Link",
    "label": "SVA Report",
@@ -29,13 +32,20 @@
    "fieldtype": "HTML",
    "label": "Buttion",
    "options": "<div id=\"button\"></div>"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "HTML",
+   "label": "Total",
+   "options": "<div id=\"total\"></div>"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-09 10:25:13.997692",
+ "modified": "2024-05-13 11:06:15.772236",
  "modified_by": "Administrator",
- "module": "myojana",
+ "module": "Sva Report",
  "name": "Report List",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
