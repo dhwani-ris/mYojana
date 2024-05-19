@@ -11,6 +11,12 @@ def execute(filters=None):
 	# frappe.errprint(filters)
 	columns = [
 		{
+		"fieldname":"n",
+		"label":"No. of members",
+		"fieldtype":"int",
+		"width":200
+		},
+		{
 		"fieldname":"count",
 		"label":"No. distinct member",
 		"fieldtype":"int",
@@ -25,6 +31,7 @@ def execute(filters=None):
 	
 	sql_query = f"""
 		SELECT
+		'Number of members' AS n,
 		COUNT(*) AS count
 	FROM
 		(SELECT
@@ -49,4 +56,5 @@ def execute(filters=None):
 	"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)
+	print("///////", data)
 	return columns, data

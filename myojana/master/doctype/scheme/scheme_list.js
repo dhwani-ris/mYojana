@@ -44,4 +44,7 @@ frappe.listview_settings['Scheme'] = {
             await update_enable_disable(listview, 0)
         });
     },
+    onload: function (listview) {
+        $('.layout-side-section').hide();
+    }
 };
