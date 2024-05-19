@@ -59,7 +59,6 @@
    "depends_on": "eval:doc.type_of_the_scheme==\"State\"",
    "fieldname": "state",
    "fieldtype": "Link",
-   "ignore_user_permissions": 1,
    "label": "State",
    "mandatory_depends_on": "eval:doc.type_of_the_scheme==\"State\"",
    "options": "State"
@@ -195,7 +194,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-18 18:11:05.865286",
+ "modified": "2024-05-19 11:52:06.157980",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "Scheme",

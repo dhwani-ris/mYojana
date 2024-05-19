@@ -33,6 +33,9 @@ frappe.listview_settings['Beneficiary Profiling'] = {
         });
 
     },
+	onload: function (listview) {
+        $('.layout-side-section').hide();
+    },
 	before_render: async function () {
 			cur_list?.page?.add_inner_button("Beneficiary report", function () {
 				window.location.href = 'report-list/Beneficiary%20Profiling'
