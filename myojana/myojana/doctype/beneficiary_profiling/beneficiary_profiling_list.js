@@ -22,7 +22,13 @@ const sendIdCard =  async(phoneNo="917091668703") =>{
 }
 
 frappe.listview_settings['Beneficiary Profiling'] = {
-	refresh: function (listview) {
+	refresh: function(listview) {
+		$("use.like-icon").hide();
+		$(".comment-count").hide();
+	    // $(".frappe-timestamp").hide();
+	    $(".avatar-small").hide();
+ },
+	// refresh: function (listview) {
         // console.log(listview)
         // listview.page.add_actions_menu_item("WhatsApp", async function () {
 		// 	for(ben of listview.data){
@@ -32,7 +38,7 @@ frappe.listview_settings['Beneficiary Profiling'] = {
         //     // await update_enable_disable(listview, 1)
         // });
 
-    },
+    // },
 	onload: function (listview) {
         $('.layout-side-section').hide();
     },

@@ -120,9 +120,9 @@ frappe.ui.form.on('Scheme Child', {
     if (row.application_submitted == "Yes") {
       row.status = ''; row.date_of_completion = '';
       frm.refresh_fields('status', 'date_of_completion')
-      createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
+      // createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
     } else if (["Completed"].includes(row.application_submitted)) {
-      createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
+      // createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
     } else if (row.application_submitted == "No") {
       row.date_of_application = ''; row.date_of_completion = ''; row.application_number = ''; row.amount_paid = ''; row.paid_by = "";
       frm.refresh_fields("date_of_application", "date_of_completion", "application_number", "amount_paid", "paid_by");

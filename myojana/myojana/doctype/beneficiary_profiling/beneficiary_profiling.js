@@ -68,6 +68,11 @@ async function get_myojana_setting() {
   return get_myojana_setting.is_primary_member_link_through_phone_number
 }
 frappe.ui.form.on("Beneficiary Profiling", {
+  after_save: async function(frm){
+    if (!frm.is_new()) {
+    frm.reload_doc() 
+  }
+  },
   before_save: async function (frm) {
     console.log("before save")
     if ((frm.doc.completed_age || frm.doc.completed_age_month) && !frm.doc?.date_of_birth) {
@@ -210,7 +215,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
   },
   async refresh(frm) {
     is_primary_member_link_through_phone_number = await get_myojana_setting()
-    console.log("is_primary_member_link_through_phone_number", is_primary_member_link_through_phone_number)
     _frm = frm
     if (frm.is_new()) {
       await autoSetOption(frm);
@@ -268,11 +272,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.set_df_property('scheme_table', 'cannot_delete_all_rows', true);
         frm.set_df_property('follow_up_table', 'cannot_delete_rows', true); // Hide delete button
         frm.set_df_property('follow_up_table', 'cannot_delete_all_rows', true);
-        // frm.set_df_property('id_table_list', 'cannot_delete_rows', true); // Hide delete button
-        // frm.set_df_property('id_table_list', 'cannot_delete_all_rows', true);
       }
     }
-
     extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type",
       "source_of_information", "current_house_type", "state", "district", "occupational_category", "education",
       "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"])
@@ -417,9 +418,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       apply_filter("sub_centre", "centre", frm, frm.doc.centre)
     }
   },
-  // validate(frm) {
-
-  // },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
   date_of_visit: function (frm) {
     if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
