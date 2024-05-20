@@ -12,11 +12,11 @@
  "modified": "2024-05-18 17:57:25.519323",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Beneficiaries who has received benefits of 3 or more schemes",
+ "name": "Beneficiaries who have received benefits of 3 or more schemes",
  "owner": "Administrator",
  "prepared_report": 0,
  "ref_doctype": "Beneficiary Profiling",
- "report_name": "Beneficiaries who has received benefits of 3 or more schemes",
+ "report_name": "Beneficiaries who have received benefits of 3 or more schemes",
  "report_type": "Script Report",
  "roles": [
   {
