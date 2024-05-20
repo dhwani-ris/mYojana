@@ -88,7 +88,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     if ( is_primary_member_link_through_phone_number && (frm.doc.alternate_contact_number || frm.doc.contact_number)) {
       if (!indianPhoneNumberRegex.test(frm.doc.contact_number)) {
         frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
-      }doc
+      }
     }
     if (!indianPhoneNumberRegex.test(frm.doc.alternate_contact_number) && frm.doc.alternate_contact_number?.length > 1) {
       frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
