@@ -91,7 +91,8 @@
    "fieldname": "date_of_completion",
    "fieldtype": "Date",
    "label": "Date of completion",
-   "mandatory_depends_on": "eval:doc.follow_up_status ==\"Completed\""
+   "mandatory_depends_on": "eval:doc.follow_up_status ==\"Completed\"",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status ==\"Completed\"",
@@ -104,21 +105,24 @@
    "fieldname": "date_of_rejection",
    "fieldtype": "Date",
    "label": "Date of rejection",
-   "mandatory_depends_on": "eval:doc.follow_up_status == \"Rejected\""
+   "mandatory_depends_on": "eval:doc.follow_up_status == \"Rejected\"",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Rejected\"",
    "fieldname": "reason_of_rejection",
    "fieldtype": "Data",
    "label": "Reason of rejection",
-   "mandatory_depends_on": "eval:doc.follow_up_status == \"Rejected\""
+   "mandatory_depends_on": "eval:doc.follow_up_status == \"Rejected\"",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
    "fieldname": "date_of_application",
    "fieldtype": "Date",
    "label": "Date of application",
-   "mandatory_depends_on": "eval:doc.follow_up_status == \"Document submitted\""
+   "mandatory_depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
@@ -126,38 +130,43 @@
    "fieldtype": "Select",
    "label": "Mode of application",
    "mandatory_depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
-   "options": "\nOnline\nOffline"
+   "options": "\nOnline\nOffline",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
    "fieldname": "reason_of_application",
    "fieldtype": "Data",
-   "label": "Reason of application"
+   "label": "Reason of application",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
    "fieldname": "application_number",
    "fieldtype": "Data",
-   "label": "Application number"
+   "label": "Application number",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
    "fieldname": "amount_paid",
    "fieldtype": "Int",
-   "label": "Amount paid"
+   "label": "Amount paid",
+   "set_only_once": 1
   },
   {
    "depends_on": "eval:doc.follow_up_status == \"Document submitted\"",
    "fieldname": "paid_by",
    "fieldtype": "Link",
    "label": "Paid by",
-   "options": "Scheme Paid by"
+   "options": "Scheme Paid by",
+   "set_only_once": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-20 07:42:49.860984",
+ "modified": "2024-05-20 09:42:03.657368",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Follow Up Child",
