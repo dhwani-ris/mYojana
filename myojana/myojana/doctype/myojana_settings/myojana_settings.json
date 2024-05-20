@@ -11,7 +11,8 @@
   "role_doctype_mapping",
   "tab_2_tab",
   "is_primary_member_link_through_phone_number",
-  "enable_track_changes"
+  "enable_track_changes",
+  "id_card_template"
  ],
  "fields": [
   {
@@ -55,12 +56,18 @@
    "fieldname": "is_primary_member_link_through_phone_number",
    "fieldtype": "Check",
    "label": "Is Primary member Link Through Phone Number"
+  },
+  {
+   "fieldname": "id_card_template",
+   "fieldtype": "Link",
+   "label": "ID Card Template",
+   "options": "Print Format"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-05-14 14:26:12.208771",
+ "modified": "2024-05-20 00:27:10.849997",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",
