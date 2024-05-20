@@ -306,6 +306,7 @@
    "depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
    "fieldname": "id_table_list",
    "fieldtype": "Table",
+   "mandatory_depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
    "options": "ID Document Child"
   },
   {
@@ -531,7 +532,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-19 19:35:24.621034",
+ "modified": "2024-05-20 07:34:44.628991",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

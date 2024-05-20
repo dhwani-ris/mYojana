@@ -48,14 +48,6 @@ const addTableFilter = (datatable, elements = [], rows = []) => {
 frappe.ui.form.on('Scheme Child', {
   form_render: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
-    // if (row.__islocal) {
-    //   if (row.application_submitted == 'Yes' && (!row.date_of_application || !row.mode_of_application)) {
-    //     row.status = ''
-    //     createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
-    //   } else if (row.application_submitted == 'Completed' && (!row.date_of_application || !row.mode_of_application)) {
-    //     createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
-    //   }
-    // }
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
     let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
     let milestones = {};
@@ -85,7 +77,6 @@ frappe.ui.form.on('Scheme Child', {
   name_of_the_scheme: function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
     row.milestone_category = ''
-    // row.name_of_the_scheme = ''
     let scheme = scheme_list.find(f => row.name_of_the_scheme == f.name)
     if (scheme && row.name_of_the_scheme) {
       row.milestone_category = scheme.milestone;
