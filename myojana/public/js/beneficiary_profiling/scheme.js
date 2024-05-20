@@ -111,13 +111,37 @@ frappe.ui.form.on('Scheme Child', {
     if (row.application_submitted == "Yes") {
       row.status = ''; row.date_of_completion = '';
       frm.refresh_fields('status', 'date_of_completion')
-      // createDialog(row, dialogsConfig.document_submitted, doc_submitted_validate).show();
     } else if (["Completed"].includes(row.application_submitted)) {
-      // createDialog(row, dialogsConfig.document_completed_frm_support, date_of_complete_validate).show();
     } else if (row.application_submitted == "No") {
       row.date_of_application = ''; row.date_of_completion = ''; row.application_number = ''; row.amount_paid = ''; row.paid_by = "";
       frm.refresh_fields("date_of_application", "date_of_completion", "application_number", "amount_paid", "paid_by");
     }
   },
+  date_of_application: function(frm , cdt, cdn){
+    let row = frappe.get_doc(cdt, cdn);
+    if(row.date_of_application < frm.doc.date_of_visit){
+      row.date_of_application = ''
+      frappe.throw(__("Date of application should not be less than date of registration"));
+    }else if (row.date_of_application > frappe.datetime.get_today()) {
+      row.date_of_application = ''
+      frappe.throw(__("Date of application should not be greater than today's date"));
+    }
+  },
+  date_of_completion: function(frm, cdt , cdn){
+    let row = frappe.get_doc(cdt, cdn);
+    if(row.date_of_application < frm.doc.date_of_visit){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of application should not be less than date of registration"))
+    } else if (row.date_of_completion < frm.doc.date_of_visit){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be less than date of registration"))
+    }else if (row.date_of_completion > frappe.datetime.get_today()){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be greater than today's date"))
+    }else if((row.date_of_completion < row.date_of_application)){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be greater than today's date"))
+    }
+  }
 
 })

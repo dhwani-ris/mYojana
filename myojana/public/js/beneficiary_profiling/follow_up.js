@@ -66,7 +66,7 @@ frappe.ui.form.on('Follow Up Child', {
     }
     if (row.follow_up_date < frm.doc.date_of_visit) {
       row.follow_up_date = null
-      frappe.throw(__("Follow-up date should not be less than date of date of visit"));
+      frappe.throw(__("Follow-up date should not be less than date of date of registration"));
     }
   },
   follow_up_with: function (frm, cdt, cdn) {
@@ -105,6 +105,47 @@ frappe.ui.form.on('Follow Up Child', {
 
       }
       //  show popup and continue and close if more than two times
+    }
+  },
+  date_of_application:function(frm , cdt , cdn){
+    let row = frappe.get_doc(cdt, cdn);
+    if(row.date_of_application < frm.doc.date_of_visit){
+      row.date_of_application = ''
+      frappe.throw(__("Date of application should not be less than date of registration"));
+    }else if (row.date_of_application > frappe.datetime.get_today()) {
+      row.date_of_application = ''
+      frappe.throw(__("Date of application should not be greater than today's date"));
+    }
+  },
+  date_of_completion: function(frm , cdt, cdn){
+    let row = frappe.get_doc(cdt, cdn);
+    if(row.date_of_application < frm.doc.date_of_visit){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of application should not be less than date of registration"))
+    } else if (row.date_of_completion < frm.doc.date_of_visit){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be less than date of registration"))
+    }else if (row.date_of_completion > frappe.datetime.get_today()){
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be greater than today's date"))
+    }else if((row.date_of_completion < row.date_of_application)){
+      //  modified this logic
+      row.date_of_completion = ''
+      frappe.throw(__("Date of completion should not be less than Date of Application"))
+    }
+  },
+  date_of_rejection:function(frm, cdt, cdn){
+    let row = frappe.get_doc(cdt, cdn);
+    if (row.date_of_rejection < frm.doc.date_of_visit){
+      row.date_of_rejection = ''
+      frappe.throw(__("Date of rejection should not be less than date of registration"))
+    }else if((row.date_of_rejection < row.date_of_application)){
+      // mmay be need modify
+      row.date_of_rejection = ''
+      frappe.throw(__("Date of rejection should not be less than date of application"))
+    }else if (row.date_of_rejection > frappe.datetime.get_today()) {
+      row.date_of_rejection = ''
+      frappe.throw(__("Date of rejection should not be greater than today's date"))
     }
   }
 
