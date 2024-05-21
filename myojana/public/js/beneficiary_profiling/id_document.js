@@ -34,12 +34,12 @@ frappe.ui.form.on('ID Document Child', {
     if (!indianVoterIdRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Voter ID card" && (row.enter_id_number.length < 11 || row.enter_id_number.length > 9)) {
       row.enter_id_number = ''
       frm.refresh_fields('enter_id_number')
-      frappe.throw(`Voter ID Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
+      frappe.throw(`The Voter ID Number entered is invalid`)
     }
     if (!indianAadharRegex.test(row.enter_id_number) && row.which_of_the_following_id_documents_do_you_have === "Aadhar card" && (row.enter_id_number.length < 12 || row.enter_id_number.length > 11)) {
       row.enter_id_number = ''
       frm.refresh_fields('enter_id_number')
-      frappe.throw(`Aadhar Number <b>${row.enter_id_number}</b> set in field enter_id_number is not valid.`)
+      frappe.throw(`The Aadhar number entered is invalid `)
     }
   },
 })
