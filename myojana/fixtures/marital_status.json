@@ -9,13 +9,6 @@
  {
   "docstatus": 0,
   "doctype": "Marital status",
-  "marital_status": "Child",
-  "modified": "2024-03-14 11:31:47.150679",
-  "name": "Child"
- },
- {
-  "docstatus": 0,
-  "doctype": "Marital status",
   "marital_status": "Divorced",
   "modified": "2024-03-14 11:31:47.161831",
   "name": "Divorced"
