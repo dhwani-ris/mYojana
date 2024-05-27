@@ -11,13 +11,19 @@ def execute(filters=None):
 	# frappe.errprint(filters)
 	columns = [
 		{
+		"fieldname":"n",
+		"label":"No. of members",
+		"fieldtype":"int",
+		"width":200
+		},
+		{
 		"fieldname":"count",
-		"label":"No. distinct member",
+		"label":"No. distinct Families",
 		"fieldtype":"int",
 		"width":200
 		}
 	]
-	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
+	condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 'bp')
 	if condition_str:
 		condition_str = f"AND {condition_str}"
 	else:
@@ -25,6 +31,7 @@ def execute(filters=None):
 	
 	sql_query = f"""
 			SELECT
+			'Number of Families' AS n,
 				COUNT(*) as count
 			FROM
 			(SELECT
