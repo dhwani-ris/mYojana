@@ -8,8 +8,9 @@ app_license = "mit"
 
 fixtures = [
     # "mYojana Settings"
-    "scheme application submitted",
-    "Scheme Paid by",
+    # "scheme application submitted",
+    # "Scheme Paid by",
+    "Client Script",
     # "Custom HTML Block",
     # "Caste category",
     # "Religion",
@@ -37,7 +38,7 @@ fixtures = [
     # "Centre",
     # "Sub Centre",
     # "Property Setter",
-    
+
 ]
 # Includes in <head>
 # ------------------
@@ -51,7 +52,10 @@ permission_query_conditions = {
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/myojana/css/myojana.css"
-app_include_js = "/assets/myojana/js/main.js"
+app_include_js = [
+    "/assets/myojana/js/main.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+]
 
 # include js, css files in header of web template
 # web_include_css = "/assets/myojana/css/myojana.css"
