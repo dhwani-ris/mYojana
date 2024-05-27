@@ -1,22 +1,5 @@
-frappe.ui.form.on("Report List", {
-    refresh(frm) {
-        if (!frm.is_new() == 1) {
-            fetchAndRenderData(frm, {});
-            DataExportButton(frm)
-        }
-        frm.add_custom_button('Filter', () => {
-            frappe.prompt([
-                { 'fieldname': 'filter_1', 'fieldtype': 'Data', 'label': 'Filter 1' },
-                { 'fieldname': 'filter_2', 'fieldtype': 'Select', 'options': ['Option 1', 'Option 2'], 'label': 'Filter 2' }
-            ],
-                function (values) {
-                    var filter1 = values.filter_1;
-                    var filter2 = values.filter_2;
-                },
-                __('Apply'));
-        })
-    }
-});
+
+let filters_data;
 
 function fetchAndRenderData(frm, limit, filters) {
     frappe.call({
@@ -24,11 +7,12 @@ function fetchAndRenderData(frm, limit, filters) {
         args: {
             doc: frm.doc.name,
             limit: limit,
-            filters: filters
+            filters: filters,
         },
         callback: function (response) {
             if (response.message) {
                 renderDataTable(response.message);
+                filters_data = response.message.filters
                 buttion(frm)
             } else {
                 console.error("Error fetching data from API.");
@@ -36,6 +20,41 @@ function fetchAndRenderData(frm, limit, filters) {
         }
     });
 }
+
+frappe.ui.form.on("Report List", {
+    refresh(frm) {
+        // to hide unwanted buttons
+        $('.standard-actions').hide();
+        //
+
+        if (!frm.is_new() == 1) {
+            fetchAndRenderData(frm, {});
+            DataExportButton(frm)
+        }
+
+        frm.add_custom_button('Filter', () => {
+            frappe.prompt(
+                filter_fields = filters_data.map(fltr => ({
+                    fieldname: fltr.fieldname,
+                    fieldtype: fltr.fieldtype,
+                    label: fltr.label,
+                    options: fltr.options,
+                    default: fltr.default || ''
+                })),
+                function (values) {
+                    let appliedFilters = {};
+                    filter_fields.forEach(filter => {
+                        appliedFilters[filter.fieldname] = values[filter.fieldname];
+                    });
+                    fetchAndRenderData(frm, {}, appliedFilters);
+                },
+                __('Apply')
+            );
+        });
+
+    }
+});
+
 
 function renderDataTable(e) {
     Total(e.total_records, e.data.length)
