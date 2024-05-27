@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"57OiTjigcG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"blDeDcTYVu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Place of origin\",\"col\":7}},{\"id\":\"M7NDzjasg-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State of origin\",\"col\":7}},{\"id\":\"eCkvl_KIaB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education composition\",\"col\":7}},{\"id\":\"VQsrdIAOBU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Age-wise beneficiaries\",\"col\":7}},{\"id\":\"l1aIVwbTUx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion-wise beneficiaries\",\"col\":7}},{\"id\":\"1nhjHlMAvt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational category-wise beneficiaries\",\"col\":7}},{\"id\":\"ZULovgUpIG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House type-wise beneficiaries\",\"col\":7}},{\"id\":\"KCHBDcCYT3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone-wise demands\",\"col\":7}},{\"id\":\"lyjUvA3a5Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State-wise demands\",\"col\":7}},{\"id\":\"YRUKFNIyyI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District-wise demands\",\"col\":7}},{\"id\":\"vmBDpMorDx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub centre wise demands\",\"col\":7}},{\"id\":\"SKfg2rMNrG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre wise demands\",\"col\":7}},{\"id\":\"cgF1LtaeND\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme-wise demands\",\"col\":7}},{\"id\":\"iJQ85mfR5c\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Beneficiaries who have received benefits of 3 or more schemes\",\"col\":7}},{\"id\":\"00XvopEv82\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Families who have received benefits of 3 or more schemes\",\"col\":7}},{\"id\":\"peqVhLl7qo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Beneficiaries who have received benefits of at least 1 scheme in each category\",\"col\":9}}]",
+ "content": "[{\"id\":\"57OiTjigcG\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"blDeDcTYVu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Place of origin\",\"col\":7}},{\"id\":\"M7NDzjasg-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State of origin\",\"col\":7}},{\"id\":\"eCkvl_KIaB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Education composition\",\"col\":7}},{\"id\":\"VQsrdIAOBU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Age-wise beneficiaries\",\"col\":7}},{\"id\":\"l1aIVwbTUx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Religion-wise beneficiaries\",\"col\":7}},{\"id\":\"1nhjHlMAvt\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Occupational category-wise beneficiaries\",\"col\":7}},{\"id\":\"ZULovgUpIG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"House type-wise beneficiaries\",\"col\":7}},{\"id\":\"KCHBDcCYT3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Milestone-wise demands\",\"col\":7}},{\"id\":\"lyjUvA3a5Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"State-wise demands\",\"col\":7}},{\"id\":\"YRUKFNIyyI\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District-wise demands\",\"col\":7}},{\"id\":\"vmBDpMorDx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sub centre wise demands\",\"col\":7}},{\"id\":\"SKfg2rMNrG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Centre wise demands\",\"col\":7}},{\"id\":\"cgF1LtaeND\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheme-wise demands\",\"col\":7}},{\"id\":\"iJQ85mfR5c\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Beneficiaries who have received benefits of 3 or more schemes\",\"col\":7}},{\"id\":\"00XvopEv82\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Families who have received benefits of 3 or more schemes\",\"col\":7}},{\"id\":\"peqVhLl7qo\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Beneficiaries who have received benefits of at least 1 scheme in each category\",\"col\":9}},{\"id\":\"XvbqejQF-Q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Families who have received benefits of at least 1 scheme in each category\",\"col\":9}}]",
  "creation": "2023-12-21 19:09:40.349725",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Reports",
  "links": [],
- "modified": "2024-05-27 10:27:29.758406",
+ "modified": "2024-05-27 10:44:56.519587",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Reports",
@@ -37,6 +37,13 @@
    "doc_view": "List",
    "label": "Beneficiaries who have received benefits of at least 1 scheme in each category",
    "link_to": "Beneficiaries who have received benefits of at least 1 scheme in each category",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Families who have received benefits of at least 1 scheme in each category",
+   "link_to": "Families who have received benefits of at least 1 scheme in each category",
    "type": "Report"
   },
   {
