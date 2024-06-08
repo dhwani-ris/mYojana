@@ -56,5 +56,4 @@ def execute(filters=None):
 	"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)
-	print("///////", data)
 	return columns, data

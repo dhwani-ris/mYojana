@@ -1,117 +1,118 @@
 {
-    "actions": [],
-    "allow_import": 1,
-    "allow_rename": 1,
-    "autoname": "format:{state}-{centre}-{sub_centre_name}",
-    "creation": "2023-12-24 10:10:53.422531",
-    "doctype": "DocType",
-    "engine": "InnoDB",
-    "field_order": [
-        "sub_centre_name",
-        "date_of_formation",
-        "state",
-        "centre",
-        "address"
-    ],
-    "fields": [
-        {
-            "fieldname": "state",
-            "fieldtype": "Link",
-            "label": "State",
-            "options": "State",
-            "reqd": 1
-        },
-        {
-            "fieldname": "date_of_formation",
-            "fieldtype": "Date",
-            "label": "Date of formation",
-            "reqd": 1
-        },
-        {
-            "fieldname": "address",
-            "fieldtype": "Data",
-            "label": "Address"
-        },
-        {
-            "fieldname": "centre",
-            "fieldtype": "Link",
-            "in_list_view": 1,
-            "label": "Centre",
-            "options": "Centre",
-            "reqd": 1
-        },
-        {
-            "fieldname": "sub_centre_name",
-            "fieldtype": "Data",
-            "label": "Name of sub centre ",
-            "reqd": 1
-        }
-    ],
-    "index_web_pages_for_search": 1,
-    "links": [],
-    "modified": "2024-03-20 13:43:05.192469",
-    "modified_by": "Administrator",
-    "module": "myojana",
-    "name": "Sub Centre",
-    "naming_rule": "Expression",
-    "owner": "Administrator",
-    "permissions": [
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "System Manager",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "create": 1,
-            "delete": 1,
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "Admin",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "MIS executive",
-            "share": 1,
-            "write": 1
-        },
-        {
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "Sub-Centre",
-            "share": 1
-        },
-        {
-            "email": 1,
-            "export": 1,
-            "print": 1,
-            "read": 1,
-            "report": 1,
-            "role": "CSC Member",
-            "share": 1
-        }
-    ],
-    "show_title_field_in_link": 1,
-    "sort_field": "modified",
-    "sort_order": "DESC",
-    "states": [],
-    "title_field": "sub_centre_name"
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{state}-{centre}-{sub_centre_name}",
+ "creation": "2023-12-24 10:10:53.422531",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sub_centre_name",
+  "date_of_formation",
+  "state",
+  "centre",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_formation",
+   "fieldtype": "Date",
+   "label": "Date of formation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "label": "Address"
+  },
+  {
+   "fieldname": "centre",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Centre",
+   "options": "Centre",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_centre_name",
+   "fieldtype": "Data",
+   "label": "Name of sub centre ",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-03 15:28:42.199185",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Sub Centre",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "MIS executive",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sub-Centre",
+   "share": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CSC Member",
+   "share": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "sub_centre_name"
 }
