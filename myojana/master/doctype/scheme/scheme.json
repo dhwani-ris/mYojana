@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:name_of_the_scheme",
+ "autoname": "format:{name_of_the_scheme}-{state}",
  "creation": "2023-12-21 12:16:16.031112",
  "default_view": "List",
  "doctype": "DocType",
@@ -194,11 +194,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-03 15:08:40.712168",
+ "modified": "2024-06-11 02:38:44.126663",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "Scheme",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

@@ -70,7 +70,7 @@ async function get_myojana_setting() {
 frappe.ui.form.on("Beneficiary Profiling", {
   after_save: async function(frm){
     if (!frm.is_new()) {
-    frm.debounced_reload_doc() 
+    frm.debounced_reload_doc()
   }
   },
   before_save: async function (frm) {
@@ -256,8 +256,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
     };
     let scheme_row_list = scheme_list.map((scheme, i) => {
       return scheme.available && {
-        scheme_name: scheme?.name,
-        name: `<a href="/app/scheme/${scheme?.name}">${scheme.name}</a>`,
+        scheme_name: scheme?.name_of_the_scheme,
+        name: `<a href="/app/scheme/${scheme?.name}">${scheme.name_of_the_scheme}</a>`,
         matches: `<a href="/app/scheme/${scheme?.name}">${scheme.matching_rules}/${scheme?.total_rules}</a>`,
         rules: scheme.rules,
         groups: scheme.groups,

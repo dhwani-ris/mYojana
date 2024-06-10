@@ -162,7 +162,7 @@ const get_ben_list = async (frm, columns, filters = [], start = 0, page_imit = 1
         method: 'myojana.api.eligible_beneficiaries',
         freeze: true,
         args: {
-            "scheme": frm.doc.name_of_the_scheme,
+            "scheme": frm.doc.name,
             columns: columns,
             filters: filters,
             start: start,
