@@ -49,7 +49,7 @@ frappe.ui.form.on('Scheme Child', {
   form_render: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.availabel)
+    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
     debugger;
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
@@ -62,7 +62,8 @@ frappe.ui.form.on('Scheme Child', {
   scheme_table_add: async function (frm, cdt, cdn) {
     // get_milestone_category(frm)
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.availabel)
+    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
+    debugger;
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
       milestones.hasOwnProperty(e.milestone) ? '' : milestones[e.milestone] = e.milestone
@@ -97,7 +98,7 @@ frappe.ui.form.on('Scheme Child', {
       schemes = scheme_list.filter(f => row.milestone_category == f.milestone);
     }
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = schemes.filter(f => !schemes_op.includes(f.name) && f.availabel)
+    let fl_schemes_ops = schemes.filter(f => !schemes_op.includes(f.name) && f.available)
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
       milestones.hasOwnProperty(e.milestone) ? '' : milestones[e.milestone] = e.milestone
