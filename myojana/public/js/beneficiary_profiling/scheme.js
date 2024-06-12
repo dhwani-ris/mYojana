@@ -49,7 +49,7 @@ frappe.ui.form.on('Scheme Child', {
   form_render: async function (frm, cdt, cdn) {
     let row = frappe.get_doc(cdt, cdn);
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
+    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.availabel)
     debugger;
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
@@ -62,11 +62,11 @@ frappe.ui.form.on('Scheme Child', {
   scheme_table_add: async function (frm, cdt, cdn) {
     // get_milestone_category(frm)
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.available)
+    let fl_schemes_ops = scheme_list.filter(f => !schemes_op.includes(f.name) && f.availabel)
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
       milestones.hasOwnProperty(e.milestone) ? '' : milestones[e.milestone] = e.milestone
-      return { 'lable': e.name, "value": e.name }
+      return { 'label': e.name, "value": e.name }
     })
     frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.name_of_the_scheme._data = ops;
     frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.milestone_category._data = Object.keys(milestones)
@@ -97,11 +97,11 @@ frappe.ui.form.on('Scheme Child', {
       schemes = scheme_list.filter(f => row.milestone_category == f.milestone);
     }
     let schemes_op = frm.doc.scheme_table.filter(f => ['Open', 'Under process', 'Closed', ''].includes(f.status)).map(e => e.name_of_the_scheme);
-    let fl_schemes_ops = schemes.filter(f => !schemes_op.includes(f.name) && f.available)
+    let fl_schemes_ops = schemes.filter(f => !schemes_op.includes(f.name) && f.availabel)
     let milestones = {};
     let ops = fl_schemes_ops.map(e => {
       milestones.hasOwnProperty(e.milestone) ? '' : milestones[e.milestone] = e.milestone
-      return { 'lable': e.name, "value": e.name }
+      return { 'label': e.name, "value": e.name }
     })
     // frm.fields_dict.scheme_table.grid.update_docfield_property("name_of_the_scheme", "options", ops);
     frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.name_of_the_scheme._data = ops
