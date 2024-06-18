@@ -33,11 +33,10 @@ frappe.listview_settings['Beneficiary Profiling'] = {
 		// });
 	},
 	onload: async function (listview) {
-		$('.layout-side-section').hide();
-		if(frappe.user_roles.includes("Admin") && !frappe.user_roles.includes("Administrator")){
-			console.log(listview);
-			listview.page.add_menu_item('List Settings',()=> listview.show_list_settings(),true)
-		}
+		// $('.layout-side-section').hide();
+		// if(frappe.user_roles.includes("Admin") && !frappe.user_roles.includes("Administrator")){
+		// 	listview.page.add_menu_item('List Settings',()=> listview.show_list_settings(),true)
+		// }
 	},
 	before_render: async function () {
 		cur_list?.page?.add_inner_button("Beneficiary report", function () {
