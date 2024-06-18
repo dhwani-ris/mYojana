@@ -70,7 +70,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Name of the scheme",
-   "reqd": 1
+   "reqd": 1,
+   "translatable": 1
   },
   {
    "fieldname": "objective_of_the_scheme",
@@ -193,7 +194,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-11 12:33:51.521563",
+ "modified": "2024-06-18 11:23:59.967461",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "Scheme",

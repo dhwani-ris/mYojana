@@ -17,6 +17,7 @@
   "date_of_birth",
   "completed_age",
   "completed_age_month",
+  "is_bulk_imported",
   "column_break_qbcl",
   "contact_number",
   "alternate_contact_number",
@@ -529,12 +530,19 @@
    "fieldtype": "Link",
    "label": "Name of sub centre",
    "options": "Sub Centre"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_bulk_imported",
+   "fieldtype": "Check",
+   "label": "Is bulk Imported",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-17 19:10:31.418230",
+ "modified": "2024-06-18 10:08:57.011049",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
