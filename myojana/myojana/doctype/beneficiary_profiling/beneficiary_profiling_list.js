@@ -31,10 +31,13 @@ frappe.listview_settings['Beneficiary Profiling'] = {
 		// 	}
 		//     // await update_enable_disable(listview, 1)
 		// });
-
 	},
-	onload: function (listview) {
+	onload: async function (listview) {
 		$('.layout-side-section').hide();
+		if(frappe.user_roles.includes("Admin") && !frappe.user_roles.includes("Administrator")){
+			console.log(listview);
+			listview.page.add_menu_item('List Settings',()=> listview.show_list_settings(),true)
+		}
 	},
 	before_render: async function () {
 		cur_list?.page?.add_inner_button("Beneficiary report", function () {
