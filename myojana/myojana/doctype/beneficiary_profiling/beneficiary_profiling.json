@@ -102,7 +102,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nTransgender\nOthers"
+   "options": "\nMale\nFemale\nTransgender\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "date_of_birth",
@@ -242,7 +243,8 @@
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "options": "District"
+   "options": "District",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_hspz",
@@ -532,7 +534,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-14 03:21:52.684161",
+ "modified": "2024-06-17 19:10:31.418230",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
