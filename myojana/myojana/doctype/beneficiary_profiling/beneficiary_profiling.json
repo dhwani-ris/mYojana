@@ -109,7 +109,8 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth"
+   "label": "Date of birth",
+   "reqd": 1
   },
   {
    "fieldname": "completed_age",
@@ -543,7 +544,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-18 18:49:31.537245",
+ "modified": "2024-06-19 17:17:31.278807",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
