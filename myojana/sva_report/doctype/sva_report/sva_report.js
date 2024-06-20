@@ -24,6 +24,7 @@ async function arrangeFields(fields, checked_data = []) {
   return Object.entries(groupedFields).flatMap(([doctype, fields]) => [
     { fieldname: `${doctype}_section_break`, fieldtype: "Section Break", label: `${doctype} Details` },
     ...fields.map(field => {
+      field.label = `${field.label}${field?.link_table?.label?' ('+field?.link_table?.label+')':''}`
       if (checked_data.length > 0 && checked_data.includes(field.fieldname)) {
         return {
           fieldname: field.fieldname, fieldtype: "Check", label: field.label, ft: field.fieldtype, default: 1, onchange: (e) => {

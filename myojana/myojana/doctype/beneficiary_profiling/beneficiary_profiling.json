@@ -17,6 +17,7 @@
   "date_of_birth",
   "completed_age",
   "completed_age_month",
+  "is_bulk_imported",
   "column_break_qbcl",
   "contact_number",
   "alternate_contact_number",
@@ -102,12 +103,14 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nTransgender\nOthers"
+   "options": "\nMale\nFemale\nTransgender\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of birth"
+   "label": "Date of birth",
+   "reqd": 1
   },
   {
    "fieldname": "completed_age",
@@ -242,7 +245,8 @@
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "options": "District"
+   "options": "District",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_hspz",
@@ -306,6 +310,7 @@
    "depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
    "fieldname": "id_table_list",
    "fieldtype": "Table",
+   "mandatory_depends_on": "eval:doc.do_you_have_any_id_documents ==\"Yes\"",
    "options": "ID Document Child"
   },
   {
@@ -526,12 +531,20 @@
    "fieldtype": "Link",
    "label": "Name of sub centre",
    "options": "Sub Centre"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.is_bulk_imported == 1",
+   "fieldname": "is_bulk_imported",
+   "fieldtype": "Check",
+   "label": "Is bulk Imported",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-18 09:47:42.679874",
+ "modified": "2024-06-19 17:17:31.278807",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",

@@ -18,43 +18,38 @@ def execute(filters=None):
 		},
 		{
 		"fieldname":"count",
-		"label":"No. distinct member",
+		"label":"No. distinct Families",
 		"fieldtype":"int",
 		"width":200
 		}
 	]
-	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
+	condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 'bp')
 	if condition_str:
 		condition_str = f"AND {condition_str}"
 	else:
 		condition_str = ""
-	
+
 	sql_query = f"""
-		SELECT
-		'Number of members' AS n,
-		COUNT(*) AS count
-	FROM
-		(SELECT
-			sc.parent,
-			COUNT(sc.parent) AS ben_count
-		FROM 
-			`tabScheme Child` sc
-		WHERE
-			sc.parent 
-		IN (
 			SELECT
-				name 
-			FROM 
-				`tabBeneficiary Profiling` 
-			WHERE 
-				1=1 {condition_str})
-		GROUP BY
-			sc.parent
-		) AS counts
-	WHERE
-		counts.ben_count >= 3;
-	"""
+			'Number of Families' AS n,
+				COUNT(*) as count
+			FROM
+			(SELECT
+				bp.select_primary_member,
+				COUNT(bp.select_primary_member) AS scheme_count
+			FROM
+				`tabBeneficiary Profiling` bp
+			RIGHT JOIN
+				`tabScheme Child` sc ON bp.name = sc.parent
+			WHERE
+				1=1 {condition_str}
+			GROUP BY
+				bp.select_primary_member
+			HAVING
+				scheme_count >= 2)
+			AS
+				counts;
+		"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)
-	print("///////", data)
 	return columns, data

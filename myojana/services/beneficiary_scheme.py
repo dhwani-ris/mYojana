@@ -65,7 +65,7 @@ class BeneficaryScheme:
         return False if len(count_list) else True
 
     def get_schemes(beneficiary=None):
-        schemes = frappe.get_list('Scheme', fields=['name', 'name_of_department', 'milestone', 'how_many_times_can_this_scheme_be_availed'],  filters={'enabled': '1'})
+        schemes = frappe.get_list('Scheme', fields=['name','name_of_the_scheme', 'name_of_department', 'milestone', 'how_many_times_can_this_scheme_be_availed'],  filters={'enabled': '1'})
         for scheme in schemes:
             doc = frappe.get_doc("Scheme", scheme.name)
             scheme['groups'] = []
