@@ -143,7 +143,7 @@ const addTableFilter = (datatable, elements = [], rows = []) => {
             for (el of elements) {
                 let val = document.getElementById(el)?.value;
                 if (val) {
-                    filters.push({ [el]: val })
+                    filters.push({ [el]: __(val) })
                 }
             }
             // generate_filters(frm,datatable,filters)
@@ -190,7 +190,7 @@ let tableConf = {
             }
         },
         {
-            name: "Name of the beneficiary",
+            name: __("Name of the beneficiary"),
             id: 'name_of_the_beneficiary',
             editable: false,
             resizable: false,
@@ -203,7 +203,7 @@ let tableConf = {
             }
         },
         {
-            name: "Primary member",
+            name: __("Primary member"),
             id: 'name_of_parents',
             field: 'select_primary_member.name_of_parents',
             editable: false,
@@ -214,7 +214,7 @@ let tableConf = {
             width: 200,
         },
         {
-            name: "Contact number",
+            name: __("Contact number"),
             id: 'contact_number',
             editable: false,
             resizable: false,
@@ -224,7 +224,7 @@ let tableConf = {
             width: 150,
         },
         {
-            name: "Block",
+            name: __("Block"),
             id: 'block_name',
             field: 'ward.block_name',
             editable: false,
@@ -235,7 +235,7 @@ let tableConf = {
             width: 200,
         },
         {
-            name: "Name of the settlement",
+            name: __("Name of the settlement"),
             id: 'village_name',
             field: 'name_of_the_settlement.village_name',
             editable: false,
