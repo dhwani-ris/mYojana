@@ -7,10 +7,10 @@ app_license = "mit"
 # required_apps = []
 
 fixtures = [
-    # "mYojana Settings"
+    "mYojana Settings",
     # "scheme application submitted",
     # "Scheme Paid by",
-    "Client Script",
+    # "Client Script",
     # "Custom HTML Block",
     # "Caste category",
     # "Religion",
@@ -37,7 +37,6 @@ fixtures = [
     # "Milestone category",
     # "Centre",
     # "Sub Centre",
-    # "Property Setter",
 
 ]
 # Includes in <head>
