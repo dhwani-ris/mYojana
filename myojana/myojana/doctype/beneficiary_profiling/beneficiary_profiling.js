@@ -104,7 +104,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
       get_lead_date(frm.doc.lead, frm)
     }
     apply_filter_on_id_document()
-    // read only fields
+    // restrict future date from date pickers
+    frm.fields_dict.date_of_visit.$input.datepicker({maxDate:new Date(frappe.datetime.get_today())})
+
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
         frm.set_df_property('centre', 'read_only', 1);
