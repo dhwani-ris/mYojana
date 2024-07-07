@@ -104,7 +104,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
     if (frm.is_new()) {
       await autoSetOption(frm); // set options of centre and sub centre
     }
-    apply_filter_on_id_document()
+    await apply_filter_on_id_document()
+    // render scheme_data_tables 
+    await render_scheme_datatable(frm)
     // restrict future date from date pickers
     frm.fields_dict.date_of_visit.$input.datepicker({maxDate:new Date(frappe.datetime.get_today())})
 
@@ -158,7 +160,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
 
     }
-    apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
 
     if (frappe.user_roles.includes("Sub-Centre") || frappe.user_roles.includes("CSC Member") || frappe.user_roles.includes("MIS executive")) {
       if (!frappe.user_roles.includes("Administrator")) {
@@ -169,112 +170,13 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
     }
     extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type",
-      "source_of_information", "current_house_type", "state", "district", "occupational_category", "education",
-      "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"])
-    frm.set_query('religion', () => {
-      return {
-        order_by: 'religion.religion ASC'
-      };
-    });
-    scheme_list = await get_scheme_list(frm)
-    let tableConf = {
-      columns: [
-        {
-          name: " ",
-          id: 'serial_no',
-          editable: false,
-          resizable: true,
-          sortable: false,
-          focusable: false,
-          dropdown: false,
-          width: 70,
-          format: (value, columns, ops, row) => {
-            return (columns?.[0]?.rowIndex + 1)
-          }
-        },
-        {
-          name: "Name",
-          id: 'name',
-          editable: false,
-          resizable: false,
-          sortable: false,
-          focusable: false,
-          dropdown: false,
-          width: 400
-        },
-        {
-          name: "Milestone",
-          id: 'milestone',
-          editable: false,
-          resizable: false,
-          sortable: false,
-          focusable: false,
-          dropdown: false,
-          width: 200
-        },
-        {
-          name: "Matches",
-          id: 'matches',
-          editable: false,
-          resizable: false,
-          sortable: false,
-          focusable: false,
-          dropdown: false,
-          width: 90,
-          format: (value, columns, ops, row) => {
-            let rules = row?.rules?.map(e => `${e.message} ${e.matched ? '&#x2714;' : '&#10060;'}`).join("\n").toString()
-            return `<p title="${rules}">${row?.matches?.bold()}</p>`
-          }
-        },
-        {
-          name: "Group",
-          id: 'group',
-          editable: false,
-          resizable: false,
-          sortable: false,
-          focusable: false,
-          dropdown: false,
-          width: 70,
-          format: (value, columns, ops, row) => {
-            let messages = row.groups.map(g => (g.rules?.map(e => `${e.message} ${e.matched ? '&#x2714;' : '&#10060;'}`).join("\n").toString()))
-            return `<p title="${messages.join('\n--------------   \n')}">${row?.groups?.filter(f => f.percentage == 100)?.length?.toString()?.bold()}/${row?.groups?.length?.toString()?.bold()}</p>`
-          }
-        },
-        //milestone
-        // {
-        //   name: "Availed",
-        //   id: 'availed',
-        //   editable: false,
-        //   resizable: false,
-        //   sortable: false,
-        //   focusable: false,
-        //   dropdown: false,
-        //   width: 100,
-        //   format: (value, columns, ops, row) => {
-        //     return `<p style="text-align:center; color:green; font-size:18px; font-weight:600;">${value ? '' : '&#x2714;'}</p>`
-        //   }
-        // }
-      ],
-      rows: []
-    };
-    let scheme_row_list = scheme_list.map((scheme, i) => {
-      return scheme.available && {
-        scheme_name: scheme?.name_of_the_scheme,
-        name: `<a href="/app/scheme/${scheme?.name}">${scheme.name_of_the_scheme}</a>`,
-        matches: `<a href="/app/scheme/${scheme?.name}">${scheme.matching_rules}/${scheme?.total_rules}</a>`,
-        rules: scheme.rules,
-        groups: scheme.groups,
-        availed: scheme.available,
-        milestone: scheme.milestone
-      }
-    }).filter(f => f);
-
-    const container = document.getElementById('all_schemes');
-    const datatable = new DataTable(container, { columns: tableConf.columns, serialNoColumn: false });
-    datatable.style.setStyle(`.dt-scrollable`, { height: '300px!important', overflow: 'scroll!important' });
-    addTableFilter(datatable, ['scheme_name', 'milestone'], scheme_row_list)
-    datatable.refresh(scheme_row_list);
+      "source_of_information", "current_house_type", "state", "district", "occupational_category", "education","education", 
+      "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", 
+      "social_vulnerable_category", "name_of_the_camp"]);
+    
     // if not is local
+
+
     if (frm.doc.__islocal) {
       frm.doc.added_by = frappe.session.user
       refresh_field("added_by")
@@ -291,7 +193,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       "sub_centre", "centre", "source_of_information", "occupational_category",
       "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"
     ])
-
+    apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
     apply_filter("district", "State", frm, frm.doc.state)
     apply_filter("ward", "District", frm, frm.doc.district)
     apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward)
