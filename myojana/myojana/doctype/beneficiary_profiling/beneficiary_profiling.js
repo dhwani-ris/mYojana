@@ -103,11 +103,14 @@ frappe.ui.form.on("Beneficiary Profiling", {
     is_primary_member_link_through_phone_number = await get_myojana_setting()
     if (frm.is_new()) {
       await autoSetOption(frm); // set options of centre and sub centre
+      await frm.set_value('added_by', frappe.session.user);
+      await frm.set_value('date_of_visit', frappe.datetime.get_today()); // SET TODAY DATE IN DATE OF VISIT
+
+    }else{
+      await apply_filter_on_id_document() // render scheme_data_tables 
+      await render_scheme_datatable(frm) // restrict future date from date pickers
+
     }
-    await apply_filter_on_id_document()
-    // render scheme_data_tables 
-    await render_scheme_datatable(frm)
-    // restrict future date from date pickers
     frm.fields_dict.date_of_visit.$input.datepicker({maxDate:new Date(frappe.datetime.get_today())})
 
     if (!frappe.user_roles.includes("Administrator")) {
@@ -173,19 +176,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       "source_of_information", "current_house_type", "state", "district", "occupational_category", "education","education", 
       "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", 
       "social_vulnerable_category", "name_of_the_camp"]);
-    
-    // if not is local
 
-
-    if (frm.doc.__islocal) {
-      frm.doc.added_by = frappe.session.user
-      refresh_field("added_by")
-    }
-
-    // set  defult date of visit
-    if (frm.doc.__islocal && !frm.doc.date_of_visit) {
-      frm.set_value('date_of_visit', frappe.datetime.get_today());
-    }
     // Hide Advance search options
     hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status",
       "district_of_origin", "block", "gender", "current_occupation",
