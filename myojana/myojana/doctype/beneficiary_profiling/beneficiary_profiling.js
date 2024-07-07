@@ -135,8 +135,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.set_value('occupational_category', doc.occupational_category)
       }
     }
-    
-    
+
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
         frm.set_df_property('centre', 'read_only', 1);
@@ -144,6 +143,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
+    
     if (!frm.is_new() && !frm.doc.__islocal) {
       
       frm.add_custom_button(__('Add family members'), function () {
