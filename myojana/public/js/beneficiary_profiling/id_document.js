@@ -4,7 +4,8 @@ const indianAadharRegex = /^\d{4}\d{4}\d{4}$/;
 
 const apply_filter_on_id_document = async () => {
   //  APPLY Filter in ID DOCUMENT
-  var child_table = _frm.fields_dict['id_table_list'].grid;
+  var child_table = cur_frm.fields_dict['id_table_list'].grid;
+  console.log(child_table, "child_table")
   if (child_table) {
     try {
       child_table.get_field('which_of_the_following_id_documents_do_you_have').get_query = function () {

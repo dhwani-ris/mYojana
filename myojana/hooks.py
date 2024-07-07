@@ -78,7 +78,6 @@ doctype_js = {
         "public/js/beneficiary_profiling/follow_up.js",
         "public/js/beneficiary_profiling/scheme.js",
         "public/js/beneficiary_profiling/id_document.js",
-        "public/js/beneficiary_profiling/dialogs.js"
     ],
     "Sub Centre":[
         "public/js/utils/utils.js"

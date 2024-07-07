@@ -94,14 +94,15 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frappe.throw(`Phone Number <b>${frm.doc.alternate_contact_number}</b> set in field alternate_contact_number is not valid.`)
     }
   },
+  // timeline_refresh: async function(frm){
+  //   frm.add_custom_button(__('Add'), function () {
+    
+  //   }, __());
+  // },
   async refresh(frm) {
     is_primary_member_link_through_phone_number = await get_myojana_setting()
-    _frm = frm
     if (frm.is_new()) {
-      await autoSetOption(frm);
-    }
-    if (frm.doc.lead && frm.doc.__islocal) {
-      get_lead_date(frm.doc.lead, frm)
+      await autoSetOption(frm); // set options of centre and sub centre
     }
     apply_filter_on_id_document()
     // restrict future date from date pickers
@@ -114,7 +115,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
-    if (!frm.is_new()) {
+    if (!frm.is_new() && !frm.doc.__islocal) {
       
       frm.add_custom_button(__('Add family members'), function () {
         frappe.route_options = {
