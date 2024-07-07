@@ -102,17 +102,41 @@ frappe.ui.form.on("Beneficiary Profiling", {
   async refresh(frm) {
     is_primary_member_link_through_phone_number = await get_myojana_setting()
     if (frm.is_new()) {
+      console.log("new data")
       await autoSetOption(frm); // set options of centre and sub centre
-      await frm.set_value('added_by', frappe.session.user);
+      await frm.set_value('added_by', frappe.session.user); 
       await frm.set_value('date_of_visit', frappe.datetime.get_today()); // SET TODAY DATE IN DATE OF VISIT
 
     }else{
-      await apply_filter_on_id_document() // render scheme_data_tables 
-      await render_scheme_datatable(frm) // restrict future date from date pickers
+      console.log("old data")
+      await apply_filter_on_id_document() 
+      await render_scheme_datatable(frm) // render scheme_data_tables 
 
     }
-    frm.fields_dict.date_of_visit.$input.datepicker({maxDate:new Date(frappe.datetime.get_today())})
+    frm.fields_dict.date_of_visit.$input.datepicker({maxDate:new Date(frappe.datetime.get_today())}); // restrict future date from date pickers
+    extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type","source_of_information", "current_house_type", "state", "district", "occupational_category", "education","education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"]);
+    hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status","district_of_origin", "block", "gender", "current_occupation", "social_vulnerable_category", "pwd_category", "family","sub_centre", "centre", "source_of_information", "occupational_category","current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"]);
 
+    // APPLY FILTER IN CASE OF EDIT OF DATA
+    await apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
+    frm.doc.state? await apply_filter("district", "State", frm, frm.doc.state): null;
+    frm.doc.centre? await apply_filter("sub_centre", "centre", frm, frm.doc.centre): null;
+    frm.doc.district? await apply_filter("ward", "District", frm, frm.doc.district): null;
+    frm.doc.ward? await apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward): null;
+    frm.doc.state_of_origin? await apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin): null;
+    frm.doc.district_of_origin? await apply_filter("block", "District", frm, frm.doc.district_of_origin): null;
+    // defult filter on current occupations
+    if (frm.doc?.current_occupation) {
+      if (frm.doc.current_occupation == 'Others') {
+        apply_filter('occupational_category', 'name', frm, '', true)
+      } else {
+        let doc = await get_occupation_category(frm)
+        apply_filter('occupational_category', 'name', frm, ['=', doc.occupational_category])
+        frm.set_value('occupational_category', doc.occupational_category)
+      }
+    }
+    
+    
     if (!frappe.user_roles.includes("Administrator")) {
       if (!frm.doc.__islocal) {
         frm.set_df_property('centre', 'read_only', 1);
@@ -172,50 +196,20 @@ frappe.ui.form.on("Beneficiary Profiling", {
         frm.set_df_property('follow_up_table', 'cannot_delete_all_rows', true);
       }
     }
-    extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type",
-      "source_of_information", "current_house_type", "state", "district", "occupational_category", "education","education", 
-      "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", 
-      "social_vulnerable_category", "name_of_the_camp"]);
+    
 
-    // Hide Advance search options
-    hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status",
-      "district_of_origin", "block", "gender", "current_occupation",
-      , "social_vulnerable_category", "pwd_category", "family",
-      "sub_centre", "centre", "source_of_information", "occupational_category",
-      "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"
-    ])
-    apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
-    apply_filter("district", "State", frm, frm.doc.state)
-    apply_filter("ward", "District", frm, frm.doc.district)
-    apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward)
-    apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin)
-    apply_filter("block", "District", frm, frm.doc.district_of_origin)
-    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
-    // defult filter on current occupations
-    if (frm.doc?.current_occupation) {
-      if (frm.doc.current_occupation == 'Others') {
-        apply_filter('occupational_category', 'name', frm, '', true)
-      } else {
-        let doc = await get_occupation_category(frm)
-        apply_filter('occupational_category', 'name', frm, ['=', doc.occupational_category])
-        frm.set_value('occupational_category', doc.occupational_category)
-      }
-    }
-    if (frappe.user_roles.includes("Admin")) {
-      apply_filter("sub_centre", "centre", frm, frm.doc.centre)
-    }
+
+
   },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
-  date_of_visit: function (frm) {
+  date_of_visit: async function (frm) {
     if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
-      frm.doc.date_of_visit = ''
-      frm.set_value("date_of_visit", '')
-      refresh_field('date_of_visit')
-      frappe.throw(__("Date of registration can't be greater than today's date"))
+      await frm.set_value("date_of_visit",'');
+      await frappe.throw(__("Date of registration can't be greater than today's date"));
     }
     if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
       if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
-        frm.set_value('date_of_visit', '')
+        await frm.set_value('date_of_visit', '');
         return frappe.throw("Date of registration shall not be before the <strong>Date of Birth</strong>")
       }
     }
@@ -226,67 +220,60 @@ frappe.ui.form.on("Beneficiary Profiling", {
       frappe.throw(`Phone Number <b>${frm.doc.contact_number}</b> set in field contact_number is not valid.`)
     }
   },
-  state: function (frm) {
-    apply_filter("district", "State", frm, frm.doc.state)
-    if (districts_option && districts_option.length > 1) {
-      frm.set_value("district", '')
-    }
-    frm.set_value("ward", '')
-    frm.set_value("name_of_the_settlement", '')
+  state:async function (frm) {
+    await apply_filter("district", "State", frm, frm.doc.state);
+    districts_option && districts_option.length > 1? await frm.set_value("district", ''): null;
+    await frm.set_value("ward", '');
+    await frm.set_value("name_of_the_settlement", '');
   },
-  district: function (frm) {
-    apply_filter("ward", "District", frm, frm.doc.district)
-    frm.set_value("ward", '')
-    frm.set_value("name_of_the_settlement", '')
+  district: async function (frm) {
+    await apply_filter("ward", "District", frm, frm.doc.district);
+    await frm.set_value("ward", '');
+    await frm.set_value("name_of_the_settlement", '');
   },
-  ward: function (frm) {
-    apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward)
-    frm.set_value("name_of_the_settlement", '')
+  ward: async function (frm) {
+    await apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward);
+    await frm.set_value("name_of_the_settlement", '');
   },
-  state_of_origin: function (frm) {
-    apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin)
-    frm.set_value("district_of_origin", '')
-    frm.set_value("block", '')
+  state_of_origin:  async function (frm) {
+    await apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin);
+    await frm.set_value("district_of_origin", '');
+    await frm.set_value("block", '');
   },
-  district_of_origin: function (frm) {
-    apply_filter("block", "District", frm, frm.doc.district_of_origin)
-    frm.set_value("block", '')
+  district_of_origin: async function (frm) {
+    await apply_filter("block", "District", frm, frm.doc.district_of_origin);
+    await frm.set_value("block", '');
   },
-  centre: function (frm) {
-    console.log("Hello")
-    frm.set_value('sub_centre', '')
-    apply_filter("sub_centre", "centre", frm, frm.doc.centre)
+  centre: async function (frm) {
+    await frm.set_value('sub_centre', '');
+    await apply_filter("sub_centre", "centre", frm, frm.doc.centre);
   },
   current_occupation: async function (frm) {
     if (!frm.doc.current_occupation) return;
     if (frm.doc.current_occupation == 'Others') {
-      apply_filter('occupational_category', 'name', frm, '', true)
-      frm.set_value('occupational_category', '')
-
+      await apply_filter('occupational_category', 'name', frm, '', true);
+      await frm.set_value('occupational_category', '');
     } else {
-      let doc = await get_occupation_category(frm)
-      apply_filter('occupational_category', 'name', frm, ['=', doc.occupational_category])
-      frm.set_value('occupational_category', doc.occupational_category)
-      frm.set_value('new_occupation', '')
+      let doc = await get_occupation_category(frm);
+      await apply_filter('occupational_category', 'name', frm, ['=', doc.occupational_category]);
+      await frm.set_value('occupational_category', doc.occupational_category);
+      await frm.set_value('new_occupation', '');
     }
   },
-  occupational_category: function (frm) {
-    if (frm.doc.occupational_category != 'Others') {
-      frm.set_value('new_occupation_category', '')
-    }
+  occupational_category:async function (frm) {
+    frm.doc.occupational_category != 'Others'? await frm.set_value('new_occupation_category', '') : null;
   },
-  date_of_birth: function (frm) {
+  date_of_birth: async function (frm) {
     let dob = frm.doc.date_of_birth;
     if (new Date(dob) > new Date(frappe.datetime.get_today())) {
-      frm.doc.date_of_birth = ''
-      refresh_field('date_of_birth')
-      frappe.throw(__("Date of birth can't be greater than today's date"))
+      await frm.set_value("date_of_birth", '');
+      await frappe.throw(__("Date of birth can't be greater than today's date"));
     }
     if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
       if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
         if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
-          frm.set_value("date_of_birth", '')
-          return frappe.throw("Date of birth cannot be greater than the date of registration")
+          await frm.set_value("date_of_birth", '');
+          return frappe.throw("Date of birth cannot be greater than the date of registration");
         }
       }
     }
@@ -308,74 +295,63 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
       let ageString = years > 0 ? years.toString() : '0';
       let completedAgeMonths = months <= 11 ? months : null;
-      frm.doc.completed_age = ageString;
-      frm.doc.completed_age_month = completedAgeMonths;
-      frm.refresh_fields('completed_age', 'completed_age_month')
+      await frm.set_value({
+        'completed_age': ageString,
+        'completed_age_month': completedAgeMonths
+      });
     }
   },
   completed_age: function (frm) {
     if (frm.doc.date_of_birth !== frappe.datetime.get_today()) {
     }
   },
-  completed_age_month: function (frm) {
+  completed_age_month:async function (frm) {
     if (frm.doc.completed_age_month > 11) {
-      frm.doc.completed_age_month = ''
-      refresh_field('completed_age_month')
-      frappe.throw(__("Completed age in month should be less than or equal to 11"))
+      await frm.set_value("completed_age_month", '');
+      await frappe.throw(__("Completed age in month should be less than or equal to 11"));
     }
     if (frm.doc.date_of_birth !== frappe.datetime.get_today()) {
       let dob = generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth)
       console.log("generatedDOB", dob, frm.doc?.completed_age, frm.doc?.completed_age_month);
-
       frm.set_value("date_of_birth", dob)
     }
   },
-  are_you_a_person_with_disability_pwd: function (frm) {
-    if (frm.doc.are_you_a_person_with_disability_pwd == "No") {
-      frm.set_value("type_of_disability", '')
-      frm.doc.proof_of_disability = '';
-      frm.doc.what_is_the_extent_of_your_disability = '';
-      frm.refresh_fields('what_is_the_extent_of_your_disability', 'proof_of_disability')
+  are_you_a_person_with_disability_pwd: async function (frm) {
+    frm.doc.are_you_a_person_with_disability_pwd == "No" ? await frm.set_value({
+      "type_of_disability": '',
+      "proof_of_disability":'',
+      "what_is_the_extent_of_your_disability":''
+    }) : null;
+  },
+  what_is_the_extent_of_your_disability:async function (frm) {
+    frm.doc.what_is_the_extent_of_your_disability != "Above 40%"? await frm.set_value('proof_of_disability', []):null;
+  },
+  marital_status:async function (frm) {
+    frm.doc.marital_status != "Married"? await frm.set_value("spouses_name",''): null;
+  },
+  social_vulnerable: async function (frm) {
+    frm.doc.social_vulnerable != "Yes"? await frm.set_value({
+      "social_vulnerable_category":'',
+      'other_social_vulnerable_category':''
+    }):null;
 
-    }
   },
-  what_is_the_extent_of_your_disability: function (frm) {
-    if (frm.doc.what_is_the_extent_of_your_disability != "Above 40%") {
-      frm.doc.proof_of_disability = [];
-      frm.refresh_fields('proof_of_disability')
-    }
+  social_vulnerable_category:async function (frm) {
+    frm.doc.social_vulnerable_category != "Others"? await frm.set_value('other_social_vulnerable_category', ''): null;
   },
-  marital_status: function (frm) {
-    if (frm.doc.marital_status != "Married") {
-      frm.set_value('spouses_name', '')
-    }
+  source_of_information:async function (frm) {
+    frm.doc.source_of_information != "Others"? await frm.set_value({
+      'new_source_of_information':'',
+      'name_of_the_camp':'',
+      'new_camp':''
+    }): null;
   },
-  social_vulnerable: function (frm) {
-    if (frm.doc.social_vulnerable_category != "Yes") {
-      frm.set_value('social_vulnerable_category', '')
-      frm.set_value('other_social_vulnerable_category', '')
-    }
-  },
-  social_vulnerable_category: function (frm) {
-    if (frm.doc.social_vulnerable_category != "Others") {
-      frm.set_value('other_social_vulnerable_category', '')
-    }
-  },
-  source_of_information: function (frm) {
-    if (frm.doc.source_of_information != "Others") {
-      frm.set_value('new_source_of_information', '')
-      frm.set_value('name_of_the_camp', '')
-      frm.set_value('new_camp', '')
-    }
-  },
-  name_of_the_camp: function (frm) {
-    if (frm.doc.name_of_the_camp != "Others") {
-      frm.set_value('new_camp', '')
-    }
+  name_of_the_camp: async function (frm) {
+    frm.doc.name_of_the_camp != "Others"? await frm.set_value('new_camp', ''): null;
   },
   has_anyone_from_your_family_visisted_before: async function (frm) {
     if (frm.doc.has_anyone_from_your_family_visisted_before == "Yes") {
-      frm.set_value('select_primary_member', '')
+      await frm.set_value('select_primary_member', '')
     } else {
       if(frm.is_new()){
               await truncate_multiple_fields_value(frm, ['current_house_type', 'state', 'district', 'ward',
@@ -404,21 +380,18 @@ frappe.ui.form.on("Beneficiary Profiling", {
         'name_of_the_settlement', 'address_with_landmark', 'same_as_above', 'state_of_origin', 'district_of_origin', 'block'])
     }
   },
-  current_house_type: function (frm) {
-    if (frm.doc.current_house_type != "Others") {
-      frm.set_value('add_house_type', '')
-    }
+  current_house_type: async function (frm) {
+    frm.doc.current_house_type != "Others"? await frm.set_value('add_house_type', '') : null;
   },
   same_as_above: async function (frm) {
-    if (frm.doc.same_as_above == '1') {
-      frm.doc.state_of_origin = frm.doc.state;
-      frm.doc.district_of_origin = frm.doc.district;
-      frm.doc.block = frm.doc.ward;
-    } else {
-      await truncate_multiple_fields_value(frm, ['state_of_origin', 'district_of_origin', 'block'])
-    }
-    refresh_field("state_of_origin")
-    refresh_field("district_of_origin")
-    refresh_field("block")
+    frm.doc.same_as_above == '1'? await frm.set_value({
+      'state_of_origin': frm.doc.state,
+      'district_of_origin': frm.doc.district,
+      'block': frm.doc.ward
+    }):await frm.set_value({
+      'state_of_origin': '',
+      'district_of_origin': '',
+      'block': ''
+    });
   },
 });
