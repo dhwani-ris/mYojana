@@ -12,19 +12,6 @@ const showRules = (row) => {
     }
   });
 }
-// get scheme lists
-const get_scheme_list = async (frm) => {
-  let list = await callAPI({
-    method: 'myojana.api.execute',
-    freeze: true,
-    args: {
-      name: frm.doc.name
-    },
-    freeze_message: __("Getting schemes..."),
-  })
-  scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
-  return scheme_list
-}
 const addTableFilter = (datatable, elements = [], rows = []) => {
   document.addEventListener('keyup', function (event) {
     if (elements.includes(event.target.id)) {

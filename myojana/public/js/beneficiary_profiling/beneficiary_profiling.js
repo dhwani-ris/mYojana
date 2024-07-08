@@ -86,18 +86,118 @@ function generateDOBFromAge(ageInYears = 0, ageInMonths = 0 , date_of_birth) {
   let generatedDOB = new Date(birthYear, birthMonth, startOfMonth.getDate());
   return generatedDOB;
 }
+// get scheme lists
+const get_scheme_list = async (frm) => {
+  let list = await callAPI({
+    method: 'myojana.api.execute',
+    freeze: true,
+    args: {
+      name: frm.doc.name
+    },
+    freeze_message: __("Getting schemes..."),
+  })
+  scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
+  return scheme_list
+}
 
-// const validate_date_of_application = async (frm) => {
-//   if(frm?.doc?.scheme_table){
-//     for (row of frm?.doc?.scheme_table) {
-//       if (row.application_submitted == "Yes" || row.application_submitted == "Completed") {
-//         if (!row.date_of_application) {
-//           frappe.throw(`Mandatory fields required in table Scheme Table, Row ${row.idx} 
-//           </br> </br> <ul><li>Date of application</li></ul>`)
-//         }
-//       }
-  
-//     }
-//   }
+async function render_scheme_datatable(frm) {
 
-// }
+  scheme_list = await get_scheme_list(frm)
+  let tableConf = {
+    columns: [
+      {
+        name: " ",
+        id: 'serial_no',
+        editable: false,
+        resizable: true,
+        sortable: false,
+        focusable: false,
+        dropdown: false,
+        width: 70,
+        format: (value, columns, ops, row) => {
+          return (columns?.[0]?.rowIndex + 1)
+        }
+      },
+      {
+        name: "Name",
+        id: 'name',
+        editable: false,
+        resizable: false,
+        sortable: false,
+        focusable: false,
+        dropdown: false,
+        width: 400
+      },
+      {
+        name: "Milestone",
+        id: 'milestone',
+        editable: false,
+        resizable: false,
+        sortable: false,
+        focusable: false,
+        dropdown: false,
+        width: 200
+      },
+      {
+        name: "Matches",
+        id: 'matches',
+        editable: false,
+        resizable: false,
+        sortable: false,
+        focusable: false,
+        dropdown: false,
+        width: 90,
+        format: (value, columns, ops, row) => {
+          let rules = row?.rules?.map(e => `${e.message} ${e.matched ? '&#x2714;' : '&#10060;'}`).join("\n").toString()
+          return `<p title="${rules}">${row?.matches?.bold()}</p>`
+        }
+      },
+      {
+        name: "Group",
+        id: 'group',
+        editable: false,
+        resizable: false,
+        sortable: false,
+        focusable: false,
+        dropdown: false,
+        width: 70,
+        format: (value, columns, ops, row) => {
+          let messages = row.groups.map(g => (g.rules?.map(e => `${e.message} ${e.matched ? '&#x2714;' : '&#10060;'}`).join("\n").toString()))
+          return `<p title="${messages.join('\n--------------   \n')}">${row?.groups?.filter(f => f.percentage == 100)?.length?.toString()?.bold()}/${row?.groups?.length?.toString()?.bold()}</p>`
+        }
+      },
+      //milestone
+      // {
+      //   name: "Availed",
+      //   id: 'availed',
+      //   editable: false,
+      //   resizable: false,
+      //   sortable: false,
+      //   focusable: false,
+      //   dropdown: false,
+      //   width: 100,
+      //   format: (value, columns, ops, row) => {
+      //     return `<p style="text-align:center; color:green; font-size:18px; font-weight:600;">${value ? '' : '&#x2714;'}</p>`
+      //   }
+      // }
+    ],
+    rows: []
+  };
+  let scheme_row_list = scheme_list.map((scheme, i) => {
+    return scheme.available && {
+      scheme_name: scheme?.name_of_the_scheme,
+      name: `<a href="/app/scheme/${scheme?.name}">${scheme.name_of_the_scheme}</a>`,
+      matches: `<a href="/app/scheme/${scheme?.name}">${scheme.matching_rules}/${scheme?.total_rules}</a>`,
+      rules: scheme.rules,
+      groups: scheme.groups,
+      availed: scheme.available,
+      milestone: scheme.milestone
+    }
+  }).filter(f => f);
+
+  const container = document.getElementById('all_schemes');
+  const datatable = new DataTable(container, { columns: tableConf.columns, serialNoColumn: false });
+  datatable.style.setStyle(`.dt-scrollable`, { height: '300px!important', overflow: 'scroll!important' });
+  addTableFilter(datatable, ['scheme_name', 'milestone'], scheme_row_list)
+  datatable.refresh(scheme_row_list);
+}

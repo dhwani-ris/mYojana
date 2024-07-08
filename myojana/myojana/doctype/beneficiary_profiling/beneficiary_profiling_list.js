@@ -42,10 +42,6 @@ frappe.listview_settings['Beneficiary Profiling'] = {
 		cur_list?.page?.add_inner_button("Beneficiary report", function () {
 			window.location.href = 'report-list/Beneficiary%20Profiling'
 		})
-		// cur_list?.page?.add_inner_button("WhatsApp", async ()=> {
-		// 	let res = await sendIdCard()
-		// 	console.log("Res", res);
-		// })
 
 	},
 	add_fields: [

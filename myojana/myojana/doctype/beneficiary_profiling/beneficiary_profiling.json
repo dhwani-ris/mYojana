@@ -469,6 +469,7 @@
    "fieldname": "proof_of_disability",
    "fieldtype": "Table MultiSelect",
    "label": "Proof of disability",
+   "mandatory_depends_on": "eval:doc.what_is_the_extent_of_your_disability == \"Above 40%\"",
    "options": "Proof of Disability Child"
   },
   {
@@ -544,7 +545,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-19 17:17:31.278807",
+ "modified": "2024-07-07 14:45:03.295227",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
