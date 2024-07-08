@@ -18,7 +18,6 @@ frappe.router.on('change', async () => {
     if (cur_router[0]!='Workspaces') {
         $('.sidebar-toggle-btn').hide()
         $('.layout-side-section').hide();
-        $('.custom-actions').hide()
     } else {
         $('.sidebar-toggle-btn').show()
         $('.layout-side-section').show();
