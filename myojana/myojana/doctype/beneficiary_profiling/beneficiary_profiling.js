@@ -95,6 +95,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   async refresh(frm) {
+    await render_scheme_datatable(frm) // render scheme_data_tables 
     is_primary_member_link_through_phone_number = await get_myojana_setting()
     if (frm.is_new()) {
       console.log("new data")
@@ -156,7 +157,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
       
       await apply_filter_on_id_document()
-      await render_scheme_datatable(frm) // render scheme_data_tables 
 
     }
     frm.fields_dict.date_of_visit.$input.datepicker({ maxDate: new Date(frappe.datetime.get_today()) }); // restrict future date from date pickers
