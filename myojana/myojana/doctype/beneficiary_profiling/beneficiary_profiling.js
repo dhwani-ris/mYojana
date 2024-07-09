@@ -95,6 +95,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   async refresh(frm) {
+    await render_scheme_datatable(frm) // render scheme_data_tables 
     is_primary_member_link_through_phone_number = await get_myojana_setting()
     if (frm.is_new()) {
       console.log("new data")
@@ -122,9 +123,18 @@ frappe.ui.form.on("Beneficiary Profiling", {
               print_format: id_card_template
             },
             freeze_message: __("getting template..."),
-          })
-          frappe.confirm(`<style>${print_template.style}</style>${print_template.html}`,
-            () => {
+          });
+          
+          let d = new frappe.ui.Dialog({
+            title: __("Confirmation"),
+            fields: [
+              {
+                fieldtype: 'HTML',
+                options: `<style>${print_template.style}</style>${print_template.html}`
+              }
+            ],
+            primary_action_label: 'Send',
+            primary_action: async function () {
               html2canvas(document.getElementById('id-card')).then(async (canvas) => {
                 const dataURL = await canvas.toDataURL('image/png');
                 let res = await callAPI({
@@ -135,15 +145,18 @@ frappe.ui.form.on("Beneficiary Profiling", {
                     imgDataUrl: dataURL
                   },
                   freeze_message: __("Sending message..."),
-                })
+                });
               });
-            }, () => {
-              // action to perform if No is selected
-            })
+              d.hide();
+            }
+          });
+          d.set_secondary_action_label('Cancel');
+          d.set_secondary_action(() => d.hide());
+          d.show();
         }, __());
       }
+      
       await apply_filter_on_id_document()
-      await render_scheme_datatable(frm) // render scheme_data_tables 
 
     }
     frm.fields_dict.date_of_visit.$input.datepicker({ maxDate: new Date(frappe.datetime.get_today()) }); // restrict future date from date pickers
