@@ -8,6 +8,7 @@ app_license = "mit"
 
 fixtures = [
     "mYojana Settings",
+    "Print Format",
     # "scheme application submitted",
     # "Scheme Paid by",
     # "Client Script",
