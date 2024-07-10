@@ -24,7 +24,7 @@ const apply_filter_on_id_document = async () => {
 // ********************* ID documents CHILD Table *********************
 frappe.ui.form.on('ID Document Child', {
   form_render: async function (frm, cdt, cdn) {
-
+    apply_filter_on_id_document()
   },
   id_table_list_add: async function (frm, cdt, cdn) {
     apply_filter_on_id_document()
