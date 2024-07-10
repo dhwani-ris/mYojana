@@ -269,7 +269,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     let dob = frm.doc.date_of_birth;
     if (new Date(dob) > new Date(frappe.datetime.get_today())) {
       await frm.set_value("date_of_birth", '');
-      await frappe.throw(__("Date of birth can't be greater than today's date"));
+      return frappe.throw(__("Date of birth can't be greater than today's date"));
     }
     if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
       if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
@@ -297,25 +297,35 @@ frappe.ui.form.on("Beneficiary Profiling", {
       }
       let ageString = years > 0 ? years.toString() : '0';
       let completedAgeMonths = months <= 11 ? months : null;
-      await frm.set_value({
-        'completed_age': ageString,
-        'completed_age_month': completedAgeMonths
-      });
+      if(frm.doc.completed_age != ageString){
+        await frm.set_value(
+          'completed_age', ageString,
+         );
+      }
+      if(frm.doc.completed_age_month != completedAgeMonths){
+        await frm.set_value(
+          'completed_age_month', completedAgeMonths,
+         );
+      }
+      // await frm.set_value({
+      //   'completed_age': ageString,
+      //   'completed_age_month': completedAgeMonths
+      // });
     }
   },
   completed_age: function (frm) {
-    if (frm.doc.date_of_birth !== frappe.datetime.get_today()) {
-    }
+
   },
   completed_age_month: async function (frm) {
     if (frm.doc.completed_age_month > 11) {
       await frm.set_value("completed_age_month", '');
       await frappe.throw(__("Completed age in month should be less than or equal to 11"));
     }
-    if (frm.doc.date_of_birth !== frappe.datetime.get_today()) {
-      let dob = generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth)
+    let dob = generateDOBFromAge(frm.doc?.completed_age, frm.doc?.completed_age_month, frm.doc?.date_of_birth)
+    // console.log("///////////////////",  frm.doc?.date_of_birth , dob)
+    if (new Date(frm.doc.date_of_birth) !== new Date(dob)) {
       console.log("generatedDOB", dob, frm.doc?.completed_age, frm.doc?.completed_age_month);
-      frm.set_value("date_of_birth", dob)
+      // frm.set_value("date_of_birth", dob)
     }
   },
   are_you_a_person_with_disability_pwd: async function (frm) {
