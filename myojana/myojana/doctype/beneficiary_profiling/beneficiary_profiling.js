@@ -67,6 +67,18 @@ async function get_myojana_setting() {
   })
   return get_myojana_setting.is_primary_member_link_through_phone_number
 }
+const sendIdCard = async (phoneNo = "917091668703") => {
+	let res = await callAPI({
+		method: 'myojana.apis.whatsapp.send',
+		freeze: true,
+		args: {
+			fields: ['is_primary_member_link_through_phone_number'],
+			phoneNo: phoneNo,
+			name: "Abhishek"
+		},
+		freeze_message: __("Sending message..."),
+	})
+}
 frappe.ui.form.on("Beneficiary Profiling", {
   after_save: async function (frm) {
     if (!frm.is_new()) {
@@ -124,7 +136,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
             },
             freeze_message: __("getting template..."),
           });
-          
+
           let d = new frappe.ui.Dialog({
             title: __("Confirmation"),
             fields: [
@@ -135,25 +147,22 @@ frappe.ui.form.on("Beneficiary Profiling", {
             ],
             primary_action_label: 'Send',
             primary_action: async function () {
+              console.log('Send button clicked primary action');
               html2canvas(document.getElementById('id-card')).then(async (canvas) => {
                 const dataURL = await canvas.toDataURL('image/png');
-                let res = await callAPI({
-                  method: 'myojana.apis.whatsapp.send',
-                  freeze: true,
-                  args: {
-                    phoneNo: frm.doc.contact_number,
-                    imgDataUrl: dataURL
-                  },
-                  freeze_message: __("Sending message..."),
-                });
+                console.log('Canvas data URL generated');
               });
+              sendIdCard(frm.doc.contact_number)
+
               d.hide();
             }
           });
+
           d.set_secondary_action_label('Cancel');
           d.set_secondary_action(() => d.hide());
           d.show();
         }, __());
+
       }
       
       await apply_filter_on_id_document()
