@@ -67,8 +67,13 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-06-03 15:30:51.599354",
+ "links": [
+  {
+   "link_doctype": "Beneficiary Profiling",
+   "link_fieldname": "select_primary_member"
+  }
+ ],
+ "modified": "2024-07-13 11:23:22.107868",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",
