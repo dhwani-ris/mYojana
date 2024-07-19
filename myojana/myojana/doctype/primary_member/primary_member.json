@@ -20,7 +20,7 @@
   {
    "fieldname": "name_of_head_of_family",
    "fieldtype": "Link",
-   "label": "Name of Head of Family",
+   "label": "Name of Head of Primary Member",
    "options": "Beneficiary Profiling"
   },
   {
@@ -36,7 +36,7 @@
    "fetch_from": "name_of_head_of_family.name_of_the_beneficiary",
    "fieldname": "name_of_parents",
    "fieldtype": "Data",
-   "label": "Name of Parents",
+   "label": "Name of Primary Member",
    "read_only": 1
   },
   {
@@ -73,7 +73,7 @@
    "link_fieldname": "select_primary_member"
   }
  ],
- "modified": "2024-07-13 11:23:22.107868",
+ "modified": "2024-07-19 15:19:21.422377",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",
