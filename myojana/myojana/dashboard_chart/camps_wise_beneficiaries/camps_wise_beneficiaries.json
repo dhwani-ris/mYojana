@@ -10,14 +10,18 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-02-09 14:39:02.418343",
+ "modified": "2024-07-19 18:42:43.807069",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Camps-wise beneficiaries",
  "number_of_groups": 0,
  "owner": "Administrator",
  "report_name": "Camps-wise beneficiaries",
- "roles": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
  "time_interval": "Yearly",
  "timeseries": 0,
  "timespan": "Last Year",
