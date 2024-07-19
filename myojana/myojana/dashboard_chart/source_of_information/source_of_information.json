@@ -10,14 +10,18 @@
  "idx": 1,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-02-09 17:11:18.160340",
+ "modified": "2024-07-19 18:42:30.120670",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Source of information",
  "number_of_groups": 0,
  "owner": "Administrator",
  "report_name": "Source of information",
- "roles": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
  "time_interval": "Yearly",
  "timeseries": 0,
  "timespan": "Last Year",
