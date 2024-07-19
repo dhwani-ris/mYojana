@@ -110,7 +110,7 @@
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
    "label": "Date of birth",
-   "mandatory_depends_on": "eval:doc.is_bulk_imported != 1"
+   "mandatory_depends_on": "eval:!(doc.is_bulk_imported == 1 && doc.__islocal)"
   },
   {
    "fieldname": "completed_age",
@@ -238,14 +238,14 @@
    "fieldname": "state",
    "fieldtype": "Link",
    "label": "State",
-   "mandatory_depends_on": "eval:doc.is_bulk_imported != 1",
+   "mandatory_depends_on": "eval:!(doc.is_bulk_imported == 1 && doc.__islocal)",
    "options": "State"
   },
   {
    "fieldname": "district",
    "fieldtype": "Link",
    "label": "District",
-   "mandatory_depends_on": "eval:doc.is_bulk_imported != 1",
+   "mandatory_depends_on": "eval:!(doc.is_bulk_imported == 1 && doc.__islocal)",
    "options": "District"
   },
   {
@@ -279,7 +279,7 @@
    "fieldtype": "Link",
    "ignore_user_permissions": 1,
    "label": "State of origin",
-   "mandatory_depends_on": "eval:doc.is_bulk_imported != 1",
+   "mandatory_depends_on": "eval:!(doc.is_bulk_imported == 1 && doc.__islocal)",
    "options": "State",
    "read_only_depends_on": "eval:doc.same_as_above == 1"
   },
@@ -545,7 +545,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-17 16:08:03.994982",
+ "modified": "2024-07-19 10:29:23.176629",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
