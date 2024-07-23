@@ -26,26 +26,5 @@
   "gender": "Transgender",
   "modified": "2024-03-14 10:10:49.195184",
   "name": "Transgender"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gender",
-  "gender": "Genderqueer",
-  "modified": "2024-03-14 10:10:49.199532",
-  "name": "Genderqueer"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gender",
-  "gender": "Non-Conforming",
-  "modified": "2024-03-14 10:10:49.202659",
-  "name": "Non-Conforming"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gender",
-  "gender": "Prefer not to say",
-  "modified": "2024-03-14 10:10:49.206494",
-  "name": "Prefer not to say"
  }
 ]
