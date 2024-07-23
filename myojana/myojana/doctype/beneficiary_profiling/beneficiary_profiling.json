@@ -100,10 +100,10 @@
   },
   {
    "fieldname": "gender",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nTransgender\nOthers",
+   "options": "Gender",
    "reqd": 1
   },
   {
@@ -362,6 +362,7 @@
    "options": "Scheme Child"
   },
   {
+   "default": "Open",
    "fieldname": "overall_status",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -371,6 +372,7 @@
    "read_only": 1
   },
   {
+   "default": "0/0",
    "fieldname": "numeric_overall_status",
    "fieldtype": "Data",
    "label": "Numeric overall status",
@@ -545,7 +547,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-19 10:29:23.176629",
+ "modified": "2024-07-23 10:40:09.290819",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
