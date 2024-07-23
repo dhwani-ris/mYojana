@@ -48,7 +48,7 @@ permission_query_conditions = {
     # "Sub Centre":"myojana.middlewares.sub_centre.list_query",
     # "Myojana User":"myojana.middlewares.myojana_users.list_query",
     "Role Profile":"myojana.middlewares.role_profile.list_query",
-    "User":"myojana.middlewares.user.list_query",
+    # "User":"myojana.middlewares.user.list_query",
     # "Centre":"myojana.middlewares.centre.list_query",
 }
 
