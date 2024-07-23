@@ -100,10 +100,10 @@
   },
   {
    "fieldname": "gender",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nTransgender\nOthers",
+   "options": "Gender",
    "reqd": 1
   },
   {
@@ -547,7 +547,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-21 16:18:08.690650",
+ "modified": "2024-07-23 10:40:09.290819",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
