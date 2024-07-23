@@ -13,5 +13,8 @@ var filters = [
 	},
 ];
 frappe.query_reports["Beneficiaries who have received benefits of 2 or more schemes"] = {
-	filters: filters
+	filters: filters,
+	formatter: function(value,k,column,m) {
+		console.log(value,column,k,m);
+	}
 };
