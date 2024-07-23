@@ -10,14 +10,18 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-01-15 21:39:00.767760",
+ "modified": "2024-07-19 18:43:15.272064",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Occupation wise beneficiaries",
  "number_of_groups": 0,
  "owner": "Administrator",
  "report_name": "Occupational category-wise beneficiaries",
- "roles": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
  "time_interval": "Yearly",
  "timeseries": 0,
  "timespan": "Last Year",
