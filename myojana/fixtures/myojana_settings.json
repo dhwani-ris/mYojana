@@ -4,9 +4,9 @@
   "doctype": "mYojana Settings",
   "doctype_which_is_shown_in_user_permission": "State,District,  Block,",
   "enable_track_changes": [],
-  "id_card_template": null,
+  "id_card_template": "",
   "is_primary_member_link_through_phone_number": 1,
-  "modified": "2024-06-23 11:29:55.709988",
+  "modified": "2024-07-16 15:20:52.120040",
   "name": "mYojana Settings",
   "role_doctype_mapping": [
    {
