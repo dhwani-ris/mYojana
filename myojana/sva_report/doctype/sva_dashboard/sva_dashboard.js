@@ -3,7 +3,6 @@
 const apply_filter = async () => {
     var child_table = cur_frm.fields_dict['cards'].grid;
     let existing_cards = cur_frm.doc.cards.map((item) => {return item.card});
-    console.log('existing_cards', existing_cards);
     if (child_table) {
         try {
             child_table.get_field('card').get_query = function () {
