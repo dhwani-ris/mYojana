@@ -6,7 +6,10 @@
  "engine": "InnoDB",
  "field_order": [
   "card",
-  "css_properties"
+  "background",
+  "border",
+  "text",
+  "number"
  ],
  "fields": [
   {
@@ -18,15 +21,30 @@
    "reqd": 1
   },
   {
-   "fieldname": "css_properties",
-   "fieldtype": "JSON",
-   "label": "CSS Properties"
+   "fieldname": "text",
+   "fieldtype": "Color",
+   "label": "Text"
+  },
+  {
+   "fieldname": "background",
+   "fieldtype": "Color",
+   "label": "Background"
+  },
+  {
+   "fieldname": "border",
+   "fieldtype": "Color",
+   "label": "Border"
+  },
+  {
+   "fieldname": "number",
+   "fieldtype": "Color",
+   "label": "Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-24 14:30:31.106686",
+ "modified": "2024-07-25 10:53:05.110794",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "SVA Dashboard Card Child",

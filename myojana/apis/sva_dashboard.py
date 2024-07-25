@@ -7,13 +7,13 @@ def get_dashboards_list():
 @frappe.whitelist()
 def get_dashboard_filter(name=None):
     if name is not None:
-        return frappe.get_all('Report Filter', filters={'parent': name,'parenttype':'SVA Dashboard'}, fields=['name','fieldname','fieldtype','label','mandatory','options','wildcard_filter','default'])
+        return frappe.get_all('SVA Dashboard Filter Child', filters={'parent': name,'parenttype':'SVA Dashboard'}, fields=['name','label','fieldtype','fieldname','options','only_select','dependent','depends_on','valuefield','title_field'],order_by='idx')
     else:
         return []
 
 @frappe.whitelist()
 def get_dashboard_number_cards(name=None):
     if name is not None:
-        return frappe.get_all('SVA Dashboard Card Child', filters={'parent': name,'parenttype':'SVA Dashboard'}, fields=['card'])
+        return frappe.get_all('SVA Dashboard Card Child', filters={'parent': name,'parenttype':'SVA Dashboard'}, fields=['card','background','border','text','number'],order_by='idx')
     else:
         return []
