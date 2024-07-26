@@ -6,45 +6,65 @@
  "engine": "InnoDB",
  "field_order": [
   "card",
+  "label",
   "background",
   "border",
   "text",
-  "number"
+  "number",
+  "is_section"
  ],
  "fields": [
   {
+   "depends_on": "eval:doc.is_section == 0",
    "fieldname": "card",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Card",
-   "options": "Number Card",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.is_section == 0",
+   "options": "Number Card"
   },
   {
+   "depends_on": "eval:doc.is_section == 0",
    "fieldname": "text",
    "fieldtype": "Color",
    "label": "Text"
   },
   {
+   "depends_on": "eval:doc.is_section == 0",
    "fieldname": "background",
    "fieldtype": "Color",
    "label": "Background"
   },
   {
+   "depends_on": "eval:doc.is_section == 0",
    "fieldname": "border",
    "fieldtype": "Color",
    "label": "Border"
   },
   {
+   "depends_on": "eval:doc.is_section == 0",
    "fieldname": "number",
    "fieldtype": "Color",
    "label": "Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_section",
+   "fieldtype": "Check",
+   "label": "Is Section Break"
+  },
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label",
+   "mandatory_depends_on": "eval:doc.is_section == 1"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-07-25 10:53:05.110794",
+ "modified": "2024-07-26 10:03:32.978426",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "SVA Dashboard Card Child",
