@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-25 09:24:30.449268",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "label",
+  "fieldname",
+  "fieldtype",
+  "options",
+  "title_field",
+  "dependent",
+  "depends_on",
+  "valuefield",
+  "only_select"
+ ],
+ "fields": [
+  {
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Label",
+   "length": 50,
+   "reqd": 1
+  },
+  {
+   "fieldname": "fieldname",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldname",
+   "reqd": 1
+  },
+  {
+   "default": "Link",
+   "fieldname": "fieldtype",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Fieldtype",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "options",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Options",
+   "reqd": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "only_select",
+   "fieldtype": "Check",
+   "label": "Only Select"
+  },
+  {
+   "default": "0",
+   "fieldname": "dependent",
+   "fieldtype": "Check",
+   "label": "Dependent"
+  },
+  {
+   "depends_on": "eval:doc.dependent == 1",
+   "fieldname": "depends_on",
+   "fieldtype": "Data",
+   "label": "Depends on",
+   "mandatory_depends_on": "eval:doc.dependent == 1"
+  },
+  {
+   "depends_on": "eval:doc.dependent == 1",
+   "fieldname": "valuefield",
+   "fieldtype": "Data",
+   "label": "Valuefield",
+   "mandatory_depends_on": "eval:doc.dependent == 1"
+  },
+  {
+   "fieldname": "title_field",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title Field",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-25 14:10:13.110898",
+ "modified_by": "Administrator",
+ "module": "Sva Report",
+ "name": "SVA Dashboard Filter Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

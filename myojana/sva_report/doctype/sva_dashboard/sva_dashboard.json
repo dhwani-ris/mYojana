@@ -21,7 +21,7 @@
    "fieldname": "filters",
    "fieldtype": "Table",
    "label": "Filters",
-   "options": "Report Filter"
+   "options": "SVA Dashboard Filter Child"
   },
   {
    "fieldname": "cards",
@@ -44,7 +44,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-24 13:30:33.270526",
+ "modified": "2024-07-25 09:31:36.957471",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "SVA Dashboard",
