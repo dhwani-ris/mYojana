@@ -19,15 +19,15 @@ const apply_filter = async () => {
     }
 }
 frappe.ui.form.on("SVA Dashboard", {
-	refresh(frm) {
-
+	async refresh(frm) {
+        await apply_filter();
 	},
 });
 frappe.ui.form.on("SVA Dashboard Card Child", {
-    cards_add(frm, cdt, cdn) {
-        apply_filter();
+    async cards_add(frm, cdt, cdn) {
+        await apply_filter();
     },
-    form_render(frm, cdt, cdn) {
-        apply_filter();
+    async form_render(frm, cdt, cdn) {
+        await apply_filter();
     }
 });
