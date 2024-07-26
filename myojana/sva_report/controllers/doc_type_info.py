@@ -15,16 +15,27 @@ class DocTypeInfo:
             degree=1,
             link_table=None,
             child_table=None,
-            child_degree=1
+            child_degree=1,
+            idx=0,
+            section=False
         ):
-        # print("child_degree",child_degree)
+        # print("section",section, type(section))
         if parent_field:
             parent_field = f"{parent_field}."
         ref_doc_meta = frappe.get_meta(doc_type)
         for field in ref_doc_meta.fields:
-            local_field = {"label": field.label,"fieldtype": field.fieldtype,"fieldname": f"{field.fieldname}","options": field.options}
-            if field.fieldtype in allowed_types and field.print_hide != 1:
+            # print("field.fieldtype:",field.fieldtype)
+            local_field = {"idx":float(f"{idx}.{field.idx}") if idx else field.idx,"label": field.label,"fieldtype": field.fieldtype,"fieldname": f"{field.fieldname}","options": field.options}
+            if (
+                (
+                    (field.fieldtype in allowed_types)
+                    or
+                    (degree ==1 and section=='1' and field.fieldtype in ['Section Break','Tab Break']))
+                and
+                (field.print_hide != 1 and field.hidden != 1)
+            ) :
                 fields.append({
+                    "idx":float(f"{idx}.{field.idx}") if idx else field.idx,
                     "doc_type":doc_type,
                     "label": field.label,
                     "fieldtype": field.fieldtype,
@@ -45,9 +56,11 @@ class DocTypeInfo:
                         degree=2,
                         link_table=local_field,
                         child_table=child_table,
-                        child_degree=2
+                        child_degree=2,
+                        idx=field.idx,
+                        section=section
                     )
-            elif field.fieldtype in child_types:
+            elif child_degree == 1 and field.fieldtype in child_types:
                 local_field['parenttype'] = doc_type
                 if child_degree == 1:
                     # print(child_degree,field.fieldtype,doc_type,field.options)
@@ -58,19 +71,22 @@ class DocTypeInfo:
                         degree=1,
                         link_table=None,
                         child_table=local_field,
-                        child_degree=2
+                        child_degree=2,
+                        idx=field.idx,
+                        section=section
                     )
 
         return fields
     def prepare_fields(report_doc):
-        report_fields = [column.fieldname for column in report_doc.columns]
         all_fields = DocTypeInfo.get_fields(report_doc.ref_doctype,[], parent_field="")
         fields = []
+        # print("all_fields",all_fields)
         # print("report_fields",report_fields, all_fields)
-        if len(report_fields) > 0:
-            for column in report_fields:
+        if len(report_doc.columns) > 0:
+            for column in report_doc.columns:
                 for field in all_fields:
-                    if field.get('fieldname') == column:
+                    if field.get('fieldname') == column.fieldname:
+                        field['label'] = column.label
                         fields.append(field)
         else:
             fields.extend(all_fields)
@@ -299,7 +315,7 @@ class DocTypeInfo:
             csv_writer = csv.writer(csv_buffer)
             for result in results:
                 # res_data.append([f"`{result.get(field.get('fieldname'), '')}`" for field in fields])
-                csv_writer.writerow([f"`{result.get(field.get('fieldname'), '')}`" for field in fields])
+                csv_writer.writerow([f"{result.get(field.get('fieldname'), '') if result.get(field.get('fieldname'), '') else ''}" for field in fields])
             yield csv_buffer.getvalue()
             csv_buffer.seek(0)
             csv_buffer.truncate(0)
@@ -338,6 +354,8 @@ class DocTypeInfo:
                             "options":field.get('options')
                         } for field in report_doc.filters
                     ],
+                    'report_doc':report_doc,
+                    'fields_info':fields_info,
                     'columns':[{
                         "label":field.get('label'),
                         "name":field.get('label'),
