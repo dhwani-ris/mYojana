@@ -1,15 +1,13 @@
 import frappe
 import ast
-import frappe
 
-class Cache:
-    @staticmethod
-    def dict_to_sql_where_clause(conditions, table_name=None, op="AND"):
+class  Cache:
+    def dict_to_sql_where_clause(conditions, table_name = None, op="AND"):
         """
-        Convert a dictionary to an SQL WHERE clause with AND conditions.
+        Convert a dictionary to an SQL WHERE clause with OR conditions.
 
         :param conditions: A dictionary containing conditions in the form of {'key': ['value1', 'value2', ...], ...}
-        :return: A string representing the SQL WHERE clause with AND conditions.
+        :return: A string representing the SQL WHERE clause with OR conditions.
         """
         where_clauses = []
 
@@ -24,55 +22,50 @@ class Cache:
             else:
                 # Create an IN condition for multiple values
                 val = [f"'{value}'" for value in values]
-                if table_name:
-                    in_clause = f"{table_name}.{key} IN ({', '.join(val)})"
+                if(table_name):
+                    in_clause = f"{table_name+'.'+key} IN ({', '.join(val)})"
                 else:
                     in_clause = f"{key} IN ({', '.join(val)})"
                 where_clauses.append(in_clause)
 
-        # Combine all conditions with AND
+        # Combine all conditions with OR
         where_clause = f" {op} ".join(where_clauses)
 
         return where_clause
 
-    @staticmethod
-    def get_user_permission(cond_str=True, table=None):
+    def get_user_permission(cond_str=True,table=None):
         usr = frappe.session.user
-        # Getting myojana setting and mapping of state and district
+        # getting myojan setting and mapping of state and district
         mapper_docs = frappe.db.sql("""
-            SELECT
-                doctypes, field_name
-            FROM `tabSetting Doctype Child`
-        """, as_dict=True)
-
+                SELECT
+                    doctypes , field_name
+                FROM `tabSetting Doctype Child`
+            """,as_dict=True)
+        # print("myojana_setting_child:",myojana_setting_child)
         mapperObj = {}
         for doc in mapper_docs:
             mapperObj[doc.doctypes] = doc.field_name
-
-        # Getting the list of user permission list
+        # getting the list of user permission list
         permission_list = frappe.db.get_list('User Permission',
-                                             filters={'user': usr},
-                                             fields=['allow', 'for_value'],
-                                             ignore_permissions=True)
-
+            filters={
+                'user': usr
+            },
+            fields=['allow', 'for_value'],
+            ignore_permissions=True
+        )
+        # print("permission_list",permission_list)
         conditions = {}
         for doc in permission_list:
-            if doc.allow in mapperObj:
-                field_name = mapperObj[doc.allow]
-                if field_name is not None:
-                    if field_name in conditions:
-                        conditions[field_name].append(f"{doc.for_value}")
-                    else:
-                        conditions[field_name] = [f"{doc.for_value}"]
-            else:
-                # Log or handle the case where doc.allow is not in mapperObj
-                print(f"Warning: '{doc.allow}' key is missing in mapperObj")
-
+            if mapperObj[doc.allow] is not None:
+                # print(mapperObj[doc.allow])
+                if conditions.get(mapperObj[doc.allow], None) is not None:
+                    conditions[mapperObj[doc.allow]].append(f"{doc.for_value}")
+                else:
+                    conditions[mapperObj[doc.allow]] = [f"{doc.for_value}"]
         new_conditions = {}
         if cond_str:
             new_conditions = Cache.dict_to_sql_where_clause(conditions, table)
         else:
             for field_name in conditions:
-                new_conditions[field_name] = ["IN", conditions[field_name]]
-
+                new_conditions[field_name] = ["IN",conditions[field_name]]
         return new_conditions
