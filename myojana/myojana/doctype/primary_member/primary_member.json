@@ -13,6 +13,8 @@
   "phone_no",
   "state",
   "district",
+  "block",
+  "village",
   "centre",
   "sub_centre"
  ],
@@ -64,6 +66,21 @@
    "fieldtype": "Link",
    "label": "District",
    "options": "District"
+  },
+  {
+   "fetch_from": "name_of_head_of_family.ward",
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block"
+  },
+  {
+   "fetch_from": "name_of_head_of_family.name_of_the_settlement",
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Village",
+   "options": "Village"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -73,7 +90,7 @@
    "link_fieldname": "select_primary_member"
   }
  ],
- "modified": "2024-07-19 15:19:21.422377",
+ "modified": "2024-07-27 11:31:08.985833",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Primary Member",

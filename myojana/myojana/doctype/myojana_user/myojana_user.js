@@ -43,6 +43,13 @@ const openDialog = (_cb, role_profile) => {
                 "options": "Block Child"
             },
             {
+                "depends_on": "eval:doc.select_doctype==\"Village\"",
+                "fieldname": "select_villages",
+                "fieldtype": "Table MultiSelect",
+                "label": "Select Villages",
+                "options": "Village Child"
+            },
+            {
                 "depends_on": "eval:doc.select_doctype==\"Centre\"",
                 "fieldname": "select_centres",
                 "fieldtype": "Table MultiSelect",
@@ -60,8 +67,8 @@ const openDialog = (_cb, role_profile) => {
         primary_action_label: 'Submit',
         async primary_action(values) {
             // Log the selected values
-            console.log(values);
             let doctype = values.select_doctype;
+            console.log(doctype);
             let selected_keys;
             switch (doctype) {
                 case "State":
@@ -78,6 +85,11 @@ const openDialog = (_cb, role_profile) => {
                     selected_keys = values.select_blocks;
                     console.log(selected_keys)
                     await loop_values(selected_keys, doctype, cur_frm, 'block')
+                    break;
+                case "Village":
+                    selected_keys = values.select_villages;
+                    console.log(selected_keys)
+                    await loop_values(selected_keys, doctype, cur_frm, 'village')
                     break;
                 case "Centre":
                     selected_keys = values.select_centres;

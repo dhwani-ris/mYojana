@@ -47,14 +47,14 @@
  "hide_custom": 0,
  "icon": "assign",
  "idx": 0,
- "indicator_color": "green",
+ "indicator_color": "",
  "is_hidden": 0,
- "label": "Beneficiaries",
+ "label": "Dashboards",
  "links": [],
- "modified": "2024-05-19 09:32:08.152505",
+ "modified": "2024-07-27 07:39:31.227470",
  "modified_by": "Administrator",
  "module": "myojana",
- "name": "Beneficiaries",
+ "name": "Dashboards",
  "number_cards": [
   {
    "label": "NUMBER OF BENEFICIARY OUTREACH",
@@ -100,5 +100,5 @@
  ],
  "sequence_id": 1.0,
  "shortcuts": [],
- "title": "Beneficiaries"
+ "title": "Dashboards"
 }
