@@ -22,14 +22,14 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "DocTypeRef",
-   "link_filters": "[[\"DocType\",\"name\",\"in\",[\"State\",\"District\",\"Block\",\"Centre\",\"Sub Centre\"]]]",
+   "link_filters": "[[\"DocType\",\"name\",\"in\",[\"State\",\"District\",\"Block\",\"Village\",\"Centre\",\"Sub Centre\"]]]",
    "options": "DocType"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-20 16:46:32.286497",
+ "modified": "2024-07-26 19:06:25.267618",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojanaRoleProfileDocTypeMapping",
