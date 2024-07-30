@@ -24,7 +24,7 @@ async function autoSetOption(frm) {
       doctype: "Centre",
       reference_doctype: "Beneficiary Profiling"
     },
-    freeze_message: __("Getting Centres"),
+    // freeze_message: __("Getting Centres"),
   })
   state_option = await callAPI({
     method: 'frappe.desk.search.search_link',
@@ -34,7 +34,7 @@ async function autoSetOption(frm) {
       doctype: "State",
       reference_doctype: "Beneficiary Profiling"
     },
-    freeze_message: __("Getting States"),
+    // freeze_message: __("Getting States"),
   })
   districts_option = await callAPI({
     method: 'frappe.desk.search.search_link',
@@ -44,7 +44,7 @@ async function autoSetOption(frm) {
       doctype: "District",
       reference_doctype: "Beneficiary Profiling"
     },
-    freeze_message: __("Getting Districts"),
+    // freeze_message: __("Getting Districts"),
   })
   if (centres?.length === 1) {
     frm.set_value("centre", centres[0].value)
@@ -63,7 +63,7 @@ async function get_myojana_setting() {
     args: {
       fields: ['is_primary_member_link_through_phone_number']
     },
-    freeze_message: __("Getting Centres"),
+    // freeze_message: __("Getting Centres"),
   })
   return get_myojana_setting.is_primary_member_link_through_phone_number
 }
