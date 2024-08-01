@@ -15,7 +15,6 @@ def execute(filters=None):
             "fieldtype": "Int",
             "width": 400,
         },
-
     ]
 
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 'ben_table')
@@ -32,7 +31,7 @@ def execute(filters=None):
             `tabScheme Child` as _sc
         INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
         WHERE
-            _sc.status IS NOT NULL AND _sc.status != '' {condition_str}
+            _sc.status IS NOT NULL AND _sc.status != '' AND _sc.status != 'Availed' {condition_str}
         GROUP BY
             _sc.status;
     """
