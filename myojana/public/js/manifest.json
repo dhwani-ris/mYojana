@@ -1,0 +1,57 @@
+{
+    "name": "mYojana Mobile",
+    "short_name": "mYojana",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "description": "Mobile APP PWA for mYojana",
+    "categories": [
+      "business",
+      "productivity",
+      "utilities"
+    ],
+    "icons": [
+      {
+        "src": "./images/mYojana.png",
+        "sizes": "48x48 72x72 96x96 128x128 256x256 512x512",
+        "type": "image/png",
+        "purpose": "any"
+      }
+    ],
+    "id": "myojana",
+    "dir": "auto",
+    "lang": "en",
+    "orientation": "any",
+    "prefer_related_applications": false,
+    "handle_links": "preferred",
+    "launch_handler": {
+    "client_mode": "navigate-existing"
+    },
+    "shortcuts": [
+  {
+    "name": "Todo",
+    "url": "/app/todo",
+    "description": "Todo List",
+    "icons": [
+        {
+          "src": "/files/logo.svg",
+          "type": "image/svg+xml",
+          "purpose": "any"
+        }
+      ]
+  },
+  {
+    "name": "Tasks",
+    "url": "/app/task",
+    "description": "Tasks List",
+    "icons": [
+        {
+          "src": "/files/logo.svg",
+          "type": "image/svg+xml",
+          "purpose": "any"
+        }
+      ]
+  }
+]
+  }

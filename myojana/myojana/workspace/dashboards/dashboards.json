@@ -33,7 +33,7 @@
    "label": "Gender composition"
   }
  ],
- "content": "[{\"id\":\"JNDPp8Z2SM\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"print in pdf\",\"col\":12}},{\"id\":\"6vDcYvdR5K\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF BENEFICIARY OUTREACH\",\"col\":4}},{\"id\":\"xdXxm17yLL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF FAMILIES\",\"col\":4}},{\"id\":\"UPgPfj9Yri\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total ascertaining demands\",\"col\":4}},{\"id\":\"b7jnKBxi2O\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total submitted demands\",\"col\":6}},{\"id\":\"39tTUw4lvS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total sanctioned demands\",\"col\":6}},{\"id\":\"vNViM96luc\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Gender composition\",\"col\":6}},{\"id\":\"WGPGvENVJA\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Beneficiaries with bank account\",\"col\":6}},{\"id\":\"GxuwfhS5Xu\",\"type\":\"chart\",\"data\":{\"chart_name\":\"House type-wise beneficiaries\",\"col\":12}},{\"id\":\"PShS8Mj_Tq\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Source of information\",\"col\":12}},{\"id\":\"EKjrHgYGZ0\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Camps-wise beneficiaries\",\"col\":12}},{\"id\":\"5n40TSBnHo\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Age-wise beneficiaries\",\"col\":12}},{\"id\":\"WV7Z5jSolP\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Occupational category-wise beneficiaries\",\"col\":12}},{\"id\":\"ZWDsj6v9GU\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Religion-wise beneficiaries\",\"col\":12}}]",
+ "content": "[{\"id\":\"JNDPp8Z2SM\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"print in pdf\",\"col\":12}},{\"id\":\"6vDcYvdR5K\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF BENEFICIARY OUTREACH\",\"col\":4}},{\"id\":\"xdXxm17yLL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF FAMILIES\",\"col\":4}},{\"id\":\"UPgPfj9Yri\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total demands\",\"col\":4}},{\"id\":\"b7jnKBxi2O\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total under process demands\",\"col\":6}},{\"id\":\"39tTUw4lvS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total sanctioned demands\",\"col\":6}},{\"id\":\"vNViM96luc\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Gender composition\",\"col\":6}},{\"id\":\"WGPGvENVJA\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Beneficiaries with bank account\",\"col\":6}},{\"id\":\"GxuwfhS5Xu\",\"type\":\"chart\",\"data\":{\"chart_name\":\"House type-wise beneficiaries\",\"col\":12}},{\"id\":\"PShS8Mj_Tq\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Source of information\",\"col\":12}},{\"id\":\"EKjrHgYGZ0\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Camps-wise beneficiaries\",\"col\":12}},{\"id\":\"5n40TSBnHo\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Age-wise beneficiaries\",\"col\":12}},{\"id\":\"WV7Z5jSolP\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Occupational category-wise beneficiaries\",\"col\":12}},{\"id\":\"ZWDsj6v9GU\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Religion-wise beneficiaries\",\"col\":12}}]",
  "creation": "2023-12-21 19:17:06.822003",
  "custom_blocks": [
   {
@@ -51,11 +51,19 @@
  "is_hidden": 0,
  "label": "Dashboards",
  "links": [],
- "modified": "2024-07-27 07:39:31.227470",
+ "modified": "2024-08-01 14:16:43.573732",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Dashboards",
  "number_cards": [
+  {
+   "label": "Total demands",
+   "number_card_name": "Sum of Total_ascertaining_demands"
+  },
+  {
+   "label": "Total under process demands",
+   "number_card_name": "Sum of Count"
+  },
   {
    "label": "NUMBER OF BENEFICIARY OUTREACH",
    "number_card_name": "NUMBER OF BENEFICIARIES"
@@ -63,14 +71,6 @@
   {
    "label": "Total sanctioned demands",
    "number_card_name": "Sum of Count-1"
-  },
-  {
-   "label": "Total submitted demands",
-   "number_card_name": "Sum of Count"
-  },
-  {
-   "label": "Total ascertaining demands",
-   "number_card_name": "Sum of Total_ascertaining_demands"
   },
   {
    "label": "NUMBER OF FAMILIES",
