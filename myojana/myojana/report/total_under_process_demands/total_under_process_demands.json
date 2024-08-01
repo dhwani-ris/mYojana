@@ -12,11 +12,11 @@
     "modified": "2024-01-07 20:06:52.255386",
     "modified_by": "Administrator",
     "module": "myojana",
-    "name": "Total Submitted Demands",
+    "name": "Total under process demands",
     "owner": "Administrator",
     "prepared_report": 0,
     "ref_doctype": "Beneficiary Profiling",
-    "report_name": "Total Submitted Demands",
+    "report_name": "Total under process demands",
     "report_type": "Script Report",
     "roles": [
         {
