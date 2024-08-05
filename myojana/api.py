@@ -3,8 +3,13 @@ from myojana.services.beneficiary_scheme import BeneficaryScheme
 from myojana.utils.misc import Misc
 # from myojana.utils.filter import Filter
 from myojana.utils.report_filter import ReportFilter
-
 import json
+
+from myojana.utils.htmltoimg import create_image
+
+@frappe.whitelist(allow_guest=True)
+def get_image():
+    return create_image()
 
 @frappe.whitelist(allow_guest=True)
 def get_mYojana_settings():

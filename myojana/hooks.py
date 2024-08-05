@@ -4,7 +4,7 @@ app_publisher = "dhwaniris"
 app_description = "social inclusion program management system"
 app_email = "teach@suvaidyam.com"
 app_license = "mit"
-required_apps = ["Suvaidyam/sva_dashboard"]
+# required_apps = ["Suvaidyam/sva_dashboard"]
 
 fixtures = [
     "mYojana Settings",
