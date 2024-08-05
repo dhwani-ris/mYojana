@@ -9,10 +9,11 @@ readme = "README.md"
 dynamic = ["version"]
 dependencies = [
     # "frappe~=15.0.0" # Installed and managed by bench.
+    "imgkit==1.2.2"
 ]
 
 [build-system]
-requires = ["flit_core >=3.4,<4"]
+requires = ["flit_core >=3.4,<4","imgkit==1.2.2"]
 build-backend = "flit_core.buildapi"
 
 # These dependencies are only installed when developer mode is enabled
