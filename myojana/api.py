@@ -8,8 +8,8 @@ import json
 from myojana.utils.htmltoimg import create_image
 
 @frappe.whitelist(allow_guest=True)
-def get_image():
-    return create_image()
+def get_image(ben_id):
+    return create_image(ben_id)
 
 @frappe.whitelist(allow_guest=True)
 def get_mYojana_settings():
