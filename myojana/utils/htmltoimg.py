@@ -1,7 +1,7 @@
 import imgkit
 
 
-def create_image():
+def create_image(ben_id):
     # Define your HTML content
     html_content = '''
     <!DOCTYPE html>

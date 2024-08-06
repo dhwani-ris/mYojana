@@ -276,7 +276,9 @@ class DocTypeInfo:
                 ct_info = child_table.get('info')
                 ct_columns = child_table.get('columns')
                 _ct_columns = child_table.get('_columns')
-                records = frappe.get_list(ct_info.get('options'),fields=ct_columns, filters={'parent':row.name,'parenttype':ct_info.get('parenttype')})
+                print(ct_info.get('options'))
+                # records = frappe.db.sql(f"select * from `tab{ct_info.get('options')}` where parent = '{row.name}' and parenttype = '{ct_info.get('parenttype')}'")
+                records = frappe.get_list(ct_info.get('options'),fields=ct_columns, filters={'parent':row.name,'parenttype':ct_info.get('parenttype')},ignore_permissions=True)
                 if len(_ct_columns):
                     k = _ct_columns[0]
                     row[f"{ct_info.get('fieldname')}.{k}"] = ",".join([record[k] for record in records])
@@ -285,7 +287,7 @@ class DocTypeInfo:
                 ct_info = child_table.get('info')
                 ct_columns = child_table.get('columns')
                 _ct_columns = child_table.get('_columns')
-                records = frappe.get_list(ct_info.get('options'),fields=ct_columns, filters={'parent':row.name,'parenttype':ct_info.get('parenttype')})
+                records = frappe.get_list(ct_info.get('options'),fields=ct_columns, filters={'parent':row.name,'parenttype':ct_info.get('parenttype')},ignore_permissions=True)
                 # row[child_table] = records
                 for i,record in enumerate(records):
                     if len(_rows) < (i+1):
@@ -329,6 +331,7 @@ class DocTypeInfo:
         report_doc = frappe.get_doc(doc_type, doc_name)
         fields = DocTypeInfo.prepare_fields(report_doc)
         fields_info = DocTypeInfo.get_fields_info(fields)
+        
         # return fields
         # proof_of_disability.proof_of_disability.proof_of_disability
         if report_doc.ref_doctype is not None:
@@ -339,11 +342,14 @@ class DocTypeInfo:
                 return response
             else:
                 results, count = [], 0
+                print("1")
                 count_res = frappe.get_list(report_doc.ref_doctype,fields=["count(name) as count"],filters=filters)
                 if len(count_res):
                     count = count_res[0].count
                 rows = frappe.get_list(report_doc.ref_doctype,fields=fields_info.get('columns'),filters=filters, start=skip,page_length=limit)
+                print("2")
                 results = DocTypeInfo.create_data(rows, fields_info)
+                print("3")
                 return {
                     'filters':[
                         {
