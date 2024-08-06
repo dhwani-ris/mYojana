@@ -8,7 +8,7 @@ const get_ordered_list = async (doctype, optionsToSort) => {
       page_length: 1000,
       txt: ''
     },
-    freeze_message: __("Getting list ..."),
+    // freeze_message: __("Getting list ..."),
   })
   if (optionsToSort) {
     let reOrderedList = [];
