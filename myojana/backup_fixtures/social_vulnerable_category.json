@@ -2,134 +2,50 @@
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.875402",
-  "name": "Acid attack victims",
-  "social_vulnerable_category": "Acid attack victims"
+  "modified": "2024-08-07 08:38:43.054679",
+  "name": "Orphan",
+  "social_vulnerable_category": "Orphan"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.895467",
-  "name": "BPL category",
-  "social_vulnerable_category": "BPL category"
+  "modified": "2024-08-07 08:38:43.073231",
+  "name": "HIV / PLHIV",
+  "social_vulnerable_category": "HIV / PLHIV"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.908651",
-  "name": "Co-morbid",
-  "social_vulnerable_category": "Co-morbid"
+  "modified": "2024-08-07 08:38:43.084841",
+  "name": "Nursing Mother",
+  "social_vulnerable_category": "Nursing Mother"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.916606",
-  "name": "Destitutes/Beggars",
-  "social_vulnerable_category": "Destitutes/Beggars"
+  "modified": "2024-08-07 08:38:43.095264",
+  "name": "TB Patient",
+  "social_vulnerable_category": "TB Patient"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.926297",
-  "name": "HIV/AIDS patients",
-  "social_vulnerable_category": "HIV/AIDS patients"
+  "modified": "2024-08-07 08:38:43.102685",
+  "name": "Leprosy / Silicosis",
+  "social_vulnerable_category": "Leprosy / Silicosis"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.934200",
-  "name": "Homeless",
-  "social_vulnerable_category": "Homeless"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.949113",
-  "name": "Landless households",
-  "social_vulnerable_category": "Landless households"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.956690",
-  "name": "Legally released bonded laborers",
-  "social_vulnerable_category": "Legally released bonded laborers"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.964799",
-  "name": "Manual scavengers",
-  "social_vulnerable_category": "Manual scavengers"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.971840",
-  "name": "Mental health patients",
-  "social_vulnerable_category": "Mental health patients"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.979308",
-  "name": "Migrant workers",
-  "social_vulnerable_category": "Migrant workers"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.987552",
-  "name": "Others",
-  "social_vulnerable_category": "Others"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:51.995150",
-  "name": "Patients with HIV/AIDS",
-  "social_vulnerable_category": "Patients with HIV/AIDS"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.003407",
+  "modified": "2024-08-07 08:38:43.112725",
   "name": "Pregnant women",
   "social_vulnerable_category": "Pregnant women"
  },
  {
   "docstatus": 0,
   "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.010516",
-  "name": "Primitive tribal groups",
-  "social_vulnerable_category": "Primitive tribal groups"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.023165",
-  "name": "Senior citizens",
-  "social_vulnerable_category": "Senior citizens"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.031890",
-  "name": "Sex workers",
-  "social_vulnerable_category": "Sex workers"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.039183",
-  "name": "TB patients",
-  "social_vulnerable_category": "TB patients"
- },
- {
-  "docstatus": 0,
-  "doctype": "Social vulnerable category",
-  "modified": "2024-03-14 11:58:52.048665",
-  "name": "Transgenders",
-  "social_vulnerable_category": "Transgenders"
+  "modified": "2024-08-07 08:38:43.120997",
+  "name": "Acid attack victims",
+  "social_vulnerable_category": "Acid attack victims"
  }
 ]
