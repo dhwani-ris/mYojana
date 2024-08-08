@@ -276,7 +276,7 @@ class DocTypeInfo:
                 ct_info = child_table.get('info')
                 ct_columns = child_table.get('columns')
                 _ct_columns = child_table.get('_columns')
-                print(ct_info.get('options'))
+                # print(ct_info.get('options'))
                 # records = frappe.db.sql(f"select * from `tab{ct_info.get('options')}` where parent = '{row.name}' and parenttype = '{ct_info.get('parenttype')}'")
                 records = frappe.get_list(ct_info.get('options'),fields=ct_columns, filters={'parent':row.name,'parenttype':ct_info.get('parenttype')},ignore_permissions=True)
                 if len(_ct_columns):
@@ -332,15 +332,22 @@ class DocTypeInfo:
             if len(results) < limit:
                 break
             skip = skip + limit
+    def validate_skip_limit(skip, limit):
+        try:
+            skip = int(skip)
+            limit = int(limit)
+        except (ValueError, TypeError):
+            skip = 0
+            limit = 10
+        return skip, limit
 
     def get_data(doc_type, doc_name,filters=[], skip=0, limit=10,csv_export='0',debug=False):
         # return "doc_name"
         report_doc = frappe.get_doc(doc_type, doc_name)
         fields = DocTypeInfo.prepare_fields(report_doc)
         fields_info = DocTypeInfo.get_fields_info(fields)
+        skip, limit = DocTypeInfo.validate_skip_limit(skip, limit)
 
-        # return fields
-        # proof_of_disability.proof_of_disability.proof_of_disability
         if report_doc.ref_doctype is not None:
             if csv_export == "1":
                 response = Response(DocTypeInfo.write_csv_data(report_doc,fields, fields_info, filters), content_type='text/csv')
