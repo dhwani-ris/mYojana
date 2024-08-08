@@ -196,7 +196,7 @@ class DocTypeInfo:
             if len(count_result)>0:
                 count = count_result[0].get('count', None)
         return count
-    def get_result(with_query, skip=0, limit=10):
+    def get_result(with_query, skip=0, limit=20):
         limit_str = '' if limit < 0 else f"LIMIT {limit} OFFSET {skip}"
         data_query = f"""
             {with_query}
@@ -338,10 +338,10 @@ class DocTypeInfo:
             limit = int(limit)
         except (ValueError, TypeError):
             skip = 0
-            limit = 10
+            limit = 20
         return skip, limit
 
-    def get_data(doc_type, doc_name,filters=[], skip=0, limit=10,csv_export='0',debug=False):
+    def get_data(doc_type, doc_name,filters=[], skip=0, limit=20,csv_export='0',debug=False):
         # return "doc_name"
         report_doc = frappe.get_doc(doc_type, doc_name)
         fields = DocTypeInfo.prepare_fields(report_doc)
@@ -394,7 +394,7 @@ class DocTypeInfo:
                 }
         else:
             return "Invalid"
-    def get_data_old(doc_type, doc_name,filters=[], skip=0, limit=10,csv_export='1',debug=False ):
+    def get_data_old(doc_type, doc_name,filters=[], skip=0, limit=20,csv_export='1',debug=False ):
         report_doc = frappe.get_doc(doc_type, doc_name)
         fields = DocTypeInfo.prepare_fields(report_doc)
         # print("fields",fields,report_doc)
