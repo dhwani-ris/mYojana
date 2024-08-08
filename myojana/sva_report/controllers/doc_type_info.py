@@ -310,7 +310,14 @@ class DocTypeInfo:
 
         skip, limit= 0, 100
         while True:
-            rows = frappe.get_list(report_doc.ref_doctype,fields=fields_info.get('columns'),filters=filters, start=skip,page_length=limit)
+            rows = frappe.get_list(
+                report_doc.ref_doctype,
+                fields=fields_info.get('columns'),
+                filters=filters,
+                order_by=report_doc.order_by if report_doc.order_by else None,
+                start=skip,
+                page_length=limit
+            )
             results = DocTypeInfo.create_data(rows, fields_info)
             res_data = []
             csv_buffer = StringIO()
@@ -322,7 +329,7 @@ class DocTypeInfo:
             csv_buffer.seek(0)
             csv_buffer.truncate(0)
 
-            if skip < limit:
+            if len(results) < limit:
                 break
             skip = skip + limit
 
@@ -331,7 +338,7 @@ class DocTypeInfo:
         report_doc = frappe.get_doc(doc_type, doc_name)
         fields = DocTypeInfo.prepare_fields(report_doc)
         fields_info = DocTypeInfo.get_fields_info(fields)
-        
+
         # return fields
         # proof_of_disability.proof_of_disability.proof_of_disability
         if report_doc.ref_doctype is not None:
@@ -342,14 +349,18 @@ class DocTypeInfo:
                 return response
             else:
                 results, count = [], 0
-                print("1")
                 count_res = frappe.get_list(report_doc.ref_doctype,fields=["count(name) as count"],filters=filters)
                 if len(count_res):
                     count = count_res[0].count
-                rows = frappe.get_list(report_doc.ref_doctype,fields=fields_info.get('columns'),filters=filters, start=skip,page_length=limit)
-                print("2")
+                rows = frappe.get_list(
+                    report_doc.ref_doctype,
+                    fields=fields_info.get('columns'),
+                    filters=filters,
+                    order_by=report_doc.order_by if report_doc.order_by else None,
+                    start=skip,
+                    page_length=limit
+                )
                 results = DocTypeInfo.create_data(rows, fields_info)
-                print("3")
                 return {
                     'filters':[
                         {
