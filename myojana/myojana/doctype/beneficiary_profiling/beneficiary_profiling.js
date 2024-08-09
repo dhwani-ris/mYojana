@@ -195,7 +195,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
       if (!frm.doc.__islocal) {
         frm.set_df_property('centre', 'read_only', 1);
         frm.set_df_property('sub_centre', 'read_only', 1);
-        frm.set_df_property('date_of_visit', 'read_only', 1);
       }
     }
 
