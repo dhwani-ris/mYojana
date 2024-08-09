@@ -9,7 +9,7 @@
  "idx": 12,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-08-05 11:42:33.749419",
+ "modified": "2024-08-09 15:35:50.108271",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Total Demands",
@@ -24,6 +24,18 @@
   },
   {
    "role": "All"
+  },
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "CSC Member"
+  },
+  {
+   "role": "MIS executive"
+  },
+  {
+   "role": "Sub-Centre"
   }
  ]
 }
