@@ -8,19 +8,6 @@ function callAPI(options) {
 		});
 	})
 }
-const sendIdCard = async (phoneNo = "917091668703") => {
-	let res = await callAPI({
-		method: 'myojana.apis.whatsapp.send',
-		freeze: true,
-		args: {
-			fields: ['is_primary_member_link_through_phone_number'],
-			phoneNo: phoneNo,
-			name: "Abhishek"
-		},
-		freeze_message: __("Sending message..."),
-	})
-}
-
 frappe.listview_settings['Beneficiary Profiling'] = {
 	refresh: function (listview) {
 		// console.log(listview)
