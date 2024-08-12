@@ -6,13 +6,34 @@
  "engine": "InnoDB",
  "field_order": [
   "user_permission_settings_tab",
-  "doctype_which_is_shown_in_user_permission",
   "select_doctypes",
   "role_doctype_mapping",
   "tab_2_tab",
+  "beneficary_settings_section",
   "is_primary_member_link_through_phone_number",
-  "enable_track_changes",
-  "id_card_template"
+  "nav_bar_setting_section",
+  "search_bar_column",
+  "hide_search_bar",
+  "hide_for_all_roles",
+  "selected_roles_for_search",
+  "column_break_evwb",
+  "hide_help_section",
+  "do_you_want_to_hide_for_all_roles",
+  "select_roles_for_which_you_want_to_hide_help_section",
+  "notification_icon_column",
+  "do_you_want_to_hide_notification_icon",
+  "notification_hide_for_all_roles",
+  "select_roles_for_which_you_want_to_notification_icon",
+  "notification_setting_tab",
+  "whats_app_section",
+  "enable_whats_app_notification",
+  "id_card_template",
+  "system_notification_section",
+  "enable_system_notification",
+  "email_section",
+  "enable_email_notification",
+  "additional_settings_tab",
+  "enable_track_changes"
  ],
  "fields": [
   {
@@ -22,17 +43,11 @@
    "options": "Setting Doctype Child"
   },
   {
-   "description": "Please Enter DocType name \",\" Seperated",
-   "fieldname": "doctype_which_is_shown_in_user_permission",
-   "fieldtype": "Small Text",
-   "hidden": 1,
-   "label": "DocType which is shown in User permission"
-  },
-  {
-   "default": "1",
+   "default": "No",
    "fieldname": "tab_2_tab",
    "fieldtype": "Tab Break",
-   "label": "System Setting"
+   "label": "System Setting",
+   "options": "Yes\nNo"
   },
   {
    "fieldname": "user_permission_settings_tab",
@@ -62,12 +77,151 @@
    "fieldtype": "Link",
    "label": "ID Card Template",
    "options": "Print Format"
+  },
+  {
+   "fieldname": "notification_setting_tab",
+   "fieldtype": "Tab Break",
+   "label": "Notification Setting"
+  },
+  {
+   "fieldname": "beneficary_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Beneficary Profiling Setting"
+  },
+  {
+   "fieldname": "nav_bar_setting_section",
+   "fieldtype": "Section Break",
+   "label": "Nav Bar Setting"
+  },
+  {
+   "default": "No",
+   "fieldname": "hide_search_bar",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Do you want to hide search bar",
+   "options": "Yes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.hide_search_bar == \"Yes\"",
+   "fieldname": "hide_for_all_roles",
+   "fieldtype": "Autocomplete",
+   "label": "Do you want to hide for all roles",
+   "mandatory_depends_on": "eval:doc.hide_search_bar == \"Yes\"",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.hide_for_all_roles == \"No\"",
+   "fieldname": "selected_roles_for_search",
+   "fieldtype": "Table MultiSelect",
+   "label": "Select role profiles",
+   "mandatory_depends_on": "eval:doc.hide_for_all_roles == \"No\"",
+   "options": "Role Profile Child"
+  },
+  {
+   "fieldname": "column_break_evwb",
+   "fieldtype": "Column Break",
+   "label": "Help Section"
+  },
+  {
+   "fieldname": "search_bar_column",
+   "fieldtype": "Column Break",
+   "label": "Search Bar"
+  },
+  {
+   "default": "No",
+   "fieldname": "hide_help_section",
+   "fieldtype": "Autocomplete",
+   "label": "Do you want to hide help section",
+   "options": "Yes\nNo"
+  },
+  {
+   "fieldname": "whats_app_section",
+   "fieldtype": "Section Break",
+   "label": "What's App"
+  },
+  {
+   "fieldname": "email_section",
+   "fieldtype": "Section Break",
+   "label": "Email"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_email_notification",
+   "fieldtype": "Check",
+   "label": "Enable email notification"
+  },
+  {
+   "fieldname": "system_notification_section",
+   "fieldtype": "Section Break",
+   "label": "System Notification"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_system_notification",
+   "fieldtype": "Check",
+   "label": "Enable system notification"
+  },
+  {
+   "depends_on": "eval:doc.hide_help_section == \"Yes\"",
+   "fieldname": "do_you_want_to_hide_for_all_roles",
+   "fieldtype": "Autocomplete",
+   "label": "Do you want to hide for all roles",
+   "mandatory_depends_on": "eval:doc.hide_help_section == \"Yes\"",
+   "options": "Yes\nNo"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_whats_app_notification",
+   "fieldtype": "Check",
+   "label": "Enable what's app notification"
+  },
+  {
+   "depends_on": "eval:doc.do_you_want_to_hide_for_all_roles == \"No\"",
+   "fieldname": "select_roles_for_which_you_want_to_hide_help_section",
+   "fieldtype": "Table MultiSelect",
+   "label": "Select role profiles",
+   "mandatory_depends_on": "eval:doc.do_you_want_to_hide_for_all_roles == \"No\"",
+   "options": "Role Profile Child"
+  },
+  {
+   "fieldname": "additional_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Additional Settings"
+  },
+  {
+   "fieldname": "notification_icon_column",
+   "fieldtype": "Column Break",
+   "label": "Notification Icon"
+  },
+  {
+   "default": "No",
+   "fieldname": "do_you_want_to_hide_notification_icon",
+   "fieldtype": "Autocomplete",
+   "label": "Do you want to hide notification icon",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.do_you_want_to_hide_notification_icon == \"Yes\"",
+   "fieldname": "notification_hide_for_all_roles",
+   "fieldtype": "Autocomplete",
+   "label": "Do you want to hide for all roles",
+   "mandatory_depends_on": "eval:doc.do_you_want_to_hide_notification_icon == \"Yes\"",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.notification_hide_for_all_roles == \"No\"",
+   "fieldname": "select_roles_for_which_you_want_to_notification_icon",
+   "fieldtype": "Table MultiSelect",
+   "label": "Select role profiles",
+   "mandatory_depends_on": "eval:doc.notification_hide_for_all_roles == \"No\"",
+   "options": "Role Profile Child"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-05-20 00:27:10.849997",
+ "modified": "2024-08-12 18:44:38.165327",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

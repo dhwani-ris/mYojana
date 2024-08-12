@@ -2,7 +2,7 @@
 const get_ordered_list = async (doctype, optionsToSort) => {
   let list = await callAPI({
     method: 'frappe.desk.search.search_link',
-    freeze: true,
+    freeze: false,
     args: {
       doctype: doctype,
       page_length: 1000,
@@ -34,7 +34,7 @@ const get_ordered_list = async (doctype, optionsToSort) => {
 const get_occupation_category = async (frm) => {
   let list = await callAPI({
     method: 'frappe.client.get',
-    freeze: true,
+    freeze: false,
     args: {
       doctype: 'Occupation',
       name: frm.doc.current_occupation
@@ -103,10 +103,10 @@ function generateDOBFromAge(ageInYears = 0, ageInMonths = 0, date_of_birth) {
 //   return generatedDOB;
 // }
 // get scheme lists
-const get_scheme_list = async (frm) => {
-  let list = await callAPI({
+const get_scheme_list =(frm) => {
+  let list = callAPI({
     method: 'myojana.api.execute',
-    freeze: true,
+    freeze: false,
     args: {
       name: frm.doc.name
     },
@@ -118,7 +118,7 @@ const get_scheme_list = async (frm) => {
 
 async function render_scheme_datatable(frm) {
 
-  scheme_list = await get_scheme_list(frm)
+  scheme_list =  get_scheme_list(frm)
   let tableConf = {
     columns: [
       {

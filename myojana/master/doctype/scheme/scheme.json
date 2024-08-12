@@ -34,7 +34,11 @@
   "section_break_torq",
   "table",
   "pagination",
-  "summary"
+  "summary",
+  "system_alert_tab",
+  "system_notification_section",
+  "enable_system_notification",
+  "days_of_inactive"
  ],
  "fields": [
   {
@@ -190,11 +194,33 @@
   {
    "fieldname": "column_break_xlxu",
    "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "frappe.user_roles.includes('Admin')",
+   "fieldname": "system_alert_tab",
+   "fieldtype": "Tab Break",
+   "label": "System Alert"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable_system_notification",
+   "fieldtype": "Check",
+   "label": "Enable system notification "
+  },
+  {
+   "fieldname": "days_of_inactive",
+   "fieldtype": "Int",
+   "label": "Days of Inactive"
+  },
+  {
+   "fieldname": "system_notification_section",
+   "fieldtype": "Section Break",
+   "label": "System Notification"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-06-18 11:23:59.967461",
+ "modified": "2024-08-12 16:48:57.943690",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "Scheme",

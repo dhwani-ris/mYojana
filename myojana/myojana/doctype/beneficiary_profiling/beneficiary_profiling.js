@@ -18,7 +18,7 @@ function callAPI(options) {
 async function autoSetOption(frm) {
   let centres = await callAPI({
     method: 'frappe.desk.search.search_link',
-    freeze: true,
+    freeze: false,
     args: {
       txt: '',
       doctype: "Centre",
@@ -28,7 +28,7 @@ async function autoSetOption(frm) {
   })
   state_option = await callAPI({
     method: 'frappe.desk.search.search_link',
-    freeze: true,
+    freeze: false,
     args: {
       txt: '',
       doctype: "State",
@@ -38,7 +38,7 @@ async function autoSetOption(frm) {
   })
   districts_option = await callAPI({
     method: 'frappe.desk.search.search_link',
-    freeze: true,
+    freeze: false,
     args: {
       txt: '',
       doctype: "District",
@@ -67,18 +67,7 @@ async function get_myojana_setting() {
   })
   return get_myojana_setting.is_primary_member_link_through_phone_number
 }
-const sendIdCard = async (phoneNo = "917091668703") => {
-	let res = await callAPI({
-		method: 'myojana.apis.whatsapp.send',
-		freeze: true,
-		args: {
-			fields: ['is_primary_member_link_through_phone_number'],
-			phoneNo: phoneNo,
-			name: "Abhishek"
-		},
-		// freeze_message: __("Sending message..."),
-	})
-}
+
 frappe.ui.form.on("Beneficiary Profiling", {
   after_save: async function (frm) {
     if (!frm.is_new()) {
@@ -152,7 +141,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
                 const dataURL = await canvas.toDataURL('image/png');
                 console.log('Canvas data URL generated');
               });
-              sendIdCard(frm.doc.contact_number)
 
               d.hide();
             }
