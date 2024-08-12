@@ -103,8 +103,8 @@ function generateDOBFromAge(ageInYears = 0, ageInMonths = 0, date_of_birth) {
 //   return generatedDOB;
 // }
 // get scheme lists
-const get_scheme_list =(frm) => {
-  let list = callAPI({
+const get_scheme_list = async(frm) => {
+  let list = await callAPI({
     method: 'myojana.api.execute',
     freeze: false,
     args: {
@@ -118,7 +118,7 @@ const get_scheme_list =(frm) => {
 
 async function render_scheme_datatable(frm) {
 
-  scheme_list =  get_scheme_list(frm)
+  scheme_list = await get_scheme_list(frm)
   let tableConf = {
     columns: [
       {
