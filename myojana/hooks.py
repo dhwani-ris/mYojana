@@ -53,7 +53,7 @@ permission_query_conditions = {
 }
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/myojana/css/myojana.css"
+app_include_css = "/assets/myojana/css/main.css"
 app_include_js = [
     "/assets/myojana/js/main.js",
     "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
