@@ -96,7 +96,6 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   async refresh(frm) {
-    await render_scheme_datatable(frm) // render scheme_data_tables 
     is_primary_member_link_through_phone_number = await get_myojana_setting()
     if (frm.is_new()) {
       console.log("new data")
@@ -149,7 +148,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
           d.set_secondary_action_label('Cancel');
           d.set_secondary_action(() => d.hide());
           d.show();
-        }, __());
+        }, __()).addClass('whatsapp-svg-button');
 
       }
       
@@ -196,7 +195,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
 
 
-
+    await render_scheme_datatable(frm) // render scheme_data_tables 
 
   },
   ////////////////////DATE VALIDATION/////////////////////////////////////////
