@@ -149,7 +149,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
           d.set_secondary_action_label('Cancel');
           d.set_secondary_action(() => d.hide());
           d.show();
-        }, __());
+        }, __()).addClass('whatsapp-svg-button');
 
       }
       
