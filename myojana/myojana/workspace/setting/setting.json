@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Setting\"}}]",
+ "content": "[{\"id\":\"QJ1VYbZ9w3\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">mYojana Setting</span>\",\"col\":12}},{\"id\":\"ccCouU_eg_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Myojana Settings\",\"col\":3}},{\"id\":\"1A3iis076G\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">What's App Setting</span>\",\"col\":12}},{\"id\":\"RlFTMHg6jD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Whats App Template\",\"col\":3}}]",
  "creation": "2024-08-14 10:02:30.285885",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Setting",
  "links": [],
- "modified": "2024-08-14 10:02:51.411726",
+ "modified": "2024-08-14 10:05:57.602981",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Setting",
@@ -28,6 +28,22 @@
   }
  ],
  "sequence_id": 7.0,
- "shortcuts": [],
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Myojana Settings",
+   "link_to": "mYojana Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Whats App Template",
+   "link_to": "Whats App Template",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
  "title": "Setting"
 }
