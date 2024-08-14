@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Scheme Master",
  "links": [],
- "modified": "2024-02-02 10:42:39.817232",
+ "modified": "2024-08-14 10:02:37.095490",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme Master",
@@ -23,7 +23,7 @@
  "public": 1,
  "quick_lists": [],
  "roles": [],
- "sequence_id": 7.0,
+ "sequence_id": 6.0,
  "shortcuts": [
   {
    "color": "Grey",
