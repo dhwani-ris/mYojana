@@ -9,8 +9,6 @@
   "select_doctypes",
   "role_doctype_mapping",
   "tab_2_tab",
-  "beneficary_settings_section",
-  "is_primary_member_link_through_phone_number",
   "nav_bar_setting_section",
   "search_bar_column",
   "hide_search_bar",
@@ -33,7 +31,10 @@
   "email_section",
   "enable_email_notification",
   "additional_settings_tab",
-  "enable_track_changes"
+  "enable_track_changes",
+  "doctypes_setting_tab",
+  "beneficary_settings_section",
+  "is_primary_member_link_through_phone_number"
  ],
  "fields": [
   {
@@ -86,7 +87,7 @@
   {
    "fieldname": "beneficary_settings_section",
    "fieldtype": "Section Break",
-   "label": "Beneficary Profiling Setting"
+   "label": "Beneficary Profiling"
   },
   {
    "fieldname": "nav_bar_setting_section",
@@ -216,12 +217,17 @@
    "label": "Select role profiles",
    "mandatory_depends_on": "eval:doc.notification_hide_for_all_roles == \"No\"",
    "options": "Role Profile Child"
+  },
+  {
+   "fieldname": "doctypes_setting_tab",
+   "fieldtype": "Tab Break",
+   "label": "Doctypes Setting"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-12 18:44:38.165327",
+ "modified": "2024-08-13 10:09:24.362804",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

@@ -1,13 +1,3 @@
-function callAPI(options) {
-	return new Promise((resolve, reject) => {
-		frappe.call({
-			...options,
-			callback: async function (response) {
-				resolve(response?.message || response?.value)
-			}
-		});
-	})
-}
 frappe.listview_settings['Beneficiary Profiling'] = {
 	refresh: function (listview) {
 		// console.log(listview)

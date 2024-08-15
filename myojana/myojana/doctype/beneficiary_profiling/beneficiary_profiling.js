@@ -16,16 +16,23 @@ function callAPI(options) {
   })
 }
 async function autoSetOption(frm) {
-  let centres = await callAPI({
-    method: 'frappe.desk.search.search_link',
-    freeze: false,
-    args: {
-      txt: '',
-      doctype: "Centre",
-      reference_doctype: "Beneficiary Profiling"
-    },
-    // freeze_message: __("Getting Centres"),
-  })
+  let centre_meta = frm?.meta?.fields?.filter((e)=> e.fieldname == "centre")[0]
+  if(centre_meta.hidden != 1){
+    let centres = await callAPI({
+      method: 'frappe.desk.search.search_link',
+      freeze: false,
+      args: {
+        txt: '',
+        doctype: "Centre",
+        reference_doctype: "Beneficiary Profiling"
+      },
+    })
+    if (centres?.length === 1) {
+      frm.set_value("centre", centres[0].value)
+    }
+  }else{
+    console.log("centre is hidden fields",)    
+  }
   state_option = await callAPI({
     method: 'frappe.desk.search.search_link',
     freeze: false,
@@ -34,7 +41,6 @@ async function autoSetOption(frm) {
       doctype: "State",
       reference_doctype: "Beneficiary Profiling"
     },
-    freeze_message: __("Getting States"),
   })
   districts_option = await callAPI({
     method: 'frappe.desk.search.search_link',
@@ -46,9 +52,7 @@ async function autoSetOption(frm) {
     },
     // freeze_message: __("Getting Districts"),
   })
-  if (centres?.length === 1) {
-    frm.set_value("centre", centres[0].value)
-  }
+  
   if (state_option?.length === 1) {
     frm.set_value("state", state_option[0].value)
   }
