@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{select_doctype}-{###}",
+ "creation": "2024-08-16 11:02:30.116532",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enable",
+  "select_doctype",
+  "select_parent_doctype",
+  "column_break_wvzq",
+  "section_break_dkwm",
+  "table_lrtz"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Select Doctype",
+   "link_filters": "[]",
+   "options": "DocType",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "table_lrtz",
+   "fieldtype": "Table",
+   "options": "System Notification Child"
+  },
+  {
+   "fieldname": "column_break_wvzq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_dkwm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "enable",
+   "fieldtype": "Check",
+   "label": "Enable"
+  },
+  {
+   "fieldname": "select_parent_doctype",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Select Parent Doctype",
+   "link_filters": "[[\"DocType\",\"istable\",\"=\",0]]",
+   "options": "DocType"
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-17 10:43:16.348226",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "mYojana System Notification Setting",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
