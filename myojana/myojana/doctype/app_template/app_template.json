@@ -8,13 +8,13 @@
  "field_order": [
   "template_name",
   "ref_doctype",
-  "column_break_ouaf",
   "ref_doc",
+  "column_break_ouaf",
   "options",
   "preview_section",
   "preview_html",
-  "preview",
   "section_break_xfla",
+  "preview",
   "html"
  ],
  "fields": [
@@ -43,10 +43,11 @@
    "label": "Ref Doc"
   },
   {
-   "default": "{\n        'width': 547,\n        'height': 373,\n    }",
+   "default": "{\n        \"width\": 547,\n        \"height\": 373\n    }",
    "fieldname": "options",
    "fieldtype": "JSON",
-   "label": "Options"
+   "label": "Options",
+   "max_height": "130px"
   },
   {
    "fieldname": "preview_section",
@@ -74,12 +75,12 @@
   {
    "fieldname": "preview",
    "fieldtype": "Button",
-   "label": "Preview"
+   "label": "Click to preview"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-18 18:16:16.356671",
+ "modified": "2024-08-18 18:35:32.044814",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "App Template",
