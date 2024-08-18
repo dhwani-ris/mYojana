@@ -51,7 +51,7 @@ def send_id(doc):
                         },
                         "body_1": {
                             "type": "text",
-                            "value": {doc.name_of_the_beneficiary}
+                            "value": f"{doc.name_of_the_beneficiary}"
                         }
                     }
                 }]
