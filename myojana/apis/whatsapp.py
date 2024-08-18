@@ -1,4 +1,5 @@
 import frappe
+from frappe import _ 
 import requests
 import json
 import http.client
@@ -19,16 +20,35 @@ def format_mobile_number(mobile):
     else:
         raise ValueError("Invalid mobile number format")
 @frappe.whitelist()
+def test_auth_key(auth_key):
+    conn = http.client.HTTPSConnection("control.msg91.com")
+    headers = {
+        'accept': "application/json",
+        'authkey': auth_key
+        }
+    conn.request("GET", "/api/v5/whatsapp/whatsapp-activation/", headers=headers)
+
+    res = conn.getresponse()
+    response_str = res.read().decode("utf-8")  # Read and decode the response
+    response_json = json.loads(response_str)   # Convert the string to a JSON object
+    return response_json
+
+
+@frappe.whitelist()
 def send_id(doc):
-    site_name = get_site_name(frappe.local.request.host)
-    # return [frappe.local.request.scheme,frappe.local.request.host]
-    template_name = frappe.db.get_single_value('mYojana Settings', 'id_card_template')
+    template_name, auth_key , integrated_number = frappe.db.get_value('mYojana Settings', None, ['id_card_template', 'auth_key' ,'integrated_number'])
+
+    print("template_name",auth_key)
+    if not auth_key:
+        frappe.throw(_("Please set Auth Key in mYojana Settings"))
+
     if not template_name:
         frappe.throw(_("Please set ID Card Template in mYojana Settings"))
+
     file,doc = create_image(doc, template_name)
     conn = http.client.HTTPSConnection("api.msg91.com")
     payload = json.dumps({
-        "integrated_number": "919821557445",
+        "integrated_number": integrated_number,
         "content_type": "template",
         "payload": {
             "messaging_product": "whatsapp",
@@ -62,18 +82,13 @@ def send_id(doc):
     # print(payload)
     headers = {
         'Content-Type': 'application/json',
-        'authkey': '426614AakcRCvODL66a774cdP1'
+        'authkey': auth_key
     }
     conn.request("POST", "/api/v5/whatsapp/whatsapp-outbound-message/bulk/", payload, headers)
     res = conn.getresponse()
     data = res.read()
     print(data.decode("utf-8"))
     return data.decode("utf-8")
-    # if _new_doc:
-    #     _new_doc = frappe.get_doc(_new_doc.get('doctype'), _new_doc.get('name'))
-    #     phoneNo = frappe.get_value('Applicant', doc, 'phone')
-    #     send(phoneNo)
-    # return _new_doc
 
 @frappe.whitelist()
 def send(phoneNo):

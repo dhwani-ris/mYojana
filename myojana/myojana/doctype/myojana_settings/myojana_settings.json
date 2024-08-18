@@ -27,8 +27,14 @@
   "notification_setting_tab",
   "whats_app_section",
   "enable_whats_app_notification",
+  "section_break_heyk",
   "id_card_template",
+  "column_break_fhwr",
   "whatsapp_service_provider",
+  "integrated_number",
+  "column_break_nfqv",
+  "auth_key",
+  "test_auth_key",
   "system_notification_section",
   "enable_system_notification",
   "email_section",
@@ -87,7 +93,7 @@
   {
    "fieldname": "notification_setting_tab",
    "fieldtype": "Tab Break",
-   "label": "Notification Setting"
+   "label": "Notification"
   },
   {
    "fieldname": "beneficary_settings_section",
@@ -229,6 +235,7 @@
    "label": "Doctypes Setting"
   },
   {
+   "default": "MSG91",
    "fieldname": "whatsapp_service_provider",
    "fieldtype": "Autocomplete",
    "label": "Select Whats App Service Provider",
@@ -239,13 +246,42 @@
    "fieldtype": "Data",
    "label": "Base URL",
    "read_only": 1
+  },
+  {
+   "fieldname": "auth_key",
+   "fieldtype": "Data",
+   "label": "Auth Key"
+  },
+  {
+   "depends_on": "eval:doc.enable_whats_app_notification",
+   "fieldname": "section_break_heyk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_fhwr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nfqv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "test_auth_key",
+   "fieldtype": "Button",
+   "label": "Test Auth Key"
+  },
+  {
+   "fieldname": "integrated_number",
+   "fieldtype": "Data",
+   "label": "Integrated number",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-18 18:20:05.040827",
+ "modified": "2024-08-18 19:23:00.917882",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",
