@@ -36,10 +36,8 @@ def test_auth_key(auth_key):
 
 @frappe.whitelist()
 def send_id(doc):
-    site_name = get_site_name(frappe.local.request.host)
-    # return [frappe.local.request.scheme,frappe.local.request.host]
-    template_name = frappe.db.get_single_value('mYojana Settings', 'id_card_template')
-    auth_key = frappe.db.get_single_value('mYojana Settings', 'auth_key')
+    template_name, auth_key , integrated_number = frappe.db.get_value('mYojana Settings', None, ['id_card_template', 'auth_key' ,'integrated_number'])
+
     print("template_name",auth_key)
     if not auth_key:
         frappe.throw(_("Please set Auth Key in mYojana Settings"))
@@ -50,7 +48,7 @@ def send_id(doc):
     file,doc = create_image(doc, template_name)
     conn = http.client.HTTPSConnection("api.msg91.com")
     payload = json.dumps({
-        "integrated_number": "919821557445",
+        "integrated_number": integrated_number,
         "content_type": "template",
         "payload": {
             "messaging_product": "whatsapp",

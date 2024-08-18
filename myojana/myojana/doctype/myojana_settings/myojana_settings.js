@@ -74,7 +74,7 @@ const test_auth_key = async (frm) => {
       freeze_message: __("Validating Auth Key..."),
     })
     if(data.status == "success"){
-      console.log(data, data?.data[0]?.integrated_number)
+      // console.log(data, data?.data[0]?.integrated_number)
       frm.set_value("integrated_number",data?.data[0]?.integrated_number)
       // frappe.msgprint("Auth Key is valid")
     }else{
