@@ -8,15 +8,21 @@
  "field_order": [
   "template_name",
   "variable_reference_doctype",
+  "column_break_ouaf",
+  "select_reference_variable",
+  "preview_section",
+  "preview_html",
+  "section_break_xfla",
   "html"
  ],
  "fields": [
   {
    "description": "Use Variable in \"{{}}\" format",
    "fieldname": "html",
-   "fieldtype": "HTML Editor",
+   "fieldtype": "Code",
    "in_list_view": 1,
    "label": "Html",
+   "options": "Jinja",
    "reqd": 1
   },
   {
@@ -33,11 +39,34 @@
    "label": "Variable reference DocType",
    "options": "DocType",
    "reqd": 1
+  },
+  {
+   "fieldname": "select_reference_variable",
+   "fieldtype": "Autocomplete",
+   "label": "Select Reference Variable"
+  },
+  {
+   "fieldname": "column_break_ouaf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xfla",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "preview_section",
+   "fieldtype": "Section Break",
+   "label": "Preview"
+  },
+  {
+   "fieldname": "preview_html",
+   "fieldtype": "HTML",
+   "options": "<div id=\"preview_html\">\n</div>"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-14 10:16:55.142426",
+ "modified": "2024-08-18 12:23:21.775838",
  "modified_by": "Administrator",
  "module": "Whatsapp",
  "name": "Whats App Template",
