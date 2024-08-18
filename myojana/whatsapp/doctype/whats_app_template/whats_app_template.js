@@ -7,23 +7,27 @@ const wait = (seconds)=>{
         },seconds*1000)
     })    
 }
+
+const render_image = (frm)=>{
+    frappe.call({
+        method: "myojana.whatsapp.utils.htmltoimg.preview_image",
+        args: {
+            doctype:frm.doc.variable_reference_doctype,
+            doc:frm.doc.select_reference_variable,
+            template:frm.doc.html
+        }
+    }).then(async(res)=>{
+        document.getElementById("preview_html").innerHTML = `<img src="data:image/png;base64,${res.message}" />`;
+        
+    }).catch(err=>{
+        console.log("Error",err);
+    })
+}
 frappe.ui.form.on("Whats App Template", {
 	refresh(frm) {
-
+        render_image(frm);
 	},
     html:(frm)=>{
-        frappe.call({
-            method: "myojana.whatsapp.utils.htmltoimg.preview_image",
-            args: {
-                doctype:frm.doc.variable_reference_doctype,
-                doc:frm.doc.select_reference_variable,
-                template:frm.doc.html
-            }
-        }).then(async(res)=>{
-            document.getElementById("preview_html").innerHTML = `<img src="data:image/png;base64,${res.message}" />`;
-            
-        }).catch(err=>{
-            console.log("Error",err);
-        })
+        render_image(frm);
     }
 });
