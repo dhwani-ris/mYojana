@@ -8,12 +8,12 @@ const wait = (seconds)=>{
     })    
 }
 
-const render_image = (frm)=>{
+const render_image = (frm)=>{    
     frappe.call({
-        method: "myojana.whatsapp.utils.htmltoimg.preview_image",
+        method: "myojana.apis.html_to_image.preview_image",
         args: {
-            doctype:frm.doc.variable_reference_doctype,
-            doc:frm.doc.select_reference_variable,
+            doctype:frm.doc.ref_doctype,
+            doc:frm.doc.ref_doc,
             template:frm.doc.html
         }
     }).then(async(res)=>{
@@ -23,11 +23,15 @@ const render_image = (frm)=>{
         console.log("Error",err);
     })
 }
-frappe.ui.form.on("Whats App Template", {
+frappe.ui.form.on("App Template", {
 	refresh(frm) {
-        render_image(frm);
+        if(frm.doc.ref_doctype&&frm.doc.ref_doc){
+            render_image(frm);
+        }
 	},
     html:(frm)=>{
-        render_image(frm);
+        if(frm.doc.ref_doctype&&frm.doc.ref_doc){
+            render_image(frm);
+        }
     }
 });

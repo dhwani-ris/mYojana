@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_copy": 1,
  "allow_rename": 1,
  "creation": "2024-04-04 11:29:27.101681",
  "doctype": "DocType",
@@ -74,10 +75,12 @@
    "label": "Is Primary member Link Through Phone Number"
   },
   {
+   "depends_on": "eval:doc.enable_whats_app_notification",
    "fieldname": "id_card_template",
    "fieldtype": "Link",
-   "label": "ID Card Template",
-   "options": "Print Format"
+   "label": "Beneficiary ID Card Template",
+   "mandatory_depends_on": "eval:doc.enable_whats_app_notification",
+   "options": "App Template"
   },
   {
    "fieldname": "notification_setting_tab",
@@ -224,10 +227,11 @@
    "label": "Doctypes Setting"
   }
  ],
+ "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-13 10:09:24.362804",
+ "modified": "2024-08-18 14:51:39.634438",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

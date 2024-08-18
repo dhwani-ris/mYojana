@@ -7,24 +7,16 @@
  "engine": "InnoDB",
  "field_order": [
   "template_name",
-  "variable_reference_doctype",
+  "ref_doctype",
   "column_break_ouaf",
-  "select_reference_variable",
+  "ref_doc",
+  "options",
   "preview_section",
   "preview_html",
   "section_break_xfla",
   "html"
  ],
  "fields": [
-  {
-   "description": "Use Variable in \"{{}}\" format",
-   "fieldname": "html",
-   "fieldtype": "Code",
-   "in_list_view": 1,
-   "label": "Html",
-   "options": "Jinja",
-   "reqd": 1
-  },
   {
    "fieldname": "template_name",
    "fieldtype": "Data",
@@ -34,24 +26,26 @@
    "unique": 1
   },
   {
-   "fieldname": "variable_reference_doctype",
+   "fieldname": "ref_doctype",
    "fieldtype": "Link",
-   "label": "Variable reference DocType",
+   "label": "Ref DocType",
    "options": "DocType",
    "reqd": 1
-  },
-  {
-   "fieldname": "select_reference_variable",
-   "fieldtype": "Autocomplete",
-   "label": "Select Reference Variable"
   },
   {
    "fieldname": "column_break_ouaf",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_xfla",
-   "fieldtype": "Section Break"
+   "fieldname": "ref_doc",
+   "fieldtype": "Data",
+   "label": "Ref Doc"
+  },
+  {
+   "default": "{\n        'width': 547,\n        'height': 373,\n    }",
+   "fieldname": "options",
+   "fieldtype": "JSON",
+   "label": "Options"
   },
   {
    "fieldname": "preview_section",
@@ -62,14 +56,27 @@
    "fieldname": "preview_html",
    "fieldtype": "HTML",
    "options": "<div id=\"preview_html\">\n</div>"
+  },
+  {
+   "fieldname": "section_break_xfla",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Use Variable in \"{{}}\" format",
+   "fieldname": "html",
+   "fieldtype": "Code",
+   "in_list_view": 1,
+   "label": "Html",
+   "options": "Jinja",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-18 12:23:21.775838",
+ "modified": "2024-08-18 15:19:03.574724",
  "modified_by": "Administrator",
- "module": "Whatsapp",
- "name": "Whats App Template",
+ "module": "myojana",
+ "name": "App Template",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
