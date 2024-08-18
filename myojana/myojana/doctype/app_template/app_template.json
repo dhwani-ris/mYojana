@@ -13,6 +13,7 @@
   "options",
   "preview_section",
   "preview_html",
+  "preview",
   "section_break_xfla",
   "html"
  ],
@@ -69,11 +70,16 @@
    "label": "Html",
    "options": "Jinja",
    "reqd": 1
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "Button",
+   "label": "Preview"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-18 15:19:03.574724",
+ "modified": "2024-08-18 18:16:16.356671",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "App Template",
