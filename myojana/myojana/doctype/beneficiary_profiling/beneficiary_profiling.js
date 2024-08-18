@@ -150,7 +150,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
                 args: {
                   doc:frm.doc.name
                 },
-                freeze_message: __("getting template..."),
+                freeze_message: __("Sending Message ..."),
               });
               console.log('id_doc', id_doc);
               d.hide();

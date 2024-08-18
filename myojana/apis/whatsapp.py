@@ -1,4 +1,5 @@
 import frappe
+from frappe import _ 
 import requests
 import json
 import http.client
@@ -23,8 +24,14 @@ def send_id(doc):
     site_name = get_site_name(frappe.local.request.host)
     # return [frappe.local.request.scheme,frappe.local.request.host]
     template_name = frappe.db.get_single_value('mYojana Settings', 'id_card_template')
+    auth_key = frappe.db.get_single_value('mYojana Settings', 'auth_key')
+    print("template_name",auth_key)
+    if not auth_key:
+        frappe.throw(_("Please set Auth Key in mYojana Settings"))
+
     if not template_name:
         frappe.throw(_("Please set ID Card Template in mYojana Settings"))
+
     file,doc = create_image(doc, template_name)
     conn = http.client.HTTPSConnection("api.msg91.com")
     payload = json.dumps({
@@ -62,18 +69,13 @@ def send_id(doc):
     # print(payload)
     headers = {
         'Content-Type': 'application/json',
-        'authkey': '426614AakcRCvODL66a774cdP1'
+        'authkey': auth_key
     }
     conn.request("POST", "/api/v5/whatsapp/whatsapp-outbound-message/bulk/", payload, headers)
     res = conn.getresponse()
     data = res.read()
     print(data.decode("utf-8"))
     return data.decode("utf-8")
-    # if _new_doc:
-    #     _new_doc = frappe.get_doc(_new_doc.get('doctype'), _new_doc.get('name'))
-    #     phoneNo = frappe.get_value('Applicant', doc, 'phone')
-    #     send(phoneNo)
-    # return _new_doc
 
 @frappe.whitelist()
 def send(phoneNo):
