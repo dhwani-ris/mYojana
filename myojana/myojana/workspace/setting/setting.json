@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Setting",
  "links": [],
- "modified": "2024-08-14 10:05:57.602981",
+ "modified": "2024-08-18 20:15:35.601387",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Setting",
@@ -24,7 +24,7 @@
  "quick_lists": [],
  "roles": [
   {
-   "role": "System Manager"
+   "role": "Administrator"
   }
  ],
  "sequence_id": 7.0,
@@ -40,7 +40,7 @@
    "color": "Grey",
    "doc_view": "List",
    "label": "Whats App Template",
-   "link_to": "Whats App Template",
+   "link_to": "App Template",
    "stats_filter": "[]",
    "type": "DocType"
   }
