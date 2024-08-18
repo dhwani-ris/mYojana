@@ -64,10 +64,33 @@ const apply_filter_on_doctypes = async (frm) => {
     }
   }
 }
+const test_auth_key = async (frm) => {
+    let data = await callAPI({
+      method: 'myojana.apis.whatsapp.test_auth_key',
+      freeze: true,
+      args: {
+        "auth_key":frm.doc.auth_key
+      },
+      freeze_message: __("Validating Auth Key..."),
+    })
+    if(data.status == "success"){
+      console.log(data, data?.data[0]?.integrated_number)
+      frm.set_value("integrated_number",data?.data[0]?.integrated_number)
+      // frappe.msgprint("Auth Key is valid")
+    }else{
+      frm.set_value("integrated_number",'')
+      frm.__unsaved = 1;
+      return frappe.throw("Auth Key is invalid")
+    }
+  
+}
 frappe.ui.form.on("mYojana Settings", {
   async refresh(frm) {
   },
   async before_save(frm) {
+    if(frm.doc.auth_key){
+      await test_auth_key(frm)
+    }
     const disable_tracking = deleted_row.map((item) => { return item.doc });
     if (disable_tracking.length) {
       await toggle_track_changes(disable_tracking, 0)
@@ -77,6 +100,10 @@ frappe.ui.form.on("mYojana Settings", {
       await toggle_track_changes(enable_tracking, 1);
     }
     deleted_row = [];
+  },
+  test_auth_key:async function(frm){
+    console.log("data")
+    await test_auth_key(frm)
   }
 });
 

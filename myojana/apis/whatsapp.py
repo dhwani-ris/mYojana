@@ -20,6 +20,21 @@ def format_mobile_number(mobile):
     else:
         raise ValueError("Invalid mobile number format")
 @frappe.whitelist()
+def test_auth_key(auth_key):
+    conn = http.client.HTTPSConnection("control.msg91.com")
+    headers = {
+        'accept': "application/json",
+        'authkey': auth_key
+        }
+    conn.request("GET", "/api/v5/whatsapp/whatsapp-activation/", headers=headers)
+
+    res = conn.getresponse()
+    response_str = res.read().decode("utf-8")  # Read and decode the response
+    response_json = json.loads(response_str)   # Convert the string to a JSON object
+    return response_json
+
+
+@frappe.whitelist()
 def send_id(doc):
     site_name = get_site_name(frappe.local.request.host)
     # return [frappe.local.request.scheme,frappe.local.request.host]

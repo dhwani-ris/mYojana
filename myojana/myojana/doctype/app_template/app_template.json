@@ -67,7 +67,6 @@
    "description": "Use Variable in \"{{}}\" format",
    "fieldname": "html",
    "fieldtype": "Code",
-   "in_list_view": 1,
    "label": "Html",
    "options": "Jinja",
    "reqd": 1
@@ -80,7 +79,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-18 18:35:32.044814",
+ "modified": "2024-08-18 19:47:51.103045",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "App Template",
