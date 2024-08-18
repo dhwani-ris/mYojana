@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "user_permission_settings_tab",
+  "base_url",
   "select_doctypes",
   "role_doctype_mapping",
   "tab_2_tab",
@@ -27,6 +28,7 @@
   "whats_app_section",
   "enable_whats_app_notification",
   "id_card_template",
+  "whatsapp_service_provider",
   "system_notification_section",
   "enable_system_notification",
   "email_section",
@@ -225,13 +227,25 @@
    "fieldname": "doctypes_setting_tab",
    "fieldtype": "Tab Break",
    "label": "Doctypes Setting"
+  },
+  {
+   "fieldname": "whatsapp_service_provider",
+   "fieldtype": "Autocomplete",
+   "label": "Select Whats App Service Provider",
+   "options": "MSG91"
+  },
+  {
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Base URL",
+   "read_only": 1
   }
  ],
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-18 14:51:39.634438",
+ "modified": "2024-08-18 18:20:05.040827",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",

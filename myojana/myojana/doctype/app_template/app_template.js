@@ -30,8 +30,13 @@ frappe.ui.form.on("App Template", {
         }
 	},
     html:(frm)=>{
+        // if(frm.doc.ref_doctype&&frm.doc.ref_doc){
+        //     render_image(frm);
+        // }
+    },
+    preview:(frm)=>{
         if(frm.doc.ref_doctype&&frm.doc.ref_doc){
             render_image(frm);
         }
-    }
+    },
 });
