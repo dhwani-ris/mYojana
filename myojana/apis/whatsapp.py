@@ -46,6 +46,7 @@ def send_id(doc):
         frappe.throw(_("Please set ID Card Template in mYojana Settings"))
 
     file,doc = create_image(doc, template_name)
+    return file,doc
     conn = http.client.HTTPSConnection("api.msg91.com")
     payload = json.dumps({
         "integrated_number": integrated_number,

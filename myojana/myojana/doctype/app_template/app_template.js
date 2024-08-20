@@ -11,10 +11,14 @@ const wait = (seconds)=>{
 const render_image = (frm)=>{    
     frappe.call({
         method: "myojana.apis.html_to_image.preview_image",
+        headers:{
+
+        },
         args: {
             doctype:frm.doc.ref_doctype,
             doc:frm.doc.ref_doc,
-            template:frm.doc.html
+            template:frm.doc.html,
+            options:frm.doc.options
         }
     }).then(async(res)=>{
         document.getElementById("preview_html").innerHTML = `<img src="data:image/png;base64,${res.message}" />`;
