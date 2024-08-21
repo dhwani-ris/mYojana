@@ -8,13 +8,14 @@ import os
 import json
 from frappe.utils import get_site_path
 
-def get_attachment_fields(doctype_name):
+def get_attachment_fields(doctype_name, doc):
     meta = frappe.get_meta(doctype_name)
     attachment_fields = []
-
     for field in meta.fields:
-        if field.fieldtype in ['Attach', 'Attach Image']:
-            attachment_fields.append(field.fieldname)
+        field_value = doc.get(field.fieldname)
+        if field_value:
+            if field.fieldtype in ['Attach', 'Attach Image']:
+                attachment_fields.append(field.fieldname)
     
     return attachment_fields
 
@@ -53,11 +54,11 @@ def sanitize_file_path(original_file_path):
     return original_file_path
 def set_context_data(doctype, name):
     doc = frappe.get_doc(doctype, name)
-    attachment_fields = get_attachment_fields(doctype)
+    attachment_fields = get_attachment_fields(doctype , doc)
     for field in attachment_fields:
             file_url = doc.get(field)
-            file_path = frappe.get_site_path(sanitize_file_path(file_url).lstrip('/'))
             if file_url:
+                file_path = frappe.get_site_path(sanitize_file_path(file_url).lstrip('/'))
                 if os.path.isfile(file_path):
                     base64_data =  f"data:image/png;base64,{file_to_base64(file_path)}"
                     doc.set(field, base64_data)
