@@ -34,7 +34,7 @@ frappe.ui.form.on('Follow Up Child', {
         if (support_items.status === "Open" && support_items.application_submitted == "No") {
           frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_with", "options", ["Beneficiary"]);
           row.follow_up_with = "Beneficiary"
-          frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Interested", "Not interested", "Document submitted", "Not reachable"]);
+          frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Interested", "Not interested", "Document submitted", "Not reachable" , "Completed"]);
         } else if (support_items.status === "Under process" && support_items.application_submitted == "Yes") {
           frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_with", "options", ["Beneficiary", "Government department", "Government website", "Others"]);
           frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Not reachable", "Under process", "Additional info required", "Completed", "Rejected"]);
@@ -83,7 +83,7 @@ frappe.ui.form.on('Follow Up Child', {
     } else if (row.follow_up_with == "Beneficiary" && latestSupport.application_submitted == "Yes") {
       frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Not reachable", "Under process", "Additional info required", "Completed", "Rejected"]);
     } else if (row.follow_up_with == "Beneficiary" && latestSupport.application_submitted == "No") {
-      frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Interested", "Not interested", "Document submitted", "Not reachable"]);
+      frm.fields_dict.follow_up_table.grid.update_docfield_property("follow_up_status", "options", ["Interested", "Not interested", "Document submitted", "Not reachable","Completed"]);
     }
   },
   follow_up_status: function (frm, cdt, cdn) {
