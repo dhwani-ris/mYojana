@@ -22,7 +22,7 @@ def execute(filters=None):
     ]
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True,)
     if condition_str:
-        condition_str = f"{condition_str}"
+        condition_str = f"{condition_str} 1=1"
     else:
         condition_str = "1=1"
     # print("condition_str", condition_str)

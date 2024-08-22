@@ -25,7 +25,7 @@ def execute(filters=None):
     if condition_str:
         condition_str = f"WHERE {condition_str}"
     else:
-        condition_str = ""
+        condition_str = "WHERE 1=1"
 
     sql_query = f"""
         SELECT

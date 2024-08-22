@@ -25,7 +25,7 @@ def execute(filters=None):
 	]
 	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
 	if condition_str:
-		condition_str = f"AND {condition_str}"
+		condition_str = f"AND {condition_str} 1=1"
 	else:
 		condition_str = ""
 	
@@ -47,7 +47,7 @@ def execute(filters=None):
 			FROM 
 				`tabBeneficiary Profiling` 
 			WHERE 
-				1=1 {condition_str})
+				{condition_str})
 		GROUP BY
 			sc.parent
 		) AS counts
