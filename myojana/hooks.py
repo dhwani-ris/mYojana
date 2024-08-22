@@ -188,7 +188,10 @@ doc_events = {
 		# "on_update": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
 		# "on_cancel": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
 		# "on_trash": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben"
-	}
+	},
+    #  "Beneficiary Profiling": {
+    #     "on_update": "myojana.middlewares.test.test",
+    # }
 }
 
 # Scheduled Tasks
