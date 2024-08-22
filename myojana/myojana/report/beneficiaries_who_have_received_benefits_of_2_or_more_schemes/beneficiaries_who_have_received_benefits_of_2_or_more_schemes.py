@@ -18,7 +18,8 @@ def execute(filters=None):
     ]
 
     # Set the report filters
-    condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
+    condition_str = ReportFilter.set_report_filters(filters, 'creation', True, '')
+    condition_str = ReportFilter.set_report_filters(filters, 'creation', True, 'b')
     
     if condition_str:
         condition_str = f"WHERE {condition_str}"
@@ -41,7 +42,7 @@ def execute(filters=None):
                     SELECT
                         name
                     FROM
-                        `tabBeneficiary Profiling`
+                        `tabBeneficiary Profiling` AS b
                     {condition_str}
                 )
             GROUP BY

@@ -24,8 +24,8 @@ def execute(filters=None):
     if condition_str:
         condition_str = f"WHERE {condition_str}"
     else:
-        condition_str = "1=1"
-    # print("condition_str", condition_str)
+        condition_str = ""
+        
     sql_query = f"""
     SELECT
         COALESCE(NULLIF(source_of_information, ''), 'Unknown') as source_of_information,
