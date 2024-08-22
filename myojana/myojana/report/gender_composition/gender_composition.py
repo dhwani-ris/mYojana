@@ -22,7 +22,7 @@ def execute(filters=None):
 	]
 	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
 	if condition_str:
-		condition_str = f"AND {condition_str} 1=1"
+		condition_str = f"WHERE {condition_str}"
 	else:
 		condition_str = ""
 	
@@ -32,8 +32,7 @@ def execute(filters=None):
 			COUNT(*) as count
 		FROM
 			`tabBeneficiary Profiling`
-		WHERE
-			1=1 {condition_str}
+		{condition_str}
 		GROUP BY
 			COALESCE(NULLIF(gender, ''), 'Unknown');
 	"""

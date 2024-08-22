@@ -43,7 +43,7 @@ class ReportFilter:
             per_obj = Cache.get_user_permission(False)
         #     # query_filter = Filter.set_query_filters(True)
             # csc_key = f"{table_name}.{query_filter[0]}" if table_name else  f"{query_filter[0]}"
-            if str:
+            if str and len(cond_str) > 0:
                 str_list.append(cond_str)
             else:
                 ""

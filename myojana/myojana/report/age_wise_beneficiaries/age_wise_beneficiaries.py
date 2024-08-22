@@ -23,11 +23,13 @@ def execute(filters=None):
     ]
     condition_str = ReportFilter.set_report_filters(
         filters, 'date_of_visit', True)
+    print ("condition_str", condition_str)
+    # return condition_str
     if condition_str:
-        condition_str = f"WHERE {condition_str} 1=1"
+        condition_str = f"WHERE {condition_str}"
     else:
         condition_str = ""
-        
+
     sql_query = f"""
     SELECT
         'Less than 5 years' AS Age_Category, COUNT(CASE WHEN completed_age < 5 THEN 1 END) AS Number_of_beneficiaries
@@ -78,4 +80,3 @@ def execute(filters=None):
 
     data = frappe.db.sql(sql_query, as_dict=True)
     return columns, data
-    return sql_query

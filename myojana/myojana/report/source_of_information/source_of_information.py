@@ -22,7 +22,7 @@ def execute(filters=None):
     ]
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True,)
     if condition_str:
-        condition_str = f"{condition_str} 1=1"
+        condition_str = f"WHERE {condition_str}"
     else:
         condition_str = "1=1"
     # print("condition_str", condition_str)
@@ -32,7 +32,7 @@ def execute(filters=None):
         COUNT(name) AS count
     FROM
         `tabBeneficiary Profiling`
-    WHERE {condition_str}
+    {condition_str}
     GROUP BY
         COALESCE(NULLIF(source_of_information, ''), 'Unknown');
 """
