@@ -8,7 +8,7 @@ import frappe
 from myojana.utils.report_filter import ReportFilter
 
 def execute(filters=None):
-	frappe.errprint(filters)
+	# frappe.errprint(filters)
 	columns = [
 		{
 		"fieldname":"n",
@@ -48,6 +48,5 @@ def execute(filters=None):
 			) as t
 		where t.count = 1
 	"""
-	print(query)
 	ben_data = frappe.db.sql(query, as_dict=True)
 	return columns, ben_data
