@@ -23,7 +23,7 @@ def execute(filters=None):
 		"width":200
 		}
 	]
-	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
+	condition_str = ReportFilter.set_report_filters(filters, 'creation', True,'bp')
 	if condition_str:
 		condition_str = f"AND {condition_str}"
 	else:
@@ -41,11 +41,13 @@ def execute(filters=None):
 					(count(distinct milestone)) = {mcount} as count
 				from
 					`tabScheme Child`
+				INNER JOIN  `tabBeneficiary Profiling` bp on bp.name = parent
 				where 
 					parenttype = 'Beneficiary Profiling' and parentfield = 'scheme_table'  {condition_str} 
 				group by parent
 			) as t
 		where t.count = 1
 	"""
+	print(query)
 	ben_data = frappe.db.sql(query, as_dict=True)
 	return columns, ben_data
