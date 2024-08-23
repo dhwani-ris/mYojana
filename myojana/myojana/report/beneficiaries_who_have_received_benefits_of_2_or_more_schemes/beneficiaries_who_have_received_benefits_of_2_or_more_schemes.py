@@ -6,7 +6,7 @@ def execute(filters=None):
         {
             "fieldname": "n",
             "label": "No. of members",
-            "fieldtype": "Int",  # Note: 'Int' should be properly capitalized
+            "fieldtype": "Data",  # Note: 'Int' should be properly capitalized
             "width": 200
         },
         {
@@ -18,7 +18,6 @@ def execute(filters=None):
     ]
 
     # Set the report filters
-    condition_str = ReportFilter.set_report_filters(filters, 'creation', True, '')
     condition_str = ReportFilter.set_report_filters(filters, 'creation', True, 'b')
     
     if condition_str:
@@ -51,9 +50,5 @@ def execute(filters=None):
         WHERE
             counts.ben_count >= 2;
     """
-
-    # Execute the SQL query
     data = frappe.db.sql(sql_query, as_dict=True)
-
-    # Return columns and data
     return columns, data
