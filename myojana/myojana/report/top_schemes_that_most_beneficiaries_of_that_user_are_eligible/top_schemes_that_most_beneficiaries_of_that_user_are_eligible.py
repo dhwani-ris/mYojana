@@ -37,12 +37,12 @@ def execute(filters=None):
 					`tabBeneficiary Profiling`
 				{('WHERE '+' AND '.join(conditions)) if len(conditions) else ""}
 			"""
-			# print("get_elegible_ben")
+			
 			ben_result = frappe.db.sql(get_elegible_ben, as_dict=True)
 			scheme_ben_count_list.append({"scheme": scheme.name , "count": (ben_result[0].count if len(ben_result) else 0)})
 	sorted_schemes = sorted(scheme_ben_count_list, key=lambda x: x["count"], reverse=True)
 		# Get the top 5 schemes
 	top_5_schemes = sorted_schemes[:5]
 		# data = frappe.db.sql(sql_query, as_dict=True)
-	# print(columns, top_5_schemes)
+
 	return columns, top_5_schemes
