@@ -13,6 +13,6 @@ var filters = [
 	}
 	
 ];
-frappe.query_reports["Total demands"] = {
+frappe.query_reports["Total Demands"] = {
 	filters: filters
 };

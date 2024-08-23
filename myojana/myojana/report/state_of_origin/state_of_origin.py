@@ -39,7 +39,7 @@ def execute(filters=None):
 		GROUP BY
 			COALESCE(t2.state_name, 'Unknown');
 	"""
-	# print("////////////////////////", sql_query)
+
 
 	data = frappe.db.sql(sql_query, as_dict=True)
 

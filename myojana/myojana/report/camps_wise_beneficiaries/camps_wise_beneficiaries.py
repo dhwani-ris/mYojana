@@ -25,7 +25,6 @@ def execute(filters=None):
         condition_str = f"{condition_str}"
     else:
         condition_str = "1=1"
-    # print("condition_str", condition_str)
     sql_query = f"""
     SELECT
         name_of_the_camp as camp,

@@ -17,7 +17,7 @@ def execute(filters=None):
         }
     ]
 
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True)
+    condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
     if condition_str:
         condition_str = f"AND {condition_str}"
     else:
