@@ -1,0 +1,48 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-08-16 11:18:28.478835",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "select_action",
+  "select_field",
+  "select_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_field",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Select Field",
+   "reqd": 1
+  },
+  {
+   "fieldname": "select_value",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Select Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "select_action",
+   "fieldtype": "Autocomplete",
+   "in_list_view": 1,
+   "label": "Select Action",
+   "options": "onupdate",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-16 13:43:26.087811",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "System Notification Child",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

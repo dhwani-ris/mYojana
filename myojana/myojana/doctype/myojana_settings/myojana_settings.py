@@ -7,14 +7,14 @@ from frappe.model.document import Document
 
 class mYojanaSettings(Document):
 	def validate(self):
-		doctypes = [doctype.strip() for doctype in self.doctype_which_is_shown_in_user_permission.split(',')]
-		for doc in doctypes:
-			if doc is not '':
-				is_available = frappe.db.exists('DocType', doc)
-				if not is_available:
-					frappe.throw(
-					msg='This Enter Doctype does not exist',
-					title=doc +" Doctype doesn't exist")
-			# print("/////////////////////////////////", doc)
-		return
 		pass
+	def before_save(self):
+		if not self.enable_whats_app_notification:
+			self.id_card_template = 0
+			self.whatsapp_service_provider =""
+			self.auth_key = ""
+			self.integrated_number = ""
+
+		# Get the host_url and remove the trailing slash if present
+		self.base_url = frappe.local.request.host_url.rstrip('/')
+

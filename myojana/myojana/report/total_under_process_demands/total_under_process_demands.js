@@ -12,15 +12,7 @@ var filters = [
 		"label": "To Date"
 	}
 	
-];
-// if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
-// 	filters.push({
-// 		"fieldname": "state",
-// 		"fieldtype": "Link",
-// 		"label": "State",
-// 		"options": "State"
-// 	})
-// }
-frappe.query_reports["Total Submitted Demands"] = {
+]
+frappe.query_reports["Total under process demands"] = {
 	filters: filters,
 };

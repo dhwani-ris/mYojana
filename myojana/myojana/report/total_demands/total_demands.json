@@ -6,10 +6,10 @@
  "docstatus": 0,
  "doctype": "Report",
  "filters": [],
- "idx": 11,
+ "idx": 12,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-01-05 11:40:18.968993",
+ "modified": "2024-08-09 15:35:50.108271",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Total Demands",
@@ -21,6 +21,21 @@
  "roles": [
   {
    "role": "System Manager"
+  },
+  {
+   "role": "All"
+  },
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "CSC Member"
+  },
+  {
+   "role": "MIS executive"
+  },
+  {
+   "role": "Sub-Centre"
   }
  ]
 }

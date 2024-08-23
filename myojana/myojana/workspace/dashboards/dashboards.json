@@ -1,0 +1,104 @@
+{
+ "charts": [
+  {
+   "chart_name": "Camps-wise beneficiaries",
+   "label": "Camps-wise beneficiaries"
+  },
+  {
+   "chart_name": "Source of information",
+   "label": "Source of information"
+  },
+  {
+   "chart_name": "House type-wise beneficiaries",
+   "label": "House type-wise beneficiaries"
+  },
+  {
+   "chart_name": "Age-wise beneficiaries",
+   "label": "Age-wise beneficiaries"
+  },
+  {
+   "chart_name": "Occupation wise beneficiaries",
+   "label": "Occupational category-wise beneficiaries"
+  },
+  {
+   "chart_name": "Religion-wise beneficiaries",
+   "label": "Religion-wise beneficiaries"
+  },
+  {
+   "chart_name": "Beneficiaries with Bank Account",
+   "label": "Beneficiaries with bank account"
+  },
+  {
+   "chart_name": "Gender composition",
+   "label": "Gender composition"
+  }
+ ],
+ "content": "[{\"id\":\"JNDPp8Z2SM\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"print in pdf\",\"col\":12}},{\"id\":\"6vDcYvdR5K\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF BENEFICIARY OUTREACH\",\"col\":4}},{\"id\":\"xdXxm17yLL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"NUMBER OF FAMILIES\",\"col\":4}},{\"id\":\"UPgPfj9Yri\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total demands\",\"col\":4}},{\"id\":\"b7jnKBxi2O\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total under process demands\",\"col\":6}},{\"id\":\"39tTUw4lvS\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total sanctioned demands\",\"col\":6}},{\"id\":\"vNViM96luc\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Gender composition\",\"col\":6}},{\"id\":\"WGPGvENVJA\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Beneficiaries with bank account\",\"col\":6}},{\"id\":\"GxuwfhS5Xu\",\"type\":\"chart\",\"data\":{\"chart_name\":\"House type-wise beneficiaries\",\"col\":12}},{\"id\":\"PShS8Mj_Tq\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Source of information\",\"col\":12}},{\"id\":\"EKjrHgYGZ0\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Camps-wise beneficiaries\",\"col\":12}},{\"id\":\"5n40TSBnHo\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Age-wise beneficiaries\",\"col\":12}},{\"id\":\"WV7Z5jSolP\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Occupational category-wise beneficiaries\",\"col\":12}},{\"id\":\"ZWDsj6v9GU\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Religion-wise beneficiaries\",\"col\":12}}]",
+ "creation": "2023-12-21 19:17:06.822003",
+ "custom_blocks": [
+  {
+   "custom_block_name": "print in pdf",
+   "label": "print in pdf"
+  }
+ ],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "assign",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Dashboards",
+ "links": [],
+ "modified": "2024-08-14 10:02:36.511309",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Dashboards",
+ "number_cards": [
+  {
+   "label": "Total demands",
+   "number_card_name": "Sum of Total_ascertaining_demands"
+  },
+  {
+   "label": "Total under process demands",
+   "number_card_name": "Sum of Count"
+  },
+  {
+   "label": "NUMBER OF BENEFICIARY OUTREACH",
+   "number_card_name": "NUMBER OF BENEFICIARIES"
+  },
+  {
+   "label": "Total sanctioned demands",
+   "number_card_name": "Sum of Count-1"
+  },
+  {
+   "label": "NUMBER OF FAMILIES",
+   "number_card_name": "NUMBER OF FAMILIES"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "Admin"
+  },
+  {
+   "role": "CSC Member"
+  },
+  {
+   "role": "Sub-Centre"
+  },
+  {
+   "role": "MIS executive"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 1.0,
+ "shortcuts": [],
+ "title": "Dashboards"
+}

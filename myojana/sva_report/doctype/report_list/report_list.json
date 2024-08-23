@@ -43,7 +43,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-13 11:06:15.772236",
+ "modified": "2024-08-06 12:42:24.041658",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "Report List",
@@ -61,6 +61,15 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
   }
  ],
  "sort_field": "modified",

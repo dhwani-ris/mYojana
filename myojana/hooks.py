@@ -4,13 +4,16 @@ app_publisher = "dhwaniris"
 app_description = "social inclusion program management system"
 app_email = "teach@suvaidyam.com"
 app_license = "mit"
-# required_apps = []
+# required_apps = ["Suvaidyam/sva_dashboard"]
 
 fixtures = [
-    # "mYojana Settings"
+    "mYojana Settings",
+    "Print Format",
+    "Report List",
+    "SVA Report"
     # "scheme application submitted",
     # "Scheme Paid by",
-    "Client Script",
+    # "Client Script",
     # "Custom HTML Block",
     # "Caste category",
     # "Religion",
@@ -45,12 +48,12 @@ permission_query_conditions = {
     # "Sub Centre":"myojana.middlewares.sub_centre.list_query",
     # "Myojana User":"myojana.middlewares.myojana_users.list_query",
     "Role Profile":"myojana.middlewares.role_profile.list_query",
-    "User":"myojana.middlewares.user.list_query",
+    # "User":"myojana.middlewares.user.list_query",
     # "Centre":"myojana.middlewares.centre.list_query",
 }
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/myojana/css/myojana.css"
+app_include_css = "/assets/myojana/css/main.css"
 app_include_js = [
     "/assets/myojana/js/main.js",
     "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
@@ -78,7 +81,6 @@ doctype_js = {
         "public/js/beneficiary_profiling/follow_up.js",
         "public/js/beneficiary_profiling/scheme.js",
         "public/js/beneficiary_profiling/id_document.js",
-        "public/js/beneficiary_profiling/dialogs.js"
     ],
     "Sub Centre":[
         "public/js/utils/utils.js"
@@ -186,7 +188,10 @@ doc_events = {
 		# "on_update": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
 		# "on_cancel": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
 		# "on_trash": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben"
-	}
+	},
+    #  "Beneficiary Profiling": {
+    #     "on_update": "myojana.middlewares.test.test",
+    # }
 }
 
 # Scheduled Tasks

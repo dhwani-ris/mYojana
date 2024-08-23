@@ -24,23 +24,25 @@ function fetchAndRenderData(frm, limit, filters) {
 frappe.ui.form.on("Report List", {
     refresh(frm) {
         // to hide unwanted buttons
-        $('.standard-actions').hide();
+        // $('.standard-actions').hide();
         //
 
         if (!frm.is_new() == 1) {
+            console.log("frm.is_new()",frm.is_new());
+            $('.standard-actions').hide();
             fetchAndRenderData(frm, {});
             DataExportButton(frm)
         }
 
         frm.add_custom_button('Filter', () => {
             frappe.prompt(
-                filter_fields = filters_data.map(fltr => ({
+                filter_fields = filters_data?.map(fltr => ({
                     fieldname: fltr.fieldname,
                     fieldtype: fltr.fieldtype,
                     label: fltr.label,
                     options: fltr.options,
                     default: fltr.default || ''
-                })),
+                })) || [],
                 function (values) {
                     let appliedFilters = {};
                     filter_fields.forEach(filter => {
@@ -130,20 +132,13 @@ function buttion(frm) {
 
 function DataExportButton(frm) {
     frm.add_custom_button(__('Export'), function () {
-        frappe.call({
-            method: "myojana.sva_report.controllers.get_report_data.execute",
-            args: {
-                doc: frm.doc.name,
-                limit: "all",
-            },
-            callback: function (response) {
-                if (response.message) {
-                    downloadTableAsCSV(response.message.data, "exported_data.csv", "text/csv");
-                } else {
-                    console.error("Error fetching data from API.");
-                }
-            }
-        });
+            const a = document.createElement('a');
+            a.href = `/api/method/myojana.sva_report.controllers.get_report_data.execute?doc=${frm.doc.name}&csv_export=1`;
+            a.target = '_blank'; // Open link in new tab
+            a.download = ''; // This attribute triggers the download
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
     });
 }
 

@@ -12,7 +12,7 @@ def execute(doc,filters=[],skip=0, limit=10,csv_export=0,debug=None):
     res= DocTypeInfo.get_data('SVA Report',doc, filters,skip, limit,csv_export, debug )
     return res
 @frappe.whitelist()
-def get_fields(doc):
+def get_fields(doc, section='0'):
     # res = DocTypeInfo.get_data('SVA Report',doc, filters,skip, limit,csv_export, debug )
-    res = DocTypeInfo.get_fields(doc,[])
+    res = DocTypeInfo.get_fields(doc,fields=[], section=section)
     return res

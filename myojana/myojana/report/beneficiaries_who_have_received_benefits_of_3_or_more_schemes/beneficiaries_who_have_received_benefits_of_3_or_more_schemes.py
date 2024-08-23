@@ -47,7 +47,7 @@ def execute(filters=None):
 			FROM 
 				`tabBeneficiary Profiling` 
 			WHERE 
-				1=1 {condition_str})
+				{condition_str})
 		GROUP BY
 			sc.parent
 		) AS counts

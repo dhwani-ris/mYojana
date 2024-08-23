@@ -55,6 +55,43 @@ def create_user_permissions(doc=None):
         if not block_exist:
             block_perm = frappe.get_doc(document)
             block_perm.insert(ignore_permissions=True)
+    elif allow == "Village":
+        state_value,dist_value , block_val= frappe.db.get_value("Village", for_value, ['state','district', 'block'])
+        new_state_doc = {
+                'doctype': doctype,
+                'allow': 'State',
+                'for_value':state_value,
+                'user':user
+            }
+        new_dist_doc = {
+                'doctype': doctype,
+                'allow': 'District',
+                'for_value':dist_value,
+                'user':user
+            }
+        new_block_doc = {
+                'doctype': doctype,
+                'allow': 'Block',
+                'for_value':block_val,
+                'user':user
+            }
+        state_exist  = frappe.db.exists(new_state_doc)
+        dist_exist  = frappe.db.exists(new_dist_doc)
+        block_exist  = frappe.db.exists(new_block_doc)
+        village_exist  = frappe.db.exists(document)
+        if not state_exist:
+            state_perm = frappe.get_doc(new_state_doc)
+            state_perm.insert(ignore_permissions=True)
+        if not dist_exist:
+            dist_perm = frappe.get_doc(new_dist_doc)
+            dist_perm.insert(ignore_permissions=True)
+        if not block_exist:
+            block_perm = frappe.get_doc(new_block_doc)
+            block_perm.insert(ignore_permissions=True)
+        if not village_exist:
+            vill_perm = frappe.get_doc(document)
+            vill_perm.insert(ignore_permissions=True)
+
     elif allow == "Centre":
         state_value = frappe.db.get_value("Centre", for_value, ['state'])
         new_state_doc = {

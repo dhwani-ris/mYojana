@@ -16,41 +16,64 @@ function callAPI(options) {
 }
 async function arrangeFields(fields, checked_data = []) {
   const groupedFields = {};
-  await fields.forEach(field => {
-    const doctype = field.doc_type || 'default';
-    if (!groupedFields[doctype]) groupedFields[doctype] = [];
-    groupedFields[doctype].push(field);
-  });
-  return Object.entries(groupedFields).flatMap(([doctype, fields]) => [
-    { fieldname: `${doctype}_section_break`, fieldtype: "Section Break", label: `${doctype} Details` },
-    ...fields.map(field => {
-      field.label = `${field.label}${field?.link_table?.label?' ('+field?.link_table?.label+')':''}`
-      if (checked_data.length > 0 && checked_data.includes(field.fieldname)) {
-        return {
-          fieldname: field.fieldname, fieldtype: "Check", label: field.label, ft: field.fieldtype, default: 1, onchange: (e) => {
+  // await fields.forEach(field => {
+  //   const doctype = field.doc_type || 'default';
+  //   if (!groupedFields[doctype]) groupedFields[doctype] = [];
+  //   groupedFields[doctype].push(field);
+  // });
+  // return Object.entries(groupedFields).flatMap(([doctype, fields]) => [
+  //   { fieldname: `${doctype}_section_break`, fieldtype: "Section Break", label: `${doctype} Details` },
+  //   ...fields.map(field => {
+  //     // field.label = `${field.label}${(field?.link_table?.label?' ('+field?.link_table?.label+')':'')}`
+  //     if (checked_data.length > 0 && checked_data.includes(field.fieldname)) {
+  //       return {
+  //         fieldname: field.fieldname, fieldtype: "Check", label: field.label, ft: field.fieldtype, default: 1, onchange: (e) => {
+  //           if (e.currentTarget.checked) {
+  //             new_checked_data.push(field.fieldname)
+  //           } else {
+  //             new_checked_data = new_checked_data.filter((doc) => doc !== field.fieldname)
+  //           }
+  //           console.log(new_checked_data)
+  //         }
+  //       }
+  //     } else {
+  //       return {
+  //         fieldname: field.fieldname, fieldtype: "Check", label: field.label, ft: field.fieldtype, default: 0, onchange: (e) => {
+  //           if (e.currentTarget.checked) {
+  //             if (!new_checked_data.includes(field.fieldname)) {
+  //               new_checked_data.push(field.fieldname)
+  //             }
+  //           } else {
+  //             new_checked_data = new_checked_data.filter((doc) => doc !== field.fieldname)
+  //           }
+  //         }
+  //       }
+  //     }
+  //   })
+  // ]);
+    return [...fields.map(field => {
+      // field.label = `${field.label}${(field?.link_table?.label?' ('+field?.link_table?.label+')':'')}`
+      if(["Section Break",'Tab Break'].includes(field.fieldtype)){
+        if(!field.label){
+          console.log(field);
+        }
+        return { fieldname: `${field.fieldname}_section_break`, fieldtype: "Section Break", label: `${field.label ? field.label:''}` };
+      }
+      return {
+          fieldname: field.fieldname,
+          fieldtype: "Check",
+          label: field.label,
+          ft: field.fieldtype,
+          default: (checked_data.length > 0 && checked_data.includes(field.fieldname)),
+          onchange: (e) => {
             if (e.currentTarget.checked) {
               new_checked_data.push(field.fieldname)
             } else {
               new_checked_data = new_checked_data.filter((doc) => doc !== field.fieldname)
             }
-            console.log(new_checked_data)
           }
         }
-      } else {
-        return {
-          fieldname: field.fieldname, fieldtype: "Check", label: field.label, ft: field.fieldtype, default: 0, onchange: (e) => {
-            if (e.currentTarget.checked) {
-              if (!new_checked_data.includes(field.fieldname)) {
-                new_checked_data.push(field.fieldname)
-              }
-            } else {
-              new_checked_data = new_checked_data.filter((doc) => doc !== field.fieldname)
-            }
-          }
-        }
-      }
-    })
-  ]);
+    })]
 }
 frappe.ui.form.on("SVA Report", {
   refresh(frm) {
@@ -61,7 +84,8 @@ frappe.ui.form.on("SVA Report", {
       fields = await callAPI({
         method: 'myojana.sva_report.controllers.get_report_data.get_fields',
         args: {
-          doc: frm.doc.ref_doctype
+          doc: frm.doc.ref_doctype,
+          section:'1'
         },
         freeze_message: __("Getting fields..."),
       })

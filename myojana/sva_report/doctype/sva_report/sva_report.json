@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "ref_doctype",
+  "order_by",
   "filters",
   "map_columns",
   "columns"
@@ -37,11 +38,17 @@
    "fieldname": "map_columns",
    "fieldtype": "Button",
    "label": "Map Columns"
+  },
+  {
+   "description": "You can set multiple comma separated values. E.g.\n\n`creation DESC, idx ASC`  ",
+   "fieldname": "order_by",
+   "fieldtype": "Data",
+   "label": "Order By"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-05-06 17:30:59.952300",
+ "modified": "2024-08-08 10:06:48.460900",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "SVA Report",

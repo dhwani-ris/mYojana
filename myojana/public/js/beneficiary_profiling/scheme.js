@@ -12,19 +12,6 @@ const showRules = (row) => {
     }
   });
 }
-// get scheme lists
-const get_scheme_list = async (frm) => {
-  let list = await callAPI({
-    method: 'myojana.api.execute',
-    freeze: true,
-    args: {
-      name: frm.doc.name
-    },
-    freeze_message: __("Getting schemes..."),
-  })
-  scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
-  return scheme_list
-}
 const addTableFilter = (datatable, elements = [], rows = []) => {
   document.addEventListener('keyup', function (event) {
     if (elements.includes(event.target.id)) {
@@ -56,7 +43,9 @@ frappe.ui.form.on('Scheme Child', {
       return { 'label': __(e.name_of_the_scheme), "value": __(e.name) }
     })
     frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.name_of_the_scheme._data = ops;
-    frm.fields_dict.scheme_t
+    frm.fields_dict.scheme_table.grid.open_grid_row.fields_dict.milestone_category._data = Object.keys(milestones)
+    .map(e => ({ 'label': __(milestones[e]), 'value': __(milestones[e]) }))
+    .filter(item => item.value !== "");
   },
   scheme_table_add: async function (frm, cdt, cdn) {
     // get_milestone_category(frm)
