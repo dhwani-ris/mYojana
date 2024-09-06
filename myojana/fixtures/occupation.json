@@ -1,0 +1,866 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.778550",
+  "name": "AC Work",
+  "occupation": "AC Work",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.803000",
+  "name": "Accountant",
+  "occupation": "Accountant",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.811391",
+  "name": "Advocate",
+  "occupation": "Advocate",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.820918",
+  "name": "Aganwadi Worker",
+  "occupation": "Aganwadi Worker",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.828943",
+  "name": "Agarbatti vendor",
+  "occupation": "Agarbatti vendor",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.837958",
+  "name": "Artisan",
+  "occupation": "Artisan",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.848754",
+  "name": "Asha Worker",
+  "occupation": "Asha Worker",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.857878",
+  "name": "Auto-mechanic",
+  "occupation": "Auto-mechanic",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.866068",
+  "name": "Auto/Toto/Rickshaw puller",
+  "occupation": "Auto/Toto/Rickshaw puller",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.876611",
+  "name": "Baker",
+  "occupation": "Baker",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.885425",
+  "name": "Bar Winder",
+  "occupation": "Bar Winder",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.894982",
+  "name": "Barber Work",
+  "occupation": "Barber Work",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.903807",
+  "name": "Beautician",
+  "occupation": "Beautician",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.911991",
+  "name": "Beauty Parlour",
+  "occupation": "Beauty Parlour",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.920236",
+  "name": "Beggar",
+  "occupation": "Beggar",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.927655",
+  "name": "Bindi/bead makers",
+  "occupation": "Bindi/bead makers",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.936878",
+  "name": "Blacksmith",
+  "occupation": "Blacksmith",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.949517",
+  "name": "Brick workers",
+  "occupation": "Brick workers",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.958366",
+  "name": "Builder",
+  "occupation": "Builder",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.966649",
+  "name": "Business",
+  "occupation": "Business",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.975743",
+  "name": "Butcher",
+  "occupation": "Butcher",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.984232",
+  "name": "Cable Networker",
+  "occupation": "Cable Networker",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:44.996414",
+  "name": "Call center",
+  "occupation": "Call center",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.006761",
+  "name": "Care taker",
+  "occupation": "Care taker",
+  "occupational_category": "Domestic Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.016324",
+  "name": "Carpenter",
+  "occupation": "Carpenter",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.025547",
+  "name": "Casual Labour",
+  "occupation": "Casual Labour",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.033388",
+  "name": "Catering",
+  "occupation": "Catering",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.043909",
+  "name": "Chemical Engineer",
+  "occupation": "Chemical Engineer",
+  "occupational_category": "Engineer"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.054809",
+  "name": "Child",
+  "occupation": "Child",
+  "occupational_category": "Child"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.064818",
+  "name": "Cobbler",
+  "occupation": "Cobbler",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.073100",
+  "name": "Computer software",
+  "occupation": "Computer software",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.082498",
+  "name": "Confectioner",
+  "occupation": "Confectioner",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.093215",
+  "name": "Construction Labour",
+  "occupation": "Construction Labour",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.103073",
+  "name": "Cooking",
+  "occupation": "Cooking",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.111299",
+  "name": "Courier Service",
+  "occupation": "Courier Service",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.122331",
+  "name": "Dairy Shop",
+  "occupation": "Dairy Shop",
+  "occupational_category": "Self-employed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.139500",
+  "name": "Delivery Bakery",
+  "occupation": "Delivery Bakery",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.148707",
+  "name": "Dentist",
+  "occupation": "Dentist",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.172014",
+  "name": "Doctor",
+  "occupation": "Doctor",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.180760",
+  "name": "Domestic Worker",
+  "occupation": "Domestic Worker",
+  "occupational_category": "Domestic Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.192390",
+  "name": "Driver",
+  "occupation": "Driver",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.213107",
+  "name": "DTP –Data work",
+  "occupation": "DTP –Data work",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.222290",
+  "name": "Dyers-printing",
+  "occupation": "Dyers-printing",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.230963",
+  "name": "Electrician",
+  "occupation": "Electrician",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.242132",
+  "name": "Factory Worker",
+  "occupation": "Factory Worker",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.251128",
+  "name": "Farmer",
+  "occupation": "Farmer",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.260445",
+  "name": "Field Work",
+  "occupation": "Field Work",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.271875",
+  "name": "Folk artist",
+  "occupation": "Folk artist",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.279818",
+  "name": "Fruit Seller",
+  "occupation": "Fruit Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.289058",
+  "name": "Gardener",
+  "occupation": "Gardener",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.299172",
+  "name": "Gig worker",
+  "occupation": "Gig worker",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.310046",
+  "name": "Government Job",
+  "occupation": "Government Job",
+  "occupational_category": "Government Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.319782",
+  "name": "Gym Trainer",
+  "occupation": "Gym Trainer",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.328597",
+  "name": "Handicraft Work",
+  "occupation": "Handicraft Work",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.337452",
+  "name": "Head loader",
+  "occupation": "Head loader",
+  "occupational_category": "Daily Wage Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.345270",
+  "name": "Helper",
+  "occupation": "Helper",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.354437",
+  "name": "House Wife",
+  "occupation": "House Wife",
+  "occupational_category": "Homemaker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.362026",
+  "name": "Housekeeping",
+  "occupation": "Housekeeping",
+  "occupational_category": "Sanitation Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.377729",
+  "name": "Labour",
+  "occupation": "Labour",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.386283",
+  "name": "Locksmith",
+  "occupation": "Locksmith",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.395448",
+  "name": "Mason",
+  "occupation": "Mason",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.405498",
+  "name": "MCD Worker",
+  "occupation": "MCD Worker",
+  "occupational_category": "Government Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.414580",
+  "name": "Mechanic",
+  "occupation": "Mechanic",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.435727",
+  "name": "News Agent",
+  "occupation": "News Agent",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.445559",
+  "name": "News paper Boy",
+  "occupation": "News paper Boy",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.464411",
+  "name": "Not Working",
+  "occupation": "Not Working",
+  "occupational_category": "Unemployed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.474417",
+  "name": "Nursing",
+  "occupation": "Nursing",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.482776",
+  "name": "Office Assistant",
+  "occupation": "Office Assistant",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.503829",
+  "name": "Other Unorganized Workers",
+  "occupation": "Other Unorganized Workers",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.514972",
+  "name": "Others",
+  "occupation": "Others",
+  "occupational_category": "Others"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.524257",
+  "name": "Painter",
+  "occupation": "Painter",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.531908",
+  "name": "Peon",
+  "occupation": "Peon",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.542099",
+  "name": "Petty shopkeeper",
+  "occupation": "Petty shopkeeper",
+  "occupational_category": "Self-employed"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.553488",
+  "name": "Pharmacist",
+  "occupation": "Pharmacist",
+  "occupational_category": "Health/ Front Line Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.562378",
+  "name": "Piece-rate worker",
+  "occupation": "Piece-rate worker",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.572709",
+  "name": "Plumber",
+  "occupation": "Plumber",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.580937",
+  "name": "Political worker",
+  "occupation": "Political worker",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.590614",
+  "name": "Potter",
+  "occupation": "Potter",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.599334",
+  "name": "Private Job",
+  "occupation": "Private Job",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.609434",
+  "name": "Property Dealer",
+  "occupation": "Property Dealer",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.625250",
+  "name": "Ragpicker",
+  "occupation": "Ragpicker",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.633033",
+  "name": "Sales Executive Dealership",
+  "occupation": "Sales Executive Dealership",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.642722",
+  "name": "Sanitation Worker",
+  "occupation": "Sanitation Worker",
+  "occupational_category": "Sanitation Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.652694",
+  "name": "Scrap Dealer",
+  "occupation": "Scrap Dealer",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.662552",
+  "name": "Security Guard",
+  "occupation": "Security Guard",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.671170",
+  "name": "Security Guard Construction site",
+  "occupation": "Security Guard Construction site",
+  "occupational_category": "Construction Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.682833",
+  "name": "Shoe Maker",
+  "occupation": "Shoe Maker",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.692823",
+  "name": "Shopkeeper",
+  "occupation": "Shopkeeper",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.701705",
+  "name": "Show room manager",
+  "occupation": "Show room manager",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.710551",
+  "name": "Social Worker",
+  "occupation": "Social Worker",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.720056",
+  "name": "Street cloth and handloom items",
+  "occupation": "Street cloth and handloom items",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.727778",
+  "name": "Street Cosmetic Seller",
+  "occupation": "Street Cosmetic Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.736533",
+  "name": "Street Flower Seller",
+  "occupation": "Street Flower Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.744110",
+  "name": "Street Food Seller",
+  "occupation": "Street Food Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.753135",
+  "name": "Street fruit seller",
+  "occupation": "Street fruit seller",
+  "occupational_category": "Daily Wage Workers"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.762723",
+  "name": "Street Juice stall",
+  "occupation": "Street Juice stall",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.771957",
+  "name": "Street Shoe Seller",
+  "occupation": "Street Shoe Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.779461",
+  "name": "Student",
+  "occupation": "Student",
+  "occupational_category": "College Student"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.788243",
+  "name": "Study",
+  "occupation": "Study",
+  "occupational_category": "Student (5-18 Year)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.796246",
+  "name": "Supervisor",
+  "occupation": "Supervisor",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.808831",
+  "name": "Sweeper",
+  "occupation": "Sweeper",
+  "occupational_category": "Sanitation Worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.821777",
+  "name": "Tailor",
+  "occupation": "Tailor",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.831394",
+  "name": "Teacher",
+  "occupation": "Teacher",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.840973",
+  "name": "Tuition Teacher",
+  "occupation": "Tuition Teacher",
+  "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.853648",
+  "name": "Vegetable Seller",
+  "occupation": "Vegetable Seller",
+  "occupational_category": "Street Vendor"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.861904",
+  "name": "Washerman",
+  "occupation": "Washerman",
+  "occupational_category": "Unorganized worker"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.871315",
+  "name": "Water Supplier",
+  "occupation": "Water Supplier",
+  "occupational_category": "Own Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupation",
+  "modified": "2024-03-14 12:00:45.891406",
+  "name": "Welding",
+  "occupation": "Welding",
+  "occupational_category": "Construction Workers"
+ }
+]

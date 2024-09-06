@@ -1,0 +1,51 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.917931",
+  "name": "Buddhist",
+  "religion": "Buddhist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.938885",
+  "name": "Christian",
+  "religion": "Christian"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.948067",
+  "name": "Hindu",
+  "religion": "Hindu"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.955715",
+  "name": "Jain",
+  "religion": "Jain"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.964278",
+  "name": "Muslim",
+  "religion": "Muslim"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.972982",
+  "name": "Other",
+  "religion": "Other"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Religion",
+  "modified": "2024-03-14 11:21:22.981647",
+  "name": "Sikh",
+  "religion": "Sikh"
+ }
+]

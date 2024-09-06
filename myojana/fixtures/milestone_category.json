@@ -1,0 +1,51 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Citizenship Entitlement",
+  "modified": "2024-03-14 12:03:00.967861",
+  "name": "Citizenship Entitlement"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Civic Amenities & Services",
+  "modified": "2024-03-14 12:03:00.986833",
+  "name": "Civic Amenities & Services"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Education",
+  "modified": "2024-03-14 12:03:01.003431",
+  "name": "Education"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Food Security",
+  "modified": "2024-03-14 12:03:01.011497",
+  "name": "Food Security"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Health Schemes & Services",
+  "modified": "2024-03-14 12:03:01.021313",
+  "name": "Health Schemes & Services"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Livelihood and Skill Development",
+  "modified": "2024-03-14 12:03:01.029427",
+  "name": "Livelihood and Skill Development"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Milestone category",
+  "milestone_category_name": "Social Security",
+  "modified": "2024-03-14 12:03:01.038942",
+  "name": "Social Security"
+ }
+]
