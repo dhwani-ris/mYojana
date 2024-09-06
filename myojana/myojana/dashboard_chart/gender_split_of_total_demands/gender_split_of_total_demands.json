@@ -10,7 +10,7 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-09-06 11:23:09.618795",
+ "modified": "2024-09-06 11:36:11.733566",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Gender Split of Total Demands",
@@ -26,13 +26,16 @@
  "x_field": "gender",
  "y_axis": [
   {
-   "y_field": "open_count"
+   "color": "#ECAD4B",
+   "y_field": "open"
   },
   {
-   "y_field": "completed_count"
+   "color": "#449CF0",
+   "y_field": "under_process"
   },
   {
-   "y_field": "under_process_count"
+   "color": "#761ACB",
+   "y_field": "completed"
   }
  ]
 }

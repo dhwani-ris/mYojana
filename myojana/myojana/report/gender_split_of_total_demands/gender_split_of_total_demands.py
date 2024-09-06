@@ -21,19 +21,19 @@ def execute(filters=None):
 		},
 		
 		{
-		"fieldname":"open_count",
+		"fieldname":"open",
 		"label":"Open",
 		"fieldtype":"Data",
 		"width":200
 		},
 		{
-		"fieldname":"completed_count",
+		"fieldname":"completed",
 		"label":"Completed",
 		"fieldtype":"Data",
 		"width":200
 		},
 		{
-		"fieldname":"under_process_count",
+		"fieldname":"under_process",
 		"label":"Under Process",
 		"fieldtype":"Data",
 		"width":200
@@ -50,9 +50,9 @@ def execute(filters=None):
 	SELECT 
 		COUNT(ben.name) AS ben_count,
 		ben.gender,
-		SUM(CASE WHEN s.status = 'Open' THEN 1 ELSE 0 END) AS open_count,
-		SUM(CASE WHEN s.status = 'Completed' THEN 1 ELSE 0 END) AS completed_count,
-		SUM(CASE WHEN s.status = 'Under Process' THEN 1 ELSE 0 END) AS under_process_count
+		SUM(CASE WHEN s.status = 'Open' THEN 1 ELSE 0 END) AS open,
+		SUM(CASE WHEN s.status = 'Completed' THEN 1 ELSE 0 END) AS completed,
+		SUM(CASE WHEN s.status = 'Under Process' THEN 1 ELSE 0 END) AS under_process
 	FROM 
 		`tabBeneficiary Profiling` AS ben
 	LEFT JOIN `tabScheme Child` AS s 
