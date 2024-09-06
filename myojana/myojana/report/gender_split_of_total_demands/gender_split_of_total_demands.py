@@ -58,7 +58,7 @@ def execute(filters=None):
 	LEFT JOIN `tabScheme Child` AS s 
 		ON ben.name = s.parent 
 	WHERE 
-		s.milestone_category = 'Citizenship Entitlement' AND s.status IN ('Open','Completed','Under Process') 
+		s.status IN ('Open','Completed','Under Process') 
 		{condition_str}
 	GROUP BY  
 		ben.gender;
