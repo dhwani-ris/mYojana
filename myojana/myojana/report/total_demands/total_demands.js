@@ -14,5 +14,15 @@ var filters = [
 	
 ];
 frappe.query_reports["Total Demands"] = {
-	filters: filters
+	filters: filters,
+
+	"formatter": function(value, row, column, data, default_formatter) {
+        // Make the 'name' field clickable to open the relevant document
+        if (column.fieldname === "current_status" && data) {
+            value = `<a href="/app/beneficiary-profiling/?status=${data.current_status}" style="">${value}</a>`;
+        }
+        
+        value = default_formatter(value, row, column, data);
+        return value;
+    }
 };
