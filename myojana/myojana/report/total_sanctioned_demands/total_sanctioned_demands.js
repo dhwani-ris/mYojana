@@ -14,5 +14,15 @@ var filters = [
 	
 ];
 frappe.query_reports["Total sanctioned demands"] = {
-	filters: filters
+	filters: filters,
+	"formatter": function(value, row, column, data, default_formatter) {
+        // Make the 'name' field clickable to open the relevant document
+		console.log(column.fieldname);
+        if (column.fieldname === "status" && data) {
+            value = `<a href="/app/beneficiary-profiling/?status=${data.status}" style="">${value}</a>`;
+        }
+        
+        value = default_formatter(value, row, column, data);
+        return value;
+    }
 };

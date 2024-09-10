@@ -11,6 +11,12 @@ var filters = [
 		"fieldname": "to_date",
 		"fieldtype": "Date",
 		"label": "To Date"
+	},
+	{
+		"fieldname": "modified_by",
+		"fieldtype": "Link",
+		"options": "User",
+		"label": "User"
 	}
 
 ];
