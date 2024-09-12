@@ -166,14 +166,14 @@
    "fieldname": "milestone",
    "fieldtype": "Link",
    "hidden": 1,
-   "label": "Milestone category",
+   "label": "Milestone",
    "options": "Milestone category"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-20 07:43:47.272676",
+ "modified": "2024-09-10 15:27:58.681517",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme Child",
