@@ -263,7 +263,8 @@ class DocTypeInfo:
                         'info':field.get('child_table')
                     }
         return obj
-    def create_data(rows, fields):
+    def create_data(rows, fields, repeat_parent=False):
+        print("repeat_parent",repeat_parent)
         obj,index, res_data = fields, 1, []
         table_multiselect = [obj.get('children').get(child_table_name) for child_table_name in obj.get('children') if obj.get('children').get(child_table_name).get('info').get('fieldtype') == "Table MultiSelect"]
         tables = [obj.get('children').get(child_table_name) for child_table_name in obj.get('children') if obj.get('children').get(child_table_name).get('info').get('fieldtype') != "Table MultiSelect"]
@@ -292,7 +293,12 @@ class DocTypeInfo:
                 for i,record in enumerate(records):
                     if len(_rows) < (i+1):
                         index = index+1
-                        _rows.append({'id':index})
+                        if repeat_parent:
+                            _r = copy.deepcopy(row)
+                            _r.update({'id':index})
+                            _rows.append(_r)
+                        else:
+                            _rows.append({'id':index})
                     for k in _ct_columns:
                         # print("data:",ct_info,k)
                         _rows[i][f"{ct_info.get('fieldname')}.{k}"] = record.get(k, None)
@@ -318,7 +324,7 @@ class DocTypeInfo:
                 start=skip,
                 page_length=limit
             )
-            results = DocTypeInfo.create_data(rows, fields_info)
+            results = DocTypeInfo.create_data(rows, fields_info, report_doc.repeat_parent_data)
             res_data = []
             csv_buffer = StringIO()
             csv_writer = csv.writer(csv_buffer)
@@ -367,7 +373,7 @@ class DocTypeInfo:
                     start=skip,
                     page_length=limit
                 )
-                results = DocTypeInfo.create_data(rows, fields_info)
+                results = DocTypeInfo.create_data(rows, fields_info,report_doc.repeat_parent_data)
                 return {
                     'filters':[
                         {
