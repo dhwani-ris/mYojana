@@ -61,7 +61,7 @@ def execute(filters=None):
     
 
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'bp')
-    condition_str = f"WHERE {condition_str}" if condition_str else ""
+    condition_str = f"{condition_str}" if condition_str else "1=1"
 
     sql_query = f"""
     SELECT
@@ -79,7 +79,7 @@ def execute(filters=None):
         `tabScheme Child` sc ON bp.name = sc.parent
     LEFT JOIN
         `tabSub Centre` hd ON bp.sub_centre = hd.name 
-    {condition_str}
+    WHERE {condition_str} AND sc.modified_by !=""
     GROUP BY
         COALESCE(hd.sub_centre_name, 'Unknown') , user;
     """
