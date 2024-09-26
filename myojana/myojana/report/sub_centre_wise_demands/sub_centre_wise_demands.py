@@ -79,7 +79,7 @@ def execute(filters=None):
         `tabScheme Child` sc ON bp.name = sc.parent
     LEFT JOIN
         `tabSub Centre` hd ON bp.sub_centre = hd.name 
-    WHERE {condition_str} AND sc.status !=""
+    WHERE {condition_str} AND sc.modified_by !=""
     GROUP BY
         COALESCE(hd.sub_centre_name, 'Unknown') , user;
     """
