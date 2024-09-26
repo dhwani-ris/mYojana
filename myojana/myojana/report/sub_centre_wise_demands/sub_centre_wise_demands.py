@@ -80,9 +80,10 @@ def execute(filters=None):
     LEFT JOIN
         `tabSub Centre` hd ON bp.sub_centre = hd.name 
     {condition_str}
+    GROUP BY
+        COALESCE(hd.sub_centre_name, 'Unknown') , user;
     """
-  # GROUP BY
-    #     COALESCE(hd.sub_centre_name, 'Unknown');
+
 
 
     data = frappe.db.sql(sql_query, as_dict=True)
