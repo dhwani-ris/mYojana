@@ -31,7 +31,7 @@ def execute(filters=None):
     sql_query = f"""
     SELECT
         milestone_category,
-        COUNT(DISTINCT ben_table.name) AS unique_beneficiary_count
+        COUNT(DISTINCT ben_table.name) AS total_demands
     FROM
         `tabScheme Child` as _sc
     INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
