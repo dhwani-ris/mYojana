@@ -36,9 +36,7 @@ def execute(filters=None):
         `tabScheme Child` as _sc
     INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
     WHERE
-        1=1 {condition_str} AND milestone_category IN ("Documentation","Government schemes") AND _sc.status = 'Completed'
-    GROUP BY
-        milestone_category;
+        1=1 {condition_str} AND milestone_category IN ("Documentation","Government schemes") AND _sc.status = 'Completed';
 """
 
 

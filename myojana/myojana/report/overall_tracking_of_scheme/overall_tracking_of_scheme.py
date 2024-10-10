@@ -81,6 +81,8 @@ def execute(filters=None):
     INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
     WHERE
         1=1 {condition_str}
+    GROUP BY
+        _sc.scheme
 """
 
 
