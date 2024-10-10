@@ -8,22 +8,15 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "user",
-            "label": "User Name",
-            "fieldtype": "Data",
-            "width": 150,
-
-        },
-        {
             "fieldname": "milestone",
-            "label": "Milestone category",
+            "label": "Support category",
             "fieldtype": "Data",
             "width": 150,
 
         },
         {
             "fieldname": "scheme",
-            "label": "Scheme ",
+            "label": "Support Name",
             "fieldtype": "Data",
             "width": 200,
             
@@ -89,7 +82,7 @@ def execute(filters=None):
     WHERE
         1=1 {condition_str}
     GROUP BY
-        scheme , user;
+        scheme;
 """
 
 
