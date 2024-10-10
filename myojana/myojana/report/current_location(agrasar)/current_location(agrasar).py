@@ -30,8 +30,8 @@ def execute(filters=None):
 
     sql_query = f"""
     SELECT 
-		cl.name_of_location AS "Current Location", 
-		COUNT(ben.name) AS "Count" 
+		cl.name_of_location AS location, 
+		COUNT(ben.name) AS count
 	FROM 
 		`tabBeneficiary Profiling` AS ben
 	LEFT JOIN 
