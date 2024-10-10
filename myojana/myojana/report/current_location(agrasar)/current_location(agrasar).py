@@ -22,7 +22,7 @@ def execute(filters=None):
         },
     ]
 
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'ben_table')
+    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'ben')
     if condition_str:
         condition_str = f"AND {condition_str}"
     else:
