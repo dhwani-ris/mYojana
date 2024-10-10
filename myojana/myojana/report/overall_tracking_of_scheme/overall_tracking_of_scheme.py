@@ -6,6 +6,13 @@ from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
+    if filters.milestone:
+        child_filter = f"""_sc.milestone = '{filters['milestone']}'"""
+        del filters['milestone']
+    else:
+        child_filter = "1=1"
+    print(filters.milestone)
+    # return print(filters)
     columns = [
         {
             "fieldname": "milestone",
@@ -67,7 +74,7 @@ def execute(filters=None):
         `tabScheme Child` as _sc
     INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
     WHERE
-        1=1 {condition_str}
+        1=1 {condition_str} AND {child_filter}
     GROUP BY
         _sc.scheme
 """

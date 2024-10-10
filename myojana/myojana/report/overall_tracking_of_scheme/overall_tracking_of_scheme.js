@@ -11,6 +11,12 @@ var filters = [
 		"fieldtype": "Date",
 		"label": "To Date"
 	},
+	{
+		"fieldname": "milestone",
+		"fieldtype": "Link",
+		"label": "Support category",
+		"options":"Milestone category"
+	},
 
 ];
 if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
