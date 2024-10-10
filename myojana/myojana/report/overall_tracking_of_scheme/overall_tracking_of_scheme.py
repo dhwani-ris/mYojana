@@ -29,7 +29,7 @@ def execute(filters=None):
         },
         {
             "fieldname": "completed_demands",
-            "label": "Achived",
+            "label": "Achieved",
             "fieldtype": "Data",
             "width": 170,
         },
@@ -62,7 +62,7 @@ def execute(filters=None):
         SUM(CASE WHEN (_sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
         SUM(CASE WHEN (_sc.status = 'Rejected') THEN 1 ELSE 0 END) as rejected_demands,
         SUM(CASE WHEN (_sc.status IN ('','Under process','Open')) THEN 1 ELSE 0 END) as pending_count,
-        COUNT(_sc.status) as total_demands
+        COUNT(_sc.name) as total_demands
     FROM
         `tabScheme Child` as _sc
     INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
