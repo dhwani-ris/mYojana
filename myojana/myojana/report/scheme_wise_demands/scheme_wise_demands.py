@@ -89,7 +89,7 @@ def execute(filters=None):
     WHERE
         1=1 {condition_str}
     GROUP BY
-        scheme , user;
+        scheme;
 """
 
 
