@@ -23,39 +23,27 @@ def execute(filters=None):
         },
         {
             "fieldname": "total_demands",
-            "label": "Total Demands",
+            "label": "No. of enquiries received",
             "fieldtype": "Data",
             "width": 130,
-        },
-        {
-            "fieldname": "open_demands",
-            "label": "Open Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "submitted_demands",
-            "label": "Submitted Demands",
-            "fieldtype": "Data",
-            "width": 160,
         },
         {
             "fieldname": "completed_demands",
-            "label": "Completed Demands",
+            "label": "Achived",
             "fieldtype": "Data",
             "width": 170,
         },
         {
             "fieldname": "rejected_demands",
-            "label": "Rejected Demands",
+            "label": "Rejected",
             "fieldtype": "Data",
             "width": 130,
         },
         {
-            "fieldname": "closed_demands",
-            "label": "Closed Demands",
+            "fieldname": "pending_count",
+            "label": "Pending",
             "fieldtype": "Data",
-            "width": 130,
+            "width": 160,
         },
     ]
 
@@ -72,9 +60,8 @@ def execute(filters=None):
         _sc.milestone,
         SUM(CASE WHEN (_sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
         SUM(CASE WHEN (_sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
-        SUM(CASE WHEN (_sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
-        SUM(CASE WHEN (_sc.status = 'Under process') THEN 1 ELSE 0 END) as submitted_demands,
         SUM(CASE WHEN (_sc.status = 'Rejected') THEN 1 ELSE 0 END) as rejected_demands,
+        SUM(CASE WHEN (_sc.status IN ('','Under process','Open')) THEN 1 ELSE 0 END) as pending_count,
         COUNT(_sc.status) as total_demands
     FROM
         `tabScheme Child` as _sc
