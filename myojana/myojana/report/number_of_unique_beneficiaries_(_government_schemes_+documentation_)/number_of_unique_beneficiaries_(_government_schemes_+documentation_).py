@@ -7,13 +7,13 @@ from myojana.utils.report_filter import ReportFilter
 
 def execute(filters=None):
     columns = [
-        {
-            "fieldname": "milestone_category",
-            "label": "Support Category",
-            "fieldtype": "Data",
-            "width": 200,
+        # {
+        #     "fieldname": "milestone_category",
+        #     "label": "Support Category",
+        #     "fieldtype": "Data",
+        #     "width": 200,
             
-        },
+        # },
         {
             "fieldname": "total_demands",
             "label": "Total Unique Demands",
