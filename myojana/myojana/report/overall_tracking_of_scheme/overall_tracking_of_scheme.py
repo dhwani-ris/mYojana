@@ -25,7 +25,7 @@ def execute(filters=None):
             "fieldname": "total_demands",
             "label": "No. of enquiries received",
             "fieldtype": "Data",
-            "width": 130,
+            "width": 200,
         },
         {
             "fieldname": "completed_demands",
