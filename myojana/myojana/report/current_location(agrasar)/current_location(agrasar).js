@@ -10,8 +10,8 @@ var filters = [
 		"fieldname": "to_date",
 		"fieldtype": "Date",
 		"label": "To Date"
-	},
-
+	}
+	
 ];
 if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 	filters.push({
@@ -22,6 +22,7 @@ if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("
 		
 	})
 }
-frappe.query_reports["Overall tracking of scheme"] = {
-	"filters": filters
+
+frappe.query_reports["Current Location(agrasar)"] = {
+	filters: filters
 };
