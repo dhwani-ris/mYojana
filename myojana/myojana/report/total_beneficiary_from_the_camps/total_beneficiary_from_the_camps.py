@@ -27,7 +27,7 @@ def execute(filters=None):
     condition_str = f"WHERE {condition_str}" if condition_str else ""
 
     sql_query = f"""
-	SELECT cc.support_category as "Support Category" , SUM(cc.number_of_participants) as "No of Participant"  
+	SELECT cc.support_category as milestone , SUM(cc.number_of_participants) as count  
 	FROM `tabCamp` AS c
 	INNER JOIN `tabCamp Form Child` AS cc ON cc.parent = c.name Group by cc.support_category 
     {condition_str} 
