@@ -24,6 +24,7 @@ def execute(filters=None):
     
 
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'c')
+    condition_str = condition_str.replace("c.centre", "c.custom_centre")
     condition_str = f"WHERE {condition_str}" if condition_str else ""
 
     sql_query = f"""
