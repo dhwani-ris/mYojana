@@ -30,9 +30,9 @@ def execute(filters=None):
     sql_query = f"""
 	SELECT cc.support_category as milestone , SUM(cc.number_of_participants) as count  
 	FROM `tabCamp` AS c
-	INNER JOIN `tabCamp Form Child` AS cc ON cc.parent = c.name Group by cc.support_category 
+	INNER JOIN `tabCamp Form Child` AS cc ON cc.parent = c.name
     {condition_str} 
-    ;
+    Group by cc.support_category;
     """
 
 
