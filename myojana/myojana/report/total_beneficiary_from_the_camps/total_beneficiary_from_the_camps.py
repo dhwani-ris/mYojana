@@ -1,0 +1,39 @@
+# Copyright (c) 2023, suvaidyam and contributors
+# For license information, please see license.txt
+
+import frappe
+from myojana.utils.report_filter import ReportFilter
+
+
+def execute(filters=None):
+    columns = [
+        {
+            "fieldname": "milestone",
+            "label": "Support Category",
+            "fieldtype": "Data",
+            "width": 200,
+
+        },
+        {
+            "fieldname": "count",
+            "label": "Number of Participant",
+            "fieldtype": "Int",
+            "width": 130,
+        }
+    ]                 
+    
+
+    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'c')
+    condition_str = f"WHERE {condition_str}" if condition_str else ""
+
+    sql_query = f"""
+	SELECT cc.support_category as "Support Category" , SUM(cc.number_of_participants) as "No of Participant"  
+	FROM `tabCamp` AS c
+	INNER JOIN `tabCamp Form Child` AS cc ON cc.parent = c.name Group by cc.support_category 
+    {condition_str} 
+    ;
+    """
+
+
+    data = frappe.db.sql(sql_query, as_dict=True)
+    return columns, data
