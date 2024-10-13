@@ -16,7 +16,7 @@ def execute(filters=None):
         },
         {
             "fieldname": "count",
-            "label": "Number of Participant",
+            "label": "Count",
             "fieldtype": "Int",
             "width": 130,
         }
