@@ -21,7 +21,7 @@ def execute(filters=None):
             "width": 130,
         },
         {
-            "fieldname": "Completed",
+            "fieldname": "completed",
             "label": "Completed",
             "fieldtype": "Data",
             "width": 130,
@@ -38,7 +38,7 @@ def execute(filters=None):
 		SELECT
 			sc.milestone_category as milestone_category,
 			COUNT(DISTINCT sc.parent) AS applied,
-			SUM(CASE WHEN sc.status = 'Completed' THEN 1 ELSE 0 END) AS Completed
+			SUM(CASE WHEN sc.status = 'Completed' THEN 1 ELSE 0 END) AS completed
 		FROM (
 			SELECT DISTINCT parent, milestone_category, status
 			FROM `tabScheme Child`
