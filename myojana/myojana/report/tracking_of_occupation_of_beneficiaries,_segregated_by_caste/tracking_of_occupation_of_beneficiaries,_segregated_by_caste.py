@@ -41,8 +41,8 @@ def execute(filters=None):
         WHERE
         1=1 {condition_str}
         GROUP BY
-            ben.caste_category
-		ORDER BY ben.caste_category ASC, ben.current_occupation ASC
+            caste_category , occupation
+		ORDER BY caste_category ASC, occupation ASC
     """
 
     data = frappe.db.sql(sql_query, as_dict=True)
