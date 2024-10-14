@@ -1,5 +1,5 @@
 {
- "add_total_row": 0,
+ "add_total_row": 1,
  "columns": [],
  "creation": "2024-10-14 06:55:59.036206",
  "disabled": 0,
@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-10-14 06:55:59.036206",
+ "modified": "2024-10-14 07:10:20.798358",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Tracking of Occupation of beneficiaries, segregated by Caste",
