@@ -28,16 +28,17 @@ def execute(filters=None):
 		
 	sql_query = f"""
 		SELECT
-			COALESCE(t2.education, 'Unknown') AS education,
-			COUNT(t1.education) AS count
-		FROM
-			`tabBeneficiary Profiling` AS t1
-		LEFT JOIN
-			`tabEducation` AS t2 ON t1.education = t2.name
-		WHERE
-			1=1 {condition_str}
-		GROUP BY
-			education;
+    COALESCE(NULLIF(t1.education, ''), 'Unknown') AS education,
+		COUNT(t1.name) AS count
+	FROM
+		`tabBeneficiary Profiling` AS t1
+	LEFT JOIN
+		`tabEducation` AS t2 ON t1.education = t2.name
+	WHERE
+		1=1 {condition_str}
+	GROUP BY
+    COALESCE(NULLIF(t1.education, ''), 'Unknown');
+
 	"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)
