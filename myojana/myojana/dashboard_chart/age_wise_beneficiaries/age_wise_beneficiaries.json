@@ -10,7 +10,7 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-07-19 18:42:57.029712",
+ "modified": "2024-11-11 20:51:16.357271",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Age-wise beneficiaries",
@@ -27,10 +27,10 @@
  "timespan": "Last Year",
  "type": "Bar",
  "use_report_chart": 0,
- "x_field": "Age_Category",
+ "x_field": "age_category",
  "y_axis": [
   {
-   "y_field": "Number_of_beneficiaries"
+   "y_field": "number_of_beneficiaries"
   }
  ]
 }

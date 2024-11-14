@@ -128,7 +128,7 @@ doctype_js = {
 # ------------
 
 # before_install = "myojana.install.before_install"
-after_install = ["myojana.install.after_install.update_myojana_settings"]
+# after_install = ["myojana.install.after_install.update_myojana_settings"]
 
 # Uninstallation
 # ------------
