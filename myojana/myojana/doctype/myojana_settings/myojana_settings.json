@@ -10,20 +10,6 @@
   "base_url",
   "select_doctypes",
   "role_doctype_mapping",
-  "tab_2_tab",
-  "nav_bar_setting_section",
-  "search_bar_column",
-  "hide_search_bar",
-  "hide_for_all_roles",
-  "selected_roles_for_search",
-  "column_break_evwb",
-  "hide_help_section",
-  "do_you_want_to_hide_for_all_roles",
-  "select_roles_for_which_you_want_to_hide_help_section",
-  "notification_icon_column",
-  "do_you_want_to_hide_notification_icon",
-  "notification_hide_for_all_roles",
-  "select_roles_for_which_you_want_to_notification_icon",
   "notification_setting_tab",
   "whats_app_section",
   "enable_whats_app_notification",
@@ -51,13 +37,6 @@
    "fieldtype": "Table",
    "label": "Map DocType with field name",
    "options": "Setting Doctype Child"
-  },
-  {
-   "default": "No",
-   "fieldname": "tab_2_tab",
-   "fieldtype": "Tab Break",
-   "label": "System Setting",
-   "options": "Yes\nNo"
   },
   {
    "fieldname": "user_permission_settings_tab",
@@ -101,53 +80,6 @@
    "label": "Beneficary Profiling"
   },
   {
-   "fieldname": "nav_bar_setting_section",
-   "fieldtype": "Section Break",
-   "label": "Nav Bar Setting"
-  },
-  {
-   "default": "No",
-   "fieldname": "hide_search_bar",
-   "fieldtype": "Autocomplete",
-   "in_list_view": 1,
-   "label": "Do you want to hide search bar",
-   "options": "Yes\nNo",
-   "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.hide_search_bar == \"Yes\"",
-   "fieldname": "hide_for_all_roles",
-   "fieldtype": "Autocomplete",
-   "label": "Do you want to hide for all roles",
-   "mandatory_depends_on": "eval:doc.hide_search_bar == \"Yes\"",
-   "options": "Yes\nNo"
-  },
-  {
-   "depends_on": "eval:doc.hide_for_all_roles == \"No\"",
-   "fieldname": "selected_roles_for_search",
-   "fieldtype": "Table MultiSelect",
-   "label": "Select role profiles",
-   "mandatory_depends_on": "eval:doc.hide_for_all_roles == \"No\"",
-   "options": "Role Profile Child"
-  },
-  {
-   "fieldname": "column_break_evwb",
-   "fieldtype": "Column Break",
-   "label": "Help Section"
-  },
-  {
-   "fieldname": "search_bar_column",
-   "fieldtype": "Column Break",
-   "label": "Search Bar"
-  },
-  {
-   "default": "No",
-   "fieldname": "hide_help_section",
-   "fieldtype": "Autocomplete",
-   "label": "Do you want to hide help section",
-   "options": "Yes\nNo"
-  },
-  {
    "fieldname": "whats_app_section",
    "fieldtype": "Section Break",
    "label": "What's App"
@@ -175,59 +107,15 @@
    "label": "Enable system notification"
   },
   {
-   "depends_on": "eval:doc.hide_help_section == \"Yes\"",
-   "fieldname": "do_you_want_to_hide_for_all_roles",
-   "fieldtype": "Autocomplete",
-   "label": "Do you want to hide for all roles",
-   "mandatory_depends_on": "eval:doc.hide_help_section == \"Yes\"",
-   "options": "Yes\nNo"
-  },
-  {
    "default": "0",
    "fieldname": "enable_whats_app_notification",
    "fieldtype": "Check",
    "label": "Enable what's app notification"
   },
   {
-   "depends_on": "eval:doc.do_you_want_to_hide_for_all_roles == \"No\"",
-   "fieldname": "select_roles_for_which_you_want_to_hide_help_section",
-   "fieldtype": "Table MultiSelect",
-   "label": "Select role profiles",
-   "mandatory_depends_on": "eval:doc.do_you_want_to_hide_for_all_roles == \"No\"",
-   "options": "Role Profile Child"
-  },
-  {
    "fieldname": "additional_settings_tab",
    "fieldtype": "Tab Break",
    "label": "Additional Settings"
-  },
-  {
-   "fieldname": "notification_icon_column",
-   "fieldtype": "Column Break",
-   "label": "Notification Icon"
-  },
-  {
-   "default": "No",
-   "fieldname": "do_you_want_to_hide_notification_icon",
-   "fieldtype": "Autocomplete",
-   "label": "Do you want to hide notification icon",
-   "options": "Yes\nNo"
-  },
-  {
-   "depends_on": "eval:doc.do_you_want_to_hide_notification_icon == \"Yes\"",
-   "fieldname": "notification_hide_for_all_roles",
-   "fieldtype": "Autocomplete",
-   "label": "Do you want to hide for all roles",
-   "mandatory_depends_on": "eval:doc.do_you_want_to_hide_notification_icon == \"Yes\"",
-   "options": "Yes\nNo"
-  },
-  {
-   "depends_on": "eval:doc.notification_hide_for_all_roles == \"No\"",
-   "fieldname": "select_roles_for_which_you_want_to_notification_icon",
-   "fieldtype": "Table MultiSelect",
-   "label": "Select role profiles",
-   "mandatory_depends_on": "eval:doc.notification_hide_for_all_roles == \"No\"",
-   "options": "Role Profile Child"
   },
   {
    "fieldname": "doctypes_setting_tab",
@@ -281,7 +169,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-08-18 19:23:00.917882",
+ "modified": "2024-11-14 12:21:08.695476",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "mYojana Settings",
