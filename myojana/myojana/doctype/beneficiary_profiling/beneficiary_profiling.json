@@ -96,6 +96,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name of the beneficiary",
+   "length": 40,
    "reqd": 1
   },
   {
@@ -103,6 +104,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Gender",
+   "length": 20,
    "options": "Gender",
    "reqd": 1
   },
@@ -116,6 +118,7 @@
    "fieldname": "completed_age",
    "fieldtype": "Int",
    "label": "Completed age (Year)",
+   "length": 10,
    "non_negative": 1,
    "read_only_depends_on": "eval:doc.date_of_birth"
   },
@@ -463,6 +466,7 @@
    "fieldname": "completed_age_month",
    "fieldtype": "Int",
    "label": "Completed age (Month)",
+   "length": 10,
    "non_negative": 1,
    "read_only_depends_on": "eval:doc.date_of_birth"
   },
@@ -547,7 +551,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-07-23 10:40:09.290819",
+ "modified": "2024-11-14 12:10:28.130037",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
