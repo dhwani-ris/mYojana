@@ -73,7 +73,9 @@ class BeneficiaryProfiling(Document):
 		if(self.do_you_have_any_id_documents != "Yes"):
 			self.id_table_list = []
 		if(self.date_of_birth and self.date_of_visit):
-			if self.date_of_visit < self.date_of_birth:
+			date_of_visit = datetime.strptime(self.date_of_visit, "%Y-%m-%d").date() if isinstance(self.date_of_visit, str) else self.date_of_visit
+			date_of_birth = datetime.strptime(self.date_of_birth, "%Y-%m-%d").date() if isinstance(self.date_of_birth, str) else self.date_of_birth
+			if date_of_visit < date_of_birth:
 				return frappe.throw("Date of Visit shall not be before the <strong>Date of Birth</strong>")
 		if(self.what_is_the_extent_of_your_disability == "Above 40%"):
 			if(self.proof_of_disability == []):
