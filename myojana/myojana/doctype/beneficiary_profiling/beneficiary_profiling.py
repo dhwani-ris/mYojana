@@ -72,7 +72,7 @@ class BeneficiaryProfiling(Document):
 			return frappe.throw("Alternate contact number cannot be the same as mobile number")
 		if(self.do_you_have_any_id_documents != "Yes"):
 			self.id_table_list = []
-		if(self.date_of_birth and self.date_of_visit):
+		if(self.date_of_birth and self.date_of_visit) and not self.is_bulk_imported:
 			if self.date_of_visit < self.date_of_birth:
 				return frappe.throw("Date of Visit shall not be before the <strong>Date of Birth</strong>")
 		if(self.what_is_the_extent_of_your_disability == "Above 40%"):
