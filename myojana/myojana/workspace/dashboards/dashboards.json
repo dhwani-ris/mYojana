@@ -51,7 +51,7 @@
  "is_hidden": 0,
  "label": "Dashboards",
  "links": [],
- "modified": "2024-08-14 10:02:36.511309",
+ "modified": "2024-11-13 07:39:02.265850",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Dashboards",
@@ -62,7 +62,7 @@
   },
   {
    "label": "Total under process demands",
-   "number_card_name": "Sum of Count"
+   "number_card_name": "Total under process demands"
   },
   {
    "label": "NUMBER OF BENEFICIARY OUTREACH",
@@ -70,7 +70,7 @@
   },
   {
    "label": "Total sanctioned demands",
-   "number_card_name": "Sum of Count-1"
+   "number_card_name": "Total sanctioned demands"
   },
   {
    "label": "NUMBER OF FAMILIES",

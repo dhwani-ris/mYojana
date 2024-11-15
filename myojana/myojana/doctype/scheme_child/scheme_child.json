@@ -70,7 +70,6 @@
   {
    "fieldname": "name_of_the_department",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Name of the department",
    "read_only": 1,
    "set_only_once": 1
@@ -173,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-09-10 15:27:58.681517",
+ "modified": "2024-11-05 17:07:39.474274",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme Child",

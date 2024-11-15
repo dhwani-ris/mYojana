@@ -12,6 +12,12 @@ var filters = [
 		"fieldtype": "Date",
 		"label": "To Date"
 	},
+	{
+		"fieldname": "state_of_origin",
+		"fieldtype": "Link",
+		"label": "State",
+		"options":"State"
+	},
 
 
 ];

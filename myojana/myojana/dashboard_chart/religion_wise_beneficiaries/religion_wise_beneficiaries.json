@@ -10,7 +10,7 @@
  "idx": 0,
  "is_public": 0,
  "is_standard": 1,
- "modified": "2024-07-19 18:43:35.835800",
+ "modified": "2024-11-11 20:58:33.591313",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Religion-wise beneficiaries",
@@ -27,10 +27,10 @@
  "timespan": "Last Year",
  "type": "Bar",
  "use_report_chart": 0,
- "x_field": "Religion",
+ "x_field": "religion",
  "y_axis": [
   {
-   "y_field": "Number_of_Beneficiaries"
+   "y_field": "number_of_beneficiaries"
   }
  ]
 }

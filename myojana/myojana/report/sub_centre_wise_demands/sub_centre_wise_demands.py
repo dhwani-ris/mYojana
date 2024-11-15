@@ -8,8 +8,15 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
+            "fieldname": "user",
+            "label": "User",
+            "fieldtype": "Data",
+            "width": 200,
+
+        },
+        {
             "fieldname": "sub_centre_name",
-            "label": " Sub Centre Name",
+            "label": "Sub Centre Name",
             "fieldtype": "Data",
             "width": 200,
 
@@ -54,26 +61,30 @@ def execute(filters=None):
     
 
     condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'bp')
-    condition_str = f"WHERE {condition_str}" if condition_str else ""
+    condition_str = f"{condition_str}" if condition_str else "1=1"
 
     sql_query = f"""
     SELECT
+        sc.modified_by AS user,
         COALESCE(hd.sub_centre_name, 'Unknown') AS sub_centre_name,
-        SUM(CASE WHEN (sc.status = 'Open') THEN 1 ELSE 0 END) as open_demands,
-        SUM(CASE WHEN (sc.status = 'Completed') THEN 1 ELSE 0 END) as completed_demands,
-        SUM(CASE WHEN (sc.status = 'Closed') THEN 1 ELSE 0 END) as closed_demands,
-        SUM(CASE WHEN (sc.status = 'Under process') THEN 1 ELSE 0 END) as submitted_demands,
-        SUM(CASE WHEN (sc.status = 'Rejected') THEN 1 ELSE 0 END) as rejected_demands,
-        COUNT(sc.status) as total_demands
+        SUM(CASE WHEN sc.status = 'Open' THEN 1 ELSE 0 END) AS open_demands,
+        SUM(CASE WHEN sc.status = 'Completed' THEN 1 ELSE 0 END) AS completed_demands,
+        SUM(CASE WHEN sc.status = 'Closed' THEN 1 ELSE 0 END) AS closed_demands,
+        SUM(CASE WHEN sc.status = 'Under process' THEN 1 ELSE 0 END) AS submitted_demands,
+        SUM(CASE WHEN sc.status = 'Rejected' THEN 1 ELSE 0 END) AS rejected_demands,
+        COUNT(sc.status) AS total_demands
     FROM
-        `tabBeneficiary Profiling` bp
+        "tabBeneficiary Profiling" bp
     LEFT JOIN
-        `tabScheme Child` sc ON bp.name = sc.parent
+        "tabScheme Child" sc ON bp.name = sc.parent
     LEFT JOIN
-        `tabSub Centre` hd ON bp.sub_centre = hd.name 
-    {condition_str}
+        "tabSub Centre" hd ON bp.sub_centre = hd.name 
+    WHERE
+        {condition_str}
     GROUP BY
-        COALESCE(hd.sub_centre_name, 'Unknown');
+        sc.modified_by, COALESCE(hd.sub_centre_name, 'Unknown');
+
+
     """
 
 

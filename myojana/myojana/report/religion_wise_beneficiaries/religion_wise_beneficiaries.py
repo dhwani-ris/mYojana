@@ -7,13 +7,13 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "Religion",
+            "fieldname": "religion",
             "label": "Religion",
             "fieldtype": "Data",
             "width": 200
         },
         {
-            "fieldname": "Number_of_Beneficiaries",
+            "fieldname": "number_of_beneficiaries",
             "label": "Number Of beneficiaries",
             "fieldtype": "Int",
             "width": 300
@@ -32,8 +32,8 @@ def execute(filters=None):
             CASE
                 WHEN COALESCE(religion, '') = '' THEN 'Unknown'
                 ELSE religion
-            END AS Religion,
-            COUNT(*) AS Number_of_Beneficiaries
+            END AS religion,
+            COUNT(*) AS number_of_beneficiaries
         FROM
             `tabBeneficiary Profiling`
         {condition_str}
