@@ -86,7 +86,6 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
     """
     return sql
 
@@ -142,7 +141,6 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filte
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
     """
     return sql
 @frappe.whitelist(allow_guest=True)
@@ -240,6 +238,7 @@ def top_schemes():
             """
             # print(count_sql)
             count_data = frappe.db.sql(count_sql, as_dict=True)
+            # print("#"*100, count_data)
             if len(count_data):
                 scheme['ben_count'] = count_data[0].total
         sorted_schemes = sorted(schemes, key=lambda x: x.get('ben_count', 0), reverse=True)
