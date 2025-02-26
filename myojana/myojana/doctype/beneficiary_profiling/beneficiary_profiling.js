@@ -172,13 +172,13 @@ frappe.ui.form.on("Beneficiary Profiling", {
     hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status", "district_of_origin", "block", "gender", "current_occupation", "social_vulnerable_category", "pwd_category", "family", "sub_centre", "centre", "source_of_information", "occupational_category", "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"]);
 
     // APPLY FILTER IN CASE OF EDIT OF DATA
-    await apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
-    frm.doc.state ? await apply_filter("district", "State", frm, frm.doc.state) : null;
-    frm.doc.centre ? await apply_filter("sub_centre", "centre", frm, frm.doc.centre) : null;
-    frm.doc.district ? await apply_filter("ward", "District", frm, frm.doc.district) : null;
-    frm.doc.ward ? await apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward) : null;
-    frm.doc.state_of_origin ? await apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin) : null;
-    frm.doc.district_of_origin ? await apply_filter("block", "District", frm, frm.doc.district_of_origin) : null;
+    apply_filter('select_primary_member', 'name_of_head_of_family', frm, ['!=', frm.doc.name])
+    apply_filter("sub_centre", "centre", frm, frm.doc.centre);
+    apply_filter("district", "state", frm, frm.doc.state)
+    apply_filter("ward", "district", frm, frm.doc.district);
+    apply_filter("name_of_the_settlement", "block", frm, frm.doc.ward);
+    apply_filter("district_of_origin", "state", frm, frm.doc.state_of_origin);
+    apply_filter("block", "district", frm, frm.doc.district_of_origin);
     // defult filter on current occupations
     if (frm.doc?.current_occupation) {
       if (frm.doc.current_occupation == 'Others') {
@@ -230,13 +230,13 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   state: async function (frm) {
-    await apply_filter("district", "State", frm, frm.doc.state);
+    await apply_filter("district", "state", frm, frm.doc.state);
     districts_option && districts_option.length > 1 ? await frm.set_value("district", '') : null;
     await frm.set_value("ward", '');
     await frm.set_value("name_of_the_settlement", '');
   },
   district: async function (frm) {
-    await apply_filter("ward", "District", frm, frm.doc.district);
+    await apply_filter("ward", "district", frm, frm.doc.district);
     await frm.set_value("ward", '');
     await frm.set_value("name_of_the_settlement", '');
   },
@@ -245,12 +245,12 @@ frappe.ui.form.on("Beneficiary Profiling", {
     await frm.set_value("name_of_the_settlement", '');
   },
   state_of_origin: async function (frm) {
-    await apply_filter("district_of_origin", "State", frm, frm.doc.state_of_origin);
+    await apply_filter("district_of_origin", "state", frm, frm.doc.state_of_origin);
     await frm.set_value("district_of_origin", '');
     await frm.set_value("block", '');
   },
   district_of_origin: async function (frm) {
-    await apply_filter("block", "District", frm, frm.doc.district_of_origin);
+    await apply_filter("block", "district", frm, frm.doc.district_of_origin);
     await frm.set_value("block", '');
   },
   centre: async function (frm) {

@@ -30,25 +30,25 @@ def execute(filters=None):
 		condition_str = ""
 
 	sql_query = f"""
-			SELECT
-			'Number of Families' AS n,
-				COUNT(*) as count
-			FROM
-			(SELECT
-				bp.select_primary_member,
-				COUNT(bp.select_primary_member) AS scheme_count
-			FROM
-				`tabBeneficiary Profiling` bp
-			RIGHT JOIN
-				`tabScheme Child` sc ON bp.name = sc.parent
-			WHERE
-				1=1 {condition_str}
-			GROUP BY
-				bp.select_primary_member
-			HAVING
-				scheme_count >= 2)
-			AS
-				counts;
+	SELECT
+    'Number of Families' AS n,
+		COUNT(*) AS count
+	FROM (
+		SELECT
+			bp.select_primary_member,
+			COUNT(bp.select_primary_member) AS scheme_count
+		FROM
+			`tabBeneficiary Profiling` bp
+		RIGHT JOIN
+			`tabScheme Child` sc ON bp.name = sc.parent
+		WHERE
+			1=1 {condition_str}
+		GROUP BY
+			bp.select_primary_member
+	) AS subquery
+	WHERE
+		subquery.scheme_count >= 2;
+
 		"""
 
 	data = frappe.db.sql(sql_query, as_dict=True)

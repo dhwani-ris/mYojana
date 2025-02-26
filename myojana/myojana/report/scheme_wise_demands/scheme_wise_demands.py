@@ -85,11 +85,14 @@ def execute(filters=None):
         COUNT(_sc.status) as total_demands
     FROM
         `tabScheme Child` as _sc
-    INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
+    INNER JOIN `tabBeneficiary Profiling` as ben_table 
+        ON (ben_table.name = _sc.parent AND _sc.parenttype = 'Beneficiary Profiling')
     WHERE
-        1=1 {condition_str}
+        1 = 1 {condition_str}
     GROUP BY
-        scheme , user;
+        _sc.scheme,
+        _sc.modified_by,
+        _sc.milestone;
 """
 
 

@@ -39,21 +39,27 @@ def execute(filters=None):
         condition_str = "1=1"
 
     sql_query = f"""
-        SELECT
-            COALESCE(NULLIF(s.state_name, ''), 'Unknown') AS state,
-            COALESCE(NULLIF(d.district_name, ''), 'Unknown') AS district,
-            COALESCE(NULLIF(bl.block_name, ''), 'Unknown') AS block,
-            COUNT(b.name) AS count
-        FROM
-            `tabBeneficiary Profiling` AS b
-            LEFT JOIN tabState AS s ON b.state_of_origin = s.name
-            LEFT JOIN tabDistrict AS d ON b.district_of_origin = d.name
-            LEFT JOIN tabBlock as bl ON b.ward = bl.name
-        WHERE {condition_str}
-        GROUP BY
-            COALESCE(NULLIF(b.state_of_origin, ''), 'Unknown'), COALESCE(NULLIF(b.district_of_origin, ''), 'Unknown') , COALESCE(NULLIF(b.ward, ''), 'Unknown')
-        ORDER BY
-            COALESCE(NULLIF(b.state_of_origin, ''), 'Unknown'), COALESCE(NULLIF(b.district_of_origin, ''), 'Unknown');
+    SELECT
+        COALESCE(NULLIF(s.state_name, ''), 'Unknown') AS state,
+        COALESCE(NULLIF(d.district_name, ''), 'Unknown') AS district,
+        COALESCE(NULLIF(bl.block_name, ''), 'Unknown') AS block,
+        COUNT(b.name) AS count
+    FROM
+        `tabBeneficiary Profiling` AS b
+        LEFT JOIN `tabState` AS s ON b.state_of_origin = s.name
+        LEFT JOIN `tabDistrict` AS d ON b.district_of_origin = d.name
+        LEFT JOIN `tabBlock` as bl ON b.ward = bl.name
+    WHERE {condition_str}
+    GROUP BY
+        COALESCE(NULLIF(s.state_name, ''), 'Unknown'), 
+        COALESCE(NULLIF(d.district_name, ''), 'Unknown'), 
+        COALESCE(NULLIF(bl.block_name, ''), 'Unknown')
+    ORDER BY
+        COALESCE(NULLIF(s.state_name, ''), 'Unknown'), 
+        COALESCE(NULLIF(d.district_name, ''), 'Unknown');
+
     """
-    data = frappe.db.sql(sql_query, as_dict=True)
+    data = frappe.db.sql(sql_query, as_dict=True, debug=True)
+    frappe.db.rollback()
+
     return columns, data

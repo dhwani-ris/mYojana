@@ -86,7 +86,6 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
     """
     return sql
 
@@ -142,7 +141,6 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filte
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
     """
     return sql
 @frappe.whitelist(allow_guest=True)
@@ -240,6 +238,7 @@ def top_schemes():
             """
             # print(count_sql)
             count_data = frappe.db.sql(count_sql, as_dict=True)
+            # print("#"*100, count_data)
             if len(count_data):
                 scheme['ben_count'] = count_data[0].total
         sorted_schemes = sorted(schemes, key=lambda x: x.get('ben_count', 0), reverse=True)
@@ -252,26 +251,26 @@ def top_schemes():
 @frappe.whitelist()
 def get_user_permission(user, join_con=[]):
    sql_query = f"""
-        SELECT
-            CASE
-                WHEN UP.allow = 'State' THEN TS.state_name
-                WHEN UP.allow = 'District' THEN TD.district_name
-                WHEN UP.allow = 'Block' THEN TB.block_name
-                WHEN UP.allow = 'Village' THEN TV.village_name
-                WHEN UP.allow = 'Centre' THEN TC.centre_name
-                WHEN UP.allow = 'Sub Centre' THEN TCS.sub_centre_name
-            END AS name_value,
-            UP.for_value,
-            UP.name,
-            UP.allow,
-            UP.user
-        FROM `tabUser Permission` AS UP
-        LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND UP.allow = 'state'
-        LEFT JOIN `tabDistrict` AS TD ON UP.for_value = TD.name AND UP.allow = 'district'
-        LEFT JOIN `tabBlock` AS TB ON UP.for_value = TB.name AND UP.allow = 'block'
-        LEFT JOIN `tabVillage` AS TV ON UP.for_value = TV.name AND UP.allow = 'village'
-        LEFT JOIN `tabCentre` AS TC ON UP.for_value = TC.name AND UP.allow = 'centre'
-        LEFT JOIN `tabSub Centre` AS TCS ON UP.for_value = TCS.name AND UP.allow = 'Sub Centre'
+     SELECT
+    CASE
+        WHEN LOWER(UP.allow) = 'state' THEN TS.state_name
+        WHEN LOWER(UP.allow) = 'district' THEN TD.district_name
+        WHEN LOWER(UP.allow) = 'block' THEN TB.block_name
+        WHEN LOWER(UP.allow) = 'village' THEN TV.village_name
+        WHEN LOWER(UP.allow) = 'centre' THEN TC.centre_name
+        WHEN LOWER(UP.allow) = 'sub centre' THEN TCS.sub_centre_name
+    END AS name_value,
+    UP.for_value,
+    UP.name,
+    UP.allow,
+    UP.user
+	FROM `tabUser Permission` AS UP
+	LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND LOWER(UP.allow) = 'state'
+	LEFT JOIN `tabDistrict` AS TD ON UP.for_value = TD.name AND LOWER(UP.allow) = 'district'
+	LEFT JOIN `tabBlock` AS TB ON UP.for_value = TB.name AND LOWER(UP.allow) = 'block'
+	LEFT JOIN `tabVillage` AS TV ON UP.for_value = TV.name AND LOWER(UP.allow) = 'village'
+	LEFT JOIN `tabCentre` AS TC ON UP.for_value = TC.name AND LOWER(UP.allow) = 'centre'
+	LEFT JOIN `tabSub Centre` AS TCS ON UP.for_value = TCS.name AND LOWER(UP.allow) = 'sub centre'
         WHERE UP.user = '{user}'
     """
    return frappe.db.sql(sql_query, as_dict=True)

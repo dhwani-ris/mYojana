@@ -6,13 +6,13 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "Occupation",
+            "fieldname": "occupation",
             "label": "Occupation category",
             "fieldtype": "Data",
             "width": 200
         },
         {
-            "fieldname": "Number_of_Beneficiaries",
+            "fieldname": "number_of_beneficiaries",
             "label": "Number Of beneficiaries",
             "fieldtype": "Int",
             "width": 300
@@ -28,14 +28,14 @@ def execute(filters=None):
 
     sql_query = f"""
         SELECT
-            COALESCE(occupational_category, 'Unknown') AS Occupation,
-            COUNT(name) AS Number_of_Beneficiaries
+            COALESCE(occupational_category, 'Unknown') AS occupation,
+            COUNT(name) AS number_of_beneficiaries
         FROM
             `tabBeneficiary Profiling`
         {condition_str}
         GROUP BY
             COALESCE(occupational_category, 'Unknown')
-        ORDER BY Number_of_Beneficiaries DESC
+        ORDER BY number_of_beneficiaries DESC
     """
 
 

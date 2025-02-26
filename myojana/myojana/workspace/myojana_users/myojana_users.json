@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Myojana Users",
  "links": [],
- "modified": "2024-08-14 10:02:36.630223",
+ "modified": "2024-11-13 07:39:02.575613",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Myojana Users",
@@ -30,7 +30,7 @@
    "role": "Admin"
   }
  ],
- "sequence_id": 2.0,
+ "sequence_id": 5.0,
  "shortcuts": [
   {
    "color": "Grey",
