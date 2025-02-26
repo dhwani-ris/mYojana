@@ -100,7 +100,10 @@ doctype_js = {
 
 # Home Pages
 # ----------
-
+override_whitelisted_methods = {
+	"frappe.desk.reportview.get_count": "myojana.apis.override_method.get_count",
+	"frappe.desk.reportview.get": "myojana.apis.override_method.get"
+}
 # application home page (will override Website Settings)
 # home_page = "login"
 
