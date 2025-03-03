@@ -247,7 +247,7 @@ let tableConf = {
     rows: [],
     filterable: true
 };
-const render_counts = async(response)=>{
+const render_counts = async (response) => {
     document.getElementById('total') ? document.getElementById('total').innerText = "Total: Beneficiary: " + response?.count?.total + ',' : ''
     document.getElementById('total_family') ? document.getElementById('total_family').innerText = "Primary member: " + response?.count?.family_count + ',' : ''
     document.getElementById('block_count') ? document.getElementById('block_count').innerText = "Block count: " + response?.count?.block_count + ',' : ''
@@ -326,10 +326,12 @@ const render_table = async (frm) => {
 }
 frappe.ui.form.on("Scheme", {
     async refresh(frm) {
-        render_table(frm)
-        document.getElementById('export-exel').onclick = function () {
-            convertJSONToCSV(response.data, "eligible_ben")
-        }
+        // render_table(frm)
+        // document.getElementById('export-exel').onclick = function () {
+        //     convertJSONToCSV(response.data, "eligible_ben")
+        // }
+        let wrapper = document.getElementById('eligible_beneficiaries');
+        new SchemeEligibleBen(frm, wrapper)
     },
     async onload(frm) {
     },

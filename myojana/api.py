@@ -57,21 +57,20 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
     ward_join_type  = "LEFT JOIN"
     if len(filters):
         for filter_item in json.loads(filters):  # Convert filters from string to list
-            filter_key = list(filter_item.keys())[0]
-            filter_value = list(filter_item.values())[0]
-            if filter_key == 'name_of_the_beneficiary':
-                filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-            elif filter_key == 'contact_number':
-                filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
-            elif filter_key == 'block_name':
-                ward_filter += f" AND block_name LIKE '{filter_value}%'"
-                ward_join_type = "INNER JOIN"
-            elif filter_key == 'name_of_parents':
-                primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
-                pm_join_type = "INNER JOIN"
-            else:
-                pm_join_type = "LEFT JOIN"
-                ward_join_type = "LEFT JOIN"
+            for filter_key, filter_value in filter_item.items(): 
+                if filter_key == 'name_of_the_beneficiary':
+                    filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
+                elif filter_key == 'custom_custon_contact_number':
+                    filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
+                elif filter_key == 'block_name':
+                    ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                    ward_join_type = "INNER JOIN"
+                elif filter_key == 'name_of_parents':
+                    primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                    pm_join_type = "INNER JOIN"
+                else:
+                    pm_join_type = "LEFT JOIN"
+                    ward_join_type = "LEFT JOIN"
 
 
     sql = f"""
@@ -86,6 +85,7 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
+            LIMIT {page_limit} OFFSET {start}
     """
     return sql
 
@@ -114,21 +114,21 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filte
     ward_join_type  = "LEFT JOIN"
     if len(filters):
         for filter_item in json.loads(filters):  # Convert filters from string to list
-            filter_key = list(filter_item.keys())[0]
-            filter_value = list(filter_item.values())[0]
-            if filter_key == 'name_of_the_beneficiary':
-                filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-            elif filter_key == 'contact_number':
-                filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
-            elif filter_key == 'block_name':
-                ward_filter += f" AND block_name LIKE '{filter_value}%'"
-                ward_join_type = "INNER JOIN"
-            elif filter_key == 'name_of_parents':
-                primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
-                pm_join_type = "INNER JOIN"
-            else:
-                pm_join_type = "LEFT JOIN"
-                ward_join_type = "LEFT JOIN"
+            for filter_key, filter_value in filter_item.items(): 
+                if filter_key == 'name_of_the_beneficiary':
+                    filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
+                elif filter_key == 'custom_custon_contact_number':
+                    filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
+                elif filter_key == 'block_name':
+                    ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                    ward_join_type = "INNER JOIN"
+                elif filter_key == 'name_of_parents':
+                    primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                    pm_join_type = "INNER JOIN"
+                else:
+                    pm_join_type = "LEFT JOIN"
+                    ward_join_type = "LEFT JOIN"
+
     sql = f"""
             SELECT
                 _ben.*,
@@ -148,7 +148,7 @@ def execute(name=None):
     return BeneficaryScheme.get_schemes(name)
 
 @frappe.whitelist(allow_guest=True)
-def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=1000):
+def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=10):
     # filter value is getting hear
     # print("filter", filters)
     columns = json.loads(columns)
