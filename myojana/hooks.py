@@ -87,6 +87,7 @@ doctype_js = {
     "mYojana Settings":[
         "public/js/utils/utils.js"
     ],
+    "Scheme":"public/js/scheme/eligibile_ben.js"
 }
 # doctype_js = {"Beneficiary Profiling" : }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -100,10 +101,10 @@ doctype_js = {
 
 # Home Pages
 # ----------
-override_whitelisted_methods = {
-	"frappe.desk.reportview.get_count": "myojana.apis.override_method.get_count",
-	"frappe.desk.reportview.get": "myojana.apis.override_method.get"
-}
+# override_whitelisted_methods = {
+# 	"frappe.desk.reportview.get_count": "myojana.apis.override_method.get_count",
+# 	"frappe.desk.reportview.get": "myojana.apis.override_method.get"
+# }
 # application home page (will override Website Settings)
 # home_page = "login"
 
