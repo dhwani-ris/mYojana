@@ -87,6 +87,7 @@ doctype_js = {
     "mYojana Settings":[
         "public/js/utils/utils.js"
     ],
+    "Scheme":"public/js/scheme/eligibile_ben.js"
 }
 # doctype_js = {"Beneficiary Profiling" : }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
