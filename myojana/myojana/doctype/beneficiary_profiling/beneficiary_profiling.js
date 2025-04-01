@@ -230,13 +230,13 @@ frappe.ui.form.on("Beneficiary Profiling", {
     }
   },
   state: async function (frm) {
-    await apply_filter("district", "State", frm, frm.doc.state);
+    await apply_filter("district", "state", frm, frm.doc.state);
     districts_option && districts_option.length > 1 ? await frm.set_value("district", '') : null;
     await frm.set_value("ward", '');
     await frm.set_value("name_of_the_settlement", '');
   },
   district: async function (frm) {
-    await apply_filter("ward", "District", frm, frm.doc.district);
+    await apply_filter("ward", "district", frm, frm.doc.district);
     await frm.set_value("ward", '');
     await frm.set_value("name_of_the_settlement", '');
   },
