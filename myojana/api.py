@@ -32,7 +32,7 @@ def create_condition(scheme, _tbl_pre=""):
         filters.append(user_role_filter)
     return " WHERE  1=1 "+ (f"AND {' AND '.join(filters)}" if len(filters) else "")
 
-def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
+def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=10,is_limit=False,filters=[]):
     availed_sql = f""
     if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
         availed_sql = f"""
@@ -71,8 +71,9 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
                 else:
                     pm_join_type = "LEFT JOIN"
                     ward_join_type = "LEFT JOIN"
-
-
+    pagination = ""
+    if is_limit:
+        pagination = f"LIMIT {page_limit} OFFSET {start}"
     sql = f"""
             SELECT
                 _ben.*,
@@ -85,11 +86,11 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
+            {pagination}
     """
     return sql
 
-def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filters=[]):
+def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=10,filters=[]):
     availed_sql = f""
     if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
         availed_sql = f"""
@@ -149,7 +150,7 @@ def execute(name=None):
     return BeneficaryScheme.get_schemes(name)
 
 @frappe.whitelist(allow_guest=True)
-def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=10):
+def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=10,is_limit=False):
     # filter value is getting hear
     # print("filter", filters)
     columns = json.loads(columns)
@@ -168,7 +169,7 @@ def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_im
     if not scheme_doc:
         return res
 
-    ben_sql = get_beneficiary_scheme_query(scheme_doc,start,page_imit,filters)
+    ben_sql = get_beneficiary_scheme_query(scheme_doc,start,page_imit,is_limit,filters)
     # print(ben_sql)
     total_count_sql = get_total_beneficiary_count_query(scheme_doc , start,page_imit,filters)
     res['data'] = frappe.db.sql(ben_sql, as_dict=True)

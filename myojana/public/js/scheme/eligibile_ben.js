@@ -183,6 +183,7 @@ class SchemeEligibleBen {
                 filters: this.filters ?? [],
                 start: start,
                 page_imit: limit,
+                is_limit: true,
             },
             // freeze_message: __("Getting beneficiaries..."),
         })
@@ -279,8 +280,7 @@ class SchemeEligibleBen {
                     scheme: this.frm.doc.name,
                     columns: ["name", "serial_no", "name_of_the_beneficiary", "select_primary_member.name_of_parents", "contact_number", "ward.block_name", "name_of_the_settlement.village_name"],
                     filters: [],
-                    start: 0,
-                    page_imit: 100000,
+                    start: 0
                 },
                 // freeze_message: __("Getting beneficiaries..."),
             })
