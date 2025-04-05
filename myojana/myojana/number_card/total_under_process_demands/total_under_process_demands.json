@@ -1,0 +1,23 @@
+{
+ "creation": "2024-11-05 15:40:11.776222",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Total under process demands",
+ "modified": "2024-11-05 15:40:11.776222",
+ "modified_by": "Administrator",
+ "module": "myojana",
+ "name": "Total under process demands",
+ "owner": "Administrator",
+ "report_field": "count",
+ "report_function": "Sum",
+ "report_name": "Total under process demands",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Daily",
+ "type": "Report"
+}

@@ -110,7 +110,7 @@ const get_scheme_list = async(frm) => {
     args: {
       name: frm.doc.name
     },
-    // freeze_message: __("Getting schemes..."),
+    freeze_message: __("Getting schemes..."),
   })
   scheme_list = list.sort((a, b) => b.matching_rules_per - a.matching_rules_per);
   return scheme_list

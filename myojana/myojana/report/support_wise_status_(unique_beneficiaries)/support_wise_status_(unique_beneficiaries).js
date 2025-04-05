@@ -1,6 +1,5 @@
-// Copyright (c) 2023, suvaidyam and contributors
+// Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
-
 var filters = [
 	{
 		"fieldname": "from_date",
@@ -11,15 +10,8 @@ var filters = [
 		"fieldname": "to_date",
 		"fieldtype": "Date",
 		"label": "To Date"
-	},
-	{
-		"fieldname": "state_of_origin",
-		"fieldtype": "Link",
-		"label": "State",
-		"options":"State"
-	},
-
-
+	}
+	
 ];
 if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 	filters.push({
@@ -29,6 +21,6 @@ if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("
 		"options": "Centre"
 	})
 }
-frappe.query_reports["Place of origin"] = {
-	filters: filters
+frappe.query_reports["Support-wise status (unique beneficiaries)"] = {
+	"filters": filters
 };

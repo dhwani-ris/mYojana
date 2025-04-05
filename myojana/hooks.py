@@ -7,10 +7,9 @@ app_license = "mit"
 # required_apps = ["Suvaidyam/sva_dashboard"]
 
 fixtures = [
-    "mYojana Settings",
-    "Print Format",
-    "Report List",
-    "SVA Report"
+    # "mYojana Settings",
+    # "Report List",
+    # "SVA Report"
     # "scheme application submitted",
     # "Scheme Paid by",
     # "Client Script",

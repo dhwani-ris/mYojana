@@ -1,6 +1,5 @@
-// Copyright (c) 2023, suvaidyam and contributors
+// Copyright (c) 2024, dhwaniris and contributors
 // For license information, please see license.txt
-
 var filters = [
 	{
 		"fieldname": "from_date",
@@ -13,22 +12,22 @@ var filters = [
 		"label": "To Date"
 	},
 	{
-		"fieldname": "state_of_origin",
+		"fieldname": "milestone",
 		"fieldtype": "Link",
-		"label": "State",
-		"options":"State"
+		"label": "Support category",
+		"options":"Milestone category"
 	},
-
 
 ];
 if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 	filters.push({
 		"fieldname": "centre",
 		"fieldtype": "Link",
-		"label": "Centre",
-		"options": "Centre"
+		"options": "Centre",
+		"label": "Centre"
+		
 	})
 }
-frappe.query_reports["Place of origin"] = {
-	filters: filters
+frappe.query_reports["Overall tracking of scheme"] = {
+	"filters": filters
 };

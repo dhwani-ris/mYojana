@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "ref_doctype",
+  "repeat_parent_data",
   "order_by",
   "filters",
   "map_columns",
@@ -44,11 +45,17 @@
    "fieldname": "order_by",
    "fieldtype": "Data",
    "label": "Order By"
+  },
+  {
+   "default": "0",
+   "fieldname": "repeat_parent_data",
+   "fieldtype": "Check",
+   "label": "Repeat Parent Data"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-08 10:06:48.460900",
+ "modified": "2024-09-12 14:18:56.755594",
  "modified_by": "Administrator",
  "module": "Sva Report",
  "name": "SVA Report",

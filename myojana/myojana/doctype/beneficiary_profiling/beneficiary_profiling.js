@@ -167,7 +167,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
       await apply_filter_on_id_document()
 
     }
-    frm.fields_dict.date_of_visit.$input.datepicker({ maxDate: new Date(frappe.datetime.get_today()) }); // restrict future date from date pickers
+    frm.fields_dict.date_of_visit.$input?.datepicker({ maxDate: new Date(frappe.datetime.get_today()) }); // restrict future date from date pickers
     extend_options_length(frm, ["centre", "sub_centre", "religion", "caste_category", "marital_status", "current_house_type", "source_of_information", "current_house_type", "state", "district", "occupational_category", "education", "education", "ward", "name_of_the_settlement", "proof_of_disability", "block", "state_of_origin", "current_occupation", "district_of_origin", "social_vulnerable_category", "name_of_the_camp"]);
     hide_advance_search(frm, ["state", "district", "ward", "state_of_origin", "religion", "caste_category", "marital_status", "district_of_origin", "block", "gender", "current_occupation", "social_vulnerable_category", "pwd_category", "family", "sub_centre", "centre", "source_of_information", "occupational_category", "current_house_type", "name_of_the_settlement", "name_of_the_camp", "proof_of_disability", "education"]);
 
