@@ -26,13 +26,15 @@ def execute(filters=None):
     sql_query = f"""
         SELECT
             _sc.status,
-            COUNT(_sc.name) as count
+            COUNT(_sc.name) AS count
         FROM
-            `tabScheme Child` as _sc
-        INNER JOIN `tabBeneficiary Profiling` as ben_table on (ben_table.name =  _sc.parent and _sc.parenttype ='Beneficiary Profiling')
+            `tabScheme Child` AS _sc
+        INNER JOIN `tabBeneficiary Profiling` AS ben_table ON (ben_table.name =  _sc.parent AND _sc.parenttype ='Beneficiary Profiling')
         WHERE
-            _sc.status = 'Completed' AND
-        1=1 {condition_str}
+           _sc.status = 'Completed'
+            {condition_str}
+        GROUP BY
+            _sc.status;
     """
 
     data = frappe.db.sql(sql_query, as_dict=True)

@@ -32,7 +32,7 @@ def create_condition(scheme, _tbl_pre=""):
         filters.append(user_role_filter)
     return " WHERE  1=1 "+ (f"AND {' AND '.join(filters)}" if len(filters) else "")
 
-def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
+def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=10,is_limit=False,filters=[]):
     availed_sql = f""
     if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
         availed_sql = f"""
@@ -57,23 +57,23 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
     ward_join_type  = "LEFT JOIN"
     if len(filters):
         for filter_item in json.loads(filters):  # Convert filters from string to list
-            filter_key = list(filter_item.keys())[0]
-            filter_value = list(filter_item.values())[0]
-            if filter_key == 'name_of_the_beneficiary':
-                filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-            elif filter_key == 'contact_number':
-                filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
-            elif filter_key == 'block_name':
-                ward_filter += f" AND block_name LIKE '{filter_value}%'"
-                ward_join_type = "INNER JOIN"
-            elif filter_key == 'name_of_parents':
-                primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
-                pm_join_type = "INNER JOIN"
-            else:
-                pm_join_type = "LEFT JOIN"
-                ward_join_type = "LEFT JOIN"
-
-
+            for filter_key, filter_value in filter_item.items(): 
+                if filter_key == 'name_of_the_beneficiary':
+                    filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
+                elif filter_key == 'custom_custon_contact_number':
+                    filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
+                elif filter_key == 'block_name':
+                    ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                    ward_join_type = "INNER JOIN"
+                elif filter_key == 'name_of_parents':
+                    primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                    pm_join_type = "INNER JOIN"
+                else:
+                    pm_join_type = "LEFT JOIN"
+                    ward_join_type = "LEFT JOIN"
+    pagination = ""
+    if is_limit:
+        pagination = f"LIMIT {page_limit} OFFSET {start}"
     sql = f"""
             SELECT
                 _ben.*,
@@ -86,11 +86,11 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=1000,filters=[]):
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
+            {pagination}
     """
     return sql
 
-def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filters=[]):
+def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=10,filters=[]):
     availed_sql = f""
     if scheme_doc.get('how_many_times_can_this_scheme_be_availed') == 'Once':
         availed_sql = f"""
@@ -115,21 +115,21 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filte
     ward_join_type  = "LEFT JOIN"
     if len(filters):
         for filter_item in json.loads(filters):  # Convert filters from string to list
-            filter_key = list(filter_item.keys())[0]
-            filter_value = list(filter_item.values())[0]
-            if filter_key == 'name_of_the_beneficiary':
-                filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-            elif filter_key == 'contact_number':
-                filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
-            elif filter_key == 'block_name':
-                ward_filter += f" AND block_name LIKE '{filter_value}%'"
-                ward_join_type = "INNER JOIN"
-            elif filter_key == 'name_of_parents':
-                primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
-                pm_join_type = "INNER JOIN"
-            else:
-                pm_join_type = "LEFT JOIN"
-                ward_join_type = "LEFT JOIN"
+            for filter_key, filter_value in filter_item.items(): 
+                if filter_key == 'name_of_the_beneficiary':
+                    filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
+                elif filter_key == 'custom_custon_contact_number':
+                    filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
+                elif filter_key == 'block_name':
+                    ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                    ward_join_type = "INNER JOIN"
+                elif filter_key == 'name_of_parents':
+                    primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                    pm_join_type = "INNER JOIN"
+                else:
+                    pm_join_type = "LEFT JOIN"
+                    ward_join_type = "LEFT JOIN"
+
     sql = f"""
             SELECT
                 _ben.*,
@@ -142,15 +142,15 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=1000,filte
             {ward_join_type} `tabBlock` _bl ON _bl.name = _ben.ward {ward_filter}
             LEFT JOIN `tabVillage` _vl ON _vl.name = _ben.name_of_the_settlement
             ORDER BY select_primary_member DESC
-            LIMIT {page_limit} OFFSET {start}
     """
+            # LIMIT {page_limit} OFFSET {start}
     return sql
 @frappe.whitelist(allow_guest=True)
 def execute(name=None):
     return BeneficaryScheme.get_schemes(name)
 
 @frappe.whitelist(allow_guest=True)
-def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=1000):
+def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_imit=10,is_limit=False):
     # filter value is getting hear
     # print("filter", filters)
     columns = json.loads(columns)
@@ -169,7 +169,7 @@ def eligible_beneficiaries(scheme=None, columns=[], filters=[], start=0, page_im
     if not scheme_doc:
         return res
 
-    ben_sql = get_beneficiary_scheme_query(scheme_doc,start,page_imit,filters)
+    ben_sql = get_beneficiary_scheme_query(scheme_doc,start,page_imit,is_limit,filters)
     # print(ben_sql)
     total_count_sql = get_total_beneficiary_count_query(scheme_doc , start,page_imit,filters)
     res['data'] = frappe.db.sql(ben_sql, as_dict=True)
@@ -254,24 +254,24 @@ def get_user_permission(user, join_con=[]):
    sql_query = f"""
         SELECT
             CASE
-                WHEN UP.allow = 'State' THEN TS.state_name
-                WHEN UP.allow = 'District' THEN TD.district_name
-                WHEN UP.allow = 'Block' THEN TB.block_name
-                WHEN UP.allow = 'Village' THEN TV.village_name
-                WHEN UP.allow = 'Centre' THEN TC.centre_name
-                WHEN UP.allow = 'Sub Centre' THEN TCS.sub_centre_name
+                WHEN LOWER(UP.allow) = 'state' THEN TS.state_name
+                WHEN LOWER(UP.allow) = 'district' THEN TD.district_name
+                WHEN LOWER(UP.allow) = 'block' THEN TB.block_name
+                WHEN LOWER(UP.allow) = 'village' THEN TV.village_name
+                WHEN LOWER(UP.allow) = 'centre' THEN TC.centre_name
+                WHEN LOWER(UP.allow) = 'sub centre' THEN TCS.sub_centre_name
             END AS name_value,
             UP.for_value,
             UP.name,
             UP.allow,
             UP.user
         FROM `tabUser Permission` AS UP
-        LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND UP.allow = 'state'
-        LEFT JOIN `tabDistrict` AS TD ON UP.for_value = TD.name AND UP.allow = 'district'
-        LEFT JOIN `tabBlock` AS TB ON UP.for_value = TB.name AND UP.allow = 'block'
-        LEFT JOIN `tabVillage` AS TV ON UP.for_value = TV.name AND UP.allow = 'village'
-        LEFT JOIN `tabCentre` AS TC ON UP.for_value = TC.name AND UP.allow = 'centre'
-        LEFT JOIN `tabSub Centre` AS TCS ON UP.for_value = TCS.name AND UP.allow = 'Sub Centre'
+        LEFT JOIN `tabState` AS TS ON UP.for_value = TS.name AND LOWER(UP.allow) = 'state'
+        LEFT JOIN `tabDistrict` AS TD ON UP.for_value = TD.name AND LOWER(UP.allow) = 'district'
+        LEFT JOIN `tabBlock` AS TB ON UP.for_value = TB.name AND LOWER(UP.allow) = 'block'
+        LEFT JOIN `tabVillage` AS TV ON UP.for_value = TV.name AND LOWER(UP.allow) = 'village'
+        LEFT JOIN `tabCentre` AS TC ON UP.for_value = TC.name AND LOWER(UP.allow) = 'centre'
+        LEFT JOIN `tabSub Centre` AS TCS ON UP.for_value = TCS.name AND LOWER(UP.allow) = 'sub centre'
         WHERE UP.user = '{user}'
     """
    return frappe.db.sql(sql_query, as_dict=True)

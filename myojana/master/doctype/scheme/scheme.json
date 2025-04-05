@@ -140,7 +140,7 @@
    "fieldname": "table",
    "fieldtype": "HTML",
    "label": "Table",
-   "options": "<div class=\"row\">\n<div class=\"col-md-2\">\n <label for=\"name_of_the_beneficiary\">Name of beneficiary</label>\n<input type=\"text\" id=\"name_of_the_beneficiary\" class=\"form-control\"></div>\n<div class=\"col-md-2\">\n <label for=\"name_of_parents\">Primary member</label>\n            <input type=\"text\" id=\"name_of_parents\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"contact_number\">Phone number</label>\n            <input type=\"text\" id=\"contact_number\" class=\"form-control\">\n        </div>\n        <div class=\"col-md-2\">\n            <label for=\"block_name\">Block</label>\n            <input type=\"text\" id=\"block_name\" class=\"form-control\">\n\t\t\t\n        </div>\n        <div class=\"col-md-2\">\n        <br>\n        <button class=\"btn btn-primary btn-sm primary-action t-4\" id=\"export-exel\"><span>E<span class=\"alt-underline\">x</span>port</span></button>\n        </div>\n    </div>\n<br>\n<div class=\"row\" id=\"eligible_beneficiaries\"></div>"
+   "options": "<div class=\"row\" id=\"eligible_beneficiaries\"></div>"
   },
   {
    "fieldname": "note",
@@ -220,7 +220,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-08-12 16:48:57.943690",
+ "modified": "2025-03-31 16:43:31.965488",
  "modified_by": "Administrator",
  "module": "Master",
  "name": "Scheme",
@@ -280,6 +280,7 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
