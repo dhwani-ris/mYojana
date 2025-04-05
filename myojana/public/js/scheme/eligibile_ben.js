@@ -162,7 +162,7 @@ class SchemeEligibleBen {
     noDataFound() {
         let el = document.createElement('div');
         el.style = 'flex-direction: column; height: 200px;'
-        e.addClass('d-flex justify-content-center align-items-center')
+        el.classList.add('d-flex', 'justify-content-center', 'align-items-center');
         el.innerHTML = `
             <svg class="icon icon-xl" style="stroke: var(--text-light);">
                 <use href="#icon-small-file"></use>
