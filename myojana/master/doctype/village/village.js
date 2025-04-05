@@ -26,8 +26,8 @@ function defult_filter(field_name, filter_on, frm) {
   };
 frappe.ui.form.on("Village", {
 	refresh(frm) {
-        frm.doc.state ? apply_filter(frm ,"district", "state", frm.doc.state) : defult_filter('district', "State", frm);
-        frm.doc.district ? apply_filter(frm ,"block", "District", frm.doc.district) : defult_filter('block', "District", frm);
+        frm.doc.state ? apply_filter(frm ,"district", "state", frm.doc.state) : defult_filter('district', "state", frm);
+        frm.doc.district ? apply_filter(frm ,"block", "district", frm.doc.district) : defult_filter('block', "district", frm);
 	},
     state:function(frm){
         apply_filter(frm , 'district', "state", frm.doc.state)

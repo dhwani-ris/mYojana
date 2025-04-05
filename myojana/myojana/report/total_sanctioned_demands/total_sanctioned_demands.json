@@ -9,7 +9,7 @@
  "idx": 2,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-07-19 18:35:46.013996",
+ "modified": "2025-03-31 17:36:31.501620",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Total sanctioned demands",
@@ -37,5 +37,6 @@
   {
    "role": "All"
   }
- ]
+ ],
+ "timeout": 0
 }

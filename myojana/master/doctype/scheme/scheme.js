@@ -326,10 +326,12 @@ const render_table = async (frm) => {
 }
 frappe.ui.form.on("Scheme", {
     async refresh(frm) {
-        render_table(frm)
-        document.getElementById('export-exel').onclick = function () {
-            convertJSONToCSV(response.data, "eligible_ben")
-        }
+        // render_table(frm)
+        // document.getElementById('export-exel').onclick = function () {
+        //     convertJSONToCSV(response.data, "eligible_ben")
+        // }
+        let wrapper = document.getElementById('eligible_beneficiaries');
+        new SchemeEligibleBen(frm, wrapper)
     },
     async onload(frm) {
     },

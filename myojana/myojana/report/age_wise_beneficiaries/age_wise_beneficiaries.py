@@ -9,15 +9,15 @@ from myojana.utils.report_filter import ReportFilter
 def execute(filters=None):
     columns = [
         {
-            "fieldname": "Age_Category",
+            "fieldname": "age_category",
             "label": "Age Category",
             "fieldtype": "Data",
             "width": 200
         },
         {
-            "fieldname": "Number_of_beneficiaries",
+            "fieldname": "number_of_beneficiaries",
             "label": "Number of beneficiaries",
-            "fieldtype": "int",
+            "fieldtype": "Int",
             "width": 300
         }
     ]
@@ -31,7 +31,7 @@ def execute(filters=None):
 
     sql_query = f"""
     SELECT
-        'Less than 5 years' AS Age_Category, COUNT(CASE WHEN completed_age < 5 THEN 1 END) AS Number_of_beneficiaries
+        'Less than 5 years' AS age_category, COUNT(CASE WHEN completed_age < 5 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
@@ -39,7 +39,7 @@ def execute(filters=None):
     UNION ALL
 
     SELECT
-        '5 - 10 years' AS Age_Category, COUNT(CASE WHEN completed_age BETWEEN 5 AND 10 THEN 1 END) AS Number_of_beneficiaries
+        '5 - 10 years' AS age_category, COUNT(CASE WHEN completed_age BETWEEN 5 AND 10 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
@@ -47,7 +47,7 @@ def execute(filters=None):
     UNION ALL
 
     SELECT
-        '11 - 17 years' AS Age_Category, COUNT(CASE WHEN completed_age BETWEEN 11 AND 17 THEN 1 END) AS Number_of_beneficiaries
+        '11 - 17 years' AS age_category, COUNT(CASE WHEN completed_age BETWEEN 11 AND 17 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
@@ -55,7 +55,7 @@ def execute(filters=None):
     UNION ALL
 
     SELECT
-        '18 - 40 years' AS Age_Category, COUNT(CASE WHEN completed_age BETWEEN 18 AND 40 THEN 1 END) AS Number_of_beneficiaries
+        '18 - 40 years' AS age_category, COUNT(CASE WHEN completed_age BETWEEN 18 AND 40 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
@@ -63,7 +63,7 @@ def execute(filters=None):
     UNION ALL
 
     SELECT
-        '41 - 60 years' AS Age_Category, COUNT(CASE WHEN completed_age BETWEEN 41 AND 60 THEN 1 END) AS Number_of_beneficiaries
+        '41 - 60 years' AS age_category, COUNT(CASE WHEN completed_age BETWEEN 41 AND 60 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
@@ -71,7 +71,7 @@ def execute(filters=None):
     UNION ALL
 
     SELECT
-        '60 years above' AS Age_Category, COUNT(CASE WHEN completed_age > 60 THEN 1 END) AS Number_of_beneficiaries
+        '60 years above' AS age_category, COUNT(CASE WHEN completed_age > 60 THEN 1 END) AS number_of_beneficiaries
     FROM
         `tabBeneficiary Profiling`
     {condition_str}
