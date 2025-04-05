@@ -62,9 +62,9 @@ class SchemeEligibleBen {
                         </th>
                         <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Name of the Beneficiary')}</th>
                         <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Head of household')}</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Contact nubmer')}</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Cluster')}</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Slum')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Contact number')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Block')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Village')}</th>
                     </tr>
                 </thead>
                 <tbody style="background-color: #fff; font-size: 12px;">
