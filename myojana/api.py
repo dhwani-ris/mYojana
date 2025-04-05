@@ -59,14 +59,14 @@ def get_beneficiary_scheme_query(scheme_doc,start=0,page_limit=10,is_limit=False
         for filter_item in json.loads(filters):  # Convert filters from string to list
             for filter_key, filter_value in filter_item.items(): 
                 if filter_key == 'name_of_the_beneficiary':
-                    filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-                elif filter_key == 'custom_custon_contact_number':
+                    filter_condition += f" AND LOWER({filter_key}) LIKE LOWER('{filter_value}%')"
+                elif filter_key == 'contact_number':
                     filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
                 elif filter_key == 'block_name':
-                    ward_filter += f" AND block_name LIKE '{filter_value}%'"
+                    ward_filter += f" AND LOWER(block_name) LIKE LOWER('{filter_value}%')"
                     ward_join_type = "INNER JOIN"
                 elif filter_key == 'name_of_parents':
-                    primary_member_filter += f" AND name_of_parents LIKE '{filter_value}%'"
+                    primary_member_filter += f" AND LOWER(name_of_parents) LIKE LOWER('{filter_value}%')"
                     pm_join_type = "INNER JOIN"
                 else:
                     pm_join_type = "LEFT JOIN"
@@ -118,7 +118,7 @@ def get_total_beneficiary_count_query(scheme_doc , start=0,page_limit=10,filters
             for filter_key, filter_value in filter_item.items(): 
                 if filter_key == 'name_of_the_beneficiary':
                     filter_condition += f" AND {filter_key} LIKE '{filter_value}%'"
-                elif filter_key == 'custom_custon_contact_number':
+                elif filter_key == 'contact_number':
                     filter_condition += f" AND {filter_key} LIKE '%{filter_value}%'"
                 elif filter_key == 'block_name':
                     ward_filter += f" AND block_name LIKE '{filter_value}%'"
