@@ -12,7 +12,7 @@ class SchemeEligibleBen {
         this.filters = [{
             name_of_the_beneficiary: '',
             name_of_parents: '',
-            custom_custon_contact_number: '',
+            contact_number: '',
             block_name: ''
         }]
     }
@@ -35,10 +35,10 @@ class SchemeEligibleBen {
         el.style = 'gap: 20px;'
         el.innerHTML = ` 
                 <div class="d-flex " style="gap: 10px;">
-                    <input id="name_of_beneficiary" type="text" class="form-control form-control-sm" placeholder="Name of beneficiary">
-                    <input id="name_of_parents" type="text" class="form-control form-control-sm" placeholder="Primary member">
-                    <input id="phone_number" type="number" class="form-control form-control-sm" placeholder="Phone number">
-                    <input id="block_name" type="text" class="form-control form-control-sm" placeholder="Block">
+                    <input id="name_of_beneficiary" type="text" class="form-control form-control-sm" placeholder="${__('Name of beneficiary')}">
+                    <input id="name_of_parents" type="text" class="form-control form-control-sm" placeholder="${__('Primary member')}">
+                    <input id="phone_number" type="number" class="form-control form-control-sm" placeholder="${__('Phone number')}">
+                    <input id="block_name" type="text" class="form-control form-control-sm" placeholder="${__('Block')}">
                     <button id="clearFilters" class="btn btn-secondary btn-sm" style="display: none;">
                         x
                     </button>
@@ -60,11 +60,11 @@ class SchemeEligibleBen {
                         <th class="row-check sortable-handle col" style="width: 40px;min-width:40px;text-align: center; position: sticky; left: 0px; background-color: #F8F8F8;">
                             #
                         </th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Name of the Beneficiary</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Head of household</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Contact nubmer</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Cluster</th>
-                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">Slum</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Name of the Beneficiary')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Head of household')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Contact number')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Block')}</th>
+                        <th class="static-area ellipsis" style="color:#525252; font-size: 13px;">${__('Village')}</th>
                     </tr>
                 </thead>
                 <tbody style="background-color: #fff; font-size: 12px;">
@@ -197,6 +197,7 @@ class SchemeEligibleBen {
         let task_container = document.createElement('div');
         task_container.classList.add('task-list');
         task_container.id = 'task-list';
+        task_container.style = 'min-width: 100%;'
         task_container.innerHTML = `
             <div id="eligible_ben-header"></div>
             <div id="eligible_ben-body"></div>
@@ -259,7 +260,7 @@ class SchemeEligibleBen {
 
         $(document).off('keyup', '#phone_number').on('keyup', '#phone_number', (e) => {
             let phone_number = $(e.target).val();
-            this.filters[0].custom_custon_contact_number = Number(phone_number);
+            this.filters[0].contact_number = Number(phone_number);
             this.show_table();
             toggleClearFiltersButton();
         });
@@ -296,7 +297,7 @@ class SchemeEligibleBen {
             this.filters = [{ // Reset filters object
                 name_of_the_beneficiary: '',
                 name_of_parents: '',
-                custom_custon_contact_number: '',
+                contact_number: '',
                 block_name: ''
             }];
             this.show_table();

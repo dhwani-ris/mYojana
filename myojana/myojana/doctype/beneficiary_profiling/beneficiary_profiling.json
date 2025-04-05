@@ -128,7 +128,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Contact number",
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "alternate_contact_number",
@@ -259,7 +260,8 @@
    "fieldname": "ward",
    "fieldtype": "Link",
    "label": "Ward/Tehsil/Block",
-   "options": "Block"
+   "options": "Block",
+   "search_index": 1
   },
   {
    "fieldname": "name_of_the_settlement",
@@ -551,7 +553,7 @@
  "hide_toolbar": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-14 12:10:28.130037",
+ "modified": "2025-04-05 13:55:51.115975",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Beneficiary Profiling",
@@ -613,6 +615,7 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
