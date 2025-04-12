@@ -5,6 +5,7 @@
 
 
 import frappe
+from frappe import _
 from myojana.utils.report_filter import ReportFilter
 
 def execute(filters=None):
@@ -12,13 +13,13 @@ def execute(filters=None):
 	columns = [
 		{
 		"fieldname":"n",
-		"label":"No. of members",
+		"label":_("No. of members"),
 		"fieldtype":"int",
 		"width":200
 		},
 		{
 		"fieldname":"count",
-		"label":"No. distinct Families",
+		"label":_("No. distinct Families"),
 		"fieldtype":"int",
 		"width":200
 		}
