@@ -5,6 +5,7 @@
 
 
 import frappe
+from frappe import _
 from myojana.utils.report_filter import ReportFilter
 
 def execute(filters=None):
@@ -12,13 +13,13 @@ def execute(filters=None):
 	columns = [
 		{
 		"fieldname":"n",
-		"label":"No. of families",
+		"label":_("No. of families"),
 		"fieldtype":"int",
 		"width":200
 		},
 		{
 		"fieldname":"count",
-		"label":"No. distinct families",
+		"label":_("No. distinct families"),
 		"fieldtype":"int",
 		"width":200
 		}
@@ -29,24 +30,27 @@ def execute(filters=None):
 	else:
 		condition_str = ""
 
-	distinct_milestone = frappe.db.sql("select count(distinct milestone) as count from `tabScheme` where enabled = '1'", as_dict=True)
-	mcount = distinct_milestone[0].count if len(distinct_milestone) > 0 else 0
-	query = f"""
-	    select 
-			*
-		from
+	milestones = frappe.db.sql("select distinct milestone as milestone from `tabScheme` where enabled = 1", as_dict=True)	
+	mcount = len(milestones)
+	milestones = [f"'{m['milestone']}'" for m in milestones]
+	query =f"""
+		SELECT 
+			COUNT(t.select_primary_member) as count,
+			'Number of beneficiaries' as n
+		FROM
 			(
-				select 
-					'Number of families' as n,
-					(count(distinct milestone)) = {mcount} as count
-				from
-					`tabScheme Child` sc
-				inner join  `tabBeneficiary Profiling` bp on bp.name = sc.parent
-				where 
-					parenttype = 'Beneficiary Profiling' and parentfield = 'scheme_table' {condition_str} 
-				group by bp.select_primary_member
-			) as t
-		where t.count = 1
+			SELECT
+				COUNT(DISTINCT s.milestone),
+				bp.select_primary_member
+			FROM
+				`tabScheme Child` as s
+			INNER JOIN  `tabBeneficiary Profiling` bp ON bp.name = s.parent 
+			WHERE 
+				s.parenttype = 'Beneficiary Profiling' AND s.parentfield = 'scheme_table' {condition_str}
+				AND s.milestone_category IN ({','.join(milestones)})
+			GROUP BY bp.select_primary_member
+			HAVING COUNT(DISTINCT s.milestone) = {mcount}
+			) AS t
 	"""
 	ben_data = frappe.db.sql(query, as_dict=True)
 	return columns, ben_data
