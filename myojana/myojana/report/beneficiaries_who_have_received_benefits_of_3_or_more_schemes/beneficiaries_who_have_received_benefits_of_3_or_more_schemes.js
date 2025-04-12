@@ -4,12 +4,12 @@ var filters = [
 	{
 		"fieldname": "from_date",
 		"fieldtype": "Date",
-		"label": "From Date",
+		"label": __("From Date"),
 	},
 	{
 		"fieldname": "to_date",
 		"fieldtype": "Date",
-		"label": "To Date"
+		"label": __("To Date")
 	},
 ];
 frappe.query_reports["Beneficiaries who have received benefits of 3 or more schemes"] = {
