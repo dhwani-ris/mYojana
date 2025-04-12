@@ -43,7 +43,7 @@ def execute(filters=None):
 				bp.select_primary_member
 			FROM
 				`tabScheme Child` as s
-			INNER JOIN  `tabBeneficiary Profiling` bp ON bp.name = parent 
+			INNER JOIN  `tabBeneficiary Profiling` bp ON bp.name = s.parent 
 			WHERE 
 				s.parenttype = 'Beneficiary Profiling' AND s.parentfield = 'scheme_table' {condition_str}
 				AND s.milestone_category IN ({','.join(milestones)})
