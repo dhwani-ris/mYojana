@@ -52,9 +52,13 @@ permission_query_conditions = {
 }
 
 # include js, css files in header of desk.html
-app_include_css = "/assets/myojana/css/main.css"
+app_include_css = [
+    "/assets/myojana/css/main.css",
+    "/assets/myojana/css/myojana_theme.css",
+    ]
 app_include_js = [
     "/assets/myojana/js/main.js",
+    "/assets/myojana/js/utils/theme.js",
     "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
 ]
 
@@ -225,9 +229,9 @@ scheduler_events = {
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "myojana.event.get_events"
-# }
+override_whitelisted_methods = {
+	"frappe.core.doctype.user.user.switch_theme": "myojana.apis.myojana_theme.get_theme",
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
