@@ -1,0 +1,121 @@
+[data-theme="myojana"] {
+  --main-color: #F44A24;
+  --primary: var(--main-color);
+  --dt-primary-color: var(--main-color);
+  --blue-avatar-bg: var(--main-color);
+  --blue-avatar-color: var(--main-color);
+  --blue: var(--main-color);
+  --heading-color: #c6281f;
+  --text-color: #3e2723;
+  --background-color: #fff7f4;
+  --sidebar-bg: #ffede6;
+  --card-bg: #ffffff;
+  --hover-bg: #fbc4b8;
+  --border-color: #f6a38f;
+}
+
+/* Body and Global Text */
+[data-theme="myojana"] body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Navigation Bar */
+[data-theme="myojana"] .navbar,
+[data-theme="myojana"] .navbar .navbar-collapse {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+[data-theme="myojana"] .navbar .navbar-brand,
+[data-theme="myojana"] .navbar .nav-link,
+[data-theme="myojana"] .navbar .dropdown-toggle {
+  color: #fff !important;
+}
+
+/* Primary Buttons */
+[data-theme="myojana"] .btn-primary {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: #fff;
+}
+
+[data-theme="myojana"] .btn-primary:hover {
+  background-color: #d63c1f;
+  border-color: #d63c1f;
+}
+
+/* Sidebar */
+[data-theme="myojana"] .layout-side-section {
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+}
+
+[data-theme="myojana"] .sidebar-item {
+  color: var(--text-color);
+}
+
+[data-theme="myojana"] .sidebar-item:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Desk Module Icons */
+[data-theme="myojana"] .module-section {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+}
+
+[data-theme="myojana"] .module-icon {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+/* Card Headers */
+[data-theme="myojana"] .form-section .section-head,
+[data-theme="myojana"] .form-dashboard-section .section-head {
+  color: var(--heading-color);
+}
+
+/* Page Headings */
+[data-theme="myojana"] .page-head,
+[data-theme="myojana"] .page-title {
+  color: var(--heading-color);
+}
+
+/* Forms and Inputs */
+[data-theme="myojana"] input,
+[data-theme="myojana"] select,
+[data-theme="myojana"] textarea {
+  border: 1px solid var(--border-color);
+  background-color: #fff2ed;
+}
+
+/* Grid View / List View / Report View */
+[data-theme="myojana"] .list-row,
+[data-theme="myojana"] .list-row-container {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="myojana"] .list-row:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Avatars */
+[data-theme="myojana"] .avatar-frame,
+[data-theme="myojana"] .avatar {
+  background-color: var(--blue-avatar-bg);
+  color: #fff;
+}
+
+/* Modal Headers */
+[data-theme="myojana"] .modal-header {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+/* Timeline / Activity */
+[data-theme="myojana"] .timeline-item .timeline-content {
+  background-color: #fff2ed;
+  border-left: 4px solid var(--main-color);
+}
