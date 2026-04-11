@@ -145,5 +145,12 @@
   "modified": "2024-03-14 11:59:41.138269",
   "name": "Private Job",
   "occupational_category": "Private Job"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Occupational Category",
+  "modified": "2026-04-12 00:00:00.000000",
+  "name": "Mobile Street Vendors",
+  "occupational_category": "Mobile Street Vendors"
  }
 ]
