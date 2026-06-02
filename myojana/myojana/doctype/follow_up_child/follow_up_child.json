@@ -22,7 +22,9 @@
   "amount_paid",
   "paid_by",
   "remarks",
-  "parent_ref"
+  "parent_ref",
+  "last_update_date",
+  "last_update_by"
  ],
  "fields": [
   {
@@ -161,17 +163,31 @@
    "label": "Paid by",
    "options": "Scheme Paid by",
    "set_only_once": 1
+  },
+  {
+   "fieldname": "last_update_date",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Last Update Date"
+  },
+  {
+   "fieldname": "last_update_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "User"
   }
  ],
+ "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-05-20 09:42:03.657368",
+ "modified": "2025-05-20 09:43:45.916104",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Follow Up Child",
  "owner": "Administrator",
  "permissions": [],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

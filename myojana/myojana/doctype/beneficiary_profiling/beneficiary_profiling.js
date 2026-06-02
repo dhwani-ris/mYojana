@@ -414,3 +414,16 @@ frappe.ui.form.on("Beneficiary Profiling", {
     });
   },
 });
+
+frappe.ui.form.on('Follow Up Child',{
+  follow_up_status:function(frm,cdt, cdn){
+    let row = locals[cdt][cdn];
+    if(row.follow_up_status){
+      let last_update_date = frappe.datetime.get_datetime_as_string()
+      let user = frappe.session.user
+      frappe.model.set_value(cdt, cdn, 'last_update_date', last_update_date);
+      frappe.model.set_value(cdt, cdn, 'last_update_by', user);
+    }
+
+  },
+})

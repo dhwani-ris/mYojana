@@ -40,6 +40,22 @@ fixtures = [
     # "Centre",
     # "Sub Centre",
 
+    # --- Jan Pahal CR fixtures (added 2026-04-12) ---
+    # Jan Pahal custom DocTypes (Collective ecosystem + Infrastructure assessment)
+    {"dt": "DocType", "filters": [["name", "in", [
+        "Collective Members List", "Action child", "Collective",
+        "Infrastructure Item", "Infrastructural Success"
+    ]], ["custom", "=", 1]]},
+    # CR-2: Updated Occupational Category with "Mobile Street Vendors"
+    "Occupational Category",
+    # CR-11: Custom Fields for digital payments, MSME, digital onboarding
+    {"dt": "Custom Field", "filters": [["dt", "=", "Beneficiary Profiling"], ["fieldname", "like", "custom_%"]]},
+    # CR-9: Property Setter to make DOB non-mandatory
+    {"dt": "Property Setter", "filters": [["doc_type", "=", "Beneficiary Profiling"], ["field_name", "=", "date_of_birth"]]},
+    # CR-5, CR-6, CR-10: Client Scripts for Collective, Infrastructural Success, dropdown indicators
+    {"dt": "Client Script", "filters": [["dt", "in", ["Collective", "Infrastructural Success", "Beneficiary Profiling"]], ["name", "!=", "Scheme and Followup Validate"]]},
+    # Meetings & Collectives workspace
+    {"dt": "Workspace", "filters": [["name", "=", "Meetings & Collectives"]]},
 ]
 # Includes in <head>
 # ------------------

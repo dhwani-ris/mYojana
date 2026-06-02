@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Beneficiary Profiling-date_of_birth-mandatory_depends_on",
+    "docstatus": 0,
+    "idx": 0,
+    "is_system_generated": 0,
+    "doctype_or_field": "DocField",
+    "doc_type": "Beneficiary Profiling",
+    "field_name": "date_of_birth",
+    "property": "mandatory_depends_on",
+    "value": "",
+    "doctype": "Property Setter"
+  }
+]
