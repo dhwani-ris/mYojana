@@ -1,3 +1,68 @@
 .whatsapp-svg-button{
     background-color: #FEFEFF !important;
 }
+
+/* ── Dropdown arrow styling ─────────────────────────────────────────────────
+   Hide Frappe's grey double-chevron (⇅) on Select fields. The blue ▾ arrow
+   below (via .control-input::after) replaces it for ALL field types globally,
+   including child table row editors. Previously this was per-doctype client
+   scripts which missed child tables and required duplication. */
+
+.frappe-control[data-fieldtype="Select"] .select-icon svg {
+    display: none;
+}
+
+.frappe-control[data-fieldtype="Link"] .control-input,
+.frappe-control[data-fieldtype="Select"] .control-input,
+.frappe-control[data-fieldtype="Autocomplete"] .control-input,
+.frappe-control[data-fieldtype="Table MultiSelect"] .control-input {
+    position: relative;
+}
+
+.frappe-control[data-fieldtype="Link"] .control-input::after,
+.frappe-control[data-fieldtype="Select"] .control-input::after,
+.frappe-control[data-fieldtype="Autocomplete"] .control-input::after,
+.frappe-control[data-fieldtype="Table MultiSelect"] .control-input::after {
+    content: '\25BE';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1565C0;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.frappe-control[data-fieldtype="Link"] .control-label,
+.frappe-control[data-fieldtype="Select"] .control-label,
+.frappe-control[data-fieldtype="Autocomplete"] .control-label,
+.frappe-control[data-fieldtype="Table MultiSelect"] .control-label {
+    color: #1565C0 !important;
+}
+
+.frappe-control[data-fieldtype="Link"] input,
+.frappe-control[data-fieldtype="Select"] select,
+.frappe-control[data-fieldtype="Autocomplete"] input {
+    padding-right: 28px !important;
+}
+
+/* Blue ▾ arrow on inline table DATA cells only (not header row) */
+.rows .grid-static-col[data-fieldtype="Select"],
+.rows .grid-static-col[data-fieldtype="Link"],
+.rows .grid-static-col[data-fieldtype="Autocomplete"] {
+    position: relative;
+}
+
+.rows .grid-static-col[data-fieldtype="Select"]::after,
+.rows .grid-static-col[data-fieldtype="Link"]::after,
+.rows .grid-static-col[data-fieldtype="Autocomplete"]::after {
+    content: '\25BE';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1565C0;
+    font-size: 14px;
+    pointer-events: none;
+}
