@@ -47,6 +47,12 @@
     padding-right: 28px !important;
 }
 
+/* Hide the open-link (→) and clear (×) buttons on Link fields */
+.frappe-control[data-fieldtype="Link"] .btn-open,
+.frappe-control[data-fieldtype="Link"] .btn-clear {
+    display: none !important;
+}
+
 /* Blue ▾ arrow on inline table DATA cells only (not header row) */
 .rows .grid-static-col[data-fieldtype="Select"],
 .rows .grid-static-col[data-fieldtype="Link"],
