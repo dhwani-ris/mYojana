@@ -10,26 +10,6 @@
     "doctype": "Client Script"
   },
   {
-    "name": "Dropdown Indicator - Beneficiary Profiling",
-    "docstatus": 0,
-    "idx": 0,
-    "dt": "Beneficiary Profiling",
-    "view": "Form",
-    "enabled": 1,
-    "script": "frappe.ui.form.on('Beneficiary Profiling', {\n    refresh(frm) {\n        add_dropdown_indicators(frm);\n    },\n    onload(frm) {\n        add_dropdown_indicators(frm);\n    }\n});\n\nfunction add_dropdown_indicators(frm) {\n    // Add CSS once\n    if (!document.getElementById('dropdown-indicator-style')) {\n        const style = document.createElement('style');\n        style.id = 'dropdown-indicator-style';\n        style.textContent = `\n            .frappe-control[data-fieldtype=\"Link\"] .control-input,\n            .frappe-control[data-fieldtype=\"Select\"] .control-input,\n            .frappe-control[data-fieldtype=\"Autocomplete\"] .control-input,\n            .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-input {\n                position: relative;\n            }\n            .frappe-control[data-fieldtype=\"Link\"] .control-input::after,\n            .frappe-control[data-fieldtype=\"Select\"] .control-input::after,\n            .frappe-control[data-fieldtype=\"Autocomplete\"] .control-input::after,\n            .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-input::after {\n                content: '\\\\25BE';\n                position: absolute;\n                right: 10px;\n                top: 50%;\n                transform: translateY(-50%);\n                color: #1565C0;\n                font-size: 14px;\n                pointer-events: none;\n                z-index: 1;\n            }\n            .frappe-control[data-fieldtype=\"Link\"] .control-label,\n            .frappe-control[data-fieldtype=\"Select\"] .control-label,\n            .frappe-control[data-fieldtype=\"Autocomplete\"] .control-label,\n            .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-label {\n                color: #1565C0 !important;\n            }\n            .frappe-control[data-fieldtype=\"Link\"] input,\n            .frappe-control[data-fieldtype=\"Select\"] select,\n            .frappe-control[data-fieldtype=\"Autocomplete\"] input {\n                padding-right: 28px !important;\n            }\n        `;\n        document.head.appendChild(style);\n    }\n}",
-    "doctype": "Client Script"
-  },
-  {
-    "name": "Dropdown Indicator - Collective",
-    "docstatus": 0,
-    "idx": 0,
-    "dt": "Collective",
-    "view": "Form",
-    "enabled": 1,
-    "script": "frappe.ui.form.on('Collective', {\n    onload(frm) {\n        if (!document.getElementById('dropdown-indicator-style')) {\n            const style = document.createElement('style');\n            style.id = 'dropdown-indicator-style';\n            style.textContent = `\n                .frappe-control[data-fieldtype=\"Link\"] .control-input,\n                .frappe-control[data-fieldtype=\"Select\"] .control-input,\n                .frappe-control[data-fieldtype=\"Autocomplete\"] .control-input,\n                .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-input {\n                    position: relative;\n                }\n                .frappe-control[data-fieldtype=\"Link\"] .control-input::after,\n                .frappe-control[data-fieldtype=\"Select\"] .control-input::after,\n                .frappe-control[data-fieldtype=\"Autocomplete\"] .control-input::after,\n                .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-input::after {\n                    content: '\\\\25BE';\n                    position: absolute;\n                    right: 10px;\n                    top: 50%;\n                    transform: translateY(-50%);\n                    color: #1565C0;\n                    font-size: 14px;\n                    pointer-events: none;\n                    z-index: 1;\n                }\n                .frappe-control[data-fieldtype=\"Link\"] .control-label,\n                .frappe-control[data-fieldtype=\"Select\"] .control-label,\n                .frappe-control[data-fieldtype=\"Autocomplete\"] .control-label,\n                .frappe-control[data-fieldtype=\"Table MultiSelect\"] .control-label {\n                    color: #1565C0 !important;\n                }\n            `;\n            document.head.appendChild(style);\n        }\n    }\n});",
-    "doctype": "Client Script"
-  },
-  {
     "name": "Infrastructural_Success_calculations",
     "docstatus": 0,
     "idx": 0,
@@ -37,16 +17,6 @@
     "view": "Form",
     "enabled": 1,
     "script": "frappe.ui.form.on(\"Infrastructural Success\", {\n    refresh: function(frm) {\n        frm.set_query(\"city\", function() {\n            return { filters: { state: frm.doc.state } };\n        });\n        calculate_summary(frm);\n    },\n    state: function(frm) {\n        frm.set_value(\"city\", \"\");\n    },\n    onload: function(frm) {\n        calculate_summary(frm);\n    }\n});\n\nfrappe.ui.form.on(\"Infrastructure Item\", {\n    infrastructure_items_add: function(frm) { calculate_summary(frm); },\n    infrastructure_items_remove: function(frm) { calculate_summary(frm); },\n    status: function(frm) { calculate_summary(frm); }\n});\n\nfunction calculate_summary(frm) {\n    var items = frm.doc.infrastructure_items || [];\n    var total = items.length;\n    var functional = items.filter(function(d) { return d.status === \"Fully Functional\"; }).length;\n    var score = total > 0 ? (functional / total) * 100 : 0;\n    frm.set_value(\"total_facilities_assessed\", total);\n    frm.set_value(\"functional_count\", functional);\n    frm.set_value(\"overall_score\", Math.round(score * 100) / 100);\n}",
-    "doctype": "Client Script"
-  },
-  {
-    "name": "Infrastructural_Success_dropdown_indicator",
-    "docstatus": 0,
-    "idx": 0,
-    "dt": "Infrastructural Success",
-    "view": "Form",
-    "enabled": 1,
-    "script": "frappe.ui.form.on(\"Infrastructural Success\", {\n    refresh: function(frm) {\n        if (!document.getElementById(\"dropdown-indicator-style\")) {\n            var style = document.createElement(\"style\");\n            style.id = \"dropdown-indicator-style\";\n            style.textContent = '.frappe-control[data-fieldtype=\"Link\"] .clearfix label, .frappe-control[data-fieldtype=\"Select\"] .clearfix label, .frappe-control[data-fieldtype=\"Autocomplete\"] .clearfix label, .frappe-control[data-fieldtype=\"Table MultiSelect\"] .clearfix label { color: #1565C0 !important; } .frappe-control[data-fieldtype=\"Link\"] .clearfix label::after, .frappe-control[data-fieldtype=\"Select\"] .clearfix label::after, .frappe-control[data-fieldtype=\"Autocomplete\"] .clearfix label::after, .frappe-control[data-fieldtype=\"Table MultiSelect\"] .clearfix label::after { content: \" \\25BE\"; font-size: 0.85em; color: #1565C0; }';\n            document.head.appendChild(style);\n        }\n    }\n});",
     "doctype": "Client Script"
   }
 ]

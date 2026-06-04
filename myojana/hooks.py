@@ -43,8 +43,7 @@ fixtures = [
     # --- Jan Pahal CR fixtures (added 2026-04-12) ---
     # Jan Pahal custom DocTypes (Collective ecosystem + Infrastructure assessment)
     {"dt": "DocType", "filters": [["name", "in", [
-        "Collective Members List", "Action child", "Collective",
-        "Infrastructure Item", "Infrastructural Success"
+        "Collective Members List", "Action child", "Collective"
     ]], ["custom", "=", 1]]},
     # CR-2: Updated Occupational Category with "Mobile Street Vendors"
     "Occupational Category",
