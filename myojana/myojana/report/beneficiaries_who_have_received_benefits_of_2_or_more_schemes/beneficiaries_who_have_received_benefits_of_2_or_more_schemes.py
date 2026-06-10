@@ -37,8 +37,8 @@ def execute(filters=None):
                     ben.name,
                     COUNT(sc.name) AS sc_count
                 FROM
-                    "tabBeneficiary Profiling" AS ben
-                INNER JOIN "tabScheme Child" sc ON (sc.parent = ben.name AND sc.status = 'Completed')
+                    `tabBeneficiary Profiling` AS ben
+                INNER JOIN `tabScheme Child` sc ON (sc.parent = ben.name AND sc.status = 'Completed')
                 {condition_str}
                 GROUP BY ben.name
                 HAVING COUNT(sc.name) >= 2
