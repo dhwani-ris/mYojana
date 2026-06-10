@@ -105,7 +105,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
       console.log("new data")
       await autoSetOption(frm); // set options of centre and sub centre
       await frm.set_value('added_by', frappe.session.user);
-      await frm.set_value('date_of_visit', frappe.datetime.get_today()); // SET TODAY DATE IN DATE OF VISIT
+      if (!frm.doc.date_of_visit) {
+        await frm.set_value('date_of_visit', frappe.datetime.get_today()); // SET TODAY DATE IN DATE OF VISIT
+      }
 
     } else {
       frm.add_custom_button(__('Add family members'), function () {
