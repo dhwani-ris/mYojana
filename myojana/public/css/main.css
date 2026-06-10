@@ -34,13 +34,6 @@
     z-index: 1;
 }
 
-.frappe-control[data-fieldtype="Link"] .control-label,
-.frappe-control[data-fieldtype="Select"] .control-label,
-.frappe-control[data-fieldtype="Autocomplete"] .control-label,
-.frappe-control[data-fieldtype="Table MultiSelect"] .control-label {
-    color: #1565C0 !important;
-}
-
 .frappe-control[data-fieldtype="Link"] input,
 .frappe-control[data-fieldtype="Select"] select,
 .frappe-control[data-fieldtype="Autocomplete"] input {
