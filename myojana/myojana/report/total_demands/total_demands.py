@@ -1,29 +1,31 @@
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
+
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "current_status",
-            "label": "Current status",
-            "fieldtype": "Data",
-            "width": 400,
-        },
-        {
-            "fieldname": "status",
-            "label": "Count",
-            "fieldtype": "Int",
-            "width": 400,
-        },
-    ]
+	columns = [
+		{
+			"fieldname": "current_status",
+			"label": "Current status",
+			"fieldtype": "Data",
+			"width": 400,
+		},
+		{
+			"fieldname": "status",
+			"label": "Count",
+			"fieldtype": "Int",
+			"width": 400,
+		},
+	]
 
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 'ben_table')
-    if condition_str:
-        condition_str = f"AND {condition_str}"
-    else:
-        condition_str = ""
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "ben_table")
+	if condition_str:
+		condition_str = f"AND {condition_str}"
+	else:
+		condition_str = ""
 
-    sql_query = f"""
+	sql_query = f"""
         SELECT
             _sc.status as current_status,
             COUNT(_sc.status) as status
@@ -36,5 +38,5 @@ def execute(filters=None):
             _sc.status;
     """
 
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data
