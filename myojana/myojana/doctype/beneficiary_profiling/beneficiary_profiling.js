@@ -52,7 +52,6 @@ async function autoSetOption(frm) {
 		},
 		// freeze_message: __("Getting Districts"),
 	});
-
 	if (state_option?.length === 1) {
 		frm.set_value("state", state_option[0].value);
 	}
