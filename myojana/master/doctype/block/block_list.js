@@ -1,5 +1,5 @@
-frappe.listview_settings['Block'] = {
-  onload: function (listview) {
-    $('.layout-side-section').hide();
-  }
+frappe.listview_settings["Block"] = {
+	onload: function (listview) {
+		$(".layout-side-section").hide();
+	},
 };

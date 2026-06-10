@@ -7,70 +7,85 @@ app_license = "mit"
 # required_apps = ["Suvaidyam/sva_dashboard"]
 
 fixtures = [
-    # "mYojana Settings",
-    # "Report List",
-    # "SVA Report"
-    # "scheme application submitted",
-    # "Scheme Paid by",
-    # "Client Script",
-    # "Custom HTML Block",
-    # "Caste category",
-    # "Religion",
-    # "Education",
-    # "Marital status",
-    # "Social vulnerable category",
-    # "PWD master",
-    # "ID Document",
-    # "Occupation",
-    # "Occupational Category",
-    # "Role Profile",
-    # "Source Of Information",
-    # "House Types",
-    # "Gender",
-    # "Role",
-    # "Name of the Department",
-    # "State",
-    # "District",
-    # "Block",
-    # "Village",
-    # "Scheme",
-    # "Camp",
-    # "Proof of Disability",
-    # "Milestone category",
-    # "Centre",
-    # "Sub Centre",
-
-    # --- Jan Pahal CR fixtures (added 2026-04-12) ---
-    # Jan Pahal custom DocTypes (Collective ecosystem + Infrastructure assessment)
-    {"dt": "DocType", "filters": [["name", "in", [
-        "Collective Members List", "Action child", "Collective"
-    ]], ["custom", "=", 1]]},
-    # CR-2: Updated Occupational Category with "Mobile Street Vendors"
-    "Occupational Category",
-    # CR-11: Custom Fields for digital payments, MSME, digital onboarding
-    {"dt": "Custom Field", "filters": [["dt", "=", "Beneficiary Profiling"], ["fieldname", "like", "custom_%"]]},
-    # CR-9: Property Setter to make DOB non-mandatory
-    {"dt": "Property Setter", "filters": [["doc_type", "=", "Beneficiary Profiling"], ["field_name", "=", "date_of_birth"]]},
-    # CR-5, CR-6, CR-10: Client Scripts for Collective, Infrastructural Success, dropdown indicators
-    {"dt": "Client Script", "filters": [["dt", "in", ["Collective", "Infrastructural Success", "Beneficiary Profiling"]], ["name", "!=", "Scheme and Followup Validate"]]},
-    # Meetings & Collectives workspace
-    {"dt": "Workspace", "filters": [["name", "=", "Meetings & Collectives"]]},
+	# "mYojana Settings",
+	# "Report List",
+	# "SVA Report"
+	# "scheme application submitted",
+	# "Scheme Paid by",
+	# "Client Script",
+	# "Custom HTML Block",
+	# "Caste category",
+	# "Religion",
+	# "Education",
+	# "Marital status",
+	# "Social vulnerable category",
+	# "PWD master",
+	# "ID Document",
+	# "Occupation",
+	# "Occupational Category",
+	# "Role Profile",
+	# "Source Of Information",
+	# "House Types",
+	# "Gender",
+	# "Role",
+	# "Name of the Department",
+	# "State",
+	# "District",
+	# "Block",
+	# "Village",
+	# "Scheme",
+	# "Camp",
+	# "Proof of Disability",
+	# "Milestone category",
+	# "Centre",
+	# "Sub Centre",
+	# --- Jan Pahal CR fixtures (added 2026-04-12) ---
+	# Jan Pahal custom DocTypes (Collective ecosystem + Infrastructure assessment)
+	{
+		"dt": "DocType",
+		"filters": [
+			["name", "in", ["Collective Members List", "Action child", "Collective"]],
+			["custom", "=", 1],
+		],
+	},
+	# CR-2: Updated Occupational Category with "Mobile Street Vendors"
+	"Occupational Category",
+	# CR-11: Custom Fields for digital payments, MSME, digital onboarding
+	{
+		"dt": "Custom Field",
+		"filters": [["dt", "=", "Beneficiary Profiling"], ["fieldname", "like", "custom_%"]],
+	},
+	# CR-9: Property Setter to make DOB non-mandatory
+	{
+		"dt": "Property Setter",
+		"filters": [["doc_type", "=", "Beneficiary Profiling"], ["field_name", "=", "date_of_birth"]],
+	},
+	# CR-5, CR-6, CR-10: Client Scripts for Collective, Infrastructural Success, dropdown indicators
+	{
+		"dt": "Client Script",
+		"filters": [
+			["dt", "in", ["Collective", "Infrastructural Success", "Beneficiary Profiling"]],
+			["name", "!=", "Scheme and Followup Validate"],
+		],
+	},
+	# Meetings & Collectives workspace
+	{"dt": "Workspace", "filters": [["name", "=", "Meetings & Collectives"]]},
 ]
 # Includes in <head>
 # ------------------
 permission_query_conditions = {
-    # "Sub Centre":"myojana.middlewares.sub_centre.list_query",
-    # "Myojana User":"myojana.middlewares.myojana_users.list_query",
-    "Role Profile":"myojana.middlewares.role_profile.list_query",
-    # "User":"myojana.middlewares.user.list_query",
-    # "Centre":"myojana.middlewares.centre.list_query",
+	# "Sub Centre":"myojana.middlewares.sub_centre.list_query",
+	# "Myojana User":"myojana.middlewares.myojana_users.list_query",
+	"Role Profile": "myojana.middlewares.role_profile.list_query",
+	# "User":"myojana.middlewares.user.list_query",
+	# "Centre":"myojana.middlewares.centre.list_query",
 }
 
 # include js, css files in header of desk.html
 app_include_css = "/assets/myojana/css/main.css"
 app_include_js = [
-    "/assets/myojana/js/main.js",
-    "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+	"/assets/myojana/js/main.js",
+	"https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js",
 ]
 
 # include js, css files in header of web template
@@ -89,20 +104,16 @@ app_include_js = [
 
 # include js in doctype views
 doctype_js = {
-    "Beneficiary Profiling" : [
-        "public/js/utils/utils.js" ,
-        "public/js/beneficiary_profiling/beneficiary_profiling.js",
-        "public/js/beneficiary_profiling/follow_up.js",
-        "public/js/beneficiary_profiling/scheme.js",
-        "public/js/beneficiary_profiling/id_document.js",
-    ],
-    "Sub Centre":[
-        "public/js/utils/utils.js"
-    ],
-    "mYojana Settings":[
-        "public/js/utils/utils.js"
-    ],
-    "Scheme":"public/js/scheme/eligibile_ben.js"
+	"Beneficiary Profiling": [
+		"public/js/utils/utils.js",
+		"public/js/beneficiary_profiling/beneficiary_profiling.js",
+		"public/js/beneficiary_profiling/follow_up.js",
+		"public/js/beneficiary_profiling/scheme.js",
+		"public/js/beneficiary_profiling/id_document.js",
+	],
+	"Sub Centre": ["public/js/utils/utils.js"],
+	"mYojana Settings": ["public/js/utils/utils.js"],
+	"Scheme": "public/js/scheme/eligibile_ben.js",
 }
 # doctype_js = {"Beneficiary Profiling" : }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
@@ -122,7 +133,7 @@ doctype_js = {
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# "Role": "home_page"
 # }
 
 # Generators
@@ -136,8 +147,8 @@ doctype_js = {
 
 # add methods and filters to jinja environment
 # jinja = {
-#	"methods": "myojana.utils.jinja_methods",
-#	"filters": "myojana.utils.jinja_filters"
+# "methods": "myojana.utils.jinja_methods",
+# "filters": "myojana.utils.jinja_filters"
 # }
 
 # Installation
@@ -179,11 +190,11 @@ after_install = ["myojana.install.after_install.update_myojana_settings"]
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-#	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+# "Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
 #
 # has_permission = {
-#	"Event": "frappe.desk.doctype.event.event.has_permission",
+# "Event": "frappe.desk.doctype.event.event.has_permission",
 # }
 
 # DocType Class
@@ -191,7 +202,7 @@ after_install = ["myojana.install.after_install.update_myojana_settings"]
 # Override standard doctype classes
 
 # override_doctype_class = {
-#	"ToDo": "custom_app.overrides.CustomToDo"
+# "ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
@@ -204,32 +215,32 @@ doc_events = {
 		# "on_cancel": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
 		# "on_trash": "myojana.scheduler_events.ben_dob_update.update_dob_of_ben"
 	},
-    #  "Beneficiary Profiling": {
-    #     "on_update": "myojana.middlewares.test.test",
-    # }
+	#  "Beneficiary Profiling": {
+	#     "on_update": "myojana.middlewares.test.test",
+	# }
 }
 
 # Scheduled Tasks
 # ---------------
 
 scheduler_events = {
-#	"all": [
-#		"myojana.tasks.all"
-#	],
+	# "all": [
+	# "myojana.tasks.all"
+	# ],
 	"daily": [
-        "myojana.scheduler_events.ben_dob_update.update_age",
-        # "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
-        # "myojana.scheduler_events.ben_dob_update.update_dob_months"
+		"myojana.scheduler_events.ben_dob_update.update_age",
+		# "myojana.scheduler_events.ben_dob_update.update_dob_of_ben",
+		# "myojana.scheduler_events.ben_dob_update.update_dob_months"
 	],
-#	"hourly": [
-#		"myojana.tasks.hourly"
-#	],
-#	"weekly": [
-#		"myojana.tasks.weekly"
-#	],
-#	"monthly": [
-#		"myojana.tasks.monthly"
-#	],
+	# "hourly": [
+	# "myojana.tasks.hourly"
+	# ],
+	# "weekly": [
+	# "myojana.tasks.weekly"
+	# ],
+	# "monthly": [
+	# "myojana.tasks.monthly"
+	# ],
 }
 
 # Testing
@@ -241,14 +252,14 @@ scheduler_events = {
 # ------------------------------
 #
 # override_whitelisted_methods = {
-#	"frappe.desk.doctype.event.event.get_events": "myojana.event.get_events"
+# "frappe.desk.doctype.event.event.get_events": "myojana.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-#	"Task": "myojana.task.get_dashboard_data"
+# "Task": "myojana.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -258,7 +269,7 @@ scheduler_events = {
 # Ignore links to specified DocTypes when deleting documents
 # -----------------------------------------------------------
 
-ignore_links_on_delete = ["Beneficiary Profiling", "Family" , "Route History"]
+ignore_links_on_delete = ["Beneficiary Profiling", "Family", "Route History"]
 
 # Request Events
 # ----------------
@@ -274,29 +285,29 @@ ignore_links_on_delete = ["Beneficiary Profiling", "Family" , "Route History"]
 # --------------------
 
 # user_data_fields = [
-#	{
-#		"doctype": "{doctype_1}",
-#		"filter_by": "{filter_by}",
-#		"redact_fields": ["{field_1}", "{field_2}"],
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_2}",
-#		"filter_by": "{filter_by}",
-#		"partial": 1,
-#	},
-#	{
-#		"doctype": "{doctype_3}",
-#		"strict": False,
-#	},
-#	{
-#		"doctype": "{doctype_4}"
-#	}
+# {
+# "doctype": "{doctype_1}",
+# "filter_by": "{filter_by}",
+# "redact_fields": ["{field_1}", "{field_2}"],
+# "partial": 1,
+# },
+# {
+# "doctype": "{doctype_2}",
+# "filter_by": "{filter_by}",
+# "partial": 1,
+# },
+# {
+# "doctype": "{doctype_3}",
+# "strict": False,
+# },
+# {
+# "doctype": "{doctype_4}"
+# }
 # ]
 
 # Authentication and authorization
 # --------------------------------
 
 # auth_hooks = [
-#	"myojana.auth.validate"
+# "myojana.auth.validate"
 # ]

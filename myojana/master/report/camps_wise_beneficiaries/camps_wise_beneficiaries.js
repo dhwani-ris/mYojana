@@ -2,7 +2,5 @@
 // For license information, please see license.txt
 
 frappe.query_reports["Camps-wise beneficiaries"] = {
-	"filters": [
-
-	]
+	filters: [],
 };

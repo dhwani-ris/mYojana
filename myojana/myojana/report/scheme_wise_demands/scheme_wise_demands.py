@@ -2,77 +2,75 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "user",
-            "label": "User Name",
-            "fieldtype": "Data",
-            "width": 150,
+	columns = [
+		{
+			"fieldname": "user",
+			"label": "User Name",
+			"fieldtype": "Data",
+			"width": 150,
+		},
+		{
+			"fieldname": "milestone",
+			"label": "Milestone category",
+			"fieldtype": "Data",
+			"width": 150,
+		},
+		{
+			"fieldname": "scheme",
+			"label": "Scheme ",
+			"fieldtype": "Data",
+			"width": 200,
+		},
+		{
+			"fieldname": "total_demands",
+			"label": "Total Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "open_demands",
+			"label": "Open Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "submitted_demands",
+			"label": "Submitted Demands",
+			"fieldtype": "Data",
+			"width": 160,
+		},
+		{
+			"fieldname": "completed_demands",
+			"label": "Completed Demands",
+			"fieldtype": "Data",
+			"width": 170,
+		},
+		{
+			"fieldname": "rejected_demands",
+			"label": "Rejected Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "closed_demands",
+			"label": "Closed Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+	]
 
-        },
-        {
-            "fieldname": "milestone",
-            "label": "Milestone category",
-            "fieldtype": "Data",
-            "width": 150,
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "ben_table")
+	if condition_str:
+		condition_str = f"AND {condition_str}"
+	else:
+		condition_str = ""
 
-        },
-        {
-            "fieldname": "scheme",
-            "label": "Scheme ",
-            "fieldtype": "Data",
-            "width": 200,
-            
-        },
-        {
-            "fieldname": "total_demands",
-            "label": "Total Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "open_demands",
-            "label": "Open Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "submitted_demands",
-            "label": "Submitted Demands",
-            "fieldtype": "Data",
-            "width": 160,
-        },
-        {
-            "fieldname": "completed_demands",
-            "label": "Completed Demands",
-            "fieldtype": "Data",
-            "width": 170,
-        },
-        {
-            "fieldname": "rejected_demands",
-            "label": "Rejected Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "closed_demands",
-            "label": "Closed Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-    ]
-
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'ben_table')
-    if condition_str:
-        condition_str = f"AND {condition_str}"
-    else:
-        condition_str = ""
-
-    sql_query = f"""
+	sql_query = f"""
     SELECT
         _sc.modified_by as user,
         _sc.scheme,
@@ -92,6 +90,5 @@ def execute(filters=None):
         scheme , user;
 """
 
-
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data
