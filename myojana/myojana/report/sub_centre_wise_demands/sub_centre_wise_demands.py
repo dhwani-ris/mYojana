@@ -2,68 +2,66 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "user",
-            "label": "User",
-            "fieldtype": "Data",
-            "width": 200,
+	columns = [
+		{
+			"fieldname": "user",
+			"label": "User",
+			"fieldtype": "Data",
+			"width": 200,
+		},
+		{
+			"fieldname": "sub_centre_name",
+			"label": "Sub Centre Name",
+			"fieldtype": "Data",
+			"width": 200,
+		},
+		{
+			"fieldname": "total_demands",
+			"label": "Total Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "open_demands",
+			"label": "Open Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "submitted_demands",
+			"label": "Submitted Demands",
+			"fieldtype": "Data",
+			"width": 160,
+		},
+		{
+			"fieldname": "completed_demands",
+			"label": "Completed Demands",
+			"fieldtype": "Data",
+			"width": 170,
+		},
+		{
+			"fieldname": "rejected_demands",
+			"label": "Rejected Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "closed_demands",
+			"label": "Closed Demands",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+	]
 
-        },
-        {
-            "fieldname": "sub_centre_name",
-            "label": "Sub Centre Name",
-            "fieldtype": "Data",
-            "width": 200,
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "bp")
+	condition_str = f"{condition_str}" if condition_str else "1=1"
 
-        },
-        {
-            "fieldname": "total_demands",
-            "label": "Total Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "open_demands",
-            "label": "Open Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "submitted_demands",
-            "label": "Submitted Demands",
-            "fieldtype": "Data",
-            "width": 160,
-        },
-        {
-            "fieldname": "completed_demands",
-            "label": "Completed Demands",
-            "fieldtype": "Data",
-            "width": 170,
-        },
-        {
-            "fieldname": "rejected_demands",
-            "label": "Rejected Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "closed_demands",
-            "label": "Closed Demands",
-            "fieldtype": "Data",
-            "width": 130,
-        }
-    ]             
-    
-
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'bp')
-    condition_str = f"{condition_str}" if condition_str else "1=1"
-
-    sql_query = f"""
+	sql_query = f"""
     SELECT
         sc.modified_by as user,
         COALESCE(hd.sub_centre_name, 'Unknown') AS sub_centre_name,
@@ -78,13 +76,11 @@ def execute(filters=None):
     LEFT JOIN
         `tabScheme Child` sc ON bp.name = sc.parent
     LEFT JOIN
-        `tabSub Centre` hd ON bp.sub_centre = hd.name 
+        `tabSub Centre` hd ON bp.sub_centre = hd.name
     WHERE {condition_str} AND sc.modified_by !=""
     GROUP BY
         COALESCE(hd.sub_centre_name, 'Unknown') , user;
     """
 
-
-
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data

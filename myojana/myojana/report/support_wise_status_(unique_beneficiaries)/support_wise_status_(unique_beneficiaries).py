@@ -2,39 +2,39 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "milestone_category",
-            "label": "Scheme Type",
-            "fieldtype": "Data",
-            "width": 200,
-            
-        },
-        {
-            "fieldname": "applied",
-            "label": "Applied",
-            "fieldtype": "Data",
-            "width": 130,
-        },
-        {
-            "fieldname": "completed",
-            "label": "Completed",
-            "fieldtype": "Data",
-            "width": 130,
-        }
-    ]
+	columns = [
+		{
+			"fieldname": "milestone_category",
+			"label": "Scheme Type",
+			"fieldtype": "Data",
+			"width": 200,
+		},
+		{
+			"fieldname": "applied",
+			"label": "Applied",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+		{
+			"fieldname": "completed",
+			"label": "Completed",
+			"fieldtype": "Data",
+			"width": 130,
+		},
+	]
 
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True , 'bp')
-    if condition_str:
-        condition_str = f"AND {condition_str}"
-    else:
-        condition_str = ""
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "bp")
+	if condition_str:
+		condition_str = f"AND {condition_str}"
+	else:
+		condition_str = ""
 
-    sql_query = f"""
+	sql_query = f"""
 		SELECT
 			sc.milestone_category as milestone_category,
 			COUNT(DISTINCT sc.parent) AS applied,
@@ -51,6 +51,5 @@ def execute(filters=None):
 			sc.milestone_category
 """
 
-
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data
