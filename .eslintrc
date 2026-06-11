@@ -35,6 +35,9 @@
 		"no-control-regex": [
 			"off"
 		],
+		"no-prototype-builtins": "off",
+		"no-unsafe-optional-chaining": "off",
+		"no-empty": "warn"
 	},
 	"root": true,
 	"globals": {
@@ -132,6 +135,22 @@
 		"after": true,
 		"qz": true,
 		"localforage": true,
-		"extend_cscript": true
+		"extend_cscript": true,
+		"callAPI": true,
+		"apply_filter": true,
+		"extend_options_length": true,
+		"hide_advance_search": true,
+		"addTableFilter": true,
+		"scheme_list": true,
+		"generateDOBFromAge": true,
+		"get_occupation_category": true,
+		"render_scheme_datatable": true,
+		"truncate_multiple_fields_value": true,
+		"get_document": true,
+		"apply_filter_on_id_document": true,
+		"get_ordered_list": true,
+		"support_items": true,
+		"SchemeEligibleBen": true,
+		"_doc": true
 	}
 }

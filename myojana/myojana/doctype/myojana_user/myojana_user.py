@@ -4,9 +4,10 @@
 import frappe
 from frappe.model.document import Document
 
+
 class MyojanaUser(Document):
 	def validate(self):
-		if(self.password != self.confirm_password):
+		if self.password != self.confirm_password:
 			frappe.throw("Password and Confirm password not matched")
 
 	def after_insert(self):
@@ -19,7 +20,6 @@ class MyojanaUser(Document):
 		new_user.new_password = self.confirm_password
 		new_user.save()
 
-
 	def on_update(self):
 		user_doc = frappe.get_doc("User", self.email)
 		user_doc.email = self.email
@@ -29,7 +29,7 @@ class MyojanaUser(Document):
 		user_doc.user_image = self.user_image
 		user_doc.new_password = self.confirm_password
 		user_doc.save()
-		
+
 	def on_trash(self):
 		# Check if the user exists
 		if frappe.db.exists("User", self.name):
@@ -38,4 +38,3 @@ class MyojanaUser(Document):
 			frappe.msgprint(f"The user {self.name} has been deleted.")
 		else:
 			frappe.msgprint(f"The user {self.name} does not exist.")
-	

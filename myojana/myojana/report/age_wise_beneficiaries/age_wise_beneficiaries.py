@@ -3,33 +3,28 @@
 
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "age_category",
-            "label": "Age Category",
-            "fieldtype": "Data",
-            "width": 200
-        },
-        {
-            "fieldname": "number_of_beneficiaries",
-            "label": "Number of beneficiaries",
-            "fieldtype": "Int",
-            "width": 300
-        }
-    ]
-    condition_str = ReportFilter.set_report_filters(
-        filters, 'date_of_visit', True)
+	columns = [
+		{"fieldname": "age_category", "label": "Age Category", "fieldtype": "Data", "width": 200},
+		{
+			"fieldname": "number_of_beneficiaries",
+			"label": "Number of beneficiaries",
+			"fieldtype": "Int",
+			"width": 300,
+		},
+	]
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True)
 
-    if condition_str:
-        condition_str = f"WHERE {condition_str}"
-    else:
-        condition_str = ""
+	if condition_str:
+		condition_str = f"WHERE {condition_str}"
+	else:
+		condition_str = ""
 
-    sql_query = f"""
+	sql_query = f"""
     SELECT
         'Less than 5 years' AS age_category, COUNT(CASE WHEN completed_age < 5 THEN 1 END) AS number_of_beneficiaries
     FROM
@@ -77,5 +72,5 @@ def execute(filters=None):
     {condition_str}
     """
 
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data

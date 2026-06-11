@@ -2,16 +2,16 @@
 // For license information, please see license.txt
 
 frappe.query_reports["Gender Split of Total Demands Exclusive Citizenship ID Demands"] = {
-	"filters": [
+	filters: [
 		{
-			"fieldname": "from_date",
-			"fieldtype": "Date",
-			"label": "From Date",
+			fieldname: "from_date",
+			fieldtype: "Date",
+			label: "From Date",
 		},
 		{
-			"fieldname": "to_date",
-			"fieldtype": "Date",
-			"label": "To Date"
-		}
-	]
+			fieldname: "to_date",
+			fieldtype: "Date",
+			label: "To Date",
+		},
+	],
 };
