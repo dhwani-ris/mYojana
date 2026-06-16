@@ -2,43 +2,24 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
 
 
 def execute(filters=None):
-    columns = [
-        {
-            "fieldname": "state",
-            "label": "State",
-            "fieldtype": "Data",
-            "width": 200
-        },
-        {
-            "fieldname": "district",
-            "label": "District",
-            "fieldtype": "Data",
-            "width": 200
-        },
-        {
-            "fieldname": "block",
-            "label": "Block",
-            "fieldtype": "Data",
-            "width": 200
-        },
-        {
-            "fieldname": "count",
-            "label": "Count",
-            "fieldtype": "int",
-            "width": 200
-        }
-    ]
-    condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 'b')
-    if condition_str:
-        condition_str = f"{condition_str}"
-    else:
-        condition_str = "1=1"
+	columns = [
+		{"fieldname": "state", "label": "State", "fieldtype": "Data", "width": 200},
+		{"fieldname": "district", "label": "District", "fieldtype": "Data", "width": 200},
+		{"fieldname": "block", "label": "Block", "fieldtype": "Data", "width": 200},
+		{"fieldname": "count", "label": "Count", "fieldtype": "int", "width": 200},
+	]
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "b")
+	if condition_str:
+		condition_str = f"{condition_str}"
+	else:
+		condition_str = "1=1"
 
-    sql_query = f"""
+	sql_query = f"""
         SELECT
             COALESCE(NULLIF(s.state_name, ''), 'Unknown') AS state,
             COALESCE(NULLIF(d.district_name, ''), 'Unknown') AS district,
@@ -55,5 +36,5 @@ def execute(filters=None):
         ORDER BY
             COALESCE(NULLIF(b.state_of_origin, ''), 'Unknown'), COALESCE(NULLIF(b.district_of_origin, ''), 'Unknown');
     """
-    data = frappe.db.sql(sql_query, as_dict=True)
-    return columns, data
+	data = frappe.db.sql(sql_query, as_dict=True)
+	return columns, data

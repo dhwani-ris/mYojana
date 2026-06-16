@@ -3,22 +3,21 @@
 
 var filters = [
 	{
-		"fieldname": "from_date",
-		"fieldtype": "Date",
-		"label": "From Date",
+		fieldname: "from_date",
+		fieldtype: "Date",
+		label: "From Date",
 	},
 	{
-		"fieldname": "to_date",
-		"fieldtype": "Date",
-		"label": "To Date"
+		fieldname: "to_date",
+		fieldtype: "Date",
+		label: "To Date",
 	},
 	{
-		"fieldname": "modified_by",
-		"fieldtype": "Link",
-		"options": "User",
-		"label": "User"
-	}
-
+		fieldname: "modified_by",
+		fieldtype: "Link",
+		options: "User",
+		label: "User",
+	},
 ];
 // if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 // 	filters.push({
@@ -43,7 +42,6 @@ var filters = [
 // 	}
 // 	)
 // }
-
 
 frappe.query_reports["Scheme-wise demands"] = {
 	filters: filters,

@@ -1,5 +1,6 @@
 {
  "add_total_row": 1,
+ "add_translate_data": 0,
  "columns": [],
  "creation": "2024-05-07 16:46:18.197249",
  "disabled": 0,
@@ -8,8 +9,8 @@
  "filters": [],
  "idx": 1,
  "is_standard": "Yes",
- "letterhead": null,
- "modified": "2024-10-14 07:17:05.579676",
+ "letter_head": null,
+ "modified": "2026-06-15 15:25:18.645708",
  "modified_by": "Administrator",
  "module": "myojana",
  "name": "Scheme-wise demands",
@@ -34,5 +35,6 @@
   {
    "role": "System Manager"
   }
- ]
+ ],
+ "timeout": 0
 }

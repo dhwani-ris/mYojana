@@ -1,17 +1,26 @@
 import frappe
 import imgkit
 
+
 def create_image(ben_id):
-    # Retrieve the document based on the Beneficiary ID
-    doc = frappe.get_doc("Beneficiary Profiling", ben_id)
+	# Retrieve the document based on the Beneficiary ID
+	doc = frappe.get_doc("Beneficiary Profiling", ben_id)
 
-    # Get organization details if available
-    if doc.custom_which_organization_do_you_want_to_be_part_of or doc.custom_which_organization_are_you_part_of:
-        org = doc.custom_which_organization_do_you_want_to_be_part_of or doc.custom_which_organization_are_you_part_of
-        org_details = frappe.db.get_value("Org Signature", org, ['logo', 'email', 'signature', 'name'], as_dict=True)
+	# Get organization details if available
+	if (
+		doc.custom_which_organization_do_you_want_to_be_part_of
+		or doc.custom_which_organization_are_you_part_of
+	):
+		org = (
+			doc.custom_which_organization_do_you_want_to_be_part_of
+			or doc.custom_which_organization_are_you_part_of
+		)
+		org_details = frappe.db.get_value(
+			"Org Signature", org, ["logo", "email", "signature", "name"], as_dict=True
+		)
 
-    # Adjusted HTML and CSS content
-    html_content = f'''
+	# Adjusted HTML and CSS content
+	html_content = f"""
     <!DOCTYPE html>
     <html>
     <head>
@@ -94,7 +103,7 @@ def create_image(ben_id):
                 <p>Membership Card</p>
                 <img src="{org_details['logo']}" alt="Organization Logo" class="logo">
             </div>
-            
+
             <div class="photo">
                 <img src="{doc.custom_photo}" alt="Member Photo" width="90" height="100">
             </div>
@@ -107,7 +116,7 @@ def create_image(ben_id):
                 <span><strong>Blood Group</strong>: {doc.custom_blood_group}</span><br>
                 <span><strong>Location</strong>: {doc.address_with_landmark}</span>
             </div>
-            
+
             <div class="note">
                 <p>Note: This membership card is issued with your knowledge and consent. If you do not agree, please email at <a href="mailto:{org_details['email']}">{org_details['email']}</a></p>
             </div>
@@ -118,12 +127,12 @@ def create_image(ben_id):
         </div>
     </body>
     </html>
-    '''
+    """
 
-    # Convert HTML to image with fixed size
-    options = {
-        'width': 447,
-        'height': 273,
-    }
+	# Convert HTML to image with fixed size
+	options = {
+		"width": 447,
+		"height": 273,
+	}
 
-    return imgkit.from_string(html_content, 'output_image.png', options=options)
+	return imgkit.from_string(html_content, "output_image.png", options=options)
