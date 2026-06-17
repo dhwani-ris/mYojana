@@ -3,16 +3,15 @@
 
 var filters = [
 	{
-		"fieldname": "from_date",
-		"fieldtype": "Date",
-		"label": "From Date",
+		fieldname: "from_date",
+		fieldtype: "Date",
+		label: "From Date",
 	},
 	{
-		"fieldname": "to_date",
-		"fieldtype": "Date",
-		"label": "To Date"
-	}
-	
+		fieldname: "to_date",
+		fieldtype: "Date",
+		label: "To Date",
+	},
 ];
 // if (!frappe.user_roles.includes("MIS executive") || frappe.user_roles.includes("Administrator")) {
 // 	filters.push({
@@ -24,5 +23,5 @@ var filters = [
 // }
 
 frappe.query_reports["Total Approved Demands"] = {
-	filters: filters
+	filters: filters,
 };

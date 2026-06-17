@@ -2,30 +2,22 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
+
 
 def execute(filters=None):
 	# frappe.errprint(filters)
 	columns = [
-		{
-			"fieldname":"education",
-			"label":"Education of beneficiary",
-			"fieldtype":"Data",
-			"width":400
-		},
-		{
-			"fieldname":"count",
-			"label":"Count",
-			"fieldtype":"int",
-			"width":200
-		}
+		{"fieldname": "education", "label": "Education of beneficiary", "fieldtype": "Data", "width": 400},
+		{"fieldname": "count", "label": "Count", "fieldtype": "int", "width": 200},
 	]
-	condition_str = ReportFilter.set_report_filters(filters, 'date_of_visit', True, 't1')
+	condition_str = ReportFilter.set_report_filters(filters, "date_of_visit", True, "t1")
 	if condition_str:
 		condition_str = f"AND {condition_str}"
 	else:
 		condition_str = ""
-		
+
 	sql_query = f"""
 		SELECT
     COALESCE(NULLIF(t1.education, ''), 'Unknown') AS education,

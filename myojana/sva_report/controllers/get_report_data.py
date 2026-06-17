@@ -2,17 +2,23 @@
 # For license information, please see license.txt
 
 import frappe
+
 # from sva_report.utils.filter import Filter
 # from sva_report.utils.doc_type_info import DocTypeInfo
 from myojana.sva_report.controllers.doc_type_info import DocTypeInfo
 
+
 @frappe.whitelist()
-def execute(doc,filters=[],skip=0, limit=10,csv_export=0,debug=None):
-    # print("doc",doc)
-    res= DocTypeInfo.get_data('SVA Report',doc, filters,skip, limit,csv_export, debug )
-    return res
+def execute(doc, filters=None, skip=0, limit=10, csv_export=0, debug=None):
+	# print("doc",doc)
+	if filters is None:
+		filters = []
+	res = DocTypeInfo.get_data("SVA Report", doc, filters, skip, limit, csv_export, debug)
+	return res
+
+
 @frappe.whitelist()
-def get_fields(doc, section='0'):
-    # res = DocTypeInfo.get_data('SVA Report',doc, filters,skip, limit,csv_export, debug )
-    res = DocTypeInfo.get_fields(doc,fields=[], section=section)
-    return res
+def get_fields(doc, section="0"):
+	# res = DocTypeInfo.get_data('SVA Report',doc, filters,skip, limit,csv_export, debug )
+	res = DocTypeInfo.get_fields(doc, fields=[], section=section)
+	return res

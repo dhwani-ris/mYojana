@@ -2,30 +2,27 @@
 # For license information, please see license.txt
 
 import frappe
+
 from myojana.utils.report_filter import ReportFilter
+
 
 def execute(filters=None):
 	# frappe.errprint(filters)
 	columns = [
 		{
-		"fieldname":"bank_account",
-		"label":"Bank account status of Beneficiaries",
-		"fieldtype":"Data",
-		"width":300
+			"fieldname": "bank_account",
+			"label": "Bank account status of Beneficiaries",
+			"fieldtype": "Data",
+			"width": 300,
 		},
-		{
-		"fieldname":"count",
-		"label":"Count",
-		"fieldtype":"int",
-		"width":200
-		}
+		{"fieldname": "count", "label": "Count", "fieldtype": "int", "width": 200},
 	]
-	condition_str = ReportFilter.set_report_filters(filters, 'creation', True)
+	condition_str = ReportFilter.set_report_filters(filters, "creation", True)
 	if condition_str:
 		condition_str = f"AND {condition_str}"
 	else:
 		condition_str = ""
-	
+
 	sql_query = f"""
 	SELECT
     	CASE
