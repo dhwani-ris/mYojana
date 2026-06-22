@@ -5,6 +5,15 @@ var is_primary_member_link_through_phone_number;
 const indianPhoneNumberRegex = /^(?:(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9})$/;
 let state_option = [];
 let districts_option = [];
+
+const get_registration_max_date = () => frappe.datetime.get_today();
+
+const is_future_registration_date = (date) => Boolean(date && date > get_registration_max_date());
+
+const restrict_registration_date_picker = (frm) => {
+	frm.set_df_property("date_of_visit", "max_date", get_registration_max_date());
+};
+
 function callAPI(options) {
 	return new Promise((resolve, reject) => {
 		frappe.call({
@@ -78,6 +87,9 @@ frappe.ui.form.on("Beneficiary Profiling", {
 		}
 	},
 	before_save: async function (frm) {
+		if (is_future_registration_date(frm.doc.date_of_visit)) {
+			frappe.throw(__("Date of registration can't in future"));
+		}
 		if ((frm.doc.completed_age || frm.doc.completed_age_month) && !frm.doc?.date_of_birth) {
 			await frm.set_value(
 				"date_of_birth",
@@ -121,8 +133,8 @@ frappe.ui.form.on("Beneficiary Profiling", {
 			console.log("new data");
 			await autoSetOption(frm); // set options of centre and sub centre
 			await frm.set_value("added_by", frappe.session.user);
-			if (!frm.doc.date_of_visit) {
-				await frm.set_value("date_of_visit", frappe.datetime.get_today()); // SET TODAY DATE IN DATE OF VISIT
+			if (is_future_registration_date(frm.doc.date_of_visit)) {
+				await frm.set_value("date_of_visit", "");
 			}
 		} else {
 			frm.add_custom_button(
@@ -196,9 +208,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
 
 			await apply_filter_on_id_document();
 		}
-		frm.fields_dict.date_of_visit.$input?.datepicker({
-			maxDate: new Date(frappe.datetime.get_today()),
-		}); // restrict future date from date pickers
+		restrict_registration_date_picker(frm); // allow only today and previous dates
 		extend_options_length(frm, [
 			"centre",
 			"sub_centre",
@@ -295,7 +305,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
 	},
 	////////////////////DATE VALIDATION/////////////////////////////////////////
 	date_of_visit: async function (frm) {
-		if (new Date(frm.doc.date_of_visit) > new Date(frappe.datetime.get_today())) {
+		if (is_future_registration_date(frm.doc.date_of_visit)) {
 			await frm.set_value("date_of_visit", "");
 			await frappe.throw(__("Date of registration can't be greater than today's date"));
 		}
