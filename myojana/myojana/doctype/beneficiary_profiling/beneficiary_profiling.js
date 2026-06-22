@@ -307,7 +307,7 @@ frappe.ui.form.on("Beneficiary Profiling", {
 	date_of_visit: async function (frm) {
 		if (is_future_registration_date(frm.doc.date_of_visit)) {
 			await frm.set_value("date_of_visit", "");
-			await frappe.throw(__("Date of registration can't be greater than today's date"));
+			await frappe.throw(__("Date of registration can't be in future"));
 		}
 		if (frm.doc.date_of_visit && frm.doc.date_of_birth) {
 			if (frm.doc.date_of_visit < frm.doc.date_of_birth) {
