@@ -46,3 +46,6 @@ Our solution, the Social Protection Management System (SPMS), is designed to emp
 - **Predictive System:** Integration of rule engine to aid scheme provision for beneficiaries.
 - **Unique Customization:** Enjoy flexibility with features like lead generation, grievance redressal, and much more!
 
+
+
+<!-- Security scan triggered at 2026-08-31 16:58:57 -->
